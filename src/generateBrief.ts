@@ -59,7 +59,7 @@ function lowSignalBrief(
           "把今天的低信号结论同步给内部，不强行制造选题。",
         ],
     sources: briefSourcesFromCandidates(candidates),
-    model: missingKey ? "openai-unconfigured" : config.openAiModel,
+    model: missingKey ? `${config.openAiModel}-api-key-missing` : config.openAiModel || "not-required-low-signal",
     run_id: config.runId,
     source_window_hours: sourceWindowHours,
     is_low_signal_day: true,
@@ -130,6 +130,9 @@ function coerceJson(text: string): unknown {
 }
 
 async function callOpenAi(config: RuntimeConfig, candidates: CollectedSource[]): Promise<BriefDraft> {
+  if (!config.openAiModel) {
+    throw new Error("SETUP_ERROR: OPENAI_MODEL GitHub Variable is required for normal daily generation");
+  }
   if (!config.openAiApiKey) {
     throw new Error("OPENAI_API_KEY is required when enough sources exist to generate a daily brief");
   }
@@ -210,7 +213,7 @@ function assembleBrief(
     items,
     action_checklist: draft.action_checklist,
     sources: briefSourcesFromCandidates(usedSources.length > 0 ? usedSources : candidates),
-    model: config.openAiModel,
+    model: config.openAiModel || "unknown",
     run_id: config.runId,
     source_window_hours: sourceWindowHours,
     is_low_signal_day: candidates.length < 8 || items.every((item) => item.signal_strength === "weak"),
@@ -240,6 +243,9 @@ export async function buildBriefFromCandidates(
 ): Promise<Brief> {
   if (candidates.length < MIN_SOURCES_FOR_MODEL) {
     return lowSignalBrief(config, candidates, sourceWindowHours, "insufficient_sources");
+  }
+  if (!config.openAiModel) {
+    throw new Error("SETUP_ERROR: OPENAI_MODEL GitHub Variable is required. Configure it in Settings > Secrets and variables > Actions > Variables.");
   }
   if (!config.openAiApiKey) {
     console.warn("[generate] OPENAI_API_KEY is not configured; publishing an honest low-signal configuration brief");

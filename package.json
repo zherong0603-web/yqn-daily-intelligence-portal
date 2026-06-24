@@ -6,6 +6,7 @@
   "description": "YQN Daily Intelligence Portal powered by GitHub Pages, GitHub Actions, public sources, and OpenAI API.",
   "scripts": {
     "generate": "tsx src/generateBrief.ts",
+    "generate:sample-backfill": "tsx src/generateSampleBackfill.ts",
     "build": "tsx src/buildSite.ts",
     "build:sample": "tsx src/buildSite.ts --data-dir data/samples --dist-dir dist",
     "notify:success": "tsx src/sendFeishu.ts success",

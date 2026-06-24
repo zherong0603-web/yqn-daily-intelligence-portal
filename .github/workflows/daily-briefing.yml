@@ -10,6 +10,15 @@ on:
         description: "Optional date override for backfill, format YYYY-MM-DD"
         required: false
         type: string
+      sample_backfill:
+        description: "Generate deterministic acceptance sample briefs without OpenAI API"
+        required: false
+        default: false
+        type: boolean
+      brief_dates:
+        description: "Comma-separated dates for sample backfill, e.g. 2026-07-01,2026-07-02,2026-08-01"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -29,13 +38,17 @@ jobs:
     env:
       TZ: Asia/Taipei
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.4-mini' }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
       FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
       BRIEF_ENCRYPTION_ENABLED: ${{ vars.BRIEF_ENCRYPTION_ENABLED || 'false' }}
       PAGE_ACCESS_PASSPHRASE: ${{ secrets.PAGE_ACCESS_PASSPHRASE }}
       SITE_URL: ${{ vars.SITE_URL }}
+      OPENAI_WEB_SEARCH_ENABLED: ${{ vars.OPENAI_WEB_SEARCH_ENABLED || 'false' }}
+      MAX_SEARCH_CALLS: ${{ vars.MAX_SEARCH_CALLS || '0' }}
       BRIEF_DATE: ${{ github.event_name == 'workflow_dispatch' && inputs.brief_date || '' }}
+      SAMPLE_BACKFILL: ${{ github.event_name == 'workflow_dispatch' && inputs.sample_backfill || false }}
+      SAMPLE_BRIEF_DATES: ${{ github.event_name == 'workflow_dispatch' && inputs.brief_dates || '' }}
       FAILURE_STAGE: checkout
 
     steps:
@@ -63,7 +76,12 @@ jobs:
         run: echo "FAILURE_STAGE=generate brief" >> "$GITHUB_ENV"
 
       - name: Generate brief
-        run: npm run generate
+        run: |
+          if [ "$SAMPLE_BACKFILL" = "true" ]; then
+            npm run generate:sample-backfill
+          else
+            npm run generate
+          fi
 
       - name: Export brief notification preview
         run: node scripts/export-brief-env.cjs

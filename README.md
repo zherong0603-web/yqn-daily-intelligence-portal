@@ -12,7 +12,7 @@ It is built as a static site: GitHub Pages + GitHub Actions + public sources + O
 - Daily start time: `09:37 Asia/Taipei`.
 - GitHub Actions cron: `37 1 * * *`, because GitHub cron uses UTC and does not support a timezone field.
 - Target deployment and Feishu success notification window: `09:45-10:05 Asia/Taipei`, assuming public sources and OpenAI API respond normally.
-- OpenAI default model: `gpt-5.4-mini`, chosen as a lower-cost mini model suitable for daily summarization. Change it with repository variable `OPENAI_MODEL` if the account does not have access or if a stronger model is needed.
+- OpenAI model is not hard-coded. Configure repository variable `OPENAI_MODEL` explicitly before real daily generation.
 - ChatGPT Pro membership is not API credit. OpenAI API usage is billed separately by token.
 - V1 uses GitHub Pages, GitHub Actions, public sources, and the OpenAI API only. Tavily, Serper, and OpenAI Web Search are treated as future optional enhancements; missing keys disable them and must not break the run.
 - `dist` is kept in the repository only as an initial Pages-safe static shell. The daily workflow copies the freshly built Pages artifact to `_pages`, restores tracked `dist`, and commits only `data/briefs`.
@@ -31,10 +31,11 @@ Do not put secrets in code, logs, HTML, JSON, README, or artifacts.
 
 ## Repository Variables
 
-- `OPENAI_MODEL`: optional, defaults to `gpt-5.4-mini`.
+- `OPENAI_MODEL`: required for normal daily generation. There is no hard-coded default model.
 - `BRIEF_ENCRYPTION_ENABLED`: `true` or `false`, defaults to `false`.
 - `SITE_URL`: optional. Recommended value after Pages is active: `https://zherong0603-web.github.io/yqn-daily-intelligence-portal`.
 - `OPENAI_WEB_SEARCH_ENABLED`: optional future enhancement flag, defaults to `false`.
+- `MAX_SEARCH_CALLS`: optional future enhancement limit, defaults to `0`.
 
 ## Daily Workflow
 
@@ -60,6 +61,7 @@ Feishu failure does not block a successful Pages deployment. Tests, model output
 ## Downgrade Logic
 
 - Missing `OPENAI_API_KEY`: publish a low-signal configuration brief with no factual items and no invented sources; configure the secret and manually rerun the same date.
+- Missing `OPENAI_MODEL`: fail with a clear setup error for normal daily generation; sample backfill mode does not require a model.
 - Missing `FEISHU_WEBHOOK_URL`: deploy Pages normally and log a warning.
 - Feishu HTTP/network failure: keep workflow successful after Pages deployment and log a warning.
 - Missing `FEISHU_SIGN_SECRET`: send unsigned Feishu custom robot payload.

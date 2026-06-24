@@ -9,6 +9,7 @@ describe("runtime config", () => {
     vi.stubEnv("TAVILY_API_KEY", "");
     vi.stubEnv("SERPER_API_KEY", "");
     vi.stubEnv("OPENAI_WEB_SEARCH_ENABLED", "false");
+    vi.stubEnv("MAX_SEARCH_CALLS", "5");
 
     const config = readRuntimeConfig();
 
@@ -19,6 +20,7 @@ describe("runtime config", () => {
       tavilyConfigured: false,
       serperConfigured: false,
       openAiWebSearchEnabled: false,
+      maxSearchCalls: 5,
     });
 
     vi.unstubAllEnvs();

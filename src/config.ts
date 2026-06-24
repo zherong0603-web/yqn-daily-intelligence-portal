@@ -10,7 +10,7 @@ export interface RuntimeConfig {
   date: string;
   timeZone: string;
   openAiApiKey?: string;
-  openAiModel: string;
+  openAiModel?: string;
   encryptionEnabled: boolean;
   pageAccessPassphrase?: string;
   siteUrl: string;
@@ -37,7 +37,7 @@ export function readRuntimeConfig(repoRoot = process.cwd()): RuntimeConfig {
     date,
     timeZone,
     openAiApiKey: readEnv("OPENAI_API_KEY"),
-    openAiModel: readEnv("OPENAI_MODEL") || "gpt-5.4-mini",
+    openAiModel: readEnv("OPENAI_MODEL"),
     encryptionEnabled: readBooleanEnv("BRIEF_ENCRYPTION_ENABLED", false),
     pageAccessPassphrase: readEnv("PAGE_ACCESS_PASSPHRASE"),
     siteUrl: defaultSiteUrl(),

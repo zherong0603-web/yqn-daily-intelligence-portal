@@ -8,7 +8,7 @@ function configWithoutOpenAi(): RuntimeConfig {
     repoRoot: process.cwd(),
     date: "2026-06-24",
     timeZone: "Asia/Taipei",
-    openAiModel: "gpt-5.4-mini",
+    openAiModel: "model-from-variable",
     encryptionEnabled: false,
     siteUrl: "https://example.com",
     runId: "test-run",
@@ -16,6 +16,7 @@ function configWithoutOpenAi(): RuntimeConfig {
       tavilyConfigured: false,
       serperConfigured: false,
       openAiWebSearchEnabled: false,
+      maxSearchCalls: 0,
     },
   };
 }
@@ -43,10 +44,19 @@ describe("brief generation fallback", () => {
     );
 
     expect(brief.is_low_signal_day).toBe(true);
-    expect(brief.model).toBe("openai-unconfigured");
+    expect(brief.model).toBe("model-from-variable-api-key-missing");
     expect(brief.items).toHaveLength(0);
     expect(brief.sources).toHaveLength(3);
     expect(brief.one_liner).toContain("OpenAI API");
     expect(brief.action_checklist.join("\n")).toContain("OPENAI_API_KEY");
+  });
+
+  it("fails normal generation with a clear setup error when OPENAI_MODEL is absent", async () => {
+    const config = { ...configWithoutOpenAi(), openAiModel: undefined };
+    await expect(buildBriefFromCandidates(
+      config,
+      [candidate(1), candidate(2), candidate(3)],
+      72,
+    )).rejects.toThrow("SETUP_ERROR: OPENAI_MODEL");
   });
 });
