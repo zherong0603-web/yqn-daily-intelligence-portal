@@ -1,0 +1,61 @@
+sources:
+  - topic: ai
+    name: VentureBeat AI
+    url: https://venturebeat.com/category/ai/feed/
+    type: rss
+    enabled: true
+    weight: 9
+  - topic: ai
+    name: Anthropic News
+    url: https://www.anthropic.com/news
+    type: webpage
+    enabled: true
+    weight: 8
+  - topic: ai
+    name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    type: rss
+    enabled: true
+    weight: 7
+  - topic: ecommerce_us_warehouse
+    name: Supply Chain Dive
+    url: https://www.supplychaindive.com/feeds/news/
+    type: rss
+    enabled: true
+    weight: 8
+  - topic: ecommerce_us_warehouse
+    name: FreightWaves
+    url: https://www.freightwaves.com/feed
+    type: rss
+    enabled: true
+    weight: 7
+  - topic: ecommerce_us_warehouse
+    name: CBP Cargo Systems Messaging Service
+    url: https://www.cbp.gov/trade/automated/cargo-systems-messaging-service
+    type: webpage
+    enabled: true
+    weight: 6
+  - topic: xiaohongshu_b2b
+    name: 小红书商业动态公开页
+    url: https://www.xiaohongshu.com/enterprise
+    type: webpage
+    enabled: true
+    weight: 5
+  - topic: xiaohongshu_b2b
+    name: 小红书聚光平台公开页
+    url: https://ad.xiaohongshu.com/
+    type: webpage
+    enabled: true
+    weight: 5
+  - topic: personal_business
+    name: Indie Hackers
+    url: https://feeds.transistor.fm/the-indie-hackers-podcast
+    type: rss
+    enabled: true
+    weight: 6
+  - topic: personal_business
+    name: Shopify Blog
+    url: https://www.shopify.com/blog
+    type: webpage
+    enabled: true
+    weight: 5

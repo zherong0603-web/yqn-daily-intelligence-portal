@@ -1,0 +1,42 @@
+{
+  "date": "2026-05-31",
+  "generated_at": "2026-05-31T01:45:00.000Z",
+  "one_liner": "AI 自动化工具仍在降本，今天适合把重复线索分拣动作固化成清单。",
+  "executive_summary": "样例日报用于本地测试静态站、归档和搜索能力，不作为真实商业事实判断。真实日报只会由每日采集和 OpenAI 结构化生成流程写入 data/briefs。",
+  "items": [
+    {
+      "id": "sample_ai_1",
+      "topic": "ai",
+      "title": "OpenAI API 结构化输出适合日报 schema 校验",
+      "what_happened": "OpenAI 官方文档提供结构化输出能力，可让模型按 JSON schema 返回结果。",
+      "why_it_matters": "日报系统需要稳定字段，否则前端搜索、归档和飞书预览容易被坏格式拖垮。",
+      "yqn_insight": "把日报生成变成 schema 驱动流程，比每天复制粘贴到网页更适合长期商用运行。",
+      "today_action": "把日报字段锁进 schema，并让不合格输出最多重试一次后失败。",
+      "signal_strength": "medium",
+      "confidence": "high",
+      "source_title": "Structured model outputs | OpenAI API",
+      "source_url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+      "source_published_at": "2026-05-31T00:00:00.000Z",
+      "source_domain": "developers.openai.com"
+    }
+  ],
+  "action_checklist": [
+    "确认 schema 覆盖 title、来源、YQN 启发和今日动作。",
+    "把模型输出失败设为阻断条件，不发布坏日报。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "OpenAI Docs",
+      "title": "Structured model outputs | OpenAI API",
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+      "domain": "developers.openai.com",
+      "published_at": "2026-05-31T00:00:00.000Z"
+    }
+  ],
+  "model": "sample",
+  "run_id": "sample-20260531",
+  "source_window_hours": 72,
+  "is_low_signal_day": false,
+  "encryption_enabled": false
+}

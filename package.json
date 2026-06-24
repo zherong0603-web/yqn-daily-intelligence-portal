@@ -1,0 +1,31 @@
+{
+  "name": "yqn-daily-intelligence-portal",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "YQN Daily Intelligence Portal powered by GitHub Pages, GitHub Actions, public sources, and OpenAI API.",
+  "scripts": {
+    "generate": "tsx src/generateBrief.ts",
+    "build": "tsx src/buildSite.ts",
+    "build:sample": "tsx src/buildSite.ts --data-dir data/samples --dist-dir dist",
+    "notify:success": "tsx src/sendFeishu.ts success",
+    "notify:failure": "tsx src/sendFeishu.ts failure",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && vitest run"
+  },
+  "dependencies": {
+    "openai": "^6.10.0",
+    "rss-parser": "^3.13.0",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

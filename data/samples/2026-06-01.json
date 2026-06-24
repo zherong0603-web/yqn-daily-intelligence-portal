@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-01",
+  "generated_at": "2026-06-01T01:45:00.000Z",
+  "one_liner": "美国仓信号今天偏运营侧，适合检查客户话术里是否覆盖退货和补货焦虑。",
+  "executive_summary": "样例日报用于验证连续两天、跨月归档和搜索索引。真实运行时，系统会从公开来源采集近 72 小时内容，不足时扩大到 7 天。",
+  "items": [
+    {
+      "id": "sample_wh_1",
+      "topic": "ecommerce_us_warehouse",
+      "title": "美国仓客户更关心可执行的库存与退货方案",
+      "what_happened": "公开行业内容持续讨论供应链、仓储履约和库存周转压力。",
+      "why_it_matters": "美国仓销售材料如果只讲仓库面积，无法回应卖家当天最急的现金流和履约问题。",
+      "yqn_insight": "YQN 可以把仓储卖点改写成退货处理、补货节奏和异常响应三个可验证承诺。",
+      "today_action": "抽 10 条美国仓咨询，把客户问题按退货、补货、尾程异常三类重新标注。",
+      "signal_strength": "medium",
+      "confidence": "medium",
+      "source_title": "Supply Chain Dive",
+      "source_url": "https://www.supplychaindive.com/",
+      "source_published_at": "2026-06-01T00:00:00.000Z",
+      "source_domain": "supplychaindive.com"
+    }
+  ],
+  "action_checklist": [
+    "复查美国仓获客话术是否有退货、补货、尾程异常三类入口。",
+    "把今天新增线索按仓储痛点打标。"
+  ],
+  "sources": [
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Supply Chain Dive",
+      "url": "https://www.supplychaindive.com/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-01T00:00:00.000Z"
+    }
+  ],
+  "model": "sample",
+  "run_id": "sample-20260601",
+  "source_window_hours": 72,
+  "is_low_signal_day": false,
+  "encryption_enabled": false
+}
