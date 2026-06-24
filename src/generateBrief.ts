@@ -17,6 +17,7 @@ import { sourceDomain, stableId } from "./utils/domain.js";
 import { writeJsonFile } from "./utils/fs.js";
 
 const MIN_SOURCES_FOR_MODEL = 3;
+type LowSignalReason = "insufficient_sources" | "missing_openai_key";
 
 function briefSourcesFromCandidates(candidates: CollectedSource[]) {
   return candidates.slice(0, 20).map((candidate) => ({
@@ -29,20 +30,36 @@ function briefSourcesFromCandidates(candidates: CollectedSource[]) {
   }));
 }
 
-function lowSignalBrief(config: RuntimeConfig, candidates: CollectedSource[], sourceWindowHours: 72 | 168): Brief {
+function lowSignalBrief(
+  config: RuntimeConfig,
+  candidates: CollectedSource[],
+  sourceWindowHours: 72 | 168,
+  reason: LowSignalReason,
+): Brief {
+  const missingKey = reason === "missing_openai_key";
   return briefSchema.parse({
     date: config.date,
     generated_at: new Date().toISOString(),
-    one_liner: "今天没有足够强信号，先不把弱消息包装成机会。",
-    executive_summary: "公开来源在当前时间窗口内没有形成足够明确的业务信号。今天适合做轻量巡检和资料补齐，不适合基于噪声调整获客、美国仓或投放策略。",
+    one_liner: missingKey
+      ? "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。"
+      : "今天没有足够强信号，先不把弱消息包装成机会。",
+    executive_summary: missingKey
+      ? "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。"
+      : "公开来源在当前时间窗口内没有形成足够明确的业务信号。今天适合做轻量巡检和资料补齐，不适合基于噪声调整获客、美国仓或投放策略。",
     items: [],
-    action_checklist: [
-      "检查昨天新增线索里是否出现美国仓、退货、补货、尾程异常关键词。",
-      "补看一个公开行业来源，确认是否有跨境物流或广告投放规则变化。",
-      "把今天的低信号结论同步给内部，不强行制造选题。",
-    ],
+    action_checklist: missingKey
+      ? [
+          "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+          "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+          "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。",
+        ]
+      : [
+          "检查昨天新增线索里是否出现美国仓、退货、补货、尾程异常关键词。",
+          "补看一个公开行业来源，确认是否有跨境物流或广告投放规则变化。",
+          "把今天的低信号结论同步给内部，不强行制造选题。",
+        ],
     sources: briefSourcesFromCandidates(candidates),
-    model: config.openAiModel,
+    model: missingKey ? "openai-unconfigured" : config.openAiModel,
     run_id: config.runId,
     source_window_hours: sourceWindowHours,
     is_low_signal_day: true,
@@ -216,13 +233,26 @@ async function generateWithRetry(config: RuntimeConfig, candidates: CollectedSou
   throw lastError instanceof Error ? lastError : new Error("brief generation failed");
 }
 
+export async function buildBriefFromCandidates(
+  config: RuntimeConfig,
+  candidates: CollectedSource[],
+  sourceWindowHours: 72 | 168,
+): Promise<Brief> {
+  if (candidates.length < MIN_SOURCES_FOR_MODEL) {
+    return lowSignalBrief(config, candidates, sourceWindowHours, "insufficient_sources");
+  }
+  if (!config.openAiApiKey) {
+    console.warn("[generate] OPENAI_API_KEY is not configured; publishing an honest low-signal configuration brief");
+    return lowSignalBrief(config, candidates, sourceWindowHours, "missing_openai_key");
+  }
+  return generateWithRetry(config, candidates, sourceWindowHours);
+}
+
 export async function generateDailyBrief(repoRoot = process.cwd()): Promise<Brief> {
   const config = readRuntimeConfig(repoRoot);
   const sourceConfigs = await loadSources(repoRoot);
   const collection = await collectSourcesForBrief(sourceConfigs);
-  const brief = collection.candidates.length < MIN_SOURCES_FOR_MODEL
-    ? lowSignalBrief(config, collection.candidates, collection.source_window_hours)
-    : await generateWithRetry(config, collection.candidates, collection.source_window_hours);
+  const brief = await buildBriefFromCandidates(config, collection.candidates, collection.source_window_hours);
 
   const outputPath = path.join(repoRoot, "data", "briefs", `${config.date}.json`);
   await writeJsonFile(outputPath, brief);

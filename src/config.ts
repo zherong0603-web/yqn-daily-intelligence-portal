@@ -3,6 +3,7 @@ import path from "node:path";
 import YAML from "yaml";
 import { dateInTimeZone } from "./utils/date.js";
 import { SourceConfig, sourcesFileSchema } from "./schema.js";
+import { OptionalIntegrations, readBooleanEnv, readEnv, readOptionalIntegrations } from "./utils/env.js";
 
 export interface RuntimeConfig {
   repoRoot: string;
@@ -14,18 +15,13 @@ export interface RuntimeConfig {
   pageAccessPassphrase?: string;
   siteUrl: string;
   runId: string;
-}
-
-function envFlag(name: string, defaultValue = false): boolean {
-  const value = process.env[name];
-  if (value == null || value === "") return defaultValue;
-  return ["1", "true", "yes", "on"].includes(value.toLowerCase());
+  optionalIntegrations: OptionalIntegrations;
 }
 
 function defaultSiteUrl(): string {
-  const explicit = process.env.SITE_URL;
+  const explicit = readEnv("SITE_URL");
   if (explicit) return explicit.replace(/\/$/, "");
-  const repository = process.env.GITHUB_REPOSITORY;
+  const repository = readEnv("GITHUB_REPOSITORY");
   if (!repository) return "";
   const owner = repository.split("/")[0];
   const repo = repository.split("/")[1];
@@ -34,18 +30,19 @@ function defaultSiteUrl(): string {
 
 export function readRuntimeConfig(repoRoot = process.cwd()): RuntimeConfig {
   const timeZone = "Asia/Taipei";
-  const date = process.env.BRIEF_DATE || dateInTimeZone(timeZone);
-  const runId = process.env.GITHUB_RUN_ID || `local-${Date.now()}`;
+  const date = readEnv("BRIEF_DATE") || dateInTimeZone(timeZone);
+  const runId = readEnv("GITHUB_RUN_ID") || `local-${Date.now()}`;
   return {
     repoRoot,
     date,
     timeZone,
-    openAiApiKey: process.env.OPENAI_API_KEY,
-    openAiModel: process.env.OPENAI_MODEL || "gpt-5.4-mini",
-    encryptionEnabled: envFlag("BRIEF_ENCRYPTION_ENABLED", false),
-    pageAccessPassphrase: process.env.PAGE_ACCESS_PASSPHRASE,
+    openAiApiKey: readEnv("OPENAI_API_KEY"),
+    openAiModel: readEnv("OPENAI_MODEL") || "gpt-5.4-mini",
+    encryptionEnabled: readBooleanEnv("BRIEF_ENCRYPTION_ENABLED", false),
+    pageAccessPassphrase: readEnv("PAGE_ACCESS_PASSPHRASE"),
     siteUrl: defaultSiteUrl(),
     runId,
+    optionalIntegrations: readOptionalIntegrations(),
   };
 }
 

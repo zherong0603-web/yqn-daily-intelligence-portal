@@ -74,6 +74,13 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Preserve Pages artifact and clean tracked build output
+        run: |
+          rm -rf _pages
+          cp -R dist _pages
+          git restore dist
+          git clean -fd dist
+
       - name: Mark failure stage for data commit
         run: echo "FAILURE_STAGE=commit generated brief" >> "$GITHUB_ENV"
 
@@ -99,7 +106,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _pages
 
       - name: Deploy Pages
         id: deployment

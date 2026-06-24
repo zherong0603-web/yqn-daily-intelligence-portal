@@ -1,10 +1,11 @@
 import { createHmac } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { readRuntimeConfig } from "./config.js";
+import { readEnv } from "./utils/env.js";
 
 type NotifyMode = "success" | "failure";
 
-function signedFields(secret?: string): { timestamp?: string; sign?: string } {
+export function signedFields(secret?: string): { timestamp?: string; sign?: string } {
   if (!secret) return {};
   const timestamp = Math.floor(Date.now() / 1000).toString();
   const stringToSign = `${timestamp}\n${secret}`;
@@ -13,23 +14,23 @@ function signedFields(secret?: string): { timestamp?: string; sign?: string } {
 }
 
 function runUrl(): string {
-  const server = process.env.GITHUB_SERVER_URL || "https://github.com";
-  const repo = process.env.GITHUB_REPOSITORY || "zherong0603-web/yqn-daily-intelligence-portal";
-  const runId = process.env.GITHUB_RUN_ID || "";
+  const server = readEnv("GITHUB_SERVER_URL") || "https://github.com";
+  const repo = readEnv("GITHUB_REPOSITORY") || "zherong0603-web/yqn-daily-intelligence-portal";
+  const runId = readEnv("GITHUB_RUN_ID") || "";
   return runId ? `${server}/${repo}/actions/runs/${runId}` : `${server}/${repo}/actions`;
 }
 
-function feishuCard(mode: NotifyMode) {
+export function feishuCard(mode: NotifyMode) {
   const config = readRuntimeConfig();
   const site = config.siteUrl || "GitHub Pages";
   const title = mode === "success" ? `每日重点简报 · ${config.date}` : `每日简报生成失败 · ${config.date}`;
   const headerColor = mode === "success" ? "green" : "red";
-  const failureStage = process.env.FAILURE_STAGE || "测试、生成、构建或部署阶段";
-  const previews = (process.env.BRIEF_PREVIEW || "网页已更新，可从入口查看。").split("\n").slice(0, 3);
+  const failureStage = readEnv("FAILURE_STAGE") || "测试、生成、构建或部署阶段";
+  const previews = (readEnv("BRIEF_PREVIEW") || "网页已更新，可从入口查看。").split("\n").slice(0, 3);
 
   const elements = mode === "success"
     ? [
-        { tag: "div", text: { tag: "lark_md", content: `**今日一句话判断**\n${process.env.BRIEF_ONE_LINER || "请打开网页查看今日判断。"}` } },
+        { tag: "div", text: { tag: "lark_md", content: `**今日一句话判断**\n${readEnv("BRIEF_ONE_LINER") || "请打开网页查看今日判断。"}` } },
         { tag: "hr" },
         { tag: "div", text: { tag: "lark_md", content: previews.map((item, index) => `${index + 1}. ${item}`).join("\n") } },
         {
@@ -65,7 +66,7 @@ function feishuCard(mode: NotifyMode) {
 }
 
 export async function sendFeishu(mode: NotifyMode): Promise<void> {
-  const webhook = process.env.FEISHU_WEBHOOK_URL;
+  const webhook = readEnv("FEISHU_WEBHOOK_URL");
   if (!webhook) {
     console.warn("[feishu] FEISHU_WEBHOOK_URL is not configured; notification skipped");
     return;
@@ -75,7 +76,7 @@ export async function sendFeishu(mode: NotifyMode): Promise<void> {
     const response = await fetch(webhook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...signedFields(process.env.FEISHU_SIGN_SECRET), ...feishuCard(mode) }),
+      body: JSON.stringify({ ...signedFields(readEnv("FEISHU_SIGN_SECRET")), ...feishuCard(mode) }),
     });
     if (!response.ok) {
       console.warn(`[feishu] notification failed with HTTP ${response.status}`);
