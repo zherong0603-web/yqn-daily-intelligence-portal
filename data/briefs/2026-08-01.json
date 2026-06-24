@@ -1,0 +1,112 @@
+{
+  "date": "2026-08-01",
+  "generated_at": "2026-06-24T09:27:09.307Z",
+  "one_liner": "验收样例日报已生成：2026-08-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
+  "executive_summary": "这是一篇明确标记为验收样例的日报，用来验证 YQN Daily Intelligence Portal 的上线可用性。它不是商业事实简报，不替代真实每日情报；真实运行必须配置 OpenAI API Key 和 OPENAI_MODEL。",
+  "items": [
+    {
+      "id": "sample_2026-08-01_1",
+      "topic": "ai",
+      "title": "AI 自动化信号：把重复线索分拣固化为每日动作 · 2026-08-01",
+      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
+      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
+      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
+      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
+      "signal_strength": "strong",
+      "confidence": "high",
+      "source_title": "验收公开来源 1 · 2026-08-01",
+      "source_url": "https://venturebeat.com/yqn-acceptance-2026-08-01-1",
+      "source_published_at": "2026-08-01T00:00:00.000Z",
+      "source_domain": "venturebeat.com"
+    },
+    {
+      "id": "sample_2026-08-01_2",
+      "topic": "ecommerce_us_warehouse",
+      "title": "美国仓信号：客户更关心退货、补货和异常响应 · 2026-08-01",
+      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
+      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
+      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
+      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
+      "signal_strength": "medium",
+      "confidence": "medium",
+      "source_title": "验收公开来源 2 · 2026-08-01",
+      "source_url": "https://supplychaindive.com/yqn-acceptance-2026-08-01-2",
+      "source_published_at": "2026-08-01T00:00:00.000Z",
+      "source_domain": "supplychaindive.com"
+    },
+    {
+      "id": "sample_2026-08-01_3",
+      "topic": "xiaohongshu_b2b",
+      "title": "小红书 B2B 信号：公开投放资料适合转成获客话术 · 2026-08-01",
+      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
+      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
+      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
+      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
+      "signal_strength": "medium",
+      "confidence": "medium",
+      "source_title": "验收公开来源 3 · 2026-08-01",
+      "source_url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-08-01-3",
+      "source_published_at": "2026-08-01T00:00:00.000Z",
+      "source_domain": "ad.xiaohongshu.com"
+    },
+    {
+      "id": "sample_2026-08-01_4",
+      "topic": "personal_business",
+      "title": "个人生意信号：轻资产服务更适合做小步验证 · 2026-08-01",
+      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
+      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
+      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
+      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
+      "signal_strength": "medium",
+      "confidence": "medium",
+      "source_title": "验收公开来源 4 · 2026-08-01",
+      "source_url": "https://indiehackers.com/yqn-acceptance-2026-08-01-4",
+      "source_published_at": "2026-08-01T00:00:00.000Z",
+      "source_domain": "indiehackers.com"
+    }
+  ],
+  "action_checklist": [
+    "打开今日日报永久链接，确认老板可访问。",
+    "搜索“美国仓”并使用主题筛选检查结果。",
+    "点击复制分享链接，再测试打印或保存 PDF。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "验收公开来源 1",
+      "title": "验收公开来源 1 · 2026-08-01",
+      "url": "https://venturebeat.com/yqn-acceptance-2026-08-01-1",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "验收公开来源 2",
+      "title": "验收公开来源 2 · 2026-08-01",
+      "url": "https://supplychaindive.com/yqn-acceptance-2026-08-01-2",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "topic": "xiaohongshu_b2b",
+      "name": "验收公开来源 3",
+      "title": "验收公开来源 3 · 2026-08-01",
+      "url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-08-01-3",
+      "domain": "ad.xiaohongshu.com",
+      "published_at": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "topic": "personal_business",
+      "name": "验收公开来源 4",
+      "title": "验收公开来源 4 · 2026-08-01",
+      "url": "https://indiehackers.com/yqn-acceptance-2026-08-01-4",
+      "domain": "indiehackers.com",
+      "published_at": "2026-08-01T00:00:00.000Z"
+    }
+  ],
+  "model": "sample-backfill",
+  "run_id": "28088781347",
+  "source_window_hours": 72,
+  "is_low_signal_day": false,
+  "encryption_enabled": false
+}
