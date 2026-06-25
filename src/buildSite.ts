@@ -10,6 +10,7 @@ import { ensureDir, listJsonFiles, readJsonFile, resetDir, writeJsonFile, writeT
 import {
   basePathFromSiteUrl,
   browserDecryptAndSearchScript,
+  renderAboutPage,
   renderBossPage,
   lockedReportScript,
   renderBriefStatic,
@@ -66,6 +67,22 @@ function calendarFor(briefs: Brief[]) {
   }));
 }
 
+function publicBriefShell(brief: Brief, encrypted: boolean): Brief {
+  const base = { ...brief, encryption_enabled: encrypted };
+  if (!encrypted) return base;
+  return briefSchema.parse({
+    ...base,
+    executive_summary: "完整简报正文已加密发布。打开当天简报页，输入页面访问密码后在浏览器本地解锁查看。",
+    items: [],
+    action_checklist: [
+      "打开当天简报页。",
+      "输入页面访问密码解锁正文。",
+      "不要把页面访问密码发到公开聊天或文档里。",
+    ],
+    sources: [],
+  });
+}
+
 async function writeReport(options: {
   brief: Brief;
   distDir: string;
@@ -87,7 +104,7 @@ async function writeReport(options: {
     await writeTextFile(
       path.join(reportDir, "index.html"),
       renderPage({
-        title: `${options.brief.date} · YQN Daily Intelligence Portal`,
+        title: `${options.brief.date} · YQN 每日重点简报`,
         basePath: options.basePath,
         body: renderLockedReport(publicBrief, options.previousDate, options.nextDate),
         script: lockedReportScript(),
@@ -100,7 +117,7 @@ async function writeReport(options: {
   await writeTextFile(
     path.join(reportDir, "index.html"),
     renderPage({
-      title: `${options.brief.date} · YQN Daily Intelligence Portal`,
+      title: `${options.brief.date} · YQN 每日重点简报`,
       basePath: options.basePath,
       body: renderBriefStatic(publicBrief, options.previousDate, options.nextDate),
     }),
@@ -124,6 +141,8 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
   const desc = briefs.sort(compareDateDesc);
   const asc = [...desc].sort(compareDateAsc);
   const latest = desc[0];
+  const pageBriefs = desc.map((brief) => publicBriefShell(brief, encrypted));
+  const latestForPages = latest ? publicBriefShell(latest, encrypted) : undefined;
 
   await resetDir(distDir);
   await writeTextFile(path.join(distDir, "robots.txt"), "User-agent: *\nDisallow: /\n");
@@ -148,11 +167,11 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
   await writeTextFile(
     path.join(distDir, "index.html"),
     renderPage({
-      title: "YQN Growth War Room",
+      title: "YQN 每日重点简报",
       basePath,
       body: renderHome(
-        latest ? { ...latest, encryption_enabled: encrypted } : undefined,
-        desc.map((brief) => ({ ...brief, encryption_enabled: encrypted })),
+        latestForPages,
+        pageBriefs,
         encrypted,
         config.publicSetupStatus,
       ),
@@ -163,7 +182,7 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
   await writeTextFile(
     path.join(distDir, "setup", "index.html"),
     renderPage({
-      title: "3 分钟配置向导 · YQN Growth War Room",
+      title: "自动化配置 · YQN 每日重点简报",
       basePath,
       body: renderSetupPage(config.publicSetupStatus),
     }),
@@ -172,18 +191,27 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
   await writeTextFile(
     path.join(distDir, "boss", "index.html"),
     renderPage({
-      title: "老板 30 秒摘要 · YQN Growth War Room",
+      title: "30 秒重点摘要 · YQN 每日重点简报",
       basePath,
-      body: renderBossPage(latest ? { ...latest, encryption_enabled: encrypted } : undefined, encrypted),
+      body: renderBossPage(latestForPages, encrypted),
     }),
   );
 
   await writeTextFile(
     path.join(distDir, "executive", "index.html"),
     renderPage({
-      title: "管理层摘要 · YQN Growth War Room",
+      title: "重点摘要 · YQN 每日重点简报",
       basePath,
-      body: renderExecutivePage(latest ? { ...latest, encryption_enabled: encrypted } : undefined, encrypted, config.publicSetupStatus),
+      body: renderExecutivePage(latestForPages, encrypted, config.publicSetupStatus),
+    }),
+  );
+
+  await writeTextFile(
+    path.join(distDir, "about", "index.html"),
+    renderPage({
+      title: "系统说明 · YQN 每日重点简报",
+      basePath,
+      body: renderAboutPage(),
     }),
   );
 

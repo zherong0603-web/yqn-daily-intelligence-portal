@@ -27,11 +27,13 @@ describe("static site build", () => {
     await expect(access(path.join(distDir, "archive", "2026", "06", "index.html"))).resolves.toBeUndefined();
   });
 
-  it("creates setup and boss pages for non-technical operation", async () => {
+  it("creates setup, system overview, and legacy compatibility pages", async () => {
     const { dataDir, distDir } = await tempWorkspace();
     await buildSite({ dataDir, distDir, encryptionEnabled: false, siteUrl: "" });
     await expect(access(path.join(distDir, "setup", "index.html"))).resolves.toBeUndefined();
+    await expect(access(path.join(distDir, "about", "index.html"))).resolves.toBeUndefined();
     await expect(access(path.join(distDir, "boss", "index.html"))).resolves.toBeUndefined();
+    await expect(access(path.join(distDir, "executive", "index.html"))).resolves.toBeUndefined();
   });
 
   it("encrypts report JSON and search index without leaking full plaintext", async () => {
@@ -40,10 +42,15 @@ describe("static site build", () => {
 
     const reportJson = await readFile(path.join(distDir, "reports", "2026-06-01", "brief.json"), "utf8");
     const searchJson = await readFile(path.join(distDir, "search-index.json"), "utf8");
+    const homeHtml = await readFile(path.join(distDir, "index.html"), "utf8");
+    const legacyHtml = await readFile(path.join(distDir, "boss", "index.html"), "utf8");
 
     expect(JSON.parse(reportJson).encrypted).toBe(true);
     expect(JSON.parse(searchJson).encrypted).toBe(true);
     expect(reportJson).not.toContain("美国仓客户更关心可执行的库存与退货方案");
     expect(searchJson).not.toContain("美国仓客户更关心可执行的库存与退货方案");
+    expect(homeHtml).not.toContain("美国仓客户更关心可执行的库存与退货方案");
+    expect(legacyHtml).not.toContain("美国仓客户更关心可执行的库存与退货方案");
+    expect(homeHtml).toContain("今日简报已加密");
   });
 });

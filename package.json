@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "type": "module",
-  "description": "YQN Daily Intelligence Portal powered by GitHub Pages, GitHub Actions, public sources, and OpenAI API.",
+  "description": "YQN 每日重点简报：GitHub Pages、GitHub Actions、公开来源和 OpenAI API 驱动。",
   "scripts": {
     "generate": "tsx src/generateBrief.ts",
     "generate:sample-backfill": "tsx src/generateSampleBackfill.ts",

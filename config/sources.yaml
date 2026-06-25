@@ -51,11 +51,11 @@ sources:
     name: Indie Hackers
     url: https://feeds.transistor.fm/the-indie-hackers-podcast
     type: rss
-    enabled: true
-    weight: 6
+    enabled: false
+    weight: 0
   - topic: personal_business
     name: Shopify Blog
     url: https://www.shopify.com/blog
     type: webpage
-    enabled: true
-    weight: 5
+    enabled: false
+    weight: 0

@@ -2,9 +2,9 @@ import path from "node:path";
 import os from "node:os";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { buildSite } from "../src/buildSite.js";
-import { applyPublicRepoVariablesForLocalBuild, desktop, launchBrowser, mobile, repoRoot, screenshotFullPage, serve } from "./visualCommon.js";
+import { applyPublicRepoVariablesForLocalBuild, desktop, launchBrowser, mobile, repoRoot, screenshotFullPage, serve, visualAuditRoot } from "./visualCommon.js";
 
-const auditDir = path.join(repoRoot, "docs", "visual-audit", "full-page");
+const auditDir = path.join(visualAuditRoot, "full-page");
 const passphrase = "local-visual-audit-passphrase";
 
 async function main(): Promise<void> {
@@ -25,14 +25,13 @@ async function main(): Promise<void> {
   try {
     await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "desktop-home.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/setup/", path.join(auditDir, "desktop-setup.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/boss/", path.join(auditDir, "desktop-boss.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/executive/", path.join(auditDir, "desktop-executive.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/#mql-quality", path.join(auditDir, "desktop-mql.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/#content-experiment", path.join(auditDir, "desktop-content-experiment.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/about/", path.join(auditDir, "desktop-about.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "desktop-report.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/archive/", path.join(auditDir, "desktop-archive.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/archive/2026/07/", path.join(auditDir, "desktop-month.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/archive/2026/week-27/", path.join(auditDir, "desktop-week.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/boss/", path.join(auditDir, "desktop-legacy-boss.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/executive/", path.join(auditDir, "desktop-legacy-executive.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "desktop-search-results.png"), desktop, async (page) => {
       await page.fill("#searchInput", "美国仓");
       await page.waitForSelector(".result-row");
@@ -47,7 +46,7 @@ async function main(): Promise<void> {
     });
     await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "mobile-home.png"), mobile);
     await screenshotFullPage(browser, publicServer.baseUrl, "/setup/", path.join(auditDir, "mobile-setup.png"), mobile);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/boss/", path.join(auditDir, "mobile-boss.png"), mobile);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/about/", path.join(auditDir, "mobile-about.png"), mobile);
     await screenshotFullPage(browser, publicServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "mobile-report.png"), mobile);
   } finally {
     await publicServer.close();
@@ -68,7 +67,7 @@ async function main(): Promise<void> {
     await screenshotFullPage(browser, encryptedServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "desktop-encrypted-unlocked.png"), desktop, async (page) => {
       await page.fill("#passphrase", passphrase);
       await page.click("#unlockBrief");
-      await page.waitForSelector("#briefRoot .report-card");
+      await page.waitForSelector("#briefRoot .brief-card");
     });
   } finally {
     await encryptedServer.close();
@@ -78,19 +77,18 @@ async function main(): Promise<void> {
 
   await writeFile(path.join(auditDir, "manifest.json"), JSON.stringify({
     generated_at: new Date().toISOString(),
-    mode: "v4.1-local-build",
+    mode: "daily-brief-local-build",
     viewport: { desktop, mobile },
     files: [
       "desktop-home.png",
       "desktop-setup.png",
-      "desktop-boss.png",
-      "desktop-executive.png",
-      "desktop-mql.png",
-      "desktop-content-experiment.png",
+      "desktop-about.png",
       "desktop-report.png",
       "desktop-archive.png",
       "desktop-month.png",
       "desktop-week.png",
+      "desktop-legacy-boss.png",
+      "desktop-legacy-executive.png",
       "desktop-search-results.png",
       "desktop-search-empty.png",
       "desktop-topic-filter.png",
@@ -98,7 +96,7 @@ async function main(): Promise<void> {
       "desktop-encrypted-unlocked.png",
       "mobile-home.png",
       "mobile-setup.png",
-      "mobile-boss.png",
+      "mobile-about.png",
       "mobile-report.png"
     ],
   }, null, 2));

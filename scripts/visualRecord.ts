@@ -4,9 +4,9 @@ import { mkdir, rm, rename } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { type BrowserContext, type Page } from "playwright";
 import { buildSite } from "../src/buildSite.js";
-import { applyPublicRepoVariablesForLocalBuild, desktop, launchBrowser, repoRoot, serve } from "./visualCommon.js";
+import { applyPublicRepoVariablesForLocalBuild, desktop, launchBrowser, repoRoot, serve, visualAuditRoot } from "./visualCommon.js";
 
-const recordingsDir = path.join(repoRoot, "docs", "visual-audit", "recordings");
+const recordingsDir = path.join(visualAuditRoot, "recordings");
 
 async function pause(ms = 1600): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, ms));
@@ -64,12 +64,10 @@ async function recordOperatorFlow(browserContext: BrowserContext, baseUrl: strin
   const page = await createRecordedPage(browserContext);
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
-    await caption(page, "打开首页：只看 3 个入口");
-    await page.locator('[data-section="top-three"]').scrollIntoViewIfNeeded();
-    await caption(page, "今天先看这 3 件事");
-    await click(page, 'a[href="boss/"]', "点击老板 30 秒摘要");
-    await page.waitForLoadState("networkidle");
-    await click(page, 'button:has-text("复制老板版摘要")', "复制老板版摘要");
+    await caption(page, "打开首页：YQN 每日重点简报");
+    await page.locator('[data-section="daily-top-three"]').scrollIntoViewIfNeeded();
+    await caption(page, "先看今日 3 个重点");
+    await click(page, 'button:has-text("复制简报摘要")', "复制简报摘要");
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await caption(page, "回到首页搜索历史信号");
     await page.fill("#searchInput", "美国仓");
@@ -96,8 +94,8 @@ async function recordSetupFlow(browserContext: BrowserContext, baseUrl: string):
   const page = await createRecordedPage(browserContext);
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
-    await caption(page, "首页：点击配置向导");
-    await click(page, 'a[href="setup/"]', "打开 3 分钟配置向导");
+    await caption(page, "首页：点击自动化配置");
+    await click(page, 'a[href="setup/"]', "打开自动化配置");
     await page.waitForLoadState("networkidle");
     await caption(page, "查看配置状态：只显示已配置/缺失");
     await click(page, '[data-section="setup-openai-key"] button[data-copy-value="OPENAI_API_KEY"]', "复制 OPENAI_API_KEY 的 Name");

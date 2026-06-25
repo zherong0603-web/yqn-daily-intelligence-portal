@@ -35,7 +35,7 @@ export async function writeArchivePages(options: {
   await writeTextFile(
     path.join(options.distDir, "archive", "index.html"),
     renderPage({
-      title: "全部归档 · YQN Daily Intelligence Portal",
+      title: "全部归档 · YQN 每日重点简报",
       basePath,
       body: renderArchivePage("全部归档", briefs),
     }),
@@ -46,7 +46,7 @@ export async function writeArchivePages(options: {
     await writeTextFile(
       path.join(options.distDir, "archive", year, "index.html"),
       renderPage({
-        title: `${year} 归档 · YQN Daily Intelligence Portal`,
+        title: `${year} 归档 · YQN 每日重点简报`,
         basePath,
         body: renderArchivePage(`${year} 归档`, yearBriefs),
       }),
@@ -62,7 +62,7 @@ export async function writeArchivePages(options: {
     await writeTextFile(
       path.join(options.distDir, "archive", year || "unknown", month || "unknown", "index.html"),
       renderPage({
-        title: `${monthKey} 月归档 · YQN Daily Intelligence Portal`,
+        title: `${monthKey} 月归档 · YQN 每日重点简报`,
         basePath,
         body: renderArchivePage(`${monthKey} 月归档`, monthBriefs),
       }),
@@ -78,7 +78,7 @@ export async function writeArchivePages(options: {
     await writeTextFile(
       path.join(options.distDir, "archive", year || "unknown", week || "unknown", "index.html"),
       renderPage({
-        title: `${weekKey} 周归档 · YQN Daily Intelligence Portal`,
+        title: `${weekKey} 周归档 · YQN 每日重点简报`,
         basePath,
         body: renderArchivePage(`${weekKey} 周归档`, weekBriefs),
       }),

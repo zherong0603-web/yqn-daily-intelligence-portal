@@ -2,10 +2,10 @@ import path from "node:path";
 import { existsSync } from "node:fs";
 import { stat } from "node:fs/promises";
 import yauzl from "yauzl";
-import { repoRoot } from "./visualCommon.js";
+import { deliveryRoot as artifactDeliveryRoot } from "./visualCommon.js";
 
-const zipPath = path.join(repoRoot, "delivery", "YQN_Daily_Intelligence_Portal_V4_1_Delivery.zip");
-const packageRoot = path.join(repoRoot, "delivery", "YQN_Daily_Intelligence_Portal_V4_1_Delivery");
+const zipPath = path.join(artifactDeliveryRoot, "YQN_Daily_Brief_Delivery.zip");
+const packageRoot = path.join(artifactDeliveryRoot, "YQN_Daily_Brief_Delivery");
 
 async function zipEntries(): Promise<string[]> {
   return new Promise((resolve, reject) => {
@@ -44,35 +44,42 @@ async function main(): Promise<void> {
     "offline-preview/open-here.html",
     /^dist\/index\.html$/,
     /^dist\/setup\/index\.html$/,
+    /^dist\/about\/index\.html$/,
     /^dist\/boss\/index\.html$/,
+    /^dist\/executive\/index\.html$/,
     /^visual-audit\/full-page\/desktop-home\.png$/,
     /^visual-audit\/full-page\/desktop-setup\.png$/,
-    /^visual-audit\/full-page\/desktop-boss\.png$/,
-    /^visual-audit\/full-page\/desktop-executive\.png$/,
-    /^visual-audit\/full-page\/desktop-mql\.png$/,
+    /^visual-audit\/full-page\/desktop-about\.png$/,
     /^visual-audit\/full-page\/desktop-report\.png$/,
     /^visual-audit\/full-page\/desktop-archive\.png$/,
     /^visual-audit\/full-page\/desktop-month\.png$/,
     /^visual-audit\/full-page\/desktop-week\.png$/,
+    /^visual-audit\/full-page\/desktop-legacy-boss\.png$/,
+    /^visual-audit\/full-page\/desktop-legacy-executive\.png$/,
     /^visual-audit\/full-page\/desktop-search-results\.png$/,
     /^visual-audit\/full-page\/desktop-search-empty\.png$/,
     /^visual-audit\/full-page\/desktop-encrypted-locked\.png$/,
     /^visual-audit\/full-page\/mobile-home\.png$/,
     /^visual-audit\/full-page\/mobile-setup\.png$/,
-    /^visual-audit\/full-page\/mobile-boss\.png$/,
+    /^visual-audit\/full-page\/mobile-about\.png$/,
     /^visual-audit\/full-page\/mobile-report\.png$/,
-    /^visual-audit\/sections\/hero-3-step\.png$/,
-    /^visual-audit\/sections\/setup-progress\.png$/,
+    /^visual-audit\/sections\/daily-brief-hero\.png$/,
+    /^visual-audit\/sections\/daily-top-three\.png$/,
+    /^visual-audit\/sections\/action-points\.png$/,
+    /^visual-audit\/sections\/history-module\.png$/,
+    /^visual-audit\/sections\/search-module\.png$/,
+    /^visual-audit\/sections\/setup-status\.png$/,
     /^visual-audit\/sections\/setup-openai-key\.png$/,
     /^visual-audit\/sections\/setup-openai-model\.png$/,
     /^visual-audit\/sections\/setup-feishu\.png$/,
     /^visual-audit\/sections\/setup-encryption\.png$/,
     /^visual-audit\/sections\/setup-run-workflow\.png$/,
-    /^visual-audit\/sections\/boss-summary\.png$/,
-    /^visual-audit\/sections\/mql-scorecard\.png$/,
     /^visual-audit\/sections\/mode-status-banner\.png$/,
     /^visual-audit\/sections\/demo-warning\.png$/,
     /^visual-audit\/sections\/copy-buttons\.png$/,
+    /^visual-audit\/sections\/system-overview\.png$/,
+    /^visual-audit\/sections\/safety-cost-boundary\.png$/,
+    /^visual-audit\/sections\/legacy-summary\.png$/,
     /^visual-audit\/sections\/mobile-first-screen\.png$/,
     /^recordings\/desktop-30s-operator-flow\.mp4$/,
     /^recordings\/desktop-30s-setup-flow\.mp4$/,
@@ -82,7 +89,7 @@ async function main(): Promise<void> {
     "docs/视觉验收包.md",
     "docs/代码验收包.md",
     "docs/UI说明文档.md",
-    "docs/老板演示话术.md",
+    "docs/分享说明.md",
     "docs/下一轮优化建议.md",
   ];
   const missing = required.filter((pattern) => !has(entries, pattern));

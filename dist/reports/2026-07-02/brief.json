@@ -1,8 +1,8 @@
 {
   "date": "2026-07-02",
-  "generated_at": "2026-06-25T03:39:34.058Z",
-  "one_liner": "验收样例日报已生成：2026-07-02 可用于检查历史归档、搜索、主题筛选和分享打印。",
-  "executive_summary": "这是一篇明确标记为验收样例的日报，用来验证 YQN Daily Intelligence Portal 的上线可用性。它不是商业事实简报，不替代真实每日情报；真实运行必须配置 OpenAI API Key 和 OPENAI_MODEL。",
+  "generated_at": "2026-06-25T07:37:37.502Z",
+  "one_liner": "YQN 每日重点简报样例已生成：2026-07-02 可用于检查历史归档、搜索、主题筛选和分享打印。",
+  "executive_summary": "这是一篇明确标记为 Demo 样例的日报，用来验证 YQN 每日重点简报的上线可用性。它不是商业事实简报，不替代真实每日情报；真实运行必须配置 OpenAI API Key 和 OPENAI_MODEL。",
   "items": [
     {
       "id": "sample_2026-07-02_1",
@@ -48,27 +48,12 @@
       "source_url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-07-02-3",
       "source_published_at": "2026-07-02T00:00:00.000Z",
       "source_domain": "ad.xiaohongshu.com"
-    },
-    {
-      "id": "sample_2026-07-02_4",
-      "topic": "personal_business",
-      "title": "个人生意信号：轻资产服务更适合做小步验证 · 2026-07-02",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "medium",
-      "confidence": "medium",
-      "source_title": "验收公开来源 4 · 2026-07-02",
-      "source_url": "https://indiehackers.com/yqn-acceptance-2026-07-02-4",
-      "source_published_at": "2026-07-02T00:00:00.000Z",
-      "source_domain": "indiehackers.com"
     }
   ],
   "action_checklist": [
-    "打开今日日报永久链接，确认老板可访问。",
+    "打开今日简报永久链接，确认网页可访问。",
     "搜索“美国仓”并使用主题筛选检查结果。",
-    "点击复制分享链接，再测试打印或保存 PDF。"
+    "点击复制简报摘要，再测试打印或保存 PDF。"
   ],
   "sources": [
     {
@@ -94,18 +79,10 @@
       "url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-07-02-3",
       "domain": "ad.xiaohongshu.com",
       "published_at": "2026-07-02T00:00:00.000Z"
-    },
-    {
-      "topic": "personal_business",
-      "name": "验收公开来源 4",
-      "title": "验收公开来源 4 · 2026-07-02",
-      "url": "https://indiehackers.com/yqn-acceptance-2026-07-02-4",
-      "domain": "indiehackers.com",
-      "published_at": "2026-07-02T00:00:00.000Z"
     }
   ],
   "model": "sample-backfill",
-  "run_id": "28145207575",
+  "run_id": "local-1782373057498",
   "source_window_hours": 72,
   "is_low_signal_day": false,
   "encryption_enabled": false

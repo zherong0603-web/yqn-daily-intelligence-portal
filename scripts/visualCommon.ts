@@ -6,6 +6,9 @@ import { chromium, type Browser, type Page } from "playwright";
 
 export const repoRoot = process.cwd();
 export const systemChrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+export const artifactRoot = process.env.YQN_ARTIFACT_ROOT || "/Users/wzr/Desktop/Codex-本次对话-YQN简报";
+export const visualAuditRoot = path.join(artifactRoot, "visual-audit");
+export const deliveryRoot = path.join(artifactRoot, "delivery");
 export const desktop = { width: 1440, height: 1200 };
 export const tablet = { width: 768, height: 1024 };
 export const mobile = { width: 390, height: 844 };

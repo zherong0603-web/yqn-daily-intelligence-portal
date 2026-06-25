@@ -1,67 +1,63 @@
-# YQN Codex Visual Delivery Standard
+# YQN Codex 视觉交付标准
 
-This repository requires a complete visual delivery package for every UI, web page, dashboard, portal, report, visual audit, or user-facing presentation task.
+## 交付定位
 
-## Non-Negotiable Rule
+本项目交付的是“YQN 每日重点简报”，不是作战台、不是线索质量看板、不是工程 dashboard。
 
-Do not hand off only README updates, commit hashes, test logs, screenshot filenames, or engineering notes. A valid handoff must include a complete package that a non-technical reviewer can open, inspect, and send to ChatGPT for second-pass acceptance.
+## 必须生成的可视化产物
 
-## Required Package
+统一输出到：
 
-The required package path is:
+`/Users/wzr/Desktop/Codex-本次对话-YQN简报/`
 
-`delivery/YQN_Daily_Intelligence_Portal_V4_1_Delivery.zip`
+必须包含：
 
-The zip must include:
+1. 首页截图。
+2. 单日简报页截图。
+3. 历史归档截图。
+4. 按月归档截图。
+5. 按周归档截图。
+6. 自动化配置页截图。
+7. 系统说明页截图。
+8. 手机首页截图。
+9. 手机单日简报截图。
+10. 日常使用录屏。
+11. 自动化配置录屏。
+12. zip 交付包。
 
-- `offline-preview/` with `open-here.html`.
-- `dist/` with the current deployable static site.
-- `visual-audit/full-page/` with V4.1 desktop and mobile full-page screenshots.
-- `visual-audit/sections/` with focused screenshots for key modules.
-- `recordings/desktop-30s-operator-flow.mp4`.
-- `recordings/desktop-30s-setup-flow.mp4`.
-- `docs/UI说明文档.md`.
-- `docs/视觉验收包.md`.
-- `docs/代码验收包.md`.
-- `docs/交付说明.md`.
-- `docs/甲方3分钟使用说明.md`.
-- `docs/配置向导说明.md`.
-- `docs/老板演示话术.md`.
-- `docs/下一轮优化建议.md`.
-- `README_OPEN_FIRST.md`.
-- `MANIFEST.json`.
+## UI 标准
 
-## Required Commands
+- 主标题必须是 `YQN 每日重点简报`。
+- 主导航只能有：今日简报、历史简报、自动化配置、系统说明。
+- 首页必须优先显示今日一句话判断和今日 3 个重点。
+- Demo 样例必须清楚标注。
+- 每条重点必须显示来源。
+- 手机端不得横向滚动。
 
-Run these commands before delivery:
+## 文案标准
 
-- `npm test`
-- `npm run build:sample`
-- `npm run visual:audit`
-- `npm run visual:sections`
-- `npm run visual:record`
-- `npm run package:delivery`
-- `npm run verify:delivery`
+使用：
 
-Record truthful pass/fail results in `代码验收包.md` and `MANIFEST.json`.
+- 复制简报摘要
+- 复制行动要点
+- 查看 30 秒摘要
+- 重点摘要
+- 今日建议动作
+- 需要关注
+- 建议推进
+- 完成自动化配置
+- 复制分享文案
 
-## Visual Acceptance Angles
+避免：
 
-Every UI delivery must be checked from five angles:
+- 对象化分享按钮
+- 旧作战台主标题
+- 线索质量看板
+- 测试看板
 
-1. Foolproof operation: the user knows the first click, second read, and third share/archive action.
-2. Information architecture: executive summary, MQL quality, organization gaps, content experiments, personal daily, history, and security/config status are visibly separated.
-3. Visual design: YQN blue, gold accent, dark command-center surface, logistics route or signal metaphors, consistent tokens and components.
-4. Executive readability: a leader can understand the conclusion within 30 seconds.
-5. Long-term use: history, search, month/week archive, report navigation, mobile layout, and print flow remain clear as reports accumulate.
+## 安全标准
 
-## Security Rules
-
-- Never include real API keys, webhook URLs, signing secrets, access passphrases, customer lists, quotes, contracts, internal costs, or private leads.
-- GitHub Pages is public; `noindex` and `robots.txt` are not access control.
-- Encryption mode is client-side encryption, not enterprise login.
-- If encryption is enabled, full report content and search index must not appear in plaintext in `dist` or delivery package.
-
-## If Something Fails
-
-If screenshots, recording, release upload, or zip generation fails, report the exact failed step and reason. Do not fabricate screenshots, recordings, releases, or test results.
+- 不展示 secret 值。
+- 不在包里泄露 OpenAI API Key、飞书 webhook、页面密码。
+- 保留 noindex 和 robots.txt。
+- 文档必须提醒 GitHub Pages 不是企业级登录系统。

@@ -96,7 +96,7 @@ export const topicLabels: Record<Topic, string> = {
   ai: "AI / 自动化",
   ecommerce_us_warehouse: "跨境 / 美国仓",
   xiaohongshu_b2b: "小红书 / B2B",
-  personal_business: "赚钱 / 创业",
+  personal_business: "兼容 / 旧主题",
 };
 
 export const briefDraftJsonSchema = {

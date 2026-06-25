@@ -23,7 +23,7 @@ function runUrl(): string {
 export function feishuCard(mode: NotifyMode) {
   const config = readRuntimeConfig();
   const site = config.siteUrl || "GitHub Pages";
-  const title = mode === "success" ? `每日重点简报 · ${config.date}` : `每日简报生成失败 · ${config.date}`;
+  const title = mode === "success" ? `YQN 每日重点简报 · ${config.date}` : `每日简报生成失败 · ${config.date}`;
   const headerColor = mode === "success" ? "green" : "red";
   const failureStage = readEnv("FAILURE_STAGE") || "测试、生成、构建或部署阶段";
   const previews = (readEnv("BRIEF_PREVIEW") || "网页已更新，可从入口查看。").split("\n").slice(0, 3);
@@ -36,8 +36,8 @@ export function feishuCard(mode: NotifyMode) {
         {
           tag: "action",
           actions: [
-            { tag: "button", text: { tag: "plain_text", content: "阅读今日网页" }, type: "primary", url: `${site}/reports/${config.date}/` },
-            { tag: "button", text: { tag: "plain_text", content: "历史归档" }, url: `${site}/archive/` },
+            { tag: "button", text: { tag: "plain_text", content: "查看今日简报" }, type: "primary", url: `${site}/reports/${config.date}/` },
+            { tag: "button", text: { tag: "plain_text", content: "查看历史简报" }, url: `${site}/archive/` },
           ],
         },
       ]

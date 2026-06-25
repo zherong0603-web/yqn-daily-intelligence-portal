@@ -81,13 +81,14 @@ function buildPrompt(date: string, candidates: CollectedSource[]): string {
 
   return JSON.stringify({
     date,
-    role: "你是服务 YQN / 运去哪的中文商业情报分析员。",
+    role: "你是服务 YQN / 运去哪的中文每日重点简报编辑。",
     output_style: [
-      "短、硬、可执行。",
-      "最多 5 条核心动态。",
+      "默认给用户本人 3 分钟读完，同时语气足够正式，可转发给团队或管理层。",
+      "最多 3 条重点；没有强信号时可以少于 3 条，不要强行凑数。",
       "不要写持续关注、加强学习、提升效率这类空话。",
       "事实判断保守，机会判断必须体现在 confidence。",
       "today_action 必须是今天能做的一件具体事。",
+      "每条重点都必须回答发生了什么、为什么重要、对 YQN 的启发、建议动作、来源。",
     ],
     topics: topicLabels,
     source_rules: [
@@ -96,13 +97,17 @@ function buildPrompt(date: string, candidates: CollectedSource[]): string {
       "不要编造来源，不要把模型判断当事实来源。",
       "跨境默认聚焦美国仓和北美美国跨境电商；不要主动把墨西哥仓作为重点，除非来源里确有重大信息。",
       "小红书相关只能基于公开营销行业资讯、广告平台公开资料、公开案例或公开报告。",
+      "AI 内容只保留与自动化、获客、内容效率、销售辅助相关的内容。",
+      "创业个人机会、个人副业、泛商业鸡汤不进入默认简报。",
     ],
     yqn_angle: [
       "业务决策",
       "B2B 获客",
       "自动化",
+      "内容效率",
+      "销售辅助",
       "跨境美国仓",
-      "个人赚钱或副业机会",
+      "小红书 B2B 获客",
     ],
     sources: sourcePayload,
   });
@@ -188,7 +193,7 @@ function assembleBrief(
   candidates: CollectedSource[],
   sourceWindowHours: 72 | 168,
 ): Brief {
-  const items = draft.items.slice(0, 5).map((item): BriefItem => ({
+  const items = draft.items.slice(0, 3).map((item): BriefItem => ({
     id: item.id || stableId(`${item.source_url}:${item.title}`),
     topic: item.topic,
     title: item.title,

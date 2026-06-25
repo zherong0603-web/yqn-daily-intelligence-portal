@@ -1,16 +1,15 @@
 {
-  "generated_at": "2026-06-25T06:31:38.250Z",
+  "generated_at": "2026-06-25T07:55:28.367Z",
   "latest_date": "2026-08-01",
   "reports": [
     {
       "date": "2026-08-01",
-      "one_liner": "验收样例日报已生成：2026-08-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
-      "item_count": 4,
+      "one_liner": "YQN 每日重点简报样例已生成：2026-08-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
+      "item_count": 3,
       "topics": [
         "ai",
         "ecommerce_us_warehouse",
-        "xiaohongshu_b2b",
-        "personal_business"
+        "xiaohongshu_b2b"
       ],
       "is_low_signal_day": false,
       "source_window_hours": 72,
@@ -18,13 +17,12 @@
     },
     {
       "date": "2026-07-02",
-      "one_liner": "验收样例日报已生成：2026-07-02 可用于检查历史归档、搜索、主题筛选和分享打印。",
-      "item_count": 4,
+      "one_liner": "YQN 每日重点简报样例已生成：2026-07-02 可用于检查历史归档、搜索、主题筛选和分享打印。",
+      "item_count": 3,
       "topics": [
         "ai",
         "ecommerce_us_warehouse",
-        "xiaohongshu_b2b",
-        "personal_business"
+        "xiaohongshu_b2b"
       ],
       "is_low_signal_day": false,
       "source_window_hours": 72,
@@ -32,13 +30,12 @@
     },
     {
       "date": "2026-07-01",
-      "one_liner": "验收样例日报已生成：2026-07-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
-      "item_count": 4,
+      "one_liner": "YQN 每日重点简报样例已生成：2026-07-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
+      "item_count": 3,
       "topics": [
         "ai",
         "ecommerce_us_warehouse",
-        "xiaohongshu_b2b",
-        "personal_business"
+        "xiaohongshu_b2b"
       ],
       "is_low_signal_day": false,
       "source_window_hours": 72,
