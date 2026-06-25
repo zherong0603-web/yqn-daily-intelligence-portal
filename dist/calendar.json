@@ -16,5 +16,11 @@
     "item_count": 4,
     "is_low_signal_day": false,
     "url": "reports/2026-07-01/"
+  },
+  {
+    "date": "2026-06-25",
+    "item_count": 0,
+    "is_low_signal_day": true,
+    "url": "reports/2026-06-25/"
   }
 ]

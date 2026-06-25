@@ -118,5 +118,15 @@
     "source_domain": "indiehackers.com",
     "url": "reports/2026-07-01/",
     "search_text": "个人生意信号：轻资产服务更适合做小步验证 · 2026-07-01 验收样例日报已生成：2026-07-01 可用于检查历史归档、搜索、主题筛选和分享打印。 这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。 样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。 YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。 今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。 验收公开来源 4 · 2026-07-01 indiehackers.com"
+  },
+  {
+    "date": "2026-06-25",
+    "topic": "",
+    "title": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+    "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+    "source_title": "",
+    "source_domain": "",
+    "url": "reports/2026-06-25/",
+    "search_text": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。 系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。 在 GitHub Actions Secrets 配置 OPENAI_API_KEY。 回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。 不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
   }
 ]

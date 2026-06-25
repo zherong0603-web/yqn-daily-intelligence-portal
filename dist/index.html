@@ -590,11 +590,15 @@ input::placeholder { color: var(--dim); }
     <div class="archive-date"><strong>2026-07-01</strong><span class="badge strong">Demo</span></div>
     <span class="field-body">验收样例日报已生成：2026-07-01 可用于检查历史归档、搜索、主题筛选和分享打印。</span>
     <span class="dim">AI / 自动化 / 跨境 / 美国仓 / 小红书 / B2B / 赚钱 / 创业</span>
+  </a><a class="archive-row" href="reports/2026-06-25/">
+    <div class="archive-date"><strong>2026-06-25</strong><span class="badge low">低信号</span></div>
+    <span class="field-body">OpenAI API 尚未配置，今天只发布系统自检型低信号日报。</span>
+    <span class="dim">低信号日</span>
   </a></div>
       <aside class="module-card">
         <h3>稳定入口</h3>
-        <div class="archive-tools"><a class="button" href="archive/2026/08/">2026/08 月</a><a class="button" href="archive/2026/07/">2026/07 月</a></div>
-        <div class="archive-tools"><a class="button" href="archive/2026/week-31/">2026/week-31</a><a class="button" href="archive/2026/week-27/">2026/week-27</a></div>
+        <div class="archive-tools"><a class="button" href="archive/2026/08/">2026/08 月</a><a class="button" href="archive/2026/07/">2026/07 月</a><a class="button" href="archive/2026/06/">2026/06 月</a></div>
+        <div class="archive-tools"><a class="button" href="archive/2026/week-31/">2026/week-31</a><a class="button" href="archive/2026/week-27/">2026/week-27</a><a class="button" href="archive/2026/week-26/">2026/week-26</a></div>
         <h3 class="section">日历视图</h3>
         <div class="calendar"><a href="reports/2026-08-01/">
     <strong>2026-08-01</strong><br>
@@ -605,6 +609,9 @@ input::placeholder { color: var(--dim); }
   </a><a href="reports/2026-07-01/">
     <strong>2026-07-01</strong><br>
     <span class="muted">4 条 · Demo</span>
+  </a><a href="reports/2026-06-25/">
+    <strong>2026-06-25</strong><br>
+    <span class="muted">0 条 · 低信号</span>
   </a></div>
       </aside>
     </div>
@@ -629,7 +636,7 @@ input::placeholder { color: var(--dim); }
     <div class="section-header"><div><p class="kicker">Setup Status</p><h2>配置与安全状态</h2></div><a class="button gold" href="setup/">打开配置向导</a></div>
     <div class="status-grid">
       <div class="status-card missing"><span class="metric-label">OPENAI_API_KEY</span><strong>缺失</strong></div>
-      <div class="status-card ok"><span class="metric-label">OPENAI_MODEL</span><strong>已配置</strong></div>
+      <div class="status-card missing"><span class="metric-label">OPENAI_MODEL</span><strong>缺失</strong></div>
       <div class="status-card missing"><span class="metric-label">FEISHU_WEBHOOK_URL</span><strong>缺失</strong></div>
       <div class="status-card ok"><span class="metric-label">PAGE_ACCESS_PASSPHRASE</span><strong>未开启加密无需配置</strong></div>
       <div class="status-card missing"><span class="metric-label">BRIEF_ENCRYPTION_ENABLED</span><strong>false</strong></div>
