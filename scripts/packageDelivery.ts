@@ -1,6 +1,7 @@
 import path from "node:path";
+import os from "node:os";
 import { createWriteStream } from "node:fs";
-import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { cp, mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import yazl from "yazl";
 import { buildSite } from "../src/buildSite.js";
 import { repoRoot } from "./visualCommon.js";
@@ -75,16 +76,17 @@ async function buildManifest(commitHash: string): Promise<Record<string, unknown
 async function main(): Promise<void> {
   await rm(packageRoot, { recursive: true, force: true });
   await mkdir(packageRoot, { recursive: true });
+  const buildDist = await mkdtemp(path.join(os.tmpdir(), "yqn-delivery-dist-"));
   await buildSite({
     repoRoot,
     dataDir: "data/briefs",
-    distDir: "dist",
+    distDir: buildDist,
     encryptionEnabled: false,
     siteUrl: pagesUrl,
   });
 
-  await cp(path.join(repoRoot, "dist"), path.join(packageRoot, "dist"), { recursive: true });
-  await cp(path.join(repoRoot, "dist"), path.join(packageRoot, "offline-preview"), { recursive: true });
+  await cp(buildDist, path.join(packageRoot, "dist"), { recursive: true });
+  await cp(buildDist, path.join(packageRoot, "offline-preview"), { recursive: true });
   await rewriteOfflineBases(path.join(packageRoot, "offline-preview"));
   await writeFile(path.join(packageRoot, "offline-preview", "open-here.html"), `<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>打开 YQN Growth War Room</title><meta http-equiv="refresh" content="0; url=./index.html"></head>
@@ -144,6 +146,7 @@ ${pagesUrl}
     zip.outputStream.pipe(createWriteStream(zipPath)).on("close", resolve).on("error", reject);
     zip.end();
   });
+  await rm(buildDist, { recursive: true, force: true });
   console.log(`[delivery] wrote ${path.relative(repoRoot, zipPath)}`);
 }
 
