@@ -1,0 +1,179 @@
+{
+  "date": "2026-06-25",
+  "generated_at": "2026-06-25T05:47:49.167Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-06-25T05:47:49.163Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean shipping recovery still a ways off despite US-Iran ceasefire pact",
+      "url": "https://www.supplychaindive.com/news/ocean-shipping-recovery-still-a-ways-off-despite-us-iran-ceasefire-pact/823426/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T19:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger is working with suppliers to optimize costs",
+      "url": "https://www.supplychaindive.com/news/kroger-is-working-with-suppliers-to-optimize-costs/823545/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T14:28:56.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx launches life sciences suite as healthcare push lifts earnings",
+      "url": "https://www.supplychaindive.com/news/fedex-launches-life-sciences-suite-as-healthcare-push-lifts-earnings/823632/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T14:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "J&J commits $1B to expand contact lens production in Florida",
+      "url": "https://www.supplychaindive.com/news/jj-commits-1b-to-expand-contact-lens-production-in-florida/823420/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T11:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How low T-shirt pricing impacts supplier labor conditions",
+      "url": "https://www.supplychaindive.com/news/how-low-t-shirt-pricing-impacts-supplier-labor-conditions/823396/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-23T15:35:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Manufacturers balance costs, inventory amid uncertain rate environment",
+      "url": "https://www.supplychaindive.com/news/manufacturing-interest-rates-supply-chain-costs-2026/823516/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-23T14:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Steel, aluminum makers face records gauntlet for new US tariff exemptions",
+      "url": "https://www.supplychaindive.com/news/steel-aluminum-makers-face-records-gauntlet-for-new-us-tariff-exemptions/823112/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-23T14:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kraft Heinz merges procurement and supply chain units",
+      "url": "https://www.supplychaindive.com/news/kraft-heinz-merges-procurement-and-supply-chain-units/823436/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-23T14:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lands’ End warehouse system rollout spurs temporary backlog",
+      "url": "https://www.supplychaindive.com/news/lands-end-warehouse-system-rollout-spurs-temporary-backlog/823208/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-23T14:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US launches Section 301 probe into Germany over drug pricing policies",
+      "url": "https://www.supplychaindive.com/news/us-launches-section-301-probe-into-germany-over-drug-pricing-policies/823422/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-22T16:59:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Europe is pushing back on Washington’s chip war",
+      "url": "https://techcrunch.com/2026/06/24/europe-is-pushing-back-on-washingtons-chip-war/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-25T00:08:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Samsara tracking label targets $35B cargo theft problem",
+      "url": "https://www.freightwaves.com/news/samsara-tracking-label-cargo-theft",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T00:04:31.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Former Infosys chief has a new startup that wants to challenge the IT services world",
+      "url": "https://techcrunch.com/2026/06/24/former-infosys-chief-has-a-new-startup-that-wants-to-challenge-the-it-services-world/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-24T23:26:52.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cerebras stock plunges after earnings as CEO says margin outlook was misunderstood",
+      "url": "https://techcrunch.com/2026/06/24/cerebras-stock-plunges-after-earnings-as-ceo-says-margin-outlook-was-misunderstood/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-24T22:41:41.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI was supposed to kill engineering jobs, but new data suggests they’re the most resilient",
+      "url": "https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-24T21:56:41.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI researchers continue to leave Google for its rivals",
+      "url": "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-24T21:42:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The memory chip crunch is paying off for this US company",
+      "url": "https://techcrunch.com/2026/06/24/the-memory-chip-crunch-is-paying-off-for-this-u-s-company/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-24T21:30:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Companies are scrambling to stop employees from maxing out AI budgets with small tasks",
+      "url": "https://techcrunch.com/2026/06/24/companies-are-scrambling-to-stop-employees-from-maxing-out-ai-budgets-with-small-tasks/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-24T20:09:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Fuel Forecast: Is Your Budget Ready for $70 Brent?",
+      "url": "https://www.freightwaves.com/news/freight-fuel-forecast-is-your-budget-ready-for-70-brent",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-24T18:40:51.000Z"
+    }
+  ],
+  "model": "gpt-4.1-mini-api-key-missing",
+  "run_id": "28149700765",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
