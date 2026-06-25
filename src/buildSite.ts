@@ -12,6 +12,7 @@ import {
   browserDecryptAndSearchScript,
   lockedReportScript,
   renderBriefStatic,
+  renderExecutivePage,
   renderHome,
   renderLockedReport,
   renderPage,
@@ -145,10 +146,19 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
   await writeTextFile(
     path.join(distDir, "index.html"),
     renderPage({
-      title: "YQN Daily Intelligence Portal",
+      title: "YQN Growth War Room",
       basePath,
       body: renderHome(latest ? { ...latest, encryption_enabled: encrypted } : undefined, desc.map((brief) => ({ ...brief, encryption_enabled: encrypted })), encrypted),
       script: browserDecryptAndSearchScript(),
+    }),
+  );
+
+  await writeTextFile(
+    path.join(distDir, "executive", "index.html"),
+    renderPage({
+      title: "管理层摘要 · YQN Growth War Room",
+      basePath,
+      body: renderExecutivePage(latest ? { ...latest, encryption_enabled: encrypted } : undefined, encrypted),
     }),
   );
 

@@ -12,6 +12,10 @@
     "preview": "tsx scripts/preview.ts",
     "visual:audit": "tsx scripts/visualAudit.ts",
     "visual:audit:local": "tsx scripts/visualAudit.ts --local",
+    "visual:sections": "tsx scripts/visualSections.ts",
+    "visual:record": "tsx scripts/visualRecord.ts",
+    "package:delivery": "tsx scripts/packageDelivery.ts",
+    "verify:delivery": "tsx scripts/verifyDelivery.ts",
     "notify:success": "tsx src/sendFeishu.ts success",
     "notify:failure": "tsx src/sendFeishu.ts failure",
     "typecheck": "tsc --noEmit",
@@ -25,10 +29,14 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
+    "@types/yauzl": "^3.4.0",
+    "@types/yazl": "^3.3.1",
     "playwright": "^1.61.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.14"
+    "vitest": "^4.0.14",
+    "yauzl": "^3.4.0",
+    "yazl": "^3.3.1"
   },
   "engines": {
     "node": ">=20"

@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-06-25T03:22:32.413Z",
+  "mode": "local-build",
+  "viewport": {
+    "desktop": {
+      "width": 1440,
+      "height": 1200
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "files": [
+    "desktop-home.png",
+    "desktop-executive.png",
+    "desktop-mql-quality.png",
+    "desktop-org-gap.png",
+    "desktop-content-experiment.png",
+    "desktop-personal-daily.png",
+    "desktop-report-2026-07-01.png",
+    "desktop-archive.png",
+    "desktop-month-2026-07.png",
+    "desktop-week-2026-W27.png",
+    "desktop-search-results.png",
+    "desktop-search-empty.png",
+    "desktop-topic-filter.png",
+    "desktop-encrypted-locked.png",
+    "desktop-encrypted-unlocked.png",
+    "tablet-home.png",
+    "tablet-executive.png",
+    "mobile-home.png",
+    "mobile-report-2026-07-01.png"
+  ]
+}
