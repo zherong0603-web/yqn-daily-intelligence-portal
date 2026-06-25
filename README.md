@@ -35,7 +35,7 @@ GitHub Secrets：
 
 GitHub Variables：
 
-- `OPENAI_MODEL`：真实 AI 简报必填，填写你 OpenAI API 账号实际可用的模型名。
+- `OPENAI_MODEL`：真实 AI 简报必填，建议先填 `gpt-4o-mini`；如果账号不可用，再换成你 OpenAI API 账号实际可用的模型名。
 - `SITE_URL`：正式 Pages 地址。
 - `BRIEF_ENCRYPTION_ENABLED`：是否开启客户端加密，填 `true` 或 `false`。
 - `OPENAI_WEB_SEARCH_ENABLED`：是否开启额外搜索增强，填 `true` 或 `false`。
@@ -46,6 +46,8 @@ GitHub Variables：
 ChatGPT Pro 不等于 OpenAI API 免费额度。自动日报必须使用 OpenAI API Key，API 按 OpenAI 官方计费规则单独计费。
 
 系统不会使用 ChatGPT 网页 cookie、模拟登录、浏览器自动化或绕过官方 API 的方式。
+
+当前代码已支持 OpenAI API。更低成本的默认建议是 `gpt-4o-mini`。Google Gemini API 和阿里云 Model Studio 有免费额度路线，但需要新增对应 API 接入后才能用于自动日报。
 
 ## 安全边界
 
