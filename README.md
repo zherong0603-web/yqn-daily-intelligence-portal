@@ -1,200 +1,52 @@
 # YQN Daily Intelligence Portal
 
-YQN Daily Intelligence Portal is a Chinese daily business-intelligence portal for AI, US warehouse cross-border ecommerce, Xiaohongshu/B2B acquisition, and personal business opportunities.
+这是给 YQN / 运去哪使用的每日商业情报门户：每天由 GitHub Actions 定时生成日报，发布到 GitHub Pages，并通过飞书机器人发送入口卡片。
 
-It is built as a static site: GitHub Pages + GitHub Actions + public sources + OpenAI API + Feishu webhook. There is no database, backend server, login system, browser automation, cookie scraping, or paid cloud dependency.
+## 关键原则
 
-## Current Assumptions
+- 站点是静态网页：GitHub Pages + GitHub Actions + OpenAI API + 飞书机器人。
+- 不使用 ChatGPT 网页 cookie、模拟登录、浏览器自动化或绕过官方 API 的方式。
+- ChatGPT Pro 不等于 OpenAI API 免费额度；自动日报必须使用 OpenAI API Key，API 按 OpenAI 官方计费规则单独计费。
+- OpenAI 模型名不写死；真实生成必须从 GitHub Variable `OPENAI_MODEL` 读取。
+- 如果没有配置 `OPENAI_MODEL`，真实生成会清楚失败，提示到 GitHub Variables 添加。
+- sample/backfill 验收模式不需要 OpenAI API Key，也不需要模型。
+- GitHub Pages 是公开网页；`noindex` 和 `robots.txt` 不是访问控制。
 
-- Repository: `zherong0603-web/yqn-daily-intelligence-portal`
-- Production architecture: static files deployed by GitHub Pages.
-- Daily timezone: `Asia/Taipei`.
-- Daily start time: `09:37 Asia/Taipei`.
-- GitHub Actions cron: `37 1 * * *`, because GitHub cron uses UTC and does not support a timezone field.
-- Target deployment and Feishu success notification window: `09:45-10:05 Asia/Taipei`, assuming public sources and OpenAI API respond normally.
-- OpenAI model is not hard-coded. Configure repository variable `OPENAI_MODEL` explicitly before real daily generation.
-- ChatGPT Pro membership is not API credit. OpenAI API usage is billed separately by token.
-- V1 uses GitHub Pages, GitHub Actions, public sources, and the OpenAI API only. Tavily, Serper, and OpenAI Web Search are treated as future optional enhancements; missing keys disable them and must not break the run.
-- `dist` is kept in the repository only as an initial Pages-safe static shell. The daily workflow copies the freshly built Pages artifact to `_pages`, restores tracked `dist`, and commits only `data/briefs`.
+## 必须配置
 
-## Required GitHub Secrets
+GitHub Secrets：
 
-Set these in GitHub repository Settings → Secrets and variables → Actions.
+- `OPENAI_API_KEY`：真实 AI 日报必填。
+- `FEISHU_WEBHOOK_URL`：需要飞书通知时必填；缺失时只跳过通知，不阻断网页部署。
+- `FEISHU_SIGN_SECRET`：飞书机器人如果启用签名校验才需要。
+- `PAGE_ACCESS_PASSPHRASE`：只有开启加密模式时必填。
 
-- `OPENAI_API_KEY`: required for a normal AI-generated brief. If absent, the workflow publishes an honest low-signal configuration brief instead of inventing intelligence.
-- `FEISHU_WEBHOOK_URL`: optional but recommended. If missing, notification is skipped with a warning.
-- `FEISHU_SIGN_SECRET`: optional. If set, the Feishu custom robot request includes `timestamp` and `sign`.
-- `PAGE_ACCESS_PASSPHRASE`: required only when `BRIEF_ENCRYPTION_ENABLED=true`.
-- `TAVILY_API_KEY` / `SERPER_API_KEY`: optional future enhancement keys. V1 reads their configured/not-configured state but does not require or call them.
+GitHub Variables：
 
-Do not put secrets in code, logs, HTML, JSON, README, or artifacts.
+- `OPENAI_MODEL`：真实 AI 日报必填，填写你 OpenAI API 账号里可用的模型名。
+- `SITE_URL`：正式 Pages 地址。
+- `BRIEF_ENCRYPTION_ENABLED`：是否开启客户端加密，填 `true` 或 `false`。
+- `OPENAI_WEB_SEARCH_ENABLED`：是否开启额外搜索增强，填 `true` 或 `false`。
+- `MAX_SEARCH_CALLS`：搜索增强最大调用次数。
 
-## Repository Variables
+## 日常运行
 
-- `OPENAI_MODEL`: required for normal daily generation. There is no hard-coded default model.
-- `BRIEF_ENCRYPTION_ENABLED`: `true` or `false`, defaults to `false`.
-- `SITE_URL`: optional. Recommended value after Pages is active: `https://zherong0603-web.github.io/yqn-daily-intelligence-portal`.
-- `OPENAI_WEB_SEARCH_ENABLED`: optional future enhancement flag, defaults to `false`.
-- `MAX_SEARCH_CALLS`: optional future enhancement limit, defaults to `0`.
+- 定时生成：每天 09:37 Asia/Taipei。
+- 通知窗口：目标 09:45-10:05 Asia/Taipei。
+- 成功通知：飞书只发送入口卡片，不发送完整正文。
+- 失败通知：飞书发送失败阶段、Actions 链接和下一步建议。
+- 飞书失败不会阻断 GitHub Pages 部署。
 
-## Daily Workflow
+## 本地命令
 
-Workflow name: `Daily Briefing Portal`.
+- `npm test`：类型检查和单元测试。
+- `npm run build:sample`：用验收样例数据构建站点。
+- `npm run visual:audit`：生成 Playwright 全页面截图。
+- `npm run visual:audit:local`：本地模式生成截图。
+- `npm run preview`：本地预览 `dist`。
 
-It runs every day at `09:37 Asia/Taipei` and can also be triggered manually with `workflow_dispatch`.
+## 安全边界
 
-Main steps:
+不要把客户名单、报价、合同、内部成本、API Key、飞书 webhook、签名密钥、页面访问密码或私密线索写入仓库、页面、日志、截图、artifact、飞书卡片或聊天。
 
-1. Checkout repository.
-2. Setup Node.js 20.
-3. Run `npm ci`.
-4. Run `npm test`.
-5. Generate `data/briefs/YYYY-MM-DD.json`.
-6. Build static site into `dist`.
-7. Commit only `data/briefs` back to `main`. Re-running the same day updates that date file.
-8. Deploy `dist` to GitHub Pages.
-9. Send Feishu success card.
-10. On failure, send Feishu failure card with the failed stage and Actions run link.
-
-Feishu failure does not block a successful Pages deployment. Tests, model output schema validation, or Pages deployment failures block the workflow.
-
-## Downgrade Logic
-
-- Missing `OPENAI_API_KEY`: publish a low-signal configuration brief with no factual items and no invented sources; configure the secret and manually rerun the same date.
-- Missing `OPENAI_MODEL`: fail with a clear setup error for normal daily generation; sample backfill mode does not require a model.
-- Missing `FEISHU_WEBHOOK_URL`: deploy Pages normally and log a warning.
-- Feishu HTTP/network failure: keep workflow successful after Pages deployment and log a warning.
-- Missing `FEISHU_SIGN_SECRET`: send unsigned Feishu custom robot payload.
-- Missing `PAGE_ACCESS_PASSPHRASE` while `BRIEF_ENCRYPTION_ENABLED=true`: fail before publishing, because encrypted mode cannot be safe without a passphrase.
-- Missing Tavily/Serper/OpenAI Web Search optional keys: disable those optional enhancements; V1 continues with RSS/Atom/public webpage sources.
-- Some source feeds fail: skip failed sources with a warning and continue with the remaining public sources.
-- Too few sources: publish an honest low-signal day.
-- Model output fails schema/source validation: retry once, then fail the workflow. This protects the site from garbage content.
-
-## Manual Backfill
-
-Open GitHub → Actions → `Daily Briefing Portal` → Run workflow.
-
-Optional input:
-
-- `brief_date`: `YYYY-MM-DD`
-
-If empty, the workflow uses the current date in `Asia/Taipei`.
-
-## Public Page Warning
-
-GitHub Pages is public. Do not publish customer lists, quotes, contracts, internal costs, API keys, webhooks, signing secrets, access passwords, private lead details, or other sensitive business data.
-
-This repository writes `noindex` meta tags and `robots.txt` with `Disallow: /`, but that is not access control. Use encryption mode for sensitive daily reading, and still avoid publishing private raw data.
-
-## Optional Encryption Mode
-
-Set:
-
-- `BRIEF_ENCRYPTION_ENABLED=true`
-- `PAGE_ACCESS_PASSPHRASE` as a GitHub Secret
-
-When enabled:
-
-- Full report JSON is encrypted before publish.
-- Historical report content is encrypted.
-- `search-index.json` is encrypted.
-- Public pages show only site name, date, and limited preview.
-- Browser unlock uses WebCrypto AES-GCM.
-- The AES key is derived locally from the passphrase with PBKDF2-SHA256.
-- The passphrase is never written into the repo, HTML source, JSON, logs, or Feishu cards.
-
-## Content Rules
-
-Each normal brief has up to five core items. Each item must include:
-
-- topic badge
-- signal strength
-- confidence
-- title
-- what happened
-- why it matters
-- YQN insight
-- today action
-- public source title, domain, URL, and published time
-
-The generator rejects model output that references a `source_url` outside the collected public source set. If sources are insufficient, the system generates an honest low-signal day instead of inventing news.
-
-## Source Policy
-
-Sources live in `config/sources.yaml`.
-
-Each source includes:
-
-- `topic`
-- `name`
-- `url`
-- `type: rss | atom | webpage`
-- `enabled`
-- `weight`
-
-The collector supports RSS, Atom, and curated public webpages. It does not log into sites, bypass restrictions, use ChatGPT web cookies, or scrape Xiaohongshu with unstable or rule-breaking crawlers.
-
-For Xiaohongshu topics, without an official authorized API this system uses only public marketing industry information, public ad-platform pages, public cases, and public reports. It cannot guarantee coverage of in-platform hot notes.
-
-## Local Commands
-
-Install:
-
-```bash
-npm ci
-```
-
-Test:
-
-```bash
-npm test
-```
-
-Build from sample data:
-
-```bash
-npm run build:sample
-```
-
-Generate real daily brief:
-
-```bash
-OPENAI_API_KEY=... npm run generate
-npm run build
-```
-
-## File Structure
-
-```text
-.github/workflows/daily-briefing.yml
-config/sources.yaml
-data/briefs/
-data/samples/
-dist/
-src/
-  collectSources.ts
-  generateBrief.ts
-  buildSite.ts
-  buildArchives.ts
-  buildSearchIndex.ts
-  encryptContent.ts
-  sendFeishu.ts
-  schema.ts
-  config.ts
-  utils/
-```
-
-Generated site outputs include:
-
-- `dist/index.html`
-- `dist/latest.json`
-- `dist/manifest.json`
-- `dist/search-index.json`
-- `dist/calendar.json`
-- `dist/archive/index.html`
-- `dist/archive/YYYY/index.html`
-- `dist/archive/YYYY/MM/index.html`
-- `dist/archive/YYYY/week-WW/index.html`
-- `dist/reports/YYYY-MM-DD/index.html`
-- `dist/reports/YYYY-MM-DD/brief.json`
+开启 `BRIEF_ENCRYPTION_ENABLED=true` 后，完整日报和搜索索引会以客户端加密形式发布；这能减少公开 Pages 上的明文暴露，但不是企业级登录系统。

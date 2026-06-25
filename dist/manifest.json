@@ -1,10 +1,59 @@
 {
-  "generated_at": "2026-06-24T08:29:17.341Z",
-  "latest_date": null,
-  "reports": [],
+  "generated_at": "2026-06-25T02:42:37.900Z",
+  "latest_date": "2026-08-01",
+  "reports": [
+    {
+      "date": "2026-08-01",
+      "one_liner": "验收样例日报已生成：2026-08-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
+      "item_count": 4,
+      "topics": [
+        "ai",
+        "ecommerce_us_warehouse",
+        "xiaohongshu_b2b",
+        "personal_business"
+      ],
+      "is_low_signal_day": false,
+      "source_window_hours": 72,
+      "url": "reports/2026-08-01/"
+    },
+    {
+      "date": "2026-07-02",
+      "one_liner": "验收样例日报已生成：2026-07-02 可用于检查历史归档、搜索、主题筛选和分享打印。",
+      "item_count": 4,
+      "topics": [
+        "ai",
+        "ecommerce_us_warehouse",
+        "xiaohongshu_b2b",
+        "personal_business"
+      ],
+      "is_low_signal_day": false,
+      "source_window_hours": 72,
+      "url": "reports/2026-07-02/"
+    },
+    {
+      "date": "2026-07-01",
+      "one_liner": "验收样例日报已生成：2026-07-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
+      "item_count": 4,
+      "topics": [
+        "ai",
+        "ecommerce_us_warehouse",
+        "xiaohongshu_b2b",
+        "personal_business"
+      ],
+      "is_low_signal_day": false,
+      "source_window_hours": 72,
+      "url": "reports/2026-07-01/"
+    }
+  ],
   "archives": {
-    "months": [],
-    "weeks": []
+    "months": [
+      "2026/08",
+      "2026/07"
+    ],
+    "weeks": [
+      "2026/week-31",
+      "2026/week-27"
+    ]
   },
   "encryption_enabled": false
 }

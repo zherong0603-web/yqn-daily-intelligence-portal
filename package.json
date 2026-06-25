@@ -8,7 +8,10 @@
     "generate": "tsx src/generateBrief.ts",
     "generate:sample-backfill": "tsx src/generateSampleBackfill.ts",
     "build": "tsx src/buildSite.ts",
-    "build:sample": "tsx src/buildSite.ts --data-dir data/samples --dist-dir dist",
+    "build:sample": "tsx src/buildSite.ts --data-dir data/briefs --dist-dir dist",
+    "preview": "tsx scripts/preview.ts",
+    "visual:audit": "tsx scripts/visualAudit.ts",
+    "visual:audit:local": "tsx scripts/visualAudit.ts --local",
     "notify:success": "tsx src/sendFeishu.ts success",
     "notify:failure": "tsx src/sendFeishu.ts failure",
     "typecheck": "tsc --noEmit",
@@ -22,6 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
+    "playwright": "^1.61.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "vitest": "^4.0.14"

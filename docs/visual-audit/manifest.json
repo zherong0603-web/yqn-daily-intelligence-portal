@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-25T02:41:23.367Z",
+  "mode": "local-build",
+  "note": "Screenshots were generated from local build output to verify the V2 UI before GitHub Pages deployment.",
+  "files": [
+    "desktop-home.png",
+    "desktop-report-2026-07-01.png",
+    "desktop-report-2026-07-02.png",
+    "desktop-archive.png",
+    "desktop-month-2026-07.png",
+    "desktop-week-2026-W27.png",
+    "desktop-search-results.png",
+    "desktop-search-empty.png",
+    "desktop-topic-filter.png",
+    "desktop-encrypted-locked.png",
+    "desktop-encrypted-unlocked.png",
+    "mobile-home.png",
+    "mobile-report-2026-07-01.png",
+    "tablet-home.png"
+  ]
+}
