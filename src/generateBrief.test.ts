@@ -18,6 +18,15 @@ function configWithoutOpenAi(): RuntimeConfig {
       openAiWebSearchEnabled: false,
       maxSearchCalls: 0,
     },
+    publicSetupStatus: {
+      openAiApiKeyConfigured: false,
+      openAiModelConfigured: true,
+      feishuWebhookConfigured: false,
+      pageAccessPassphraseConfigured: false,
+      encryptionEnabled: false,
+      openAiWebSearchEnabled: false,
+      maxSearchCalls: 0,
+    },
   };
 }
 

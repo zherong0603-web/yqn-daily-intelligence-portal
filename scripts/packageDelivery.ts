@@ -4,11 +4,11 @@ import { createWriteStream } from "node:fs";
 import { cp, mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import yazl from "yazl";
 import { buildSite } from "../src/buildSite.js";
-import { repoRoot } from "./visualCommon.js";
+import { applyPublicRepoVariablesForLocalBuild, repoRoot } from "./visualCommon.js";
 
 const deliveryRoot = path.join(repoRoot, "delivery");
-const packageRoot = path.join(deliveryRoot, "YQN_Daily_Intelligence_Portal_V3_Delivery");
-const zipPath = path.join(deliveryRoot, "YQN_Daily_Intelligence_Portal_V3_Delivery.zip");
+const packageRoot = path.join(deliveryRoot, "YQN_Daily_Intelligence_Portal_V4_1_Delivery");
+const zipPath = path.join(deliveryRoot, "YQN_Daily_Intelligence_Portal_V4_1_Delivery.zip");
 const pagesUrl = "https://zherong0603-web.github.io/yqn-daily-intelligence-portal/";
 const actionsUrl = "https://github.com/zherong0603-web/yqn-daily-intelligence-portal/actions/workflows/daily-briefing.yml";
 
@@ -57,8 +57,11 @@ async function buildManifest(commitHash: string): Promise<Record<string, unknown
   })));
   return {
     generated_at: new Date().toISOString(),
+    delivery_version: "V4.1",
     commit_hash: commitHash,
     pages_url: pagesUrl,
+    setup_url: `${pagesUrl}setup/`,
+    boss_url: `${pagesUrl}boss/`,
     actions_url: actionsUrl,
     files: fileEntries,
     contains_full_page_screenshots: fileEntries.some((entry) => entry.path.startsWith("visual-audit/full-page/") && entry.path.endsWith(".png")),
@@ -74,6 +77,7 @@ async function buildManifest(commitHash: string): Promise<Record<string, unknown
 }
 
 async function main(): Promise<void> {
+  applyPublicRepoVariablesForLocalBuild();
   await rm(packageRoot, { recursive: true, force: true });
   await mkdir(packageRoot, { recursive: true });
   const buildDist = await mkdtemp(path.join(os.tmpdir(), "yqn-delivery-dist-"));
@@ -101,7 +105,16 @@ async function main(): Promise<void> {
   await cp(path.join(repoRoot, "docs", "visual-audit", "sections"), path.join(packageRoot, "visual-audit", "sections"), { recursive: true });
   await cp(path.join(repoRoot, "docs", "visual-audit", "recordings"), path.join(packageRoot, "recordings"), { recursive: true });
   await mkdir(path.join(packageRoot, "docs"), { recursive: true });
-  const docs = ["UI说明文档.md", "视觉验收包.md", "代码验收包.md", "交付说明.md", "甲方3分钟使用说明.md", "下一轮优化建议.md"];
+  const docs = [
+    "交付说明.md",
+    "甲方3分钟使用说明.md",
+    "配置向导说明.md",
+    "视觉验收包.md",
+    "代码验收包.md",
+    "UI说明文档.md",
+    "老板演示话术.md",
+    "下一轮优化建议.md",
+  ];
   for (const doc of docs) {
     await cp(path.join(repoRoot, doc), path.join(packageRoot, "docs", doc));
   }
@@ -109,28 +122,49 @@ async function main(): Promise<void> {
   const commitHash = (await import("node:child_process")).execSync("git rev-parse HEAD", { cwd: repoRoot, encoding: "utf8" }).trim();
   const readme = `# 先打开这个文件
 
-这是 YQN Daily Intelligence Portal V3 可视化交付包。
+这是 YQN Daily Intelligence Portal V4.1 可视化交付包。
 
-## 先看什么
+## 第一步打开什么
 
-1. 双击 \`offline-preview/open-here.html\`，打开离线网页预览。
-2. 打开 \`visual-audit/full-page/\` 看完整页面截图。
-3. 打开 \`visual-audit/sections/\` 看每个关键模块局部截图。
-4. 打开 \`recordings/\` 看 30 秒操作录屏。
-5. 打开 \`docs/视觉验收包.md\` 和 \`docs/代码验收包.md\` 做二次验收。
+双击 \`offline-preview/open-here.html\`，先看离线网页。
 
-## 线上地址
+## 先看哪张截图
 
-${pagesUrl}
+1. \`visual-audit/full-page/desktop-home.png\`：首页。
+2. \`visual-audit/full-page/desktop-setup.png\`：3 分钟配置向导。
+3. \`visual-audit/full-page/desktop-boss.png\`：老板 30 秒摘要。
 
-## 还缺哪些配置
+## 先看哪个录屏
+
+1. \`recordings/desktop-30s-operator-flow.mp4\`：日常使用路径。
+2. \`recordings/desktop-30s-setup-flow.mp4\`：配置向导路径。
+
+## 如何打开离线网页
+
+双击 \`offline-preview/open-here.html\`。离线预览不需要密钥。
+
+## 如何打开线上网页
+
+正式访问地址：${pagesUrl}
+
+配置向导：${pagesUrl}setup/
+
+老板摘要：${pagesUrl}boss/
+
+## 用户还必须手动配什么
 
 - OPENAI_API_KEY：真实 AI 日报必须。
-- OPENAI_MODEL：真实 AI 日报必须。
+- OPENAI_MODEL：真实 AI 日报必须；模型名必须以用户 OpenAI API 账号实际可用为准。
 - FEISHU_WEBHOOK_URL：需要飞书通知时必须。
 - PAGE_ACCESS_PASSPHRASE：开启加密模式时必须。
 
-这些配置必须由用户在 GitHub Secrets / Variables 手动填写，不能发到聊天里，也不能写进仓库。
+## 哪些不能由 Codex 代填
+
+API Key、飞书 webhook、页面密码都不能发到聊天里，也不能写进代码。它们只能由用户本人填到 GitHub Secrets。
+
+## 这版是否可以发老板
+
+Demo 演示可以发老板看产品形态。真实日报要等 OPENAI_API_KEY 和 OPENAI_MODEL 配好、手动测试成功后再正式发。
 `;
   await writeFile(path.join(packageRoot, "README_OPEN_FIRST.md"), readme, "utf8");
 

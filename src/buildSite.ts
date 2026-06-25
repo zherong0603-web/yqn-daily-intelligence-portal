@@ -10,12 +10,14 @@ import { ensureDir, listJsonFiles, readJsonFile, resetDir, writeJsonFile, writeT
 import {
   basePathFromSiteUrl,
   browserDecryptAndSearchScript,
+  renderBossPage,
   lockedReportScript,
   renderBriefStatic,
   renderExecutivePage,
   renderHome,
   renderLockedReport,
   renderPage,
+  renderSetupPage,
 } from "./utils/html.js";
 
 export interface BuildSiteOptions {
@@ -148,8 +150,31 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
     renderPage({
       title: "YQN Growth War Room",
       basePath,
-      body: renderHome(latest ? { ...latest, encryption_enabled: encrypted } : undefined, desc.map((brief) => ({ ...brief, encryption_enabled: encrypted })), encrypted),
+      body: renderHome(
+        latest ? { ...latest, encryption_enabled: encrypted } : undefined,
+        desc.map((brief) => ({ ...brief, encryption_enabled: encrypted })),
+        encrypted,
+        config.publicSetupStatus,
+      ),
       script: browserDecryptAndSearchScript(),
+    }),
+  );
+
+  await writeTextFile(
+    path.join(distDir, "setup", "index.html"),
+    renderPage({
+      title: "3 分钟配置向导 · YQN Growth War Room",
+      basePath,
+      body: renderSetupPage(config.publicSetupStatus),
+    }),
+  );
+
+  await writeTextFile(
+    path.join(distDir, "boss", "index.html"),
+    renderPage({
+      title: "老板 30 秒摘要 · YQN Growth War Room",
+      basePath,
+      body: renderBossPage(latest ? { ...latest, encryption_enabled: encrypted } : undefined, encrypted),
     }),
   );
 
@@ -158,7 +183,7 @@ export async function buildSite(options: BuildSiteOptions = {}): Promise<void> {
     renderPage({
       title: "管理层摘要 · YQN Growth War Room",
       basePath,
-      body: renderExecutivePage(latest ? { ...latest, encryption_enabled: encrypted } : undefined, encrypted),
+      body: renderExecutivePage(latest ? { ...latest, encryption_enabled: encrypted } : undefined, encrypted, config.publicSetupStatus),
     }),
   );
 

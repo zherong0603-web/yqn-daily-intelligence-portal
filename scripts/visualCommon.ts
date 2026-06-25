@@ -1,5 +1,6 @@
 import http from "node:http";
 import path from "node:path";
+import { execSync } from "node:child_process";
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { chromium, type Browser, type Page } from "playwright";
 
@@ -8,6 +9,7 @@ export const systemChrome = "/Applications/Google Chrome.app/Contents/MacOS/Goog
 export const desktop = { width: 1440, height: 1200 };
 export const tablet = { width: 768, height: 1024 };
 export const mobile = { width: 390, height: 844 };
+export const githubRepository = "zherong0603-web/yqn-daily-intelligence-portal";
 
 const contentTypes: Record<string, string> = {
   ".html": "text/html; charset=utf-8",
@@ -50,6 +52,18 @@ export async function serve(root: string): Promise<{ baseUrl: string; close: () 
 
 export async function launchBrowser(): Promise<Browser> {
   return chromium.launch(existsSync(systemChrome) ? { executablePath: systemChrome } : {});
+}
+
+export function applyPublicRepoVariablesForLocalBuild(): void {
+  for (const name of ["OPENAI_MODEL", "BRIEF_ENCRYPTION_ENABLED", "OPENAI_WEB_SEARCH_ENABLED", "MAX_SEARCH_CALLS", "SITE_URL"]) {
+    if (process.env[name]) continue;
+    try {
+      const value = execSync(`gh variable get ${name} --repo ${githubRepository}`, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+      if (value) process.env[name] = value;
+    } catch {
+      // Local visual builds can still run without GitHub CLI variable access.
+    }
+  }
 }
 
 export async function screenshotFullPage(

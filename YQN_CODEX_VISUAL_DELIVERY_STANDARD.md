@@ -10,20 +10,23 @@ Do not hand off only README updates, commit hashes, test logs, screenshot filena
 
 The required package path is:
 
-`delivery/YQN_Daily_Intelligence_Portal_V3_Delivery.zip`
+`delivery/YQN_Daily_Intelligence_Portal_V4_1_Delivery.zip`
 
 The zip must include:
 
 - `offline-preview/` with `open-here.html`.
 - `dist/` with the current deployable static site.
-- `visual-audit/full-page/` with desktop, tablet, mobile full-page screenshots.
+- `visual-audit/full-page/` with V4.1 desktop and mobile full-page screenshots.
 - `visual-audit/sections/` with focused screenshots for key modules.
-- `recordings/desktop-30s-operator-flow.mp4` or `recordings/desktop-30s-operator-flow.webm`.
+- `recordings/desktop-30s-operator-flow.mp4`.
+- `recordings/desktop-30s-setup-flow.mp4`.
 - `docs/UI说明文档.md`.
 - `docs/视觉验收包.md`.
 - `docs/代码验收包.md`.
 - `docs/交付说明.md`.
 - `docs/甲方3分钟使用说明.md`.
+- `docs/配置向导说明.md`.
+- `docs/老板演示话术.md`.
 - `docs/下一轮优化建议.md`.
 - `README_OPEN_FIRST.md`.
 - `MANIFEST.json`.

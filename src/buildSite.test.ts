@@ -27,6 +27,13 @@ describe("static site build", () => {
     await expect(access(path.join(distDir, "archive", "2026", "06", "index.html"))).resolves.toBeUndefined();
   });
 
+  it("creates setup and boss pages for non-technical operation", async () => {
+    const { dataDir, distDir } = await tempWorkspace();
+    await buildSite({ dataDir, distDir, encryptionEnabled: false, siteUrl: "" });
+    await expect(access(path.join(distDir, "setup", "index.html"))).resolves.toBeUndefined();
+    await expect(access(path.join(distDir, "boss", "index.html"))).resolves.toBeUndefined();
+  });
+
   it("encrypts report JSON and search index without leaking full plaintext", async () => {
     const { dataDir, distDir } = await tempWorkspace();
     await buildSite({ dataDir, distDir, encryptionEnabled: true, passphrase: "value-b", siteUrl: "" });

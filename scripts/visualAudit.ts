@@ -2,12 +2,13 @@ import path from "node:path";
 import os from "node:os";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { buildSite } from "../src/buildSite.js";
-import { desktop, launchBrowser, mobile, repoRoot, screenshotFullPage, serve, tablet } from "./visualCommon.js";
+import { applyPublicRepoVariablesForLocalBuild, desktop, launchBrowser, mobile, repoRoot, screenshotFullPage, serve } from "./visualCommon.js";
 
 const auditDir = path.join(repoRoot, "docs", "visual-audit", "full-page");
 const passphrase = "local-visual-audit-passphrase";
 
 async function main(): Promise<void> {
+  applyPublicRepoVariablesForLocalBuild();
   await rm(auditDir, { recursive: true, force: true });
   await mkdir(auditDir, { recursive: true });
 
@@ -23,15 +24,15 @@ async function main(): Promise<void> {
   const browser = await launchBrowser();
   try {
     await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "desktop-home.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/setup/", path.join(auditDir, "desktop-setup.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/boss/", path.join(auditDir, "desktop-boss.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/executive/", path.join(auditDir, "desktop-executive.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/#mql-quality", path.join(auditDir, "desktop-mql-quality.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/#org-gap", path.join(auditDir, "desktop-org-gap.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/#mql-quality", path.join(auditDir, "desktop-mql.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/#content-experiment", path.join(auditDir, "desktop-content-experiment.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/#personal-daily", path.join(auditDir, "desktop-personal-daily.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "desktop-report-2026-07-01.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "desktop-report.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/archive/", path.join(auditDir, "desktop-archive.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/archive/2026/07/", path.join(auditDir, "desktop-month-2026-07.png"), desktop);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/archive/2026/week-27/", path.join(auditDir, "desktop-week-2026-W27.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/archive/2026/07/", path.join(auditDir, "desktop-month.png"), desktop);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/archive/2026/week-27/", path.join(auditDir, "desktop-week.png"), desktop);
     await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "desktop-search-results.png"), desktop, async (page) => {
       await page.fill("#searchInput", "美国仓");
       await page.waitForSelector(".result-row");
@@ -44,10 +45,10 @@ async function main(): Promise<void> {
       await page.selectOption("#topicFilter", "ecommerce_us_warehouse");
       await page.waitForSelector(".result-row");
     });
-    await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "tablet-home.png"), tablet);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/executive/", path.join(auditDir, "tablet-executive.png"), tablet);
     await screenshotFullPage(browser, publicServer.baseUrl, "/", path.join(auditDir, "mobile-home.png"), mobile);
-    await screenshotFullPage(browser, publicServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "mobile-report-2026-07-01.png"), mobile);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/setup/", path.join(auditDir, "mobile-setup.png"), mobile);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/boss/", path.join(auditDir, "mobile-boss.png"), mobile);
+    await screenshotFullPage(browser, publicServer.baseUrl, "/reports/2026-07-01/", path.join(auditDir, "mobile-report.png"), mobile);
   } finally {
     await publicServer.close();
   }
@@ -77,28 +78,28 @@ async function main(): Promise<void> {
 
   await writeFile(path.join(auditDir, "manifest.json"), JSON.stringify({
     generated_at: new Date().toISOString(),
-    mode: "local-build",
-    viewport: { desktop, tablet, mobile },
+    mode: "v4.1-local-build",
+    viewport: { desktop, mobile },
     files: [
       "desktop-home.png",
+      "desktop-setup.png",
+      "desktop-boss.png",
       "desktop-executive.png",
-      "desktop-mql-quality.png",
-      "desktop-org-gap.png",
+      "desktop-mql.png",
       "desktop-content-experiment.png",
-      "desktop-personal-daily.png",
-      "desktop-report-2026-07-01.png",
+      "desktop-report.png",
       "desktop-archive.png",
-      "desktop-month-2026-07.png",
-      "desktop-week-2026-W27.png",
+      "desktop-month.png",
+      "desktop-week.png",
       "desktop-search-results.png",
       "desktop-search-empty.png",
       "desktop-topic-filter.png",
       "desktop-encrypted-locked.png",
       "desktop-encrypted-unlocked.png",
-      "tablet-home.png",
-      "tablet-executive.png",
       "mobile-home.png",
-      "mobile-report-2026-07-01.png"
+      "mobile-setup.png",
+      "mobile-boss.png",
+      "mobile-report.png"
     ],
   }, null, 2));
 }

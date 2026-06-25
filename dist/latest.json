@@ -1,6 +1,6 @@
 {
   "date": "2026-08-01",
-  "generated_at": "2026-06-25T02:44:41.949Z",
+  "generated_at": "2026-06-25T03:39:34.058Z",
   "one_liner": "验收样例日报已生成：2026-08-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
   "executive_summary": "这是一篇明确标记为验收样例的日报，用来验证 YQN Daily Intelligence Portal 的上线可用性。它不是商业事实简报，不替代真实每日情报；真实运行必须配置 OpenAI API Key 和 OPENAI_MODEL。",
   "items": [
@@ -105,7 +105,7 @@
     }
   ],
   "model": "sample-backfill",
-  "run_id": "28143379086",
+  "run_id": "28145207575",
   "source_window_hours": 72,
   "is_low_signal_day": false,
   "encryption_enabled": false

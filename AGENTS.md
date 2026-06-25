@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repository is the production surface for `YQN Daily Intelligence Portal` and the V3 `YQN Growth War Room`.
+This repository is the production surface for `YQN Daily Intelligence Portal` and the V4.1 `YQN Growth War Room`.
 
 ## Operating Rules
 
@@ -18,8 +18,8 @@ For any UI, web page, visual, dashboard, portal, report, archive, screenshot, re
 
 - Produce a complete visual delivery package, not only README, commit, test logs, or file paths.
 - Run and record `npm test`, `npm run build:sample`, `npm run visual:audit`, `npm run visual:sections`, `npm run visual:record`, `npm run package:delivery`, and `npm run verify:delivery`.
-- Generate full-page screenshots, section screenshots, and a 25-40 second operator-flow recording.
-- Package `offline-preview/`, `dist/`, `visual-audit/`, `recordings/`, docs, `README_OPEN_FIRST.md`, and `MANIFEST.json` into `delivery/YQN_Daily_Intelligence_Portal_V3_Delivery.zip`.
+- Generate full-page screenshots, section screenshots, a 25-40 second operator-flow recording, and a 25-40 second setup-flow recording.
+- Package `offline-preview/`, `dist/`, `visual-audit/`, `recordings/`, docs, `README_OPEN_FIRST.md`, and `MANIFEST.json` into `delivery/YQN_Daily_Intelligence_Portal_V4_1_Delivery.zip`.
 - If a recording or screenshot step fails, state the exact failure. Do not claim completion without artifacts.
 - The UI must be judged as a YQN growth command center: foolproof operation, clear business information architecture, executive readability, long-term maintainability, and mobile usability.
 
@@ -33,7 +33,7 @@ See `YQN_CODEX_VISUAL_DELIVERY_STANDARD.md` for the full required package struct
 - `npm run build:sample` builds a sample preview from `data/briefs`.
 - `npm run visual:audit` generates full-page visual screenshots.
 - `npm run visual:sections` generates section screenshots.
-- `npm run visual:record` generates the 30 second operator-flow recording.
+- `npm run visual:record` generates the 30 second operator-flow and setup-flow recordings.
 - `npm run package:delivery` creates the delivery zip.
 - `npm run verify:delivery` verifies delivery package completeness.
 
