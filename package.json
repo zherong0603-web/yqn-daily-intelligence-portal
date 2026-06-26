@@ -16,6 +16,7 @@
     "visual:record": "tsx scripts/visualRecord.ts",
     "package:delivery": "tsx scripts/packageDelivery.ts",
     "verify:delivery": "tsx scripts/verifyDelivery.ts",
+    "setup:wizard": "tsx scripts/localSetupWizard.ts",
     "notify:success": "tsx src/sendFeishu.ts success",
     "notify:failure": "tsx src/sendFeishu.ts failure",
     "typecheck": "tsc --noEmit",

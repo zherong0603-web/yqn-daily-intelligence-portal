@@ -276,6 +276,16 @@ input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgb
         <div class="status-card warn"><span class="muted">BRIEF_ENCRYPTION_ENABLED</span><strong>false</strong></div>
       </div>
     </section>
+    <section class="section panel" data-section="local-setup-wizard">
+      <div class="section-header"><div><p class="kicker">Easiest Safe Path</p><h2>最傻瓜配置方式：本机网页配置助手</h2><p>公开 GitHub Pages 不能直接保存密钥；本机配置助手运行在你的电脑上，可以用现有 GitHub 权限安全写入 Secrets。</p></div></div>
+      <ol class="list">
+        <li>在 Codex 里说：打开本机配置助手。</li>
+        <li>网页会在你的电脑上打开，不是公开网站。</li>
+        <li>把 OpenAI API Key 和飞书 webhook 填进去，点“保存配置”。</li>
+        <li>助手会自动写入 GitHub Secrets，并可立即触发一次日报测试。</li>
+      </ol>
+      <p class="muted section">如果你看到命令行说明，命令是 <code>npm run setup:wizard</code>。正常情况下你不需要自己敲，我可以帮你打开。</p>
+    </section>
     <section class="section setup-step" data-section="setup-openai-key">
     <div class="section-header"><div><p class="kicker">Setup</p><h2>配置 OPENAI_API_KEY</h2></div></div>
     <p><strong>这是干什么的：</strong>让系统每天调用 OpenAI API 生成真实简报。</p>

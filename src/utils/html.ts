@@ -595,6 +595,16 @@ export function renderSetupPage(status?: PublicSetupStatus): string {
         ${StatusCard("BRIEF_ENCRYPTION_ENABLED", setup.encryptionEnabled ? "true" : "false", setup.encryptionEnabled)}
       </div>
     </section>
+    <section class="section panel" data-section="local-setup-wizard">
+      <div class="section-header"><div><p class="kicker">Easiest Safe Path</p><h2>最傻瓜配置方式：本机网页配置助手</h2><p>公开 GitHub Pages 不能直接保存密钥；本机配置助手运行在你的电脑上，可以用现有 GitHub 权限安全写入 Secrets。</p></div></div>
+      <ol class="list">
+        <li>在 Codex 里说：打开本机配置助手。</li>
+        <li>网页会在你的电脑上打开，不是公开网站。</li>
+        <li>把 OpenAI API Key 和飞书 webhook 填进去，点“保存配置”。</li>
+        <li>助手会自动写入 GitHub Secrets，并可立即触发一次日报测试。</li>
+      </ol>
+      <p class="muted section">如果你看到命令行说明，命令是 <code>npm run setup:wizard</code>。正常情况下你不需要自己敲，我可以帮你打开。</p>
+    </section>
     ${SetupStep("OPENAI_API_KEY", "让系统每天调用 OpenAI API 生成真实简报。", "GitHub 仓库 → Settings → Secrets and variables → Actions → Secrets", "New repository secret", "你的 OpenAI API Key", "日报生成失败，页面仍显示 Demo 或配置待完成。", `${SetupButton(secretsUrl, "打开 GitHub Secrets", "gold")}${SetupButton(openAiKeyUrl, "获取 OpenAI API Key")}`, "setup-openai-key")}
     ${SetupStep("OPENAI_MODEL", "告诉系统用哪个 OpenAI API 模型生成简报。", "GitHub 仓库 → Settings → Secrets and variables → Actions → Variables", "New repository variable", "建议先填 gpt-4o-mini；它比 gpt-4.1-mini 更省钱。若账号不可用，再按 OpenAI 模型文档换成账号可用模型。", "Actions 提示模型不可用。", `${SetupButton(variablesUrl, "打开 GitHub Variables", "gold")}${SetupButton(openAiModelsUrl, "查看 OpenAI 模型文档")}`, "setup-openai-model")}
     ${SetupStep("FEISHU_WEBHOOK_URL", "网页生成后，飞书群收到入口卡片。", "飞书群 → 群设置 → 机器人 → 添加自定义机器人；GitHub 里填 Secrets。", "New repository secret", "飞书自定义机器人 webhook 地址。", "网页能更新，但飞书收不到通知。", SetupButton(secretsUrl, "打开 GitHub Secrets", "gold"), "setup-feishu")}

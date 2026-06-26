@@ -26,6 +26,14 @@
 
 ## 必须配置
 
+最傻瓜的配置方式是在本机打开网页配置助手：
+
+```bash
+npm run setup:wizard
+```
+
+它会打开一个 `127.0.0.1` 开头的本机网页。你在网页里填 API Key 和飞书 webhook，助手会用当前电脑已有的 GitHub 权限写入 GitHub Secrets。密钥不会写进公开网页、仓库、日志或聊天。
+
 GitHub Secrets：
 
 - `OPENAI_API_KEY`：真实 AI 简报必填。
