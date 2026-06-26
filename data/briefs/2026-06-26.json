@@ -1,0 +1,179 @@
+{
+  "date": "2026-06-26",
+  "generated_at": "2026-06-26T05:52:36.296Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-06-26T05:52:36.293Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "JM Smucker eyes margin boost with lower green coffee commodity costs",
+      "url": "https://www.supplychaindive.com/news/jm-smucker-eyes-margin-boost-with-lower-green-coffee-commodity-costs/823725/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T15:55:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Manufacturing grows at fastest rate since 2021 amid big job cuts",
+      "url": "https://www.supplychaindive.com/news/manufacturing-grows-at-fastest-rate-since-2021-amid-big-job-cuts/823651/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T15:38:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CSX completes Baltimore tunnel expansion, shipper benefits expected",
+      "url": "https://www.supplychaindive.com/news/csx-completes-baltimore-tunnel-expansion-shipper-benefits-expected/823680/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T15:16:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Claire’s opens Illinois distribution center to boost inventory flow",
+      "url": "https://www.supplychaindive.com/news/claires-opens-illinois-distribution-center-to-boost-inventory-flow/823665/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T14:13:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx to send tariff refunds to customers starting in August",
+      "url": "https://www.supplychaindive.com/news/fedex-to-send-tariff-refunds-to-customers-starting-in-august/823677/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T13:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean shipping recovery still a ways off despite US-Iran ceasefire pact",
+      "url": "https://www.supplychaindive.com/news/ocean-shipping-recovery-still-a-ways-off-despite-us-iran-ceasefire-pact/823426/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T19:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger is working with suppliers to optimize costs",
+      "url": "https://www.supplychaindive.com/news/kroger-is-working-with-suppliers-to-optimize-costs/823545/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T14:28:56.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx launches life sciences suite as healthcare push lifts earnings",
+      "url": "https://www.supplychaindive.com/news/fedex-launches-life-sciences-suite-as-healthcare-push-lifts-earnings/823632/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T14:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "J&J commits $1B to expand contact lens production in Florida",
+      "url": "https://www.supplychaindive.com/news/jj-commits-1b-to-expand-contact-lens-production-in-florida/823420/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T11:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How low T-shirt pricing impacts supplier labor conditions",
+      "url": "https://www.supplychaindive.com/news/how-low-t-shirt-pricing-impacts-supplier-labor-conditions/823396/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-23T15:35:28.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The White House is asking OpenAI to slow roll the release of its new model over safety concerns",
+      "url": "https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-25T23:34:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FedEx Freight forecasts growth as standalone company",
+      "url": "https://www.freightwaves.com/news/fedex-freight-forecasts-growth-as-standalone-company",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T22:19:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FreightTech Awards nominations open Monday",
+      "url": "https://www.freightwaves.com/news/freighttech-awards-2027-nominations-open-monday",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T21:07:08.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Patronus AI lands $50M to build ‘digital worlds’ that stress-test AI agents",
+      "url": "https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-25T20:19:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Snap-on Acquires Diesel Laptops for $100 Million: A Big Step for Heavy-Duty Truck Repair",
+      "url": "https://www.freightwaves.com/news/snap-on-acquires-diesel-laptops-for-100-million-a-big-step-for-heavy-duty-truck-repair",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T20:07:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Latest move by FMCSA suggests Motus rollout woes are continuing ",
+      "url": "https://www.freightwaves.com/news/latest-move-by-fmcsa-suggests-motus-rollout-woes-are-continuing",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T20:00:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Postal Service buys time before cash runs out, seeks federal subsidy",
+      "url": "https://www.freightwaves.com/news/postal-service-buys-time-before-cash-runs-out-seeks-federal-subsidy",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T19:36:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New attack on cargo vessel in Strait of Hormuz ",
+      "url": "https://www.freightwaves.com/news/new-attack-on-cargo-vessel-in-strait-of-hormuz",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T19:12:29.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "California: First ILWU strike against sugar giant in decades",
+      "url": "https://www.freightwaves.com/news/california-first-ilwu-strike-against-sugar-giant-in-decades",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-25T18:23:38.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28219985701",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
