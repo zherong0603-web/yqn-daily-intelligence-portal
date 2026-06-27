@@ -1,0 +1,179 @@
+{
+  "date": "2026-06-27",
+  "generated_at": "2026-06-27T05:33:09.584Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-06-27T05:33:09.003Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Duluth Trading boosts inventory health with SKU cuts, enterprise planning",
+      "url": "https://www.supplychaindive.com/news/duluth-trading-boosts-inventory-health-with-sku-cuts-enterprise-planning/823796/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-26T14:33:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx Freight turns focus toward high-margin shipments",
+      "url": "https://www.supplychaindive.com/news/fedex-freight-turns-focus-toward-high-margin-shipments/823868/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-26T13:52:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How USPS shippers can navigate changes to pricing, parcel measurements",
+      "url": "https://www.supplychaindive.com/news/how-usps-shippers-can-navigate-changes-to-pricing-parcel-measurements/823336/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-26T13:48:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "JM Smucker eyes margin boost with lower green coffee commodity costs",
+      "url": "https://www.supplychaindive.com/news/jm-smucker-eyes-margin-boost-with-lower-green-coffee-commodity-costs/823725/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T15:55:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Manufacturing grows at fastest rate since 2021 amid big job cuts",
+      "url": "https://www.supplychaindive.com/news/manufacturing-grows-at-fastest-rate-since-2021-amid-big-job-cuts/823651/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T15:38:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CSX completes Baltimore tunnel expansion, shipper benefits expected",
+      "url": "https://www.supplychaindive.com/news/csx-completes-baltimore-tunnel-expansion-shipper-benefits-expected/823680/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T15:16:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Claire’s opens Illinois distribution center to boost inventory flow",
+      "url": "https://www.supplychaindive.com/news/claires-opens-illinois-distribution-center-to-boost-inventory-flow/823665/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T14:13:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx to send tariff refunds to customers starting in August",
+      "url": "https://www.supplychaindive.com/news/fedex-to-send-tariff-refunds-to-customers-starting-in-august/823677/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-25T13:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean shipping recovery still a ways off despite US-Iran ceasefire pact",
+      "url": "https://www.supplychaindive.com/news/ocean-shipping-recovery-still-a-ways-off-despite-us-iran-ceasefire-pact/823426/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T19:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger is working with suppliers to optimize costs",
+      "url": "https://www.supplychaindive.com/news/kroger-is-working-with-suppliers-to-optimize-costs/823545/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-24T14:28:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Trump Admin releases Anthropic  Mythos to be used by more than 100 US companies, agencies",
+      "url": "https://techcrunch.com/2026/06/26/trump-admin-releases-anthropic-mythos-to-be-used-by-more-than-100-us-companies-agencies/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-27T01:01:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$500K bourbon shipment stolen in alleged carrier impersonation scheme",
+      "url": "https://www.freightwaves.com/news/500k-bourbon-shipment-stolen-in-alleged-carrier-impersonation-scheme",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-26T20:28:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Transfix integrates Highway carrier vetting into TMS",
+      "url": "https://www.freightwaves.com/news/transfix-integrates-highway-carrier-vetting-into-tms",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-26T18:44:33.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI limits GPT-5.6 rollout after government request, says restrictions shouldn’t be the norm",
+      "url": "https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-26T18:32:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI poaches Uber India chief to lead its biggest market outside the US",
+      "url": "https://techcrunch.com/2026/06/26/openai-poaches-uber-india-chief-to-lead-its-biggest-market-outside-the-u-s/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-26T18:19:36.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Why everyone from OpenAI to SpaceX is building their own chips (and turning up the heat on Nvidia)",
+      "url": "https://techcrunch.com/video/why-everyone-from-openai-to-spacex-is-building-their-own-chips-and-turning-up-the-heat-on-nvidia/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-26T17:43:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Samsara Ride Along pushes fleet safety AI beyond incident flagging",
+      "url": "https://www.freightwaves.com/news/samsara-ride-along-ai-driver-safety",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-26T16:35:11.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "It’s not about Anthropic vs. OpenAI anymore",
+      "url": "https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-26T16:24:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Port of Long Beach, trucker launch Zero-Emission corridor to Mexico",
+      "url": "https://www.freightwaves.com/news/port-of-long-beach-trucker-launch-zero-emission-corridor-to-mexico",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-26T15:37:00.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28280000273",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
