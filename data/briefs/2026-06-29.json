@@ -1,0 +1,179 @@
+{
+  "date": "2026-06-29",
+  "generated_at": "2026-06-29T06:21:20.452Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-06-29T06:21:19.254Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Duluth Trading boosts inventory health with SKU cuts, enterprise planning",
+      "url": "https://www.supplychaindive.com/news/duluth-trading-boosts-inventory-health-with-sku-cuts-enterprise-planning/823796/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-26T14:33:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx Freight turns focus toward high-margin shipments",
+      "url": "https://www.supplychaindive.com/news/fedex-freight-turns-focus-toward-high-margin-shipments/823868/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-26T13:52:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How USPS shippers can navigate changes to pricing, parcel measurements",
+      "url": "https://www.supplychaindive.com/news/how-usps-shippers-can-navigate-changes-to-pricing-parcel-measurements/823336/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-26T13:48:58.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Ford rehires ‘gray beard’ engineers after AI falls short",
+      "url": "https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-28T19:05:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "China Southern strikes landmark deal for Boeing cargo jets",
+      "url": "https://www.freightwaves.com/news/china-southern-strikes-landmark-deal-for-boeing-cargo-jets",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-28T17:56:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Why Wall Street thinks US memory maker Micron is the next Nvidia",
+      "url": "https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-28T15:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Borderlands Mexico: Port of Brownsville completes $295M ship channel deepening project",
+      "url": "https://www.freightwaves.com/news/borderlands-mexico-port-of-brownsville-completes-295m-ship-channel-deepening-project",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-28T11:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Progressive’s Mandatory ELD Switch? Some Small Trucking Fleets May Be Required to Switch ELD Providers.",
+      "url": "https://www.freightwaves.com/news/progressives-mandatory-eld-switch-some-small-trucking-fleets-may-be-required-to-switch-eld-providers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-27T22:07:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "A $290,000 Tesla Semi for $50,000?? California’s Incentive Stack Is Real, but the Number Hides as Much as It Reveals.",
+      "url": "https://www.freightwaves.com/news/a-290000-tesla-semi-for-50000-californias-incentive-stack-is-real-but-the-number-hides-as-much-as-it-reveals",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-27T21:45:19.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "SoftBank’s CEO isn’t the only one with questions about Elon Musk’s orbital data center hype",
+      "url": "https://techcrunch.com/2026/06/27/softbanks-ceo-isnt-the-only-one-with-questions-about-elon-musks-orbital-data-center-hype/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-27T20:42:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Prime Is Suing the IRS for $11 Million Over Fuel Tax It Paid on Reefer Diesel. The Same Credit It Is Fighting For Is One Small Carriers Can Claim Too.",
+      "url": "https://www.freightwaves.com/news/prime-is-suing-the-irs-for-11-million-over-fuel-tax-it-paid-on-reefer-diesel-the-same-credit-it-is-fighting-for-is-one-small-carriers-can-claim-too",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-27T18:58:52.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple Vision Pro exec is reportedly leaving for OpenAI",
+      "url": "https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-27T16:45:09.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The fittest founder in the room got cancer. Here’s how he used AI to fight back.",
+      "url": "https://techcrunch.com/2026/06/27/the-fittest-founder-in-the-room-got-cancer-heres-how-he-used-ai-to-fight-back/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-27T14:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Asian AI startups launch Mythos-like  models as Anthropic’s export ban drags on",
+      "url": "https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-27T12:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight forwarding manager sentenced for violating U.S. export controls",
+      "url": "https://www.freightwaves.com/news/freight-forwarding-manager-sentenced-for-violating-u-s-export-controls",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-27T11:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Trump Admin releases Anthropic Mythos to be used by more than 100 US companies, agencies",
+      "url": "https://techcrunch.com/2026/06/26/trump-admin-releases-anthropic-mythos-to-be-used-by-more-than-100-us-companies-agencies/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-27T01:01:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$500K bourbon shipment stolen in alleged carrier impersonation scheme",
+      "url": "https://www.freightwaves.com/news/500k-bourbon-shipment-stolen-in-alleged-carrier-impersonation-scheme",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-26T20:28:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Transfix integrates Highway carrier vetting into TMS",
+      "url": "https://www.freightwaves.com/news/transfix-integrates-highway-carrier-vetting-into-tms",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-26T18:44:33.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI limits GPT-5.6 rollout after government request, says restrictions shouldn’t be the norm",
+      "url": "https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-26T18:32:14.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28352737940",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
