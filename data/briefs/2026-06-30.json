@@ -1,0 +1,179 @@
+{
+  "date": "2026-06-30",
+  "generated_at": "2026-06-30T05:50:45.500Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-06-30T05:50:45.498Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Last-mile AI: Pointed at the wrong problems",
+      "url": "https://www.supplychaindive.com/spons/last-mile-ai-pointed-at-the-wrong-problems/823849/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-29T19:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Del Monte faces about $40M headwind from primarily ocean freight",
+      "url": "https://www.supplychaindive.com/news/del-monte-faces-about-40m-headwind-from-primarily-ocean-freight/823783/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-29T15:17:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Toyota North America adjusts supply chain, manufacturing leadership",
+      "url": "https://www.supplychaindive.com/news/toyota-north-america-adjusts-supply-chain-manufacturing-leadership/823798/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-29T15:06:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Majors Management taps AI tool for pricing, inventory and operations",
+      "url": "https://www.supplychaindive.com/news/majors-management-taps-ai-tool-for-pricing-inventory-and-operations/823870/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-29T12:57:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP readies more stringent data requirements for postal imports",
+      "url": "https://www.supplychaindive.com/news/cbp-readies-more-stringent-data-requirements-for-postal-imports/823923/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-29T12:17:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The AI jobs debate just got messier",
+      "url": "https://techcrunch.com/2026/06/29/the-ai-jobs-debate-just-got-messier/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-30T04:01:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Vibe coding platform Base44 launches own model as AI startups seek defensibility",
+      "url": "https://techcrunch.com/2026/06/29/vibe-coding-platform-base44-launches-own-model-as-ai-startups-seek-defensibility/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-30T02:28:41.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "U.S. Bank Freight Payment Index shows spot rates surging 31%",
+      "url": "https://www.freightwaves.com/news/us-bank-freight-payment-index-rates",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T22:36:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "As Brokers Go bankrupt Transportation Collections Has Become About More Than Just Getting Paid.",
+      "url": "https://www.freightwaves.com/news/as-brokers-go-bankrupt-transportation-collections-has-become-about-more-than-just-getting-paid",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T22:26:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DeSantis KOs bill to allow CDL training of some Florida inmates",
+      "url": "https://www.freightwaves.com/news/desantis-kos-bill-to-allow-cdl-training-of-some-florida-inmates",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T22:03:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Yellow Corp. escapes WARN Act payouts",
+      "url": "https://www.freightwaves.com/news/yellow-corp-escapes-warn-act-payouts",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T21:46:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New Trimble TMS for Shippers grows directly out of Transporeon acquisition",
+      "url": "https://www.freightwaves.com/news/new-trimble-tms-for-shippers-grows-directly-out-of-transporeon-acquisition",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T20:31:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Gemini’s personalized AI image generation is now free for US users",
+      "url": "https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-29T20:12:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Can OEM axle weight data and satellite imagery help identify cargo theft?",
+      "url": "https://www.freightwaves.com/news/can-oem-axle-weight-data-and-satellite-imagery-help-identify-cargo-theft",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T19:31:04.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic and Gov. Newsom forge deal allowing California government to use Claude at half price",
+      "url": "https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-29T18:10:26.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "South Korean tech giants commit over $550B to ease ‘RAMageddon’",
+      "url": "https://techcrunch.com/2026/06/29/south-korean-tech-giants-commit-over-550b-to-ease-ramageddon/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-29T18:07:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Arena, the AI leaderboard everyone uses, is now a $100M business",
+      "url": "https://techcrunch.com/2026/06/29/arena-the-ai-leaderboard-everyone-uses-is-now-a-100m-business/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-29T17:39:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Top 5 container line buying into major Europe terminal",
+      "url": "https://www.freightwaves.com/news/top-5-container-line-buying-into-major-europe-terminal",
+      "domain": "freightwaves.com",
+      "published_at": "2026-06-29T17:37:44.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cursor now has a mobile app for guiding your coding agent on the go",
+      "url": "https://techcrunch.com/2026/06/29/cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-06-29T17:03:50.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28423352495",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
