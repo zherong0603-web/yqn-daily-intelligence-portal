@@ -1,89 +1,179 @@
 {
   "date": "2026-07-02",
-  "generated_at": "2026-06-26T08:17:18.234Z",
-  "one_liner": "YQN 每日重点简报样例已生成：2026-07-02 可用于检查历史归档、搜索、主题筛选和分享打印。",
-  "executive_summary": "这是一篇明确标记为 Demo 样例的日报，用来验证 YQN 每日重点简报的上线可用性。它不是商业事实简报，不替代真实每日情报；真实运行必须配置 OpenAI API Key 和 OPENAI_MODEL。",
-  "items": [
-    {
-      "id": "sample_2026-07-02_1",
-      "topic": "ai",
-      "title": "AI 自动化信号：把重复线索分拣固化为每日动作 · 2026-07-02",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "strong",
-      "confidence": "high",
-      "source_title": "验收公开来源 1 · 2026-07-02",
-      "source_url": "https://venturebeat.com/yqn-acceptance-2026-07-02-1",
-      "source_published_at": "2026-07-02T00:00:00.000Z",
-      "source_domain": "venturebeat.com"
-    },
-    {
-      "id": "sample_2026-07-02_2",
-      "topic": "ecommerce_us_warehouse",
-      "title": "美国仓信号：客户更关心退货、补货和异常响应 · 2026-07-02",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "medium",
-      "confidence": "medium",
-      "source_title": "验收公开来源 2 · 2026-07-02",
-      "source_url": "https://supplychaindive.com/yqn-acceptance-2026-07-02-2",
-      "source_published_at": "2026-07-02T00:00:00.000Z",
-      "source_domain": "supplychaindive.com"
-    },
-    {
-      "id": "sample_2026-07-02_3",
-      "topic": "xiaohongshu_b2b",
-      "title": "小红书 B2B 信号：公开投放资料适合转成获客话术 · 2026-07-02",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "medium",
-      "confidence": "medium",
-      "source_title": "验收公开来源 3 · 2026-07-02",
-      "source_url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-07-02-3",
-      "source_published_at": "2026-07-02T00:00:00.000Z",
-      "source_domain": "ad.xiaohongshu.com"
-    }
-  ],
+  "generated_at": "2026-07-02T05:38:47.854Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
   "action_checklist": [
-    "打开今日简报永久链接，确认网页可访问。",
-    "搜索“美国仓”并使用主题筛选检查结果。",
-    "点击复制简报摘要，再测试打印或保存 PDF。"
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
   ],
   "sources": [
     {
       "topic": "ai",
-      "name": "验收公开来源 1",
-      "title": "验收公开来源 1 · 2026-07-02",
-      "url": "https://venturebeat.com/yqn-acceptance-2026-07-02-1",
-      "domain": "venturebeat.com",
-      "published_at": "2026-07-02T00:00:00.000Z"
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-02T05:38:47.851Z"
     },
     {
       "topic": "ecommerce_us_warehouse",
-      "name": "验收公开来源 2",
-      "title": "验收公开来源 2 · 2026-07-02",
-      "url": "https://supplychaindive.com/yqn-acceptance-2026-07-02-2",
+      "name": "Supply Chain Dive",
+      "title": "US blocks quick USMCA extension, putting annual review process into motion",
+      "url": "https://www.supplychaindive.com/news/us-blocks-quick-usmca-extension-putting-annual-review-process-into-motion/823820/",
       "domain": "supplychaindive.com",
-      "published_at": "2026-07-02T00:00:00.000Z"
+      "published_at": "2026-07-01T20:00:00.000Z"
     },
     {
-      "topic": "xiaohongshu_b2b",
-      "name": "验收公开来源 3",
-      "title": "验收公开来源 3 · 2026-07-02",
-      "url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-07-02-3",
-      "domain": "ad.xiaohongshu.com",
-      "published_at": "2026-07-02T00:00:00.000Z"
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US manufacturing expands again in June, but at slower rate than in May",
+      "url": "https://www.supplychaindive.com/news/us-manufacturing-expands-again-in-june-but-at-slower-rate-than-in-may/824239/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-01T16:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CMA CGM to buy FedEx’s contract logistics unit for $1.4B",
+      "url": "https://www.supplychaindive.com/news/cma-cgm-to-buy-fedexs-contract-logistics-unit-for-14b/824222/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-01T15:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Coca-Cola to close Massachusetts bottling plant",
+      "url": "https://www.supplychaindive.com/news/coca-cola-to-close-massachusetts-bottling-plant/824216/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-01T11:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS boosts healthcare network with $48M cross-dock investment",
+      "url": "https://www.supplychaindive.com/news/ups-boosts-healthcare-network-with-48m-cross-dock-investment/824119/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-30T20:03:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "GM invests $275M in Tennessee plant",
+      "url": "https://www.supplychaindive.com/news/gm-invests-275m-in-tennessee-plant/824045/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-30T15:54:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx to return full MD-11 capacity ahead of peak season",
+      "url": "https://www.supplychaindive.com/news/fedex-to-return-full-md-11-capacity-ahead-of-peak-season/824004/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-30T15:18:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP launches first of 2 tariff refund expansions",
+      "url": "https://www.supplychaindive.com/news/cbp-launches-first-of-2-tariff-refund-expansions/824121/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-30T15:01:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "HelloFresh boosts chilled fulfillment capacity via robotics",
+      "url": "https://www.supplychaindive.com/news/hellofresh-boosts-chilled-fulfillment-capacity-via-robotics/823994/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-30T14:13:16.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Advance Auto Parts expands OneRail partnership for same-day fulfillment",
+      "url": "https://www.supplychaindive.com/news/advance-auto-parts-expands-onerail-partnership-for-same-day-fulfillment/824015/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-06-30T11:28:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
+      "url": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-02T05:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Why Trucking Companies Should Hire an Insurance Agent—Not Just Buy Insurance",
+      "url": "https://www.freightwaves.com/news/why-trucking-companies-should-hire-an-insurance-agent-not-just-buy-insurance",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T22:38:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "TQL case on broker transparency heads to oral arguments",
+      "url": "https://www.freightwaves.com/news/tql-case-on-broker-transparency-heads-to-oral-arguments",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T21:16:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CMA CGM hires FedEx executive Moebel to lead Ceva Logistics",
+      "url": "https://www.freightwaves.com/news/cma-cgm-hires-fedex-executive-moebel-to-lead-ceva-logistics",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T21:05:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "July 4th Heat: What It Means for Reefer Capacity and Spot Rates",
+      "url": "https://www.freightwaves.com/news/july-4th-heat-what-it-means-for-reefer-capacity-and-spot-rates",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T21:03:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The C.H. Robinson “U-Turn” Case: What It Means for Broker Liability",
+      "url": "https://www.freightwaves.com/news/the-c-h-robinson-u-turn-case-what-it-means-for-broker-liability",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T21:01:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Fuel Prices: Why They Soar Up Like a Rocket, Fall Like a Feather | Supply Chain Economics",
+      "url": "https://www.freightwaves.com/news/fuel-prices-why-they-soar-up-like-a-rocket-fall-like-a-feather-supply-chain-economics",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T21:01:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Rail Freight Boom: US Intermodal Volume Up, But Speeds Crash [Shocking Data]",
+      "url": "https://www.freightwaves.com/news/rail-freight-boom-us-intermodal-volume-up-but-speeds-crash-shocking-data",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T21:00:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Liability in Trucking: How Bad Legislation Drives Up Costs",
+      "url": "https://www.freightwaves.com/news/liability-in-trucking-how-bad-legislation-drives-up-costs",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-01T20:58:43.000Z"
     }
   ],
-  "model": "sample-backfill",
-  "run_id": "28226086909",
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28568060841",
   "source_window_hours": 72,
-  "is_low_signal_day": false,
+  "is_low_signal_day": true,
   "encryption_enabled": false
 }
