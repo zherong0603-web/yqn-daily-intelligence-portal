@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-05",
+  "generated_at": "2026-07-05T05:46:02.336Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-05T05:46:02.334Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "McCormick gets $28M tariff refund as Iran war raises costs",
+      "url": "https://www.supplychaindive.com/news/mccormick-gets-28m-tariff-refund-as-iran-war-raises-costs/824294/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-02T17:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS chief wants agency to improve end-to-end shipping visibility",
+      "url": "https://www.supplychaindive.com/news/usps-chief-wants-agency-to-improve-end-to-end-shipping-visibility/824353/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-02T16:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Digital twins, software maturity lead manufacturing automation trends",
+      "url": "https://www.supplychaindive.com/news/digital-twins-software-maturity-lead-manufacturing-automation-trends/824288/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-02T14:44:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "South Carolina Ports closing terminal temporarily to rein in costs",
+      "url": "https://www.supplychaindive.com/news/south-carolina-ports-closing-terminal-temporarily-to-rein-in-costs/824130/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-02T11:17:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
+      "url": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T20:55:25.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
+      "url": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T18:00:05.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Alibaba reportedly bans employees from using Claude Code",
+      "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T16:32:08.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
+      "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T15:51:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The only AI glossary you’ll need this year",
+      "url": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-03T21:20:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari",
+      "url": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-03T18:43:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Mark Zuckerberg tells staff that AI agents haven’t progressed as quickly as he’d hoped",
+      "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-02T23:38:10.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Highway, post-Montgomery, requiring ELD hookups for all carriers",
+      "url": "https://www.freightwaves.com/news/highway-post-montgomery-requiring-eld-hookups-for-all-carriers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-02T22:33:11.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Jersey Mike’s IPO illustrates how bad the AI hype has become",
+      "url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-02T20:11:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Former FMC chief Sola to lead Thorn Run LatAm business team",
+      "url": "https://www.freightwaves.com/news/former-fmc-chief-sola-to-lead-thorn-run-latam-business-team",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-02T19:27:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Idaho closes its doors to non-domiciled CDL drivers ",
+      "url": "https://www.freightwaves.com/news/idaho-closes-its-doors-to-non-domiciled-cdl-drivers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-02T18:48:45.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta quietly launches vibe-coded gaming app Pocket",
+      "url": "https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-02T18:44:02.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic is discussing a new custom chip with Samsung",
+      "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-02T18:31:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Ceva Logistics poised to acquire European final-mile courier Paack",
+      "url": "https://www.freightwaves.com/news/ceva-logistics-poised-to-acquire-european-final-mile-courier-paack",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-02T17:59:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Former Army contractor convicted in $1.1 million Fort Bliss MRE theft",
+      "url": "https://www.freightwaves.com/news/former-army-contractor-convicted-in-1-1-million-fort-bliss-mre-theft",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-02T17:51:59.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28731064115",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
