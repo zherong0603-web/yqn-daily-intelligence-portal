@@ -1,0 +1,115 @@
+{
+  "date": "2026-07-06",
+  "generated_at": "2026-07-06T06:07:55.965Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-06T06:07:55.962Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amazon will stop accepting new customers for Mechanical Turk",
+      "url": "https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-05T17:43:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Borderlands Mexico: Cargo theft falls, but attacks on truckers turn deadlier",
+      "url": "https://www.freightwaves.com/news/borderlands-mexico-cargo-theft-falls-but-attacks-on-truckers-turn-deadlier",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-05T11:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
+      "url": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T20:55:25.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
+      "url": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T18:00:05.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Alibaba reportedly bans employees from using Claude Code",
+      "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T16:32:08.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
+      "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-04T15:51:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The only AI glossary you’ll need this year",
+      "url": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-03T21:20:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari",
+      "url": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-03T18:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "CBP Cargo Systems Messaging Service",
+      "title": "Cargo Systems Messaging Service",
+      "url": "https://www.cbp.gov/trade/automated/cargo-systems-messaging-service",
+      "domain": "cbp.gov",
+      "published_at": "2026-07-06T06:07:54.343Z"
+    },
+    {
+      "topic": "xiaohongshu_b2b",
+      "name": "小红书聚光平台公开页",
+      "title": "小红书聚光",
+      "url": "https://ad.xiaohongshu.com/",
+      "domain": "ad.xiaohongshu.com",
+      "published_at": "2026-07-06T06:07:55.088Z"
+    },
+    {
+      "topic": "xiaohongshu_b2b",
+      "name": "小红书商业动态公开页",
+      "title": "你访问的页面不见了",
+      "url": "https://www.xiaohongshu.com/enterprise",
+      "domain": "xiaohongshu.com",
+      "published_at": "2026-07-06T06:07:54.394Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28771424862",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
