@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-07",
+  "generated_at": "2026-07-07T05:48:33.416Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-07T05:48:33.322Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lovesac taps contract freight to navigate higher fuel costs",
+      "url": "https://www.supplychaindive.com/news/lovesac-taps-contract-freight-to-navigate-higher-fuel-costs/824255/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-06T14:38:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "La-Z-Boy advances cost-cutting distribution revamp",
+      "url": "https://www.supplychaindive.com/news/la-z-boy-advances-cost-cutting-distribution-revamp/824251/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-06T13:46:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kenvue surpasses 2025 plastic reduction target, falls short on recyclability",
+      "url": "https://www.supplychaindive.com/news/kenvue-surpasses-2025-plastic-reduction-target-falls-short-on-recyclabilit/824378/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-06T11:17:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The ‘first’ AI-run ransomware attack still needed a human",
+      "url": "https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T23:56:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "US investors will soon get access to SK Hynix, another memory maker riding the AI boom",
+      "url": "https://techcrunch.com/2026/07/06/us-investors-will-soon-get-access-to-sk-hynix-another-memory-maker-riding-the-ai-boom/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T23:21:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight car builder Greenbrier sees weaker Q2 earnings",
+      "url": "https://www.freightwaves.com/news/freight-car-builder-greenbrier-sees-weaker-q2-earnings",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T20:31:19.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Vercel CEO Guillermo Rauch on the fight to split off models from agents",
+      "url": "https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T19:49:10.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "You can now customize Siri’s pace and expressivity in the latest iOS 27 beta",
+      "url": "https://techcrunch.com/2026/07/06/you-can-now-customize-siris-pace-and-expressivity-in-the-latest-ios-27-beta/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T19:01:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Every major tech layoff in 2026 that has name-checked AI",
+      "url": "https://techcrunch.com/2026/07/06/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T18:35:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "If you use Google, you’re training its AI. Here’s how to opt out.",
+      "url": "https://techcrunch.com/2026/07/06/if-you-use-google-youre-training-its-ai-heres-how-to-opt-out/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T17:04:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Montgomery lawsuit likely headed back to Illinois district court",
+      "url": "https://www.freightwaves.com/news/montgomery-lawsuit-likely-headed-back-to-illinois-district-court",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T16:52:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Mexico’s new customs rules could expose bad supply-chain data, CrimsonLogic warns",
+      "url": "https://www.freightwaves.com/news/mexicos-new-customs-rules-could-expose-bad-supply-chain-data-crimsonlogic-warns",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T16:35:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft lays off nearly 5,000 employees across Xbox, commercial sales",
+      "url": "https://techcrunch.com/2026/07/06/microsoft-lays-off-nearly-5000-employees-across-xbox-commercial-sales/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T15:32:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Reddit is using LLMs to solve a problem LLMs largely created",
+      "url": "https://techcrunch.com/2026/07/06/reddit-is-using-llms-to-solve-a-problem-llms-largely-created/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T15:22:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Descartes adds last-mile tech in latest deal",
+      "url": "https://www.freightwaves.com/news/descartes-adds-last-mile-tech-in-latest-deal",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T15:16:07.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "A peace deal in the Persian Gulf could signal a return of global shipping to the Suez Canal",
+      "url": "https://www.freightwaves.com/news/a-peace-deal-in-the-persian-gulf-could-signal-a-return-of-global-shipping-to-the-suez-canal",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T14:45:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The prosecution and the pardon that ended the diesel wars",
+      "url": "https://www.freightwaves.com/news/the-prosecution-and-the-pardon-that-ended-the-diesel-wars",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T13:57:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Large logistics firms launch dedicated cargo flights to Chicago area",
+      "url": "https://www.freightwaves.com/news/large-logistics-firms-launch-dedicated-cargo-flights-to-chicago-area",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-06T13:48:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Station F ramps up as a launchpad for Europe’s hottest AI startups",
+      "url": "https://techcrunch.com/2026/07/06/station-f-ramps-up-as-a-launchpad-for-europes-hottest-ai-startups/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-06T13:00:00.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28844609914",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
