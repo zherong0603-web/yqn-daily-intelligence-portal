@@ -1,15 +1,15 @@
 import { z } from "zod";
 
-export const productName = "YQN 跨境增长情报晨报";
-export const robotDisplayName = "YQN 跨境增长情报官";
-export const productSubtitle = "市场｜平台｜竞品｜头仓配｜获客动作";
+export const productName = "YQN 每日 5 分钟";
+export const robotDisplayName = "YQN 每日 5 分钟";
+export const productSubtitle = "行业｜市场｜客户｜平台｜履约";
 
 export const signalCategorySchema = z.enum([
-  "market_policy",
-  "platform_seller",
-  "competitor_fulfillment",
-  "growth_lead",
-  "yqn_action",
+  "market",
+  "platform",
+  "customer",
+  "fulfillment",
+  "yqn_view",
 ]);
 export const sourceCategorySchema = z.enum([
   "domestic_crossborder",
@@ -19,7 +19,7 @@ export const sourceCategorySchema = z.enum([
   "yqn_public",
 ]);
 export const infoRegionSchema = z.enum(["domestic", "overseas", "global"]);
-export const infoTypeSchema = z.enum(["policy", "platform", "competitor", "fulfillment", "growth", "yqn_action"]);
+export const infoTypeSchema = z.enum(["policy", "market", "platform", "customer", "fulfillment", "growth", "yqn_view"]);
 export const confidenceLabelSchema = z.enum(["high", "medium", "low"]);
 export const sourceTypeSchema = z.enum(["official", "media", "public_yqn", "manual_approved"]);
 export const briefModeSchema = z.enum(["demo", "live"]);
@@ -27,10 +27,9 @@ export const briefModeSchema = z.enum(["demo", "live"]);
 export const signalSchema = z.object({
   category: signalCategorySchema,
   title: z.string().min(2).max(80),
-  what_happened: z.string().min(8).max(220),
-  why_it_matters: z.string().min(8).max(180),
-  yqn_use: z.string().min(8).max(180),
-  today_action: z.string().min(6).max(140),
+  what_happened: z.string().min(8).max(170),
+  why_it_matters: z.string().min(8).max(130),
+  yqn_use: z.string().min(8).max(130),
   source_name: z.string().min(2).max(120),
   source_url: z.string().url(),
   source_published_at: z.string().min(4).max(40),
@@ -68,9 +67,8 @@ export const riskFlagSchema = z.enum([
 export const dingtalkBriefSchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   title: z.string().min(8).max(90),
-  one_liner: z.string().min(4).max(36),
+  one_liner: z.string().min(4).max(30),
   signals: z.array(signalSchema).min(5).max(5),
-  action_list: z.array(z.string().min(4).max(120)).length(3),
   sources: z.array(sourceSchema).min(5),
   mode: briefModeSchema,
   generated_at: z.string().datetime(),
@@ -102,11 +100,11 @@ export type DingtalkSourceConfig = z.infer<typeof dingtalkSourceConfigSchema>;
 export type RiskFlag = z.infer<typeof riskFlagSchema>;
 
 export const categoryLabels: Record<SignalCategory, string> = {
-  market_policy: "市场与政策",
-  platform_seller: "平台与卖家",
-  competitor_fulfillment: "竞品与履约",
-  growth_lead: "增长与线索",
-  yqn_action: "YQN 今日可用动作",
+  market: "行业市场",
+  platform: "平台变化",
+  customer: "客户需求",
+  fulfillment: "履约供给",
+  yqn_view: "YQN 观察",
 };
 
 export const confidenceLabels: Record<z.infer<typeof confidenceLabelSchema>, string> = {
@@ -123,7 +121,6 @@ export const dingtalkBriefJsonSchema = {
     "title",
     "one_liner",
     "signals",
-    "action_list",
     "sources",
     "mode",
     "generated_at",
@@ -132,7 +129,7 @@ export const dingtalkBriefJsonSchema = {
   properties: {
     date: { type: "string", pattern: "^\\d{4}-\\d{2}-\\d{2}$" },
     title: { type: "string", minLength: 8, maxLength: 90 },
-    one_liner: { type: "string", minLength: 4, maxLength: 36 },
+    one_liner: { type: "string", minLength: 4, maxLength: 30 },
     signals: {
       type: "array",
       minItems: 5,
@@ -146,7 +143,6 @@ export const dingtalkBriefJsonSchema = {
           "what_happened",
           "why_it_matters",
           "yqn_use",
-          "today_action",
           "source_name",
           "source_url",
           "source_published_at",
@@ -161,31 +157,24 @@ export const dingtalkBriefJsonSchema = {
         properties: {
           category: {
             type: "string",
-            enum: ["market_policy", "platform_seller", "competitor_fulfillment", "growth_lead", "yqn_action"],
+            enum: ["market", "platform", "customer", "fulfillment", "yqn_view"],
           },
           title: { type: "string", minLength: 2, maxLength: 80 },
-          what_happened: { type: "string", minLength: 8, maxLength: 220 },
-          why_it_matters: { type: "string", minLength: 8, maxLength: 180 },
-          yqn_use: { type: "string", minLength: 8, maxLength: 180 },
-          today_action: { type: "string", minLength: 6, maxLength: 140 },
+          what_happened: { type: "string", minLength: 8, maxLength: 170 },
+          why_it_matters: { type: "string", minLength: 8, maxLength: 130 },
+          yqn_use: { type: "string", minLength: 8, maxLength: 130 },
           source_name: { type: "string", minLength: 2, maxLength: 120 },
           source_url: { type: "string", format: "uri" },
           source_published_at: { type: "string", minLength: 4, maxLength: 40 },
           collected_at: { type: "string", format: "date-time" },
           info_region: { type: "string", enum: ["domestic", "overseas", "global"] },
-          info_type: { type: "string", enum: ["policy", "platform", "competitor", "fulfillment", "growth", "yqn_action"] },
+          info_type: { type: "string", enum: ["policy", "market", "platform", "customer", "fulfillment", "growth", "yqn_view"] },
           confidence_label: { type: "string", enum: ["high", "medium", "low"] },
           is_test_data: { type: "boolean" },
           source_summary: { type: "string", minLength: 4, maxLength: 220 },
           is_sensitive: { type: "boolean" },
         },
       },
-    },
-    action_list: {
-      type: "array",
-      minItems: 3,
-      maxItems: 3,
-      items: { type: "string", minLength: 4, maxLength: 120 },
     },
     sources: {
       type: "array",

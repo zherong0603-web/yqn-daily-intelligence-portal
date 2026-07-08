@@ -42,7 +42,6 @@ function textForScan(brief: DingtalkBrief): string {
     title: brief.title,
     one_liner: brief.one_liner,
     signals: brief.signals,
-    action_list: brief.action_list,
   });
 }
 

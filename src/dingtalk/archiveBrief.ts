@@ -81,27 +81,22 @@ function renderArchivePage(
     <header>
       <h1>${escapeHtml(productName)}｜${escapeHtml(brief.date)}</h1>
       <p class="subtitle">${escapeHtml(productSubtitle)}</p>
-      <p class="one">今日主线：${escapeHtml(brief.one_liner)}</p>
+      <p class="one">今日判断：${escapeHtml(brief.one_liner)}</p>
       <p class="meta">生成时间：${escapeHtml(brief.generated_at)}｜模式：${escapeHtml(brief.mode)}</p>
       <span class="status">${escapeHtml(status)}</span>
     </header>
     ${brief.signals.map((signal, index) => `<section class="signal">
       <h2>${index + 1}. ${escapeHtml(categoryLabels[signal.category])}｜${escapeHtml(signal.title)}</h2>
       <dl>
-        <dt>发生了什么</dt><dd>${escapeHtml(signal.what_happened)}</dd>
-        <dt>为什么重要</dt><dd>${escapeHtml(signal.why_it_matters)}</dd>
-        <dt>YQN 可用点</dt><dd>${escapeHtml(signal.yqn_use)}</dd>
-        <dt>今天动作</dt><dd>${escapeHtml(signal.today_action)}</dd>
+        <dt>发生</dt><dd>${escapeHtml(signal.what_happened)}</dd>
+        <dt>影响</dt><dd>${escapeHtml(signal.why_it_matters)}</dd>
+        <dt>YQN 看法</dt><dd>${escapeHtml(signal.yqn_use)}</dd>
         <dt>来源</dt><dd>${renderSourceLink(signal.source_url, `${signal.source_name}｜${signal.source_published_at}`)}</dd>
         <dt>采集时间</dt><dd>${escapeHtml(signal.collected_at)}</dd>
         <dt>区域 / 类型 / 可信度</dt><dd>${escapeHtml(signal.info_region)} / ${escapeHtml(signal.info_type)} / ${escapeHtml(confidenceLabels[signal.confidence_label])}</dd>
         <dt>来源摘要</dt><dd>${escapeHtml(signal.source_summary)}</dd>
       </dl>
     </section>`).join("\n")}
-    <section>
-      <h2>今日 3 个动作</h2>
-      <ol>${brief.action_list.map((action) => `<li>${escapeHtml(action)}</li>`).join("")}</ol>
-    </section>
     <section class="risk">
       <h2>风险提示</h2>
       <p>${escapeHtml(risks)}</p>
@@ -137,7 +132,7 @@ async function loadAllBriefs(repoRoot: string): Promise<DingtalkBrief[]> {
     try {
       briefs.push(validateDingtalkBrief(await readJsonFile(path.join(dir, file))));
     } catch {
-      // Older V1 archives are skipped because V1.1 uses a stricter schema.
+      // Older archives are skipped because the current schema is stricter.
     }
   }
   return briefs;
@@ -160,7 +155,7 @@ function renderIndexPage(briefs: DingtalkBrief[]): string {
   return `<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>YQN 跨境增长情报归档</title>
 <style>body{margin:0;background:#f4f7fb;color:#172033;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:920px;margin:0 auto;padding:32px 18px}.card{display:block;margin:12px 0;padding:18px;border:1px solid #d8e2ef;border-radius:8px;background:#fff;color:inherit;text-decoration:none;box-shadow:0 10px 24px rgba(28,63,101,.08)}h1{margin:0 0 8px}.muted{color:#65758b}.subtitle{color:#65758b;margin:0 0 18px}</style></head>
-<body><main><h1>YQN 跨境增长情报归档</h1><p class="subtitle">${escapeHtml(productSubtitle)}</p>${cards}</main></body></html>`;
+<body><main><h1>YQN 每日 5 分钟归档</h1><p class="subtitle">${escapeHtml(productSubtitle)}</p>${cards}</main></body></html>`;
 }
 
 export async function archiveDingtalkBrief(): Promise<void> {

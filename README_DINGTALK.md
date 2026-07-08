@@ -1,6 +1,6 @@
-# YQN 跨境增长情报晨报 V1.1
+# YQN 每日 5 分钟 V1.2
 
-定位：面向 YQN 团队的钉钉测试群晨报，覆盖市场、平台、竞品、头仓配和获客动作。
+定位：面向 YQN 团队的钉钉测试群晨报，覆盖行业、市场、客户、平台和履约变化。
 
 默认推送时间：工作日 08:45 Asia/Shanghai，对应 GitHub Actions cron `45 0 * * 1-5`。
 
@@ -20,4 +20,4 @@
 - `DINGTALK_FORMAL_GROUP_ENABLED`：仅正式群迁移后才允许设为 `true`。
 
 交付包：
-`delivery/YQN_Crossborder_Intelligence_Brief_V1_1_Delivery.zip`
+`delivery/YQN_Daily_5_Minutes_V1_2_Delivery.zip`

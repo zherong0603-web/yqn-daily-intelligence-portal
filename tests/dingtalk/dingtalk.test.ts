@@ -48,13 +48,19 @@ const sources: DingtalkSourceConfig[] = [
   },
 ];
 
-describe("DingTalk crossborder intelligence brief V1.1", () => {
-  it("builds a valid 1+5+3 demo brief", () => {
+describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
+  it("builds a valid 1+5 demo brief", () => {
     const brief = buildSampleBrief("2026-07-08", sources);
     expect(() => validateDingtalkBrief(brief)).not.toThrow();
-    expect(brief.one_liner.length).toBeLessThanOrEqual(36);
+    expect(brief.one_liner.length).toBeLessThanOrEqual(30);
     expect(brief.signals).toHaveLength(5);
-    expect(brief.action_list).toHaveLength(3);
+    expect(brief.signals.map((signal) => signal.category)).toEqual([
+      "market",
+      "platform",
+      "customer",
+      "fulfillment",
+      "yqn_view",
+    ]);
     expect(brief.signals.every((signal) => signal.source_url.startsWith("https://"))).toBe(true);
     expect(brief.signals.every((signal) => signal.is_test_data)).toBe(true);
   });
@@ -70,9 +76,11 @@ describe("DingTalk crossborder intelligence brief V1.1", () => {
   it("renders Markdown with source links and archive link", () => {
     const brief = buildSampleBrief("2026-07-08", sources);
     const markdown = renderDingtalkMarkdown(brief, { publicBaseUrl: "https://example.com/yqn", archiveAvailable: true });
-    expect(markdown).toContain("【测试版】YQN 跨境增长情报晨报");
-    expect(markdown).toContain("今日 3 个动作");
-    expect(markdown).toContain("出处：");
+    expect(markdown).toContain("【测试版】YQN 每日 5 分钟");
+    expect(markdown).not.toContain("今日 3 个动作");
+    expect(markdown).not.toContain("今天动作");
+    expect(markdown).toContain("完整归档：[打开网页看完整版]");
+    expect(markdown).toContain("- 来源：");
     expect(markdown).toContain("https://example.com/yqn/dingtalk/2026-07-08.html");
     expect(markdown).not.toContain("是否敏感");
     expect(markdown).not.toContain("置信度：");

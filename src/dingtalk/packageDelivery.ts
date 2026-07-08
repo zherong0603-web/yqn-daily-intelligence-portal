@@ -12,8 +12,8 @@ import {
   validationReportPath,
 } from "./config.js";
 
-const packageRootName = "YQN_Crossborder_Intelligence_Brief_V1_1_Delivery";
-const zipName = "YQN_Crossborder_Intelligence_Brief_V1_1_Delivery.zip";
+const packageRootName = "YQN_Daily_5_Minutes_V1_2_Delivery";
+const zipName = "YQN_Daily_5_Minutes_V1_2_Delivery.zip";
 
 async function walk(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -49,8 +49,8 @@ async function buildManifest(root: string, date: string): Promise<Record<string,
   })));
   return {
     generated_at: new Date().toISOString(),
-    product: "YQN 跨境增长情报晨报",
-    version: "V1.1",
+    product: "YQN 每日 5 分钟",
+    version: "V1.2",
     date,
     files: fileEntries,
     contains_markdown_preview: fileEntries.some((entry) => entry.path === "preview/dingtalk-markdown-preview.md"),

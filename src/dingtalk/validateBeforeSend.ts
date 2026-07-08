@@ -115,6 +115,8 @@ export async function runPreSendValidation(
   const noForbiddenDisplay = !markdown.includes("是否敏感：")
     && !markdown.includes("置信度：")
     && !markdown.includes("[查看来源]")
+    && !markdown.includes("今日 3 个动作")
+    && !markdown.includes("今天动作")
     && !/%/.test(markdown);
   const archiveSafeForGroup = archive.ok || markdown.includes("归档暂未启用");
   const messageLengthOk = messageLength <= 1200;

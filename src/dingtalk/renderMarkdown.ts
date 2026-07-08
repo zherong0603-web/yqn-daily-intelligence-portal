@@ -40,28 +40,22 @@ export function renderDingtalkMarkdown(brief: DingtalkBrief, options: DingtalkMa
   lines.push(`# ${buildMessageTitle(brief, testLabel)}`);
   lines.push(productSubtitle);
   lines.push("");
-  lines.push(`**今日主线：** ${brief.one_liner}`);
+  lines.push(archiveAvailable && archiveUrl ? `完整归档：[打开网页看完整版](${archiveUrl})` : "完整归档：归档暂未启用");
+  lines.push("");
+  lines.push(`**今日判断：** ${brief.one_liner}`);
   if (briefHasTestData(brief)) {
     lines.push("> demo 样例，非实时新闻。");
   }
   lines.push("");
 
-  brief.signals.slice(0, 4).forEach((signal, index) => {
+  brief.signals.slice(0, 3).forEach((signal, index) => {
     lines.push(`## ${index + 1}. ${categoryLabels[signal.category]}｜${signal.title}`);
-    lines.push(`出处：[${signal.source_name}｜${shortSourceDate(signal.source_published_at)}](${signal.source_url})`);
-    lines.push(`发生了什么：${signal.what_happened}`);
-    lines.push(`为什么重要：${signal.why_it_matters}`);
-    lines.push(`YQN 可用点：${signal.yqn_use}`);
-    lines.push(`今天动作：${signal.today_action}`);
+    lines.push(`- 发生：${signal.what_happened}`);
+    lines.push(`- 影响：${signal.why_it_matters}`);
+    lines.push(`- YQN 看法：${signal.yqn_use}`);
+    lines.push(`- 来源：[${signal.source_name}｜${shortSourceDate(signal.source_published_at)}](${signal.source_url})`);
     lines.push("");
   });
-
-  lines.push("## 今日 3 个动作");
-  brief.action_list.forEach((action, index) => {
-    lines.push(`${index + 1}. ${action}`);
-  });
-  lines.push("");
-  lines.push(archiveAvailable && archiveUrl ? `完整归档：[${productName}归档](${archiveUrl})` : "完整归档：归档暂未启用");
 
   return lines.join("\n");
 }
@@ -85,7 +79,13 @@ export function renderMarkdownHtml(markdown: string): string {
     if (line.startsWith("> ")) return `<p class="note">${renderInline(line.slice(2))}</p>`;
     const numbered = line.match(/^(\d+)\.\s+(.+)$/);
     if (numbered) return `<p class="numbered"><span>${numbered[1]}.</span>${renderInline(numbered[2] || "")}</p>`;
-    if (/^(时间|出处|发生了什么|为什么重要|YQN 可用点|今天动作|完整归档)：/.test(line)) {
+    if (line.startsWith("- ")) {
+      const content = line.slice(2);
+      const [label, ...rest] = content.split("：");
+      if (rest.length) return `<p class="bullet"><span>•</span><strong>${label}：</strong>${renderInline(rest.join("："))}</p>`;
+      return `<p class="bullet"><span>•</span>${renderInline(content)}</p>`;
+    }
+    if (/^(完整归档)：/.test(line)) {
       const [label, ...rest] = line.split("：");
       return `<p><strong>${label}：</strong>${renderInline(rest.join("："))}</p>`;
     }
@@ -107,11 +107,14 @@ export function renderMarkdownHtml(markdown: string): string {
     .phone { width:min(390px, 100%); margin-top:22px; padding:18px; }
     .label { font-size:13px; color:var(--muted); margin:0 0 10px; font-weight:700; }
     h1 { margin:0 0 12px; font-size:22px; line-height:1.25; }
-    h2 { margin:18px 0 8px; padding-top:10px; border-top:1px solid var(--line); font-size:17px; line-height:1.35; }
-    p { margin:6px 0; line-height:1.52; font-size:15px; }
+    h2 { margin:16px 0 8px; padding-top:10px; border-top:1px solid var(--line); font-size:17px; line-height:1.35; }
+    p { margin:6px 0; line-height:1.5; font-size:15px; }
     strong { font-weight:800; }
     a { color:#0867d9; overflow-wrap:anywhere; }
     .note { color:#5b6472; background:#f5f8fc; border-left:3px solid #9db7da; padding:8px 10px; }
+    .bullet { display:flex; gap:8px; align-items:flex-start; }
+    .bullet span { flex:0 0 auto; color:var(--blue); font-weight:800; }
+    .bullet strong { white-space:nowrap; }
     .numbered { display:flex; gap:8px; }
     .numbered span { flex:0 0 auto; color:var(--blue); font-weight:800; }
     .spacer { height:6px; }

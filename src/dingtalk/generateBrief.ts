@@ -41,21 +41,22 @@ function buildLivePrompt(config: DingtalkRuntimeConfig, sources: DingtalkSourceC
   return JSON.stringify({
     date: config.date,
     title: `${productName}｜${config.date}`,
-    role: "你是 YQN 跨境增长情报晨报编辑，只服务 YQN 团队的公开信息晨报。",
-    format: "固定 1+5+3：今日主线、5条模块信号、3个今日动作。群内只展示前4条，归档展示全部5条。",
+    role: "你是 YQN 每日 5 分钟编辑，只服务 YQN 团队的公开信息晨报。",
+    format: "固定 1+5：今日判断、5条高权重信号。群内只展示前3条，归档展示全部5条。",
     hard_rules: [
       "只输出符合 schema 的 JSON，不输出 Markdown。",
-      "one_liner 必须 36 字以内，说明今天对 YQN 最重要的市场、平台、竞品、头仓配或获客动作变化。",
-      "signals 必须刚好 5 条，category 分别是 market_policy、platform_seller、competitor_fulfillment、growth_lead、yqn_action。",
+      "one_liner 必须 30 字以内，说明今天最值得 YQN 团队花 5 分钟看的判断。",
+      "signals 必须刚好 5 条，category 分别是 market、platform、customer、fulfillment、yqn_view。",
+      "按影响力排序，不要按来源平均分配；群内只会展示前3条，所以前3条必须最值得看。",
+      "筛选标准：老板能看风险和方向，运营能看规则变化，销售能看客户提问，内容能看选题切口，履约能看供给变化。",
       "每条 signal 必须有 source_name、source_url、source_published_at、collected_at、info_region、info_type、confidence_label、is_test_data、source_summary。",
       "source_url 只能使用 sources 里的 url；source_name 必须使用对应 source 的 title。",
       `source_published_at 必须写 YYYY-MM-DD；如果来源没有发布日期，写当天日期 ${config.date}，不要写“来源未注明日期”。`,
       "collected_at 必须是 ISO datetime。",
       "confidence_label 只能是 high、medium、low，不得输出百分比。",
-      "action_list 必须刚好 3 条，分别面向销售、内容、履约或数据。",
       "倒金字塔：发生了什么先写最重要事实。",
       "5W1H：每条至少明确谁、何时、发生什么、为什么影响。",
-      "事实和判断分开：发生了什么只写事实；为什么重要只写影响；YQN 可用点只写业务转化；今天动作只写可执行动作。",
+      "事实和判断分开：发生了什么只写事实；为什么重要只写影响；YQN 可用点只写业务看法。",
       "不允许使用空话：持续关注、提升效率、加强学习、赋能业务、值得重视、市场变化明显。除非后面有具体动作。",
       "不允许把模型判断伪装成事实。",
       "不得出现客户名单、客户联系方式、报价、合同、毛利、内部成本、未公开客户案例、销售聊天记录、私域客户明细。",
@@ -77,7 +78,7 @@ function buildLivePrompt(config: DingtalkRuntimeConfig, sources: DingtalkSourceC
 
 function ensureCategoryCoverage(brief: DingtalkBrief): void {
   const categories = new Set(brief.signals.map((signal) => signal.category));
-  for (const category of ["market_policy", "platform_seller", "competitor_fulfillment", "growth_lead", "yqn_action"]) {
+  for (const category of ["market", "platform", "customer", "fulfillment", "yqn_view"]) {
     if (!categories.has(category as DingtalkBrief["signals"][number]["category"])) {
       throw new Error(`schema validation failed: missing ${category} signal`);
     }

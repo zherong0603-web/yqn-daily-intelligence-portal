@@ -1,4 +1,4 @@
-name: DingTalk Crossborder Intelligence Brief V1.1
+name: DingTalk YQN Daily 5 Minutes V1.2
 
 on:
   schedule:
@@ -158,10 +158,10 @@ jobs:
       - name: Upload delivery artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YQN_Crossborder_Intelligence_Brief_V1_1_Delivery
+          name: YQN_Daily_5_Minutes_V1_2_Delivery
           path: |
-            delivery/YQN_Crossborder_Intelligence_Brief_V1_1_Delivery.zip
-            delivery/YQN_Crossborder_Intelligence_Brief_V1_1_Delivery/
+            delivery/YQN_Daily_5_Minutes_V1_2_Delivery.zip
+            delivery/YQN_Daily_5_Minutes_V1_2_Delivery/
           if-no-files-found: error
 
       - name: Notify owner on failure
