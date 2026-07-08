@@ -1,7 +1,9 @@
-name: DingTalk YQN Daily 5 Minutes V1.2
+name: DingTalk YQN Daily 5 Minutes V1.3
 
 on:
   schedule:
+    # 22:00 UTC equals 06:00 Asia/Shanghai. Preflight only, no DingTalk send.
+    - cron: "0 22 * * 0-4"
     # 00:45 UTC equals 08:45 Asia/Shanghai. GitHub Actions schedule has no timezone field.
     - cron: "45 0 * * 1-5"
   workflow_dispatch:
@@ -9,7 +11,7 @@ on:
       mode:
         description: "demo or live"
         required: true
-        default: "demo"
+        default: "live"
         type: choice
         options:
           - demo
@@ -46,9 +48,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       TZ: Asia/Shanghai
-      BRIEF_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'demo' }}
+      BRIEF_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'live' }}
       BRIEF_DATE: ${{ github.event_name == 'workflow_dispatch' && inputs.brief_date || '' }}
-      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || vars.DINGTALK_DRY_RUN || 'true' }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || (github.event.schedule == '0 22 * * 0-4' && 'true' || vars.DINGTALK_DRY_RUN || 'true') }}
       DINGTALK_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
       DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
       DINGTALK_OWNER_WEBHOOK_URL: ${{ secrets.DINGTALK_OWNER_WEBHOOK_URL }}
@@ -158,10 +160,10 @@ jobs:
       - name: Upload delivery artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YQN_Daily_5_Minutes_V1_2_Delivery
+          name: YQN_Daily_5_Minutes_V1_3_Delivery
           path: |
-            delivery/YQN_Daily_5_Minutes_V1_2_Delivery.zip
-            delivery/YQN_Daily_5_Minutes_V1_2_Delivery/
+            delivery/YQN_Daily_5_Minutes_V1_3_Delivery.zip
+            delivery/YQN_Daily_5_Minutes_V1_3_Delivery/
           if-no-files-found: error
 
       - name: Notify owner on failure

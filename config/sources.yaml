@@ -76,6 +76,17 @@ dingtalk_sources:
     enabled: true
     sample_summary: 国内电商与跨境公开资讯来源，可作为国内跨境出口环境和平台生态补充。
   - category: domestic_crossborder
+    title: EcommerceBytes
+    url: https://www.ecommercebytes.com/
+    fetch_url: https://www.ecommercebytes.com/feed/
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: domestic_seller
+    weight: 10
+    sample_summary: 公开卖家资讯来源，适合观察 USPS、eBay、平台卖家费用和规则变化对跨境卖家的影响。
+  - category: domestic_crossborder
     title: 小红书聚光帮助中心
     url: https://ad.xiaohongshu.com/help/home
     source_type: official
@@ -134,6 +145,28 @@ dingtalk_sources:
     enabled: true
     sample_summary: Amazon 卖家公开学习中心，适合跟踪平台履约、库存、退货和卖家经营规则。
   - category: platform_seller
+    title: Practical Ecommerce
+    url: https://www.practicalecommerce.com/
+    fetch_url: https://www.practicalecommerce.com/feed
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: platform
+    weight: 7
+    sample_summary: 公开电商运营资讯来源，适合补充平台经营、转化、内容和卖家运营趋势。
+  - category: platform_seller
+    title: Retail Dive
+    url: https://www.retaildive.com/
+    fetch_url: https://www.retaildive.com/feeds/news/
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: platform
+    weight: 6
+    sample_summary: 美国零售公开资讯来源，适合观察终端消费、零售平台和卖家需求变化。
+  - category: platform_seller
     title: TikTok Shop Seller Center University
     url: https://seller-us.tiktok.com/university
     source_type: official
@@ -183,6 +216,50 @@ dingtalk_sources:
     auto_fetch: false
     enabled: true
     sample_summary: Amazon Supply Chain 公开服务信息，适合观察平台化头程、仓网、库存和配送表达。
+  - category: competitor_fulfillment
+    title: Supply Chain Dive
+    url: https://www.supplychaindive.com/
+    fetch_url: https://www.supplychaindive.com/feeds/news/
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: us_warehouse
+    weight: 12
+    sample_summary: 供应链与物流公开资讯来源，适合跟踪美国仓、零售供应链、进口、库存和履约网络变化。
+  - category: competitor_fulfillment
+    title: FreightWaves
+    url: https://www.freightwaves.com/
+    fetch_url: https://www.freightwaves.com/feed
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: us_warehouse
+    weight: 11
+    sample_summary: 北美货运与物流公开资讯来源，适合跟踪美国尾程、LTL、承运商、跨境和墨西哥链路变化。
+  - category: competitor_fulfillment
+    title: FreightWaves Mexico
+    url: https://www.freightwaves.com/news/tag/mexico
+    fetch_url: https://www.freightwaves.com/news/tag/mexico/feed
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: mexico_warehouse
+    weight: 8
+    sample_summary: FreightWaves 墨西哥公开专题，适合观察美墨跨境、墨仓、口岸、卡车和近岸供应链变化。
+  - category: competitor_fulfillment
+    title: FreightWaves Cross-Border
+    url: https://www.freightwaves.com/news/tag/cross-border
+    fetch_url: https://www.freightwaves.com/news/tag/cross-border/feed
+    fetch_type: rss
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: mexico_warehouse
+    weight: 8
+    sample_summary: FreightWaves 跨境公开专题，适合观察美墨链路、跨境承运和北美跨境履约变化。
   - category: competitor_fulfillment
     title: FedEx Service Alerts
     url: https://www.fedex.com/en-us/service-alerts.html

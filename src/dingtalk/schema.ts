@@ -22,6 +22,8 @@ export const infoRegionSchema = z.enum(["domestic", "overseas", "global"]);
 export const infoTypeSchema = z.enum(["policy", "market", "platform", "customer", "fulfillment", "growth", "yqn_view"]);
 export const confidenceLabelSchema = z.enum(["high", "medium", "low"]);
 export const sourceTypeSchema = z.enum(["official", "media", "public_yqn", "manual_approved"]);
+export const sourceFetchTypeSchema = z.enum(["rss", "webpage"]);
+export const marketFocusSchema = z.enum(["us_warehouse", "mexico_warehouse", "domestic_seller", "platform", "global"]);
 export const briefModeSchema = z.enum(["demo", "live"]);
 
 export const signalSchema = z.object({
@@ -82,6 +84,10 @@ export const dingtalkSourceConfigSchema = z.object({
   source_type: sourceTypeSchema,
   auto_fetch: z.boolean(),
   enabled: z.boolean().default(true),
+  fetch_url: z.string().url().optional(),
+  fetch_type: sourceFetchTypeSchema.optional(),
+  market_focus: marketFocusSchema.optional(),
+  weight: z.number().min(0).max(20).optional(),
   sample_summary: z.string().max(500).optional(),
 });
 
@@ -92,6 +98,8 @@ export const dingtalkSourcesFileSchema = z.object({
 export type SignalCategory = z.infer<typeof signalCategorySchema>;
 export type SourceCategory = z.infer<typeof sourceCategorySchema>;
 export type SourceType = z.infer<typeof sourceTypeSchema>;
+export type SourceFetchType = z.infer<typeof sourceFetchTypeSchema>;
+export type MarketFocus = z.infer<typeof marketFocusSchema>;
 export type BriefMode = z.infer<typeof briefModeSchema>;
 export type DingtalkSignal = z.infer<typeof signalSchema>;
 export type DingtalkSource = z.infer<typeof sourceSchema>;

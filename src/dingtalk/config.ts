@@ -113,6 +113,10 @@ export function archiveLinkCheckPath(config: DingtalkRuntimeConfig): string {
   return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.archive_link_check.json`);
 }
 
+export function sourceReportPath(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.source_report.json`);
+}
+
 export function distDingtalkDir(config: DingtalkRuntimeConfig): string {
   return path.join(config.repoRoot, "dist", "dingtalk");
 }

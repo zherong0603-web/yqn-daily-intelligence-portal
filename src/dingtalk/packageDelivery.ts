@@ -9,11 +9,12 @@ import {
   markdownPath,
   readDingtalkRuntimeConfig,
   riskReportPath,
+  sourceReportPath,
   validationReportPath,
 } from "./config.js";
 
-const packageRootName = "YQN_Daily_5_Minutes_V1_2_Delivery";
-const zipName = "YQN_Daily_5_Minutes_V1_2_Delivery.zip";
+const packageRootName = "YQN_Daily_5_Minutes_V1_3_Delivery";
+const zipName = "YQN_Daily_5_Minutes_V1_3_Delivery.zip";
 
 async function walk(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -50,7 +51,7 @@ async function buildManifest(root: string, date: string): Promise<Record<string,
   return {
     generated_at: new Date().toISOString(),
     product: "YQN 每日 5 分钟",
-    version: "V1.2",
+    version: "V1.3",
     date,
     files: fileEntries,
     contains_markdown_preview: fileEntries.some((entry) => entry.path === "preview/dingtalk-markdown-preview.md"),
@@ -87,9 +88,11 @@ export async function packageDingtalkDelivery(): Promise<string> {
   await copyIfExists(archiveLinkCheckPath(config), path.join(root, "checks", "archive_link_check.json"));
   await copyIfExists(riskReportPath(config), path.join(root, "checks", "risk_report.json"));
   await copyIfExists(validationReportPath(config), path.join(root, "checks", "validation_report.json"));
+  await copyIfExists(sourceReportPath(config), path.join(root, "checks", "source_report.json"));
   await copyIfExists(archiveLinkCheckPath(config), path.join(root, "archive_link_check.json"));
   await copyIfExists(riskReportPath(config), path.join(root, "risk_report.json"));
   await copyIfExists(validationReportPath(config), path.join(root, "validation_report.json"));
+  await copyIfExists(sourceReportPath(config), path.join(root, "source_report.json"));
   await rm(path.join(root, "docs", "dingtalk"), { recursive: true, force: true });
   await copyIfExists(path.join(config.repoRoot, "docs", "dingtalk"), path.join(root, "docs", "dingtalk"));
   await copyIfExists(path.join(config.repoRoot, "dist", "dingtalk"), path.join(root, "dist", "dingtalk"));
