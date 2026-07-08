@@ -1,4 +1,4 @@
-name: DingTalk Morning Brief V1
+name: DingTalk Crossborder Intelligence Brief V1.1
 
 on:
   schedule:
@@ -31,14 +31,19 @@ permissions:
   contents: read
   actions: read
   models: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: dingtalk-morning-brief-v1
+  group: dingtalk-crossborder-intelligence-brief-v1-1
   cancel-in-progress: false
 
 jobs:
   dingtalk-morning-brief:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
       TZ: Asia/Shanghai
       BRIEF_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'demo' }}
@@ -52,6 +57,9 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_MODELS_MODEL: ${{ vars.GH_MODELS_MODEL || 'openai/gpt-4o' }}
       SITE_URL: ${{ vars.SITE_URL }}
+      PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL || vars.PAGES_BASE_URL || vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
+      PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
+      DINGTALK_FORMAL_GROUP_ENABLED: ${{ vars.DINGTALK_FORMAL_GROUP_ENABLED || 'false' }}
       FAILURE_STAGE: checkout
 
     steps:
@@ -94,16 +102,48 @@ jobs:
       - name: Archive brief
         run: npm run dingtalk:archive
 
+      - name: Prepare Pages artifact
+        run: |
+          rm -rf _pages
+          cp -R dist _pages
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Mark failure stage for Pages deployment
+        run: echo "FAILURE_STAGE=deploy GitHub Pages" >> "$GITHUB_ENV"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _pages
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
       - name: Mark failure stage for preview
         run: echo "FAILURE_STAGE=generate preview" >> "$GITHUB_ENV"
 
       - name: Generate preview
+        env:
+          PUBLIC_BASE_URL: ${{ steps.deployment.outputs.page_url }}
         run: npm run dingtalk:preview
+
+      - name: Mark failure stage for pre-send validation
+        run: echo "FAILURE_STAGE=pre-send validation" >> "$GITHUB_ENV"
+
+      - name: Validate archive and message
+        env:
+          PUBLIC_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: npm run dingtalk:validate
 
       - name: Mark failure stage for DingTalk send
         run: echo "FAILURE_STAGE=send DingTalk" >> "$GITHUB_ENV"
 
       - name: Send DingTalk when dry_run=false
+        env:
+          PUBLIC_BASE_URL: ${{ steps.deployment.outputs.page_url }}
         run: npm run dingtalk:send
 
       - name: Mark failure stage for delivery package
@@ -115,10 +155,10 @@ jobs:
       - name: Upload delivery artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YQN_DingTalk_Morning_Brief_V1_Delivery
+          name: YQN_Crossborder_Intelligence_Brief_V1_1_Delivery
           path: |
-            delivery/YQN_DingTalk_Morning_Brief_V1_Delivery.zip
-            delivery/YQN_DingTalk_Morning_Brief_V1_Delivery/
+            delivery/YQN_Crossborder_Intelligence_Brief_V1_1_Delivery.zip
+            delivery/YQN_Crossborder_Intelligence_Brief_V1_1_Delivery/
           if-no-files-found: error
 
       - name: Notify owner on failure

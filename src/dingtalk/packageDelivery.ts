@@ -3,10 +3,17 @@ import { createWriteStream } from "node:fs";
 import { cp, mkdir, readdir, rm, stat, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import yazl from "yazl";
-import { dataPath, markdownPath, readDingtalkRuntimeConfig } from "./config.js";
+import {
+  archiveLinkCheckPath,
+  dataPath,
+  markdownPath,
+  readDingtalkRuntimeConfig,
+  riskReportPath,
+  validationReportPath,
+} from "./config.js";
 
-const packageRootName = "YQN_DingTalk_Morning_Brief_V1_Delivery";
-const zipName = "YQN_DingTalk_Morning_Brief_V1_Delivery.zip";
+const packageRootName = "YQN_Crossborder_Intelligence_Brief_V1_1_Delivery";
+const zipName = "YQN_Crossborder_Intelligence_Brief_V1_1_Delivery.zip";
 
 async function walk(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -42,8 +49,8 @@ async function buildManifest(root: string, date: string): Promise<Record<string,
   })));
   return {
     generated_at: new Date().toISOString(),
-    product: "YQN 北美履约增长晨报",
-    version: "V1",
+    product: "YQN 跨境增长情报晨报",
+    version: "V1.1",
     date,
     files: fileEntries,
     contains_markdown_preview: fileEntries.some((entry) => entry.path === "preview/dingtalk-markdown-preview.md"),
@@ -63,11 +70,26 @@ export async function packageDingtalkDelivery(): Promise<string> {
   const root = path.join(deliveryDir, packageRootName);
   const zipPath = path.join(deliveryDir, zipName);
   await mkdir(root, { recursive: true });
+  await rm(path.join(root, "data"), { recursive: true, force: true });
+  await rm(path.join(root, "checks"), { recursive: true, force: true });
+  await rm(path.join(root, "docs", "dingtalk"), { recursive: true, force: true });
+  await rm(path.join(root, "dist", "dingtalk"), { recursive: true, force: true });
+  await rm(path.join(root, "archive_link_check.json"), { force: true });
+  await rm(path.join(root, "risk_report.json"), { force: true });
+  await rm(path.join(root, "validation_report.json"), { force: true });
+  await rm(path.join(root, "MANIFEST.json"), { force: true });
   await mkdir(path.join(root, "data"), { recursive: true });
+  await mkdir(path.join(root, "checks"), { recursive: true });
   await mkdir(path.join(root, "docs", "dingtalk"), { recursive: true });
 
   await cp(dataPath(config), path.join(root, "data", "demo-brief.json"));
   await cp(markdownPath(config), path.join(root, "data", "demo-brief.md"));
+  await copyIfExists(archiveLinkCheckPath(config), path.join(root, "checks", "archive_link_check.json"));
+  await copyIfExists(riskReportPath(config), path.join(root, "checks", "risk_report.json"));
+  await copyIfExists(validationReportPath(config), path.join(root, "checks", "validation_report.json"));
+  await copyIfExists(archiveLinkCheckPath(config), path.join(root, "archive_link_check.json"));
+  await copyIfExists(riskReportPath(config), path.join(root, "risk_report.json"));
+  await copyIfExists(validationReportPath(config), path.join(root, "validation_report.json"));
   await rm(path.join(root, "docs", "dingtalk"), { recursive: true, force: true });
   await copyIfExists(path.join(config.repoRoot, "docs", "dingtalk"), path.join(root, "docs", "dingtalk"));
   await copyIfExists(path.join(config.repoRoot, "dist", "dingtalk"), path.join(root, "dist", "dingtalk"));

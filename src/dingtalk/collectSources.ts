@@ -13,7 +13,7 @@ export async function collectDingtalkSources(repoRoot = process.cwd()): Promise<
   return {
     sources,
     collected_at: new Date().toISOString(),
-    mode_note: "V1 使用公开来源白名单和 manual approved sample sources；不抓取内部 MQL 表，不抓客户数据。",
+    mode_note: "V1.1 使用公开来源白名单和人工审核公开资料；不抓取后台、内部 MQL 表或客户数据。",
   };
 }
 

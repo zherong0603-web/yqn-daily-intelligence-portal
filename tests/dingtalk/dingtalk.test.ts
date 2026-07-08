@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { buildSampleBrief } from "../../src/dingtalk/sampleBrief.js";
 import { checkDingtalkBriefRisk } from "../../src/dingtalk/riskCheck.js";
-import { renderDingtalkMarkdown } from "../../src/dingtalk/renderMarkdown.js";
+import { countMessageCharacters, renderDingtalkMarkdown } from "../../src/dingtalk/renderMarkdown.js";
 import { DingtalkSourceConfig, validateDingtalkBrief } from "../../src/dingtalk/schema.js";
 import { signDingTalkUrl } from "../../src/dingtalk/utils/signDingTalk.js";
 
 const sources: DingtalkSourceConfig[] = [
   {
-    category: "policy",
+    category: "overseas_policy",
     title: "CBP E-Commerce",
     url: "https://www.cbp.gov/trade/basic-import-export/e-commerce",
     source_type: "official",
@@ -15,7 +15,7 @@ const sources: DingtalkSourceConfig[] = [
     enabled: true,
   },
   {
-    category: "platform",
+    category: "platform_seller",
     title: "TikTok Shop Seller Center University",
     url: "https://seller-us.tiktok.com/university",
     source_type: "official",
@@ -23,7 +23,7 @@ const sources: DingtalkSourceConfig[] = [
     enabled: true,
   },
   {
-    category: "fulfillment",
+    category: "competitor_fulfillment",
     title: "UPS Service Alerts",
     url: "https://www.ups.com/us/en/service-alerts",
     source_type: "official",
@@ -31,7 +31,7 @@ const sources: DingtalkSourceConfig[] = [
     enabled: true,
   },
   {
-    category: "growth",
+    category: "domestic_crossborder",
     title: "小红书聚光帮助中心",
     url: "https://ad.xiaohongshu.com/help/home",
     source_type: "official",
@@ -48,14 +48,15 @@ const sources: DingtalkSourceConfig[] = [
   },
 ];
 
-describe("DingTalk morning brief V1", () => {
-  it("builds a valid 1+4+3 demo brief", () => {
+describe("DingTalk crossborder intelligence brief V1.1", () => {
+  it("builds a valid 1+5+3 demo brief", () => {
     const brief = buildSampleBrief("2026-07-08", sources);
     expect(() => validateDingtalkBrief(brief)).not.toThrow();
-    expect(brief.one_liner.length).toBeLessThanOrEqual(30);
-    expect(brief.signals).toHaveLength(4);
+    expect(brief.one_liner.length).toBeLessThanOrEqual(36);
+    expect(brief.signals).toHaveLength(5);
     expect(brief.action_list).toHaveLength(3);
     expect(brief.signals.every((signal) => signal.source_url.startsWith("https://"))).toBe(true);
+    expect(brief.signals.every((signal) => signal.is_test_data)).toBe(true);
   });
 
   it("blocks forbidden content before sending", () => {
@@ -68,11 +69,15 @@ describe("DingTalk morning brief V1", () => {
 
   it("renders Markdown with source links and archive link", () => {
     const brief = buildSampleBrief("2026-07-08", sources);
-    const markdown = renderDingtalkMarkdown(brief, "https://example.com/yqn");
-    expect(markdown).toContain("YQN 北美履约增长晨报");
+    const markdown = renderDingtalkMarkdown(brief, { publicBaseUrl: "https://example.com/yqn", archiveAvailable: true });
+    expect(markdown).toContain("【测试版】YQN 跨境增长情报晨报");
     expect(markdown).toContain("今日 3 个动作");
-    expect(markdown).toContain("[查看来源]");
+    expect(markdown).toContain("出处：");
     expect(markdown).toContain("https://example.com/yqn/dingtalk/2026-07-08.html");
+    expect(markdown).not.toContain("是否敏感");
+    expect(markdown).not.toContain("置信度：");
+    expect(markdown).not.toContain("[查看来源]");
+    expect(countMessageCharacters(markdown)).toBeLessThanOrEqual(1200);
   });
 
   it("adds DingTalk timestamp and sign without exposing the secret", () => {

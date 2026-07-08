@@ -15,6 +15,7 @@ export interface DingtalkRuntimeConfig {
   date: string;
   mode: BriefMode;
   dryRun: boolean;
+  formalGroupEnabled: boolean;
   timeZone: "Asia/Shanghai";
   openAiApiKey?: string;
   openAiModel?: string;
@@ -23,7 +24,7 @@ export interface DingtalkRuntimeConfig {
   webhookUrl?: string;
   secret?: string;
   ownerWebhookUrl?: string;
-  siteUrl: string;
+  publicBaseUrl: string;
   runId: string;
 }
 
@@ -49,8 +50,8 @@ export function parseCliArgs(argv = process.argv.slice(2)): Record<string, strin
   return output;
 }
 
-function defaultSiteUrl(): string {
-  const explicit = readEnv("SITE_URL");
+function defaultPublicBaseUrl(): string {
+  const explicit = readEnv("PUBLIC_BASE_URL") || readEnv("PAGES_BASE_URL") || readEnv("SITE_URL");
   if (explicit) return explicit.replace(/\/$/, "");
   const repository = readEnv("GITHUB_REPOSITORY");
   if (!repository) return "";
@@ -71,6 +72,7 @@ export function readDingtalkRuntimeConfig(
     date,
     mode,
     dryRun,
+    formalGroupEnabled: parseBoolean(readEnv("DINGTALK_FORMAL_GROUP_ENABLED"), false),
     timeZone: "Asia/Shanghai",
     openAiApiKey: readEnv("OPENAI_API_KEY"),
     openAiModel: readEnv("OPENAI_MODEL"),
@@ -79,7 +81,7 @@ export function readDingtalkRuntimeConfig(
     webhookUrl: readEnv("DINGTALK_WEBHOOK_URL"),
     secret: readEnv("DINGTALK_SECRET"),
     ownerWebhookUrl: readEnv("DINGTALK_OWNER_WEBHOOK_URL"),
-    siteUrl: defaultSiteUrl(),
+    publicBaseUrl: defaultPublicBaseUrl(),
     runId: readEnv("GITHUB_RUN_ID") || `local-${Date.now()}`,
   };
 }
@@ -101,6 +103,14 @@ export function markdownPath(config: DingtalkRuntimeConfig): string {
 
 export function riskReportPath(config: DingtalkRuntimeConfig): string {
   return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.risk_report.json`);
+}
+
+export function validationReportPath(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.validation_report.json`);
+}
+
+export function archiveLinkCheckPath(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.archive_link_check.json`);
 }
 
 export function distDingtalkDir(config: DingtalkRuntimeConfig): string {

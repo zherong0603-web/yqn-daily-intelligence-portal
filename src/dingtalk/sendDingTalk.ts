@@ -1,10 +1,8 @@
 import { pathToFileURL } from "node:url";
-import { readJsonFile } from "../utils/fs.js";
-import { dataPath, readDingtalkRuntimeConfig, DingtalkRuntimeConfig } from "./config.js";
-import { renderDingtalkMarkdown } from "./renderMarkdown.js";
-import { checkDingtalkBriefRisk, writeRiskReport } from "./riskCheck.js";
-import { DingtalkBrief, validateDingtalkBrief } from "./schema.js";
+import { readDingtalkRuntimeConfig, DingtalkRuntimeConfig } from "./config.js";
+import { DingtalkBrief, productName } from "./schema.js";
 import { signDingTalkUrl } from "./utils/signDingTalk.js";
+import { runPreSendValidation } from "./validateBeforeSend.js";
 
 interface DingTalkResponse {
   errcode?: number;
@@ -43,7 +41,7 @@ async function postMarkdown(webhookUrl: string, secret: string | undefined, titl
 async function notifyOwner(config: DingtalkRuntimeConfig, brief: DingtalkBrief, riskTypes: string[]): Promise<void> {
   if (!config.ownerWebhookUrl) return;
   const markdown = [
-    `# YQN 钉钉晨报发送已阻断｜${brief.date}`,
+    `# ${productName}发送已阻断｜${brief.date}`,
     "",
     `**风险类型：** ${riskTypes.join(", ") || "unknown"}`,
     "",
@@ -64,7 +62,7 @@ export async function sendOwnerFailure(config = readDingtalkRuntimeConfig()): Pr
   }
   const stage = process.env.FAILURE_STAGE || "unknown stage";
   const markdown = [
-    `# YQN 钉钉晨报 workflow 失败｜${config.date}`,
+    `# ${productName} workflow 失败｜${config.date}`,
     "",
     `**失败阶段：** ${stage}`,
     "",
@@ -75,15 +73,18 @@ export async function sendOwnerFailure(config = readDingtalkRuntimeConfig()): Pr
 }
 
 export async function sendDingtalkBrief(config = readDingtalkRuntimeConfig()): Promise<void> {
-  const brief = validateDingtalkBrief(await readJsonFile(dataPath(config)));
-  const risk = checkDingtalkBriefRisk(brief);
-  await writeRiskReport(config, brief, risk);
-  if (!risk.ok) {
-    await notifyOwner(config, brief, risk.riskTypes);
-    throw new Error(`DingTalk send blocked by risk check: ${risk.riskTypes.join(",") || "unknown risk"}`);
+  let validation;
+  try {
+    validation = await runPreSendValidation(config);
+  } catch (error) {
+    try {
+      const fallback = await runPreSendValidation({ ...config, dryRun: true });
+      await notifyOwner(config, fallback.brief, fallback.report.blockers);
+    } catch {
+      // Validation reports already avoid raw sensitive content.
+    }
+    throw error;
   }
-
-  const markdown = renderDingtalkMarkdown(brief, config.siteUrl);
   if (config.dryRun) {
     console.log("[dingtalk:send] dry_run=true; DingTalk message was not sent");
     return;
@@ -93,7 +94,7 @@ export async function sendDingtalkBrief(config = readDingtalkRuntimeConfig()): P
     return;
   }
 
-  await postMarkdown(config.webhookUrl, config.secret, brief.title, markdown);
+  await postMarkdown(config.webhookUrl, config.secret, validation.brief.title, validation.markdown);
   console.log("[dingtalk:send] test-group markdown message sent");
 }
 

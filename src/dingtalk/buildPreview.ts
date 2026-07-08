@@ -8,7 +8,7 @@ import { dataPath, distDingtalkDir, readDingtalkRuntimeConfig } from "./config.j
 import { renderDingtalkMarkdown, renderMarkdownHtml } from "./renderMarkdown.js";
 import { validateDingtalkBrief } from "./schema.js";
 
-const packageRootName = "YQN_DingTalk_Morning_Brief_V1_Delivery";
+const packageRootName = "YQN_Crossborder_Intelligence_Brief_V1_1_Delivery";
 const systemChrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 function packageRoot(repoRoot: string): string {
@@ -91,7 +91,11 @@ export async function buildDingtalkPreview(): Promise<void> {
   const previewDir = path.join(root, "preview");
   await rm(previewDir, { recursive: true, force: true });
   await mkdir(previewDir, { recursive: true });
-  const markdown = renderDingtalkMarkdown(brief, config.siteUrl);
+  const markdown = renderDingtalkMarkdown(brief, {
+    publicBaseUrl: config.publicBaseUrl,
+    archiveAvailable: Boolean(config.publicBaseUrl),
+    testLabel: true,
+  });
   const previewMd = path.join(previewDir, "dingtalk-markdown-preview.md");
   const previewHtml = path.join(previewDir, "dingtalk-markdown-preview.html");
   await writeTextFile(previewMd, markdown);

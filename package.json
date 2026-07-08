@@ -24,10 +24,12 @@
     "dingtalk:risk": "tsx src/dingtalk/riskCheck.ts",
     "dingtalk:archive": "tsx src/dingtalk/archiveBrief.ts",
     "dingtalk:preview": "tsx src/dingtalk/buildPreview.ts",
+    "dingtalk:validate": "tsx src/dingtalk/validateBeforeSend.ts",
     "dingtalk:send": "tsx src/dingtalk/sendDingTalk.ts",
     "dingtalk:failure": "tsx src/dingtalk/sendDingTalk.ts failure",
     "dingtalk:package": "tsx src/dingtalk/packageDelivery.ts",
     "dingtalk:v1": "npm run dingtalk:generate -- --mode demo --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:package",
+    "dingtalk:v1.1": "npm run dingtalk:generate -- --mode demo --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:validate && npm run dingtalk:package",
     "typecheck": "tsc --noEmit",
     "test": "npm run typecheck && vitest run"
   },

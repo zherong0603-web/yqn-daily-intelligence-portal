@@ -23,6 +23,12 @@ const forbiddenWords = [
   "OPC",
   "Codex",
   "用户个人叙事",
+  "持续关注",
+  "提升效率",
+  "加强学习",
+  "赋能业务",
+  "值得重视",
+  "市场变化明显",
 ];
 
 export interface RiskCheckResult {
@@ -56,6 +62,16 @@ export function checkDingtalkBriefRisk(brief: DingtalkBrief): RiskCheckResult {
     riskTypes.add("missing_source_url");
   }
 
+  if (parsed.signals.some((signal) => !signal.source_name.trim())) {
+    flags.add("missing_source_name");
+    riskTypes.add("missing_source_name");
+  }
+
+  if (parsed.signals.some((signal) => !signal.source_published_at.trim())) {
+    flags.add("missing_source_published_at");
+    riskTypes.add("missing_source_published_at");
+  }
+
   for (const word of forbiddenWords) {
     if (scanText.includes(word.toLowerCase())) {
       flags.add("forbidden_content");
@@ -64,7 +80,7 @@ export function checkDingtalkBriefRisk(brief: DingtalkBrief): RiskCheckResult {
     }
   }
 
-  const lowConfidenceCount = parsed.signals.filter((signal) => signal.confidence < 0.55).length;
+  const lowConfidenceCount = parsed.signals.filter((signal) => signal.confidence_label === "low").length;
   if (lowConfidenceCount > 0) {
     flags.add("low_confidence");
     riskTypes.add("low_confidence");
