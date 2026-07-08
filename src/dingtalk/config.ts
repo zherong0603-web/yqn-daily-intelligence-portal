@@ -75,7 +75,7 @@ export function readDingtalkRuntimeConfig(
     openAiApiKey: readEnv("OPENAI_API_KEY"),
     openAiModel: readEnv("OPENAI_MODEL"),
     githubToken: readEnv("GITHUB_TOKEN"),
-    githubModelsModel: readEnv("GITHUB_MODELS_MODEL") || "openai/gpt-4.1",
+    githubModelsModel: readEnv("GH_MODELS_MODEL") || readEnv("GITHUB_MODELS_MODEL") || "openai/gpt-4o",
     webhookUrl: readEnv("DINGTALK_WEBHOOK_URL"),
     secret: readEnv("DINGTALK_SECRET"),
     ownerWebhookUrl: readEnv("DINGTALK_OWNER_WEBHOOK_URL"),

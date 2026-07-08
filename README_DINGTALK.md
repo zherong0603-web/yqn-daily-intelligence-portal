@@ -48,7 +48,7 @@
 - `OPENAI_API_KEY`：live 模式必须。
 - `OPENAI_MODEL`：live 模式必须。
 
-如果不想花 OpenAI API 费用，V1 也支持在 GitHub Actions 里用 GitHub Models。它使用 GitHub 自动提供的 `GITHUB_TOKEN` 和账号内置免费限额，不需要单独配置 OpenAI API key。免费限额用完后，如果没有开启付费用量，会被阻断而不是继续扣 OpenAI API 费用。
+如果不想花 OpenAI API 费用，V1 也支持在 GitHub Actions 里用 GitHub Models。它使用 GitHub 自动提供的 `GITHUB_TOKEN` 和账号内置免费限额，不需要单独配置 OpenAI API key。默认模型是 `openai/gpt-4o`，用于提高结构化 JSON 输出稳定性。免费限额用完后，如果没有开启付费用量，会被阻断而不是继续扣 OpenAI API 费用。
 
 不要把这些值写进代码、文档、聊天、日志或网页。
 

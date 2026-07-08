@@ -137,6 +137,14 @@ async function callGitHubModels(config: DingtalkRuntimeConfig, sources: Dingtalk
       model: config.githubModelsModel,
       temperature: 0.2,
       max_tokens: 1800,
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "yqn_dingtalk_morning_brief",
+          strict: true,
+          schema: dingtalkBriefJsonSchema,
+        },
+      },
       messages: [
         {
           role: "system",
