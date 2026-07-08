@@ -59,3 +59,180 @@ sources:
     type: webpage
     enabled: false
     weight: 0
+
+dingtalk_sources:
+  - category: policy
+    title: CBP E-Commerce
+    url: https://www.cbp.gov/trade/basic-import-export/e-commerce
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 美国海关与边境保护局公开电商进口和低值包裹相关说明，适合跟踪清关、de minimis 与合规变化。
+  - category: policy
+    title: CBP Section 321 Programs
+    url: https://www.cbp.gov/trade/trade-enforcement/tftea/section-321-programs
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 美国 Section 321 低值进口项目公开信息，适合作为政策信号来源。
+  - category: policy
+    title: Federal Register
+    url: https://www.federalregister.gov/
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 美国联邦法规与公告公开来源，适合跟踪清关、关税、贸易规则变化。
+  - category: policy
+    title: USTR Section 301
+    url: https://ustr.gov/issue-areas/enforcement/section-301-investigations
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 美国贸易代表办公室 Section 301 公开信息，适合跟踪关税和贸易政策变化。
+  - category: policy
+    title: White House Presidential Actions
+    url: https://www.whitehouse.gov/presidential-actions/
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 白宫公开行政动作，适合作为宏观政策信号，需要人工判断是否影响跨境履约。
+  - category: platform
+    title: TikTok Shop Seller Center University
+    url: https://seller-us.tiktok.com/university
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: TikTok Shop 卖家公开学习中心，适合跟踪发货、履约、售后规则。
+  - category: platform
+    title: Amazon FBA
+    url: https://sell.amazon.com/fulfillment-by-amazon
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: Amazon FBA 公开介绍与卖家履约说明，适合跟踪平台仓配和履约表达。
+  - category: platform
+    title: Walmart Marketplace Learn
+    url: https://marketplacelearn.walmart.com/
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: Walmart Marketplace 卖家公开学习中心，适合跟踪平台履约和服务规则。
+  - category: platform
+    title: eBay Seller Center
+    url: https://www.ebay.com/sellercenter
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: eBay 卖家公开中心，作为跨平台履约规则变化的可选来源。
+  - category: platform
+    title: Shopify Blog
+    url: https://www.shopify.com/blog
+    source_type: media
+    auto_fetch: false
+    enabled: true
+    sample_summary: Shopify 公开文章可作为独立站履约、退货和运营趋势的低置信度补充来源。
+  - category: fulfillment
+    title: Amazon Supply Chain Services
+    url: https://supplychain.amazon.com/
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: Amazon Supply Chain 公开服务信息，适合观察北美仓网、库存和配送能力表达。
+  - category: fulfillment
+    title: Amazon Supply Chain Learning Hub
+    url: https://supplychain.amazon.com/learn
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: Amazon Supply Chain 公开学习内容，适合跟踪平台化供应链和履约趋势。
+  - category: fulfillment
+    title: UPS Service Alerts
+    url: https://www.ups.com/us/en/service-alerts
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: UPS 服务提醒，适合跟踪美国尾程、天气、区域性服务异常。
+  - category: fulfillment
+    title: FedEx Service Alerts
+    url: https://www.fedex.com/en-us/service-alerts.html
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: FedEx 服务提醒，适合跟踪北美尾程与承运商异常。
+  - category: fulfillment
+    title: USPS Service Alerts
+    url: https://about.usps.com/newsroom/service-alerts/
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: USPS 服务提醒，适合跟踪美国邮政网络异常。
+  - category: fulfillment
+    title: Supply Chain Dive
+    url: https://www.supplychaindive.com/
+    source_type: media
+    auto_fetch: false
+    enabled: true
+    sample_summary: 北美供应链公开媒体，作为 3PL、仓储、退货和物流趋势的补充来源。
+  - category: growth
+    title: 小红书聚光平台
+    url: https://ad.xiaohongshu.com/
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 小红书商业投放公开入口，适合跟踪广告投放和线索经营公开规则。
+  - category: growth
+    title: 小红书聚光帮助中心
+    url: https://ad.xiaohongshu.com/help/home
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 聚光公开帮助文档，适合跟踪投放、客资、线索经营公开说明。
+  - category: growth
+    title: 小红书聚光开放平台
+    url: https://ad.xiaohongshu.com/openApiDoc
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 聚光开放平台公开文档，适合后续接入广告与线索自动化能力。
+  - category: growth
+    title: 小红书蒲公英帮助中心
+    url: https://pgy.xiaohongshu.com/help/home
+    source_type: official
+    auto_fetch: false
+    enabled: true
+    sample_summary: 小红书商业合作公开帮助中心，可作为内容合作和种草规则的补充来源。
+  - category: growth
+    title: B2B 线索经营公开资料
+    url: https://www.hubspot.com/marketing
+    source_type: media
+    auto_fetch: false
+    enabled: true
+    sample_summary: B2B 线索经营公开方法论，只能作为低置信度补充，不替代 YQN 自有数据。
+  - category: yqn_public
+    title: 运去哪官网
+    url: https://www.yqn.com/cn
+    source_type: public_yqn
+    auto_fetch: false
+    enabled: true
+    sample_summary: 运去哪公开官网，可用于公开表达公司服务范围和品牌信息。
+  - category: yqn_public
+    title: 运去哪海外仓公开页
+    url: https://www.yqn.com/cn/warehousing/home
+    source_type: public_yqn
+    auto_fetch: false
+    enabled: true
+    sample_summary: 运去哪海外仓公开页面，可用于公开表达美国仓、仓配、履约能力。
+  - category: yqn_public
+    title: 头仓配端到端公开页
+    url: https://www.yqn.com/cn/integrated-service/home
+    source_type: public_yqn
+    auto_fetch: false
+    enabled: true
+    sample_summary: 运去哪头仓配端到端公开页面，可用于公开表达跨境履约解决方案。
+  - category: yqn_public
+    title: 已审核公开 FAQ / 服务话术库
+    url: https://www.yqn.com/cn
+    source_type: manual_approved
+    auto_fetch: false
+    enabled: true
+    sample_summary: 人工审核后的公开 FAQ 或服务话术，占位来源；禁止放入客户名单、报价、合同、毛利或内部成本。

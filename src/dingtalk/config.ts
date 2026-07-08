@@ -1,0 +1,104 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import YAML from "yaml";
+import { dateInTimeZone } from "../utils/date.js";
+import { readEnv } from "../utils/env.js";
+import {
+  BriefMode,
+  briefModeSchema,
+  DingtalkSourceConfig,
+  dingtalkSourcesFileSchema,
+} from "./schema.js";
+
+export interface DingtalkRuntimeConfig {
+  repoRoot: string;
+  date: string;
+  mode: BriefMode;
+  dryRun: boolean;
+  timeZone: "Asia/Shanghai";
+  openAiApiKey?: string;
+  openAiModel?: string;
+  webhookUrl?: string;
+  secret?: string;
+  ownerWebhookUrl?: string;
+  siteUrl: string;
+  runId: string;
+}
+
+export function parseBoolean(value: string | undefined, fallback: boolean): boolean {
+  if (value === undefined || value === "") return fallback;
+  return ["1", "true", "yes", "y"].includes(value.trim().toLowerCase());
+}
+
+export function parseCliArgs(argv = process.argv.slice(2)): Record<string, string> {
+  const output: Record<string, string> = {};
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (!arg?.startsWith("--")) continue;
+    const key = arg.slice(2);
+    const next = argv[index + 1];
+    if (next && !next.startsWith("--")) {
+      output[key] = next;
+      index += 1;
+    } else {
+      output[key] = "true";
+    }
+  }
+  return output;
+}
+
+function defaultSiteUrl(): string {
+  const explicit = readEnv("SITE_URL");
+  if (explicit) return explicit.replace(/\/$/, "");
+  const repository = readEnv("GITHUB_REPOSITORY");
+  if (!repository) return "";
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo) return "";
+  return `https://${owner}.github.io/${repo}`;
+}
+
+export function readDingtalkRuntimeConfig(
+  repoRoot = process.cwd(),
+  cliArgs: Record<string, string> = parseCliArgs(),
+): DingtalkRuntimeConfig {
+  const mode = briefModeSchema.parse(cliArgs.mode || readEnv("BRIEF_MODE") || "demo");
+  const date = cliArgs.date || cliArgs.brief_date || readEnv("BRIEF_DATE") || dateInTimeZone("Asia/Shanghai");
+  const dryRun = parseBoolean(cliArgs.dry_run || readEnv("DRY_RUN"), true);
+  return {
+    repoRoot,
+    date,
+    mode,
+    dryRun,
+    timeZone: "Asia/Shanghai",
+    openAiApiKey: readEnv("OPENAI_API_KEY"),
+    openAiModel: readEnv("OPENAI_MODEL"),
+    webhookUrl: readEnv("DINGTALK_WEBHOOK_URL"),
+    secret: readEnv("DINGTALK_SECRET"),
+    ownerWebhookUrl: readEnv("DINGTALK_OWNER_WEBHOOK_URL"),
+    siteUrl: defaultSiteUrl(),
+    runId: readEnv("GITHUB_RUN_ID") || `local-${Date.now()}`,
+  };
+}
+
+export async function loadDingtalkSources(repoRoot = process.cwd()): Promise<DingtalkSourceConfig[]> {
+  const configPath = path.join(repoRoot, "config", "sources.yaml");
+  const raw = await readFile(configPath, "utf8");
+  const parsed = dingtalkSourcesFileSchema.parse(YAML.parse(raw));
+  return parsed.dingtalk_sources.filter((source) => source.enabled);
+}
+
+export function dataPath(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.json`);
+}
+
+export function markdownPath(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.md`);
+}
+
+export function riskReportPath(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.risk_report.json`);
+}
+
+export function distDingtalkDir(config: DingtalkRuntimeConfig): string {
+  return path.join(config.repoRoot, "dist", "dingtalk");
+}

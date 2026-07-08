@@ -1,0 +1,123 @@
+name: DingTalk Morning Brief V1
+
+on:
+  schedule:
+    # 00:45 UTC equals 08:45 Asia/Shanghai. GitHub Actions schedule has no timezone field.
+    - cron: "45 0 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "demo or live"
+        required: true
+        default: "demo"
+        type: choice
+        options:
+          - demo
+          - live
+      brief_date:
+        description: "YYYY-MM-DD, optional"
+        required: false
+        type: string
+      dry_run:
+        description: "Generate but do not send DingTalk"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: dingtalk-morning-brief-v1
+  cancel-in-progress: false
+
+jobs:
+  dingtalk-morning-brief:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      BRIEF_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'demo' }}
+      BRIEF_DATE: ${{ github.event_name == 'workflow_dispatch' && inputs.brief_date || '' }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || vars.DINGTALK_DRY_RUN || 'true' }}
+      DINGTALK_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
+      DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+      DINGTALK_OWNER_WEBHOOK_URL: ${{ secrets.DINGTALK_OWNER_WEBHOOK_URL }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || vars.OPENAI_MODEL }}
+      SITE_URL: ${{ vars.SITE_URL }}
+      FAILURE_STAGE: checkout
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Mark failure stage for install
+        run: echo "FAILURE_STAGE=npm ci" >> "$GITHUB_ENV"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Mark failure stage for tests
+        run: echo "FAILURE_STAGE=npm test" >> "$GITHUB_ENV"
+
+      - name: Run tests
+        run: npm test
+
+      - name: Mark failure stage for brief generation
+        run: echo "FAILURE_STAGE=build demo/live brief" >> "$GITHUB_ENV"
+
+      - name: Build demo/live brief
+        run: npm run dingtalk:generate
+
+      - name: Mark failure stage for risk check
+        run: echo "FAILURE_STAGE=risk check" >> "$GITHUB_ENV"
+
+      - name: Risk check
+        run: npm run dingtalk:risk
+
+      - name: Mark failure stage for archive
+        run: echo "FAILURE_STAGE=archive brief" >> "$GITHUB_ENV"
+
+      - name: Archive brief
+        run: npm run dingtalk:archive
+
+      - name: Mark failure stage for preview
+        run: echo "FAILURE_STAGE=generate preview" >> "$GITHUB_ENV"
+
+      - name: Generate preview
+        run: npm run dingtalk:preview
+
+      - name: Mark failure stage for DingTalk send
+        run: echo "FAILURE_STAGE=send DingTalk" >> "$GITHUB_ENV"
+
+      - name: Send DingTalk when dry_run=false
+        run: npm run dingtalk:send
+
+      - name: Mark failure stage for delivery package
+        run: echo "FAILURE_STAGE=package delivery" >> "$GITHUB_ENV"
+
+      - name: Package delivery
+        run: npm run dingtalk:package
+
+      - name: Upload delivery artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: YQN_DingTalk_Morning_Brief_V1_Delivery
+          path: |
+            delivery/YQN_DingTalk_Morning_Brief_V1_Delivery.zip
+            delivery/YQN_DingTalk_Morning_Brief_V1_Delivery/
+          if-no-files-found: error
+
+      - name: Notify owner on failure
+        if: failure()
+        run: npm run dingtalk:failure
