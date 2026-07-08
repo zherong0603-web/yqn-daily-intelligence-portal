@@ -18,6 +18,8 @@ export interface DingtalkRuntimeConfig {
   timeZone: "Asia/Shanghai";
   openAiApiKey?: string;
   openAiModel?: string;
+  githubToken?: string;
+  githubModelsModel: string;
   webhookUrl?: string;
   secret?: string;
   ownerWebhookUrl?: string;
@@ -72,6 +74,8 @@ export function readDingtalkRuntimeConfig(
     timeZone: "Asia/Shanghai",
     openAiApiKey: readEnv("OPENAI_API_KEY"),
     openAiModel: readEnv("OPENAI_MODEL"),
+    githubToken: readEnv("GITHUB_TOKEN"),
+    githubModelsModel: readEnv("GITHUB_MODELS_MODEL") || "openai/gpt-4.1",
     webhookUrl: readEnv("DINGTALK_WEBHOOK_URL"),
     secret: readEnv("DINGTALK_SECRET"),
     ownerWebhookUrl: readEnv("DINGTALK_OWNER_WEBHOOK_URL"),

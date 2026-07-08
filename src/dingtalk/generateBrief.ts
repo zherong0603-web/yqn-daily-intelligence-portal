@@ -114,11 +114,58 @@ async function callOpenAi(config: DingtalkRuntimeConfig, sources: DingtalkSource
   return validateSourceUrls(validateDingtalkBrief(coerceJson(extractOutputText(response))), sources);
 }
 
+function extractGitHubModelsText(response: unknown): string {
+  const candidate = response as { choices?: Array<{ message?: { content?: string } }> };
+  const text = candidate.choices?.[0]?.message?.content;
+  if (typeof text === "string" && text.trim()) return text;
+  throw new Error("GitHub Models response did not contain message content");
+}
+
+async function callGitHubModels(config: DingtalkRuntimeConfig, sources: DingtalkSourceConfig[]): Promise<DingtalkBrief> {
+  if (!config.githubToken) {
+    throw new Error("SETUP_ERROR: live mode requires OPENAI_API_KEY or GitHub Actions GITHUB_TOKEN with models: read");
+  }
+  const response = await fetch("https://models.github.ai/inference/chat/completions", {
+    method: "POST",
+    headers: {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${config.githubToken}`,
+    },
+    body: JSON.stringify({
+      model: config.githubModelsModel,
+      temperature: 0.2,
+      max_tokens: 1800,
+      messages: [
+        {
+          role: "system",
+          content: "你只输出符合 schema 的 JSON。不要输出 Markdown，不要输出解释。",
+        },
+        {
+          role: "user",
+          content: buildLivePrompt(config, sources),
+        },
+      ],
+    }),
+  });
+  const body = await response.text();
+  if (!response.ok) {
+    throw new Error(`GitHub Models request failed with HTTP ${response.status}`);
+  }
+  return validateSourceUrls(validateDingtalkBrief(coerceJson(extractGitHubModelsText(JSON.parse(body)))), sources);
+}
+
+async function callLiveModel(config: DingtalkRuntimeConfig, sources: DingtalkSourceConfig[]): Promise<DingtalkBrief> {
+  if (config.openAiApiKey) return callOpenAi(config, sources);
+  return callGitHubModels(config, sources);
+}
+
 async function generateLiveWithRetry(config: DingtalkRuntimeConfig, sources: DingtalkSourceConfig[]): Promise<DingtalkBrief> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= 2; attempt += 1) {
     try {
-      return await callOpenAi(config, sources);
+      return await callLiveModel(config, sources);
     } catch (error) {
       lastError = error;
       console.warn(`[dingtalk:generate] live schema/source validation failed on attempt ${attempt}`);
