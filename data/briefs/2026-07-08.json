@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-08",
+  "generated_at": "2026-07-08T04:51:15.131Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-08T04:51:15.128Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Transpacific ocean rates fueled by early peak, frontloading",
+      "url": "https://www.supplychaindive.com/news/transpacific-ocean-rates-fueled-by-early-peak-frontloading/824491/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T18:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Levi Strauss to close Kentucky warehouse after yearlong delay",
+      "url": "https://www.supplychaindive.com/news/levi-strauss-to-close-kentucky-warehouse-after-yearlong-delay/824451/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:35:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "EV transition challenges auto supply chain resilience, Moody’s says",
+      "url": "https://www.supplychaindive.com/news/ev-transition-challenges-auto-supply-chain-resilience-moodys-says/824595/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Supply Chain exec highlights what distinguishes the best teams",
+      "url": "https://www.supplychaindive.com/news/dhl-supply-chain-exec-highlights-what-distinguishes-the-best-teams/824402/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:04:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USMCA: Retail, manufacturing and apparel groups call for preservation",
+      "url": "https://www.supplychaindive.com/news/usmca-retail-manufacturing-and-apparel-groups-call-for-preservation/824502/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T14:28:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cobots become simpler, smarter with AI",
+      "url": "https://www.supplychaindive.com/news/cobots-become-simpler-smarter-with-ai/824289/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T11:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lovesac taps contract freight to navigate higher fuel costs",
+      "url": "https://www.supplychaindive.com/news/lovesac-taps-contract-freight-to-navigate-higher-fuel-costs/824255/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-06T14:38:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "La-Z-Boy advances cost-cutting distribution revamp",
+      "url": "https://www.supplychaindive.com/news/la-z-boy-advances-cost-cutting-distribution-revamp/824251/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-06T13:46:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kenvue surpasses 2025 plastic reduction target, falls short on recyclability",
+      "url": "https://www.supplychaindive.com/news/kenvue-surpasses-2025-plastic-reduction-target-falls-short-on-recyclabilit/824378/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-06T11:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trimble shares get upward bump on report it may sell transportation unit",
+      "url": "https://www.freightwaves.com/news/trimble-shares-get-upward-bump-on-report-it-may-sell-transportation-unit",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-07T22:29:15.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta just launched a new AI generator, Muse Image, and users are already pushing back over use of their photos",
+      "url": "https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-07T22:18:10.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Private equity firm acquires K&L Freight Management",
+      "url": "https://www.freightwaves.com/news/private-equity-firm-acquires-kl-freight-management",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-07T20:12:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Why the rise of open source AI isn’t hurting Anthropic … yet",
+      "url": "https://techcrunch.com/2026/07/07/why-the-rise-of-open-source-ai-isnt-hurting-anthropic-yet/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-07T20:04:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft joins AI cost-cutting trend by relying more on its own models",
+      "url": "https://techcrunch.com/2026/07/07/microsoft-joins-ai-cost-cutting-trend-by-relying-more-on-its-own-models/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-07T19:58:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Federal agents targeting illegal truck drivers at weigh stations nationwide",
+      "url": "https://www.freightwaves.com/news/federal-agents-target-illegal-truck-drivers-at-weigh-stations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-07T19:30:23.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Discord admits AI moderation bug wrongfully banned users over harmless images",
+      "url": "https://techcrunch.com/2026/07/07/discord-admits-ai-moderation-bug-wrongfully-banned-users-over-harmless-images/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-07T19:28:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "LTL carrier Mountain Valley Express shuts down",
+      "url": "https://www.freightwaves.com/news/ltl-carrier-mountain-valley-express-shutting-down",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-07T17:19:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Two companies, on same day, ask for relief from HOS rules",
+      "url": "https://www.freightwaves.com/news/two-companies-on-same-day-ask-for-relief-from-hos-rules",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-07T17:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Claude Cowork expands to mobile and web",
+      "url": "https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-07T16:27:18.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28918352417",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
