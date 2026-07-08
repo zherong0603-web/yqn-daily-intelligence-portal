@@ -137,14 +137,6 @@ async function callGitHubModels(config: DingtalkRuntimeConfig, sources: Dingtalk
       model: config.githubModelsModel,
       temperature: 0.2,
       max_tokens: 1800,
-      response_format: {
-        type: "json_schema",
-        json_schema: {
-          name: "yqn_dingtalk_morning_brief",
-          strict: true,
-          schema: dingtalkBriefJsonSchema,
-        },
-      },
       messages: [
         {
           role: "system",
@@ -179,6 +171,10 @@ async function generateLiveWithRetry(config: DingtalkRuntimeConfig, sources: Din
       console.warn(`[dingtalk:generate] live schema/source validation failed on attempt ${attempt}`);
     }
   }
+  if (!config.openAiApiKey && config.githubToken) {
+    console.warn("[dingtalk:generate] GitHub Models fallback did not pass schema; publishing safe demo brief instead");
+    return buildSampleBrief(config.date, sources);
+  }
   throw lastError instanceof Error ? lastError : new Error("live brief generation failed");
 }
 
@@ -192,7 +188,7 @@ export async function generateDingtalkBrief(config = readDingtalkRuntimeConfig()
     ...brief,
     date: config.date,
     title: `YQN 北美履约增长晨报｜${config.date}`,
-    mode: config.mode,
+    mode: brief.mode === "demo" ? "demo" : config.mode,
   }), collection.sources);
 
   await writeJsonFile(dataPath(config), parsed);
