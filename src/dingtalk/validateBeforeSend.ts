@@ -46,6 +46,10 @@ export function shouldUseTestLabel(config: DingtalkRuntimeConfig, brief: Dingtal
   return !(brief.mode === "live" && config.formalGroupEnabled && !briefHasTestData(brief));
 }
 
+function hasDisplayableSourceDate(value: string): boolean {
+  return /^\d{4}-\d{2}-\d{2}$/.test(value.trim());
+}
+
 export async function checkArchiveLink(config: DingtalkRuntimeConfig, brief: DingtalkBrief): Promise<ArchiveLinkCheck> {
   const archiveUrl = getArchiveUrl(brief, config.publicBaseUrl);
   const base: ArchiveLinkCheck = {
@@ -103,7 +107,7 @@ export async function runPreSendValidation(
   const messageLength = countMessageCharacters(markdown);
   const sourceUrlOk = brief.signals.every((signal) => Boolean(signal.source_url));
   const sourceNameOk = brief.signals.every((signal) => Boolean(signal.source_name.trim()));
-  const sourceDateOk = brief.signals.every((signal) => Boolean(signal.source_published_at.trim()));
+  const sourceDateOk = brief.signals.every((signal) => hasDisplayableSourceDate(signal.source_published_at));
   const modeOk = brief.mode === "demo" || brief.mode === "live";
   const testLabelPresent = markdown.includes(buildMessageTitle(brief, true));
   const testLabelOk = !testLabelRequired || testLabelPresent;

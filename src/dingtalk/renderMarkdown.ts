@@ -48,7 +48,6 @@ export function renderDingtalkMarkdown(brief: DingtalkBrief, options: DingtalkMa
 
   brief.signals.slice(0, 4).forEach((signal, index) => {
     lines.push(`## ${index + 1}. ${categoryLabels[signal.category]}｜${signal.title}`);
-    lines.push(`时间：${shortSourceDate(signal.source_published_at)}`);
     lines.push(`出处：[${signal.source_name}｜${shortSourceDate(signal.source_published_at)}](${signal.source_url})`);
     lines.push(`发生了什么：${signal.what_happened}`);
     lines.push(`为什么重要：${signal.why_it_matters}`);

@@ -49,7 +49,7 @@ function buildLivePrompt(config: DingtalkRuntimeConfig, sources: DingtalkSourceC
       "signals 必须刚好 5 条，category 分别是 market_policy、platform_seller、competitor_fulfillment、growth_lead、yqn_action。",
       "每条 signal 必须有 source_name、source_url、source_published_at、collected_at、info_region、info_type、confidence_label、is_test_data、source_summary。",
       "source_url 只能使用 sources 里的 url；source_name 必须使用对应 source 的 title。",
-      "source_published_at 如果来源没有日期，写“来源未注明日期”。",
+      `source_published_at 必须写 YYYY-MM-DD；如果来源没有发布日期，写当天日期 ${config.date}，不要写“来源未注明日期”。`,
       "collected_at 必须是 ISO datetime。",
       "confidence_label 只能是 high、medium、low，不得输出百分比。",
       "action_list 必须刚好 3 条，分别面向销售、内容、履约或数据。",
@@ -61,7 +61,7 @@ function buildLivePrompt(config: DingtalkRuntimeConfig, sources: DingtalkSourceC
       "不得出现客户名单、客户联系方式、报价、合同、毛利、内部成本、未公开客户案例、销售聊天记录、私域客户明细。",
       "不得出现 Codex、OPC、个人副业、个人赚钱、用户个人叙事。",
       "只写公开信号和 YQN 可公开表达的业务动作；任何需要登录、后台、客户数据的来源不得进入群版。",
-      "如果资料不足，使用来源未注明日期、confidence_label=low，并明确资料不足，不要编造。",
+      `如果资料不足，source_published_at 写当天日期 ${config.date}、confidence_label=low，并明确资料不足，不要编造。`,
       "live 模式如果使用样例或非实时资料，相关 signal 的 is_test_data 必须为 true。",
     ],
     sources: sources.map((source) => ({
