@@ -59,6 +59,7 @@ async function buildManifest(root: string, date: string): Promise<Record<string,
     contains_mobile_screenshot: fileEntries.some((entry) => entry.path === "preview/dingtalk-message-mobile.png"),
     contains_archive_screenshot: fileEntries.some((entry) => entry.path === "preview/dingtalk-archive-page.png"),
     contains_recording: fileEntries.some((entry) => entry.path === "preview/dingtalk-operation-recording.webm"),
+    contains_preflight_research_pack: fileEntries.some((entry) => entry.path === "checks/mini_research_pack.json"),
     dry_run_default: true,
     sends_to_test_group_only: true,
     forbidden_content_guard_enabled: true,
@@ -89,6 +90,8 @@ export async function packageDingtalkDelivery(): Promise<string> {
   await copyIfExists(riskReportPath(config), path.join(root, "checks", "risk_report.json"));
   await copyIfExists(validationReportPath(config), path.join(root, "checks", "validation_report.json"));
   await copyIfExists(sourceReportPath(config), path.join(root, "checks", "source_report.json"));
+  await copyIfExists(path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.mini_research_pack.json`), path.join(root, "checks", "mini_research_pack.json"));
+  await copyIfExists(path.join(config.repoRoot, "data", "dingtalk-briefs", `${config.date}.mini_research_pack.md`), path.join(root, "checks", "mini_research_pack.md"));
   await copyIfExists(archiveLinkCheckPath(config), path.join(root, "archive_link_check.json"));
   await copyIfExists(riskReportPath(config), path.join(root, "risk_report.json"));
   await copyIfExists(validationReportPath(config), path.join(root, "validation_report.json"));

@@ -27,6 +27,8 @@
     "dingtalk:validate": "tsx src/dingtalk/validateBeforeSend.ts",
     "dingtalk:send": "tsx src/dingtalk/sendDingTalk.ts",
     "dingtalk:failure": "tsx src/dingtalk/sendDingTalk.ts failure",
+    "dingtalk:watchdog": "tsx src/dingtalk/watchdog.ts",
+    "dingtalk:mini-pack": "tsx src/dingtalk/miniResearchPack.ts",
     "dingtalk:package": "tsx src/dingtalk/packageDelivery.ts",
     "dingtalk:v1": "npm run dingtalk:generate -- --mode demo --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:package",
     "dingtalk:v1.1": "npm run dingtalk:generate -- --mode demo --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:validate && npm run dingtalk:package",

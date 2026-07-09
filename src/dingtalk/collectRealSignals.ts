@@ -31,7 +31,9 @@ export interface DingtalkNewsCandidate {
   collected_at: string;
   market_focus: MarketFocus;
   score: number;
+  account_opening_score: number;
   score_reasons: string[];
+  business_value_reasons: string[];
 }
 
 export interface DingtalkRealSignalCollection {
@@ -171,6 +173,49 @@ const accountOpeningKeywords = [
   "compliance",
 ];
 
+const salesQuestionKeywords = [
+  "fee",
+  "rates",
+  "surcharge",
+  "noncompliance",
+  "customs",
+  "tariff",
+  "compliance",
+  "delay",
+  "delivery",
+  "returns",
+  "inventory",
+  "warehouse",
+];
+
+const contentTopicKeywords = [
+  "seller",
+  "marketplace",
+  "amazon",
+  "walmart",
+  "tiktok shop",
+  "shopify",
+  "usps",
+  "fedex",
+  "ups",
+  "returns",
+  "shipping",
+];
+
+const fulfillmentExplainKeywords = [
+  "fulfillment",
+  "warehouse",
+  "3pl",
+  "carrier",
+  "last mile",
+  "ltl",
+  "distribution",
+  "inventory",
+  "delivery",
+  "returns",
+  "supply chain",
+];
+
 const weakKeywords = [
   "ai visibility",
   "headline",
@@ -187,10 +232,12 @@ function scoreCandidate(input: {
   publishedAt: Date;
   source: DingtalkSourceConfig;
   now: Date;
-}): { score: number; reasons: string[] } {
+}): { score: number; accountOpeningScore: number; reasons: string[]; businessValueReasons: string[] } {
   const text = `${input.title} ${input.summary}`.toLowerCase();
   const reasons: string[] = [];
+  const businessValueReasons: string[] = [];
   let score = input.source.weight ?? 5;
+  let accountOpeningScore = 0;
 
   const age = hoursAgo(input.publishedAt, input.now);
   if (age <= 36) {
@@ -209,37 +256,79 @@ function scoreCandidate(input: {
   const usHits = keywordHits(text, usWarehouseKeywords);
   if (usHits > 0) {
     score += Math.min(18, usHits * 4);
+    accountOpeningScore += Math.min(28, usHits * 5);
     reasons.push("美仓/北美履约");
+    businessValueReasons.push("可解释美仓和北美履约需求");
   }
 
   const mxHits = keywordHits(text, mexicoKeywords);
   if (mxHits > 0) {
     score += Math.min(10, mxHits * 3);
+    accountOpeningScore += Math.min(10, mxHits * 2);
     reasons.push("墨仓/美墨链路");
   }
 
   const sellerHits = keywordHits(text, sellerDemandKeywords);
   if (sellerHits > 0) {
     score += Math.min(14, sellerHits * 3);
+    accountOpeningScore += Math.min(22, sellerHits * 4);
     reasons.push("卖家需求");
+    businessValueReasons.push("可转成销售开口问题");
   }
 
   const openingHits = keywordHits(text, accountOpeningKeywords);
   if (openingHits >= 2) {
     score += 8;
+    accountOpeningScore += Math.min(18, openingHits * 3);
     reasons.push("开户转化相关");
   }
 
-  if (input.source.market_focus === "us_warehouse") score += 7;
-  if (input.source.market_focus === "mexico_warehouse") score += 4;
-  if (input.source.market_focus === "domestic_seller") score += 5;
+  const salesHits = keywordHits(text, salesQuestionKeywords);
+  if (salesHits >= 2) {
+    score += 6;
+    accountOpeningScore += Math.min(18, salesHits * 3);
+    businessValueReasons.push("销售可用于判断客户痛点");
+  }
+
+  const topicHits = keywordHits(text, contentTopicKeywords);
+  if (topicHits >= 2) {
+    score += 4;
+    accountOpeningScore += Math.min(14, topicHits * 2);
+    businessValueReasons.push("内容可转成选题切口");
+  }
+
+  const fulfillmentHits = keywordHits(text, fulfillmentExplainKeywords);
+  if (fulfillmentHits >= 2) {
+    score += 5;
+    accountOpeningScore += Math.min(16, fulfillmentHits * 3);
+    businessValueReasons.push("履约可用于解释服务价值");
+  }
+
+  if (input.source.market_focus === "us_warehouse") {
+    score += 7;
+    accountOpeningScore += 10;
+  }
+  if (input.source.market_focus === "mexico_warehouse") {
+    score += 4;
+    accountOpeningScore += 4;
+  }
+  if (input.source.market_focus === "domestic_seller") {
+    score += 5;
+    accountOpeningScore += 8;
+  }
 
   if (includesAny(text, weakKeywords) && usHits + mxHits + sellerHits < 2) {
     score -= 8;
+    accountOpeningScore -= 8;
     reasons.push("泛资讯降权");
   }
 
-  return { score, reasons };
+  return {
+    score,
+    accountOpeningScore: Math.max(0, Math.min(100, accountOpeningScore)),
+    reasons,
+    businessValueReasons,
+  };
 }
 
 function sourceFocus(source: DingtalkSourceConfig): MarketFocus {
@@ -279,7 +368,9 @@ async function collectFeed(source: DingtalkSourceConfig, now: Date): Promise<Din
         collected_at: collectedAt,
         market_focus: marketFocus,
         score: scored.score,
+        account_opening_score: scored.accountOpeningScore,
         score_reasons: scored.reasons,
+        business_value_reasons: scored.businessValueReasons,
       };
     })
     .filter((candidate) => candidate.title.length > 2 && candidate.url.startsWith("http"));
@@ -313,7 +404,9 @@ async function collectWebpage(source: DingtalkSourceConfig, now: Date): Promise<
     collected_at: new Date().toISOString(),
     market_focus: marketFocus,
     score: scored.score,
+    account_opening_score: scored.accountOpeningScore,
     score_reasons: scored.reasons,
+    business_value_reasons: scored.businessValueReasons,
   }];
 }
 
@@ -336,6 +429,8 @@ function dedupe(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
 
 function sortCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
   return candidates.sort((a, b) => {
+    const openingDiff = b.account_opening_score - a.account_opening_score;
+    if (openingDiff !== 0) return openingDiff;
     const scoreDiff = b.score - a.score;
     if (scoreDiff !== 0) return scoreDiff;
     return b.published_at_iso.localeCompare(a.published_at_iso);

@@ -4,6 +4,7 @@ import { checkDingtalkBriefRisk } from "../../src/dingtalk/riskCheck.js";
 import { countMessageCharacters, renderDingtalkMarkdown } from "../../src/dingtalk/renderMarkdown.js";
 import { DingtalkSourceConfig, validateDingtalkBrief } from "../../src/dingtalk/schema.js";
 import { signDingTalkUrl } from "../../src/dingtalk/utils/signDingTalk.js";
+import { decideWatchdog } from "../../src/dingtalk/watchdog.js";
 
 const sources: DingtalkSourceConfig[] = [
   {
@@ -93,5 +94,37 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     expect(signed).toContain("timestamp=1788000000000");
     expect(signed).toContain("sign=");
     expect(signed).not.toContain("secret-value");
+  });
+
+  it("dispatches fallback when the 08:45 sender is missing", () => {
+    const decision = decideWatchdog([], "2026-07-09", new Date("2026-07-09T01:05:00.000Z"));
+    expect(decision.shouldDispatch).toBe(true);
+    expect(decision.reason).toContain("未发现");
+  });
+
+  it("does not dispatch fallback when a post-08:45 run is active or successful", () => {
+    const active = decideWatchdog([
+      {
+        id: 1,
+        event: "schedule",
+        status: "in_progress",
+        conclusion: null,
+        created_at: "2026-07-09T00:50:00.000Z",
+        html_url: "https://github.com/example/actions/runs/1",
+      },
+    ], "2026-07-09", new Date("2026-07-09T01:05:00.000Z"));
+    expect(active.shouldDispatch).toBe(false);
+
+    const successful = decideWatchdog([
+      {
+        id: 2,
+        event: "schedule",
+        status: "completed",
+        conclusion: "success",
+        created_at: "2026-07-09T00:46:00.000Z",
+        html_url: "https://github.com/example/actions/runs/2",
+      },
+    ], "2026-07-09", new Date("2026-07-09T01:05:00.000Z"));
+    expect(successful.shouldDispatch).toBe(false);
   });
 });

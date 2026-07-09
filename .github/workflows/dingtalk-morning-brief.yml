@@ -95,6 +95,21 @@ jobs:
       - name: Build demo/live brief
         run: npm run dingtalk:generate
 
+      - name: Build 06:00 research pack
+        if: env.BRIEF_MODE == 'live'
+        run: npm run dingtalk:mini-pack
+
+      - name: Upload preflight research pack
+        if: github.event_name == 'schedule' && github.event.schedule == '0 22 * * 0-4'
+        uses: actions/upload-artifact@v4
+        with:
+          name: YQN_Daily_5_Minutes_Preflight_Research_Pack
+          path: |
+            data/dingtalk-briefs/*.mini_research_pack.json
+            data/dingtalk-briefs/*.mini_research_pack.md
+            data/dingtalk-briefs/*.source_report.json
+          if-no-files-found: warn
+
       - name: Mark failure stage for risk check
         run: echo "FAILURE_STAGE=risk check" >> "$GITHUB_ENV"
 

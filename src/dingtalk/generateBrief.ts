@@ -57,7 +57,8 @@ function buildLivePrompt(
     hard_rules: [
       "只输出符合 schema 的 JSON，不输出 Markdown。",
       "one_liner 必须 30 字以内，说明今天最值得 YQN 团队花 5 分钟看的判断。",
-      "signals 必须刚好 5 条，category 分别是 market、platform、customer、fulfillment、yqn_view。",
+      "signals 必须刚好 5 条，按开户价值和影响力排序，不要按类别平均凑数。",
+      "category 根据内容选择，可以重复；至少覆盖 3 类，单一 category 不超过 2 条。",
       "按影响力排序，不要按来源平均分配；群内只会展示前3条，所以前3条必须最值得看。",
       "筛选标准：直接服务客户开户数；老板能看风险和方向，运营能看规则变化，销售能看客户提问，内容能看选题切口，履约能看供给变化。",
       "内容比例：约90%聚焦美仓、美国尾程、北美履约、美国平台卖家；约10%保留墨仓/美墨链路，只有强信号才写。",
@@ -100,17 +101,25 @@ function buildLivePrompt(
       category_hint: candidate.source_category,
       market_focus: candidate.market_focus,
       score: candidate.score,
+      account_opening_score: candidate.account_opening_score,
       score_reasons: candidate.score_reasons,
+      business_value_reasons: candidate.business_value_reasons,
       summary: candidate.summary,
     })),
   });
 }
 
-function ensureCategoryCoverage(brief: DingtalkBrief): void {
-  const categories = new Set(brief.signals.map((signal) => signal.category));
-  for (const category of ["market", "platform", "customer", "fulfillment", "yqn_view"]) {
-    if (!categories.has(category as DingtalkBrief["signals"][number]["category"])) {
-      throw new Error(`schema validation failed: missing ${category} signal`);
+function ensureSignalDiversity(brief: DingtalkBrief): void {
+  const counts = new Map<SignalCategory, number>();
+  for (const signal of brief.signals) {
+    counts.set(signal.category, (counts.get(signal.category) || 0) + 1);
+  }
+  if (counts.size < 3) {
+    throw new Error("schema validation failed: signals must cover at least 3 categories");
+  }
+  for (const [category, count] of counts.entries()) {
+    if (count > 2) {
+      throw new Error(`schema validation failed: too many ${category} signals`);
     }
   }
 }
@@ -123,6 +132,77 @@ function clipText(value: string, max: number): string {
 
 function textOf(candidate: DingtalkNewsCandidate): string {
   return `${candidate.title} ${candidate.summary}`.toLowerCase();
+}
+
+function categoryForCandidate(candidate: DingtalkNewsCandidate): SignalCategory {
+  const text = textOf(candidate);
+  if (candidate.market_focus === "mexico_warehouse") return "yqn_view";
+  if (/tariff|customs|de minimis|section 321|usmca|ocean|rate|transpacific|import|port/i.test(text)) return "market";
+  if (/seller|marketplace|amazon|walmart|ebay|tiktok|shopify|usps|fee|noncompliance/i.test(text)) return "platform";
+  if (/warehouse|fulfillment|3pl|carrier|ltl|last mile|delivery|returns|supply chain|inventory/i.test(text)) return "fulfillment";
+  if (candidate.market_focus === "domestic_seller") return "customer";
+  return "customer";
+}
+
+function selectTopBusinessCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
+  const selected: DingtalkNewsCandidate[] = [];
+  const categoryCounts = new Map<SignalCategory, number>();
+  let mexicoSelected = false;
+
+  for (const candidate of candidates) {
+    const category = categoryForCandidate(candidate);
+    const isMexico = candidate.market_focus === "mexico_warehouse";
+    if (isMexico && (mexicoSelected || candidate.account_opening_score < 35)) continue;
+    if ((categoryCounts.get(category) || 0) >= 2) continue;
+    selected.push(candidate);
+    categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
+    if (isMexico) mexicoSelected = true;
+    if (selected.length === 5) return diversifySelection(selected, candidates);
+  }
+
+  for (const candidate of candidates) {
+    if (selected.some((item) => item.url === candidate.url)) continue;
+    selected.push(candidate);
+    if (selected.length === 5) return diversifySelection(selected, candidates);
+  }
+
+  return diversifySelection(selected, candidates);
+}
+
+function selectionCategoryCounts(selected: DingtalkNewsCandidate[]): Map<SignalCategory, number> {
+  const counts = new Map<SignalCategory, number>();
+  selected.forEach((candidate) => {
+    const category = categoryForCandidate(candidate);
+    counts.set(category, (counts.get(category) || 0) + 1);
+  });
+  return counts;
+}
+
+function diversifySelection(
+  selected: DingtalkNewsCandidate[],
+  candidates: DingtalkNewsCandidate[],
+): DingtalkNewsCandidate[] {
+  const output = selected.slice(0, 5);
+  let counts = selectionCategoryCounts(output);
+  if (counts.size >= 3) return output;
+
+  for (const candidate of candidates) {
+    if (output.some((item) => item.url === candidate.url)) continue;
+    const category = categoryForCandidate(candidate);
+    if (counts.has(category)) continue;
+    const replaceIndex = [...output]
+      .reverse()
+      .findIndex((item) => (counts.get(categoryForCandidate(item)) || 0) > 1);
+    if (replaceIndex < 0) {
+      if (output.length < 5) output.push(candidate);
+    } else {
+      output[output.length - 1 - replaceIndex] = candidate;
+    }
+    counts = selectionCategoryCounts(output);
+    if (counts.size >= 3) break;
+  }
+
+  return output.slice(0, 5);
 }
 
 function pickCandidate(
@@ -178,7 +258,7 @@ function candidateCategory(category: SignalCategory, candidate: DingtalkNewsCand
       infoType: candidate.market_focus === "mexico_warehouse" ? "fulfillment" : "yqn_view",
     },
   };
-  const copy = categoryCopy[category];
+  const copy = tailoredCopy(category, candidate) || categoryCopy[category];
   return {
     category,
     title: clipText(copy.title, 80),
@@ -198,10 +278,76 @@ function candidateCategory(category: SignalCategory, candidate: DingtalkNewsCand
   };
 }
 
+function tailoredCopy(
+  category: SignalCategory,
+  candidate: DingtalkNewsCandidate,
+): { title: string; why: string; yqn: string; infoType: DingtalkBrief["signals"][number]["info_type"] } | undefined {
+  const text = textOf(candidate);
+  if (text.includes("amazon") && text.includes("holiday deal")) {
+    return {
+      title: "Amazon 旺季活动提报窗口打开",
+      why: "旺季活动会提前牵动备货、入仓、尾程时效和异常处理预案。",
+      yqn: "销售可追问客户是否参加旺季活动、库存是否已进美国仓。",
+      infoType: "platform",
+    };
+  }
+  if (text.includes("usps") && (text.includes("rate") || text.includes("rates"))) {
+    return {
+      title: text.includes("noncompliance") ? "USPS 合规费用提醒卖家重算尾程成本" : "USPS 费率变化影响平台卖家尾程成本",
+      why: "尾程费用变化会直接影响卖家对海外仓、平台仓和自发货的选择。",
+      yqn: "内容和销售可把话题落到尾程成本、异常兜底和退货体验。",
+      infoType: "platform",
+    };
+  }
+  if (text.includes("ltl") && (text.includes("shut") || text.includes("shutdown"))) {
+    return {
+      title: "LTL 承运商停运提醒客户重视尾程兜底",
+      why: "区域承运商波动会影响大件、B2B 和补货链路的稳定性。",
+      yqn: "履约沟通要强调多承运商方案、异常响应和替代路线。",
+      infoType: "fulfillment",
+    };
+  }
+  if (text.includes("frontloading") && text.includes("transpacific")) {
+    return {
+      title: "旺季前置推高跨太平洋运价",
+      why: "前置备货会压缩卖家决策窗口，推动一部分客户提前布局美国仓。",
+      yqn: "销售可把问题从运价转到入仓节奏、备货周期和库存周转。",
+      infoType: "market",
+    };
+  }
+  if (text.includes("ocean shipping") || (text.includes("ocean") && text.includes("rates"))) {
+    return {
+      title: "跨太平洋运价上行，备货窗口变紧",
+      why: "海运价格和舱位变化会影响卖家是否提前备货到本土仓。",
+      yqn: "开户沟通先问货型、平台、备货周期和美国仓切换意愿。",
+      infoType: "market",
+    };
+  }
+  if (text.includes("warehouse") && (text.includes("close") || text.includes("closing"))) {
+    return {
+      title: "品牌仓网调整提醒卖家重看备货策略",
+      why: "仓网调整会影响入库、出库、尾程和库存安全边界。",
+      yqn: "履约同事可准备美国仓入库、出库、退货和异常 FAQ。",
+      infoType: "fulfillment",
+    };
+  }
+  if (category === "customer" && candidate.market_focus === "domestic_seller") {
+    return {
+      title: "平台卖家更关注旺季履约确定性",
+      why: "卖家在旺季前会同时比较费用、时效、售后和库存风险。",
+      yqn: "内容选题要从低价转向确定性、退货和尾程异常处理。",
+      infoType: "customer",
+    };
+  }
+  return undefined;
+}
+
 function localizedTitle(category: SignalCategory, candidate: DingtalkNewsCandidate): string {
   const text = textOf(candidate);
+  if (text.includes("amazon") && text.includes("holiday deal")) return "Amazon 旺季活动提报窗口打开";
   if (text.includes("usps") && text.includes("noncompliance")) return "USPS 合规费用提醒卖家重算尾程成本";
   if (text.includes("usps") && (text.includes("rate") || text.includes("rates"))) return "USPS 费率变化影响平台卖家履约成本";
+  if (text.includes("frontloading") && text.includes("transpacific")) return "旺季前置推高跨太平洋运价";
   if (text.includes("transpacific") || (text.includes("ocean") && text.includes("rate"))) return "跨太平洋运价上行，备货窗口变紧";
   if (text.includes("usmca")) return "USMCA 仍是北美供应链稳定性的关键变量";
   if (text.includes("mexico") && text.includes("customs")) return "墨西哥海关规则变化考验美墨链路数据";
@@ -227,20 +373,8 @@ function buildFallbackRealBrief(
   if (candidates.length < 5) {
     throw new Error("Not enough real public candidates to build a fallback brief");
   }
-  const usedUrls = new Set<string>();
-  const market = pickCandidate(candidates, usedUrls, (candidate) => /ocean|rate|tariff|customs|usmca|transpacific|import|section 321|de minimis/i.test(textOf(candidate)));
-  const platform = pickCandidate(candidates, usedUrls, (candidate) => /seller|marketplace|amazon|walmart|ebay|tiktok|shopify|usps|fee|noncompliance|rate/i.test(textOf(candidate)));
-  const customer = pickCandidate(candidates, usedUrls, (candidate) => candidate.market_focus === "domestic_seller" || /ecommerce|merchant|seller|returns|shipping/i.test(textOf(candidate)));
-  const fulfillment = pickCandidate(candidates, usedUrls, (candidate) => /warehouse|fulfillment|3pl|ltl|carrier|logistics|delivery|supply chain|returns/i.test(textOf(candidate)));
-  const view = pickCandidate(candidates, usedUrls, (candidate) => candidate.market_focus === "mexico_warehouse");
-
-  const selected = [
-    candidateCategory("market", market),
-    candidateCategory("platform", platform),
-    candidateCategory("customer", customer),
-    candidateCategory("fulfillment", fulfillment),
-    candidateCategory("yqn_view", view),
-  ];
+  const selected = selectTopBusinessCandidates(candidates)
+    .map((candidate) => candidateCategory(categoryForCandidate(candidate), candidate));
   return validateDingtalkBrief({
     date: config.date,
     title: `${productName}｜${config.date}`,
@@ -269,7 +403,7 @@ function validateSourceUrls(brief: DingtalkBrief, allowedUrls: string[]): Dingta
       throw new Error("model selected source_url outside configured source list");
     }
   }
-  ensureCategoryCoverage(brief);
+  ensureSignalDiversity(brief);
   return brief;
 }
 
@@ -397,7 +531,9 @@ export async function generateDingtalkBrief(config = readDingtalkRuntimeConfig()
         source_published_at: candidate.source_published_at,
         market_focus: candidate.market_focus,
         score: candidate.score,
+        account_opening_score: candidate.account_opening_score,
         score_reasons: candidate.score_reasons,
+        business_value_reasons: candidate.business_value_reasons,
       })),
     });
   }
