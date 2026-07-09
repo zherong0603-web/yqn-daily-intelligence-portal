@@ -119,7 +119,7 @@ export async function runPreSendValidation(
     && !markdown.includes("今天动作")
     && !/%/.test(markdown);
   const archiveSafeForGroup = archive.ok || markdown.includes("归档暂未启用");
-  const messageLengthOk = messageLength <= 1200;
+  const messageLengthOk = messageLength <= 2200;
   const checks = {
     schema: true,
     forbidden_words: risk.ok,

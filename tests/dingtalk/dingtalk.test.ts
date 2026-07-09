@@ -82,11 +82,12 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     expect(markdown).not.toContain("今天动作");
     expect(markdown).toContain("完整归档：[打开网页看完整版]");
     expect(markdown).toContain("- 来源：");
+    expect(markdown.match(/^## /gm)).toHaveLength(5);
     expect(markdown).toContain("https://example.com/yqn/dingtalk/2026-07-08.html");
     expect(markdown).not.toContain("是否敏感");
     expect(markdown).not.toContain("置信度：");
     expect(markdown).not.toContain("[查看来源]");
-    expect(countMessageCharacters(markdown)).toBeLessThanOrEqual(1200);
+    expect(countMessageCharacters(markdown)).toBeLessThanOrEqual(2200);
   });
 
   it("adds DingTalk timestamp and sign without exposing the secret", () => {

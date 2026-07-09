@@ -48,7 +48,7 @@ export function renderDingtalkMarkdown(brief: DingtalkBrief, options: DingtalkMa
   }
   lines.push("");
 
-  brief.signals.slice(0, 3).forEach((signal, index) => {
+  brief.signals.slice(0, 5).forEach((signal, index) => {
     lines.push(`## ${index + 1}. ${categoryLabels[signal.category]}｜${signal.title}`);
     lines.push(`- 发生：${signal.what_happened}`);
     lines.push(`- 影响：${signal.why_it_matters}`);

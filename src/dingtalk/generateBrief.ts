@@ -49,20 +49,22 @@ function buildLivePrompt(
   sources: DingtalkSourceConfig[],
   candidates: DingtalkNewsCandidate[],
 ): string {
+  const promptCandidates = promptCandidateList(candidates);
   return JSON.stringify({
     date: config.date,
     title: `${productName}｜${config.date}`,
     role: "你是 YQN 每日 5 分钟编辑，只服务 YQN 团队的公开信息晨报，目标是帮助客户开户数增长。",
-    format: "固定 1+5：今日判断、5条高权重真实公开信号。群内只展示前3条，归档展示全部5条。",
+    format: "固定 1+5：今日判断、5条高权重真实公开信号。群内和归档都展示全部5条。",
     hard_rules: [
       "只输出符合 schema 的 JSON，不输出 Markdown。",
       "one_liner 必须 30 字以内，说明今天最值得 YQN 团队花 5 分钟看的判断。",
       "signals 必须刚好 5 条，按开户价值和影响力排序，不要按类别平均凑数。",
-      "category 根据内容选择，可以重复；至少覆盖 3 类，单一 category 不超过 2 条。",
-      "按影响力排序，不要按来源平均分配；群内只会展示前3条，所以前3条必须最值得看。",
+      "category 根据内容选择，可以重复；至少覆盖 2 类，不要为了类别均衡牺牲信号价值。",
+      "按影响力排序，不要按来源平均分配；5条都会发到群里，所以每条都必须值得看。",
       "筛选标准：直接服务客户开户数；老板能看风险和方向，运营能看规则变化，销售能看客户提问，内容能看选题切口，履约能看供给变化。",
-      "内容比例：约90%聚焦美仓、美国尾程、北美履约、美国平台卖家；约10%保留墨仓/美墨链路，只有强信号才写。",
-      "如果 candidates 里有国内公开媒体/自媒体/快讯的强信号，signals 前3条至少保留1条国内信号，帮助团队理解国内卖家正在关注什么。",
+      "内容比例：至少4条聚焦美仓、美国尾程、北美履约、美国平台卖家；最多1条保留墨仓/美墨/拉美链路，只有强信号才写。",
+      "国内来源优先：如果 candidates 里有足够国内公开媒体/自媒体/快讯强信号，5条里至少4条必须来自国内公开来源。",
+      "聚焦国内跨境卖家关心的问题：美国平台规则、清关合规、旺季备货、海外仓/尾程、退货、招商和买家体验。",
       "每条 signal 必须有 source_name、source_url、source_published_at、collected_at、info_region、info_type、confidence_label、is_test_data、source_summary。",
       "source_url 只能使用 candidates 里的 url；source_name 必须使用对应 candidate 的 source_name。",
       `source_published_at 必须写 YYYY-MM-DD；如果来源没有发布日期，写当天日期 ${config.date}，不要写“来源未注明日期”。`,
@@ -92,7 +94,7 @@ function buildLivePrompt(
       auto_fetch: source.auto_fetch,
       sample_summary: source.sample_summary || "",
     })),
-    candidates: candidates.slice(0, 25).map((candidate, index) => ({
+    candidates: promptCandidates.map((candidate, index) => ({
       id: index + 1,
       title: candidate.title,
       url: candidate.url,
@@ -115,13 +117,8 @@ function ensureSignalDiversity(brief: DingtalkBrief): void {
   for (const signal of brief.signals) {
     counts.set(signal.category, (counts.get(signal.category) || 0) + 1);
   }
-  if (counts.size < 3) {
-    throw new Error("schema validation failed: signals must cover at least 3 categories");
-  }
-  for (const [category, count] of counts.entries()) {
-    if (count > 2) {
-      throw new Error(`schema validation failed: too many ${category} signals`);
-    }
+  if (counts.size < 2) {
+    throw new Error("schema validation failed: signals must cover at least 2 categories");
   }
 }
 
@@ -135,9 +132,48 @@ function textOf(candidate: DingtalkNewsCandidate): string {
   return `${candidate.title} ${candidate.summary}`.toLowerCase();
 }
 
+function isDomesticMediaCandidate(candidate: DingtalkNewsCandidate): boolean {
+  return candidate.source_category === "domestic_crossborder";
+}
+
+function isChineseDomesticSource(candidate: DingtalkNewsCandidate): boolean {
+  return isDomesticMediaCandidate(candidate) && /[\u3400-\u9fff]/.test(candidate.source_name);
+}
+
+function isMexicoOrLatamCandidate(candidate: DingtalkNewsCandidate): boolean {
+  const text = textOf(candidate);
+  return candidate.market_focus === "mexico_warehouse"
+    || /mexico|mexican|usmca|nearshoring|laredo|monterrey|墨西哥|墨仓|美墨|近岸|拉美|美客多|mercado\s*libre|mercadolibre|巴西/i.test(text);
+}
+
+function isExplicitNonNorthAmericaCandidate(candidate: DingtalkNewsCandidate): boolean {
+  const text = textOf(candidate);
+  return /东南亚|欧英|欧洲|欧盟|英国|泰国|马来西亚|越南|印尼|俄罗斯|俄电商|lazada|shopee|sendo|thaimart/i.test(text);
+}
+
+function isUsSellerRelevantCandidate(candidate: DingtalkNewsCandidate): boolean {
+  if (isMexicoOrLatamCandidate(candidate)) return false;
+  const text = textOf(candidate);
+  if (/美国|美区|美国站|美国市场|美线|北美|美国仓|美仓|cpsc|efiling|cbp|section 321|de minimis|usps|跨太平洋|transpacific/i.test(text)) return true;
+  if (isExplicitNonNorthAmericaCandidate(candidate)) return false;
+  return candidate.market_focus === "us_warehouse"
+    || /亚马逊|amazon|walmart|temu|shein|wayfair|ups|fedex|fba|fbt|buy box|prime|低值|小包|清关|海关|关税|海外仓|尾程|退货|海运|运价|旺季|黑五|网一/i.test(text);
+}
+
+function isUsefulCandidate(candidate: DingtalkNewsCandidate): boolean {
+  return candidate.account_opening_score >= 16 || candidate.score >= 24;
+}
+
+function promptCandidateList(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
+  const domesticChinese = candidates.filter((candidate) => isChineseDomesticSource(candidate) && isUsefulCandidate(candidate));
+  const domesticOther = candidates.filter((candidate) => isDomesticMediaCandidate(candidate) && !domesticChinese.some((item) => item.url === candidate.url));
+  const rest = candidates.filter((candidate) => !domesticChinese.some((item) => item.url === candidate.url) && !domesticOther.some((item) => item.url === candidate.url));
+  return [...domesticChinese, ...domesticOther, ...rest].slice(0, 30);
+}
+
 function categoryForCandidate(candidate: DingtalkNewsCandidate): SignalCategory {
   const text = textOf(candidate);
-  if (candidate.market_focus === "mexico_warehouse") return "yqn_view";
+  if (isMexicoOrLatamCandidate(candidate)) return "yqn_view";
   if (/亚马逊|tiktok|美客多|lazada|shopee|temu|shein|wayfair|buy box|fba|fbt|prime|平台|店铺|大促|黑五|旺季/i.test(text)) return "platform";
   if (/清关|海关|关税|efiling|cpsc|低值|小包|美线|合规大洗牌/i.test(text)) return "market";
   if (/海外仓|美国仓|仓库|仓储|物流|履约|发货|配送|尾程|退货|承运商|dhl|岗位/i.test(text)) return "fulfillment";
@@ -148,46 +184,45 @@ function categoryForCandidate(candidate: DingtalkNewsCandidate): SignalCategory 
   return "customer";
 }
 
-function selectTopBusinessCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
-  const selected: DingtalkNewsCandidate[] = [];
-  const categoryCounts = new Map<SignalCategory, number>();
-  let mexicoSelected = false;
-
-  for (const candidate of candidates) {
-    const category = categoryForCandidate(candidate);
-    const isMexico = candidate.market_focus === "mexico_warehouse";
-    if (isMexico && (mexicoSelected || candidate.account_opening_score < 35)) continue;
-    if ((categoryCounts.get(category) || 0) >= 2) continue;
-    if (hasSameSignalTitle(selected, candidate)) continue;
-    selected.push(candidate);
-    categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
-    if (isMexico) mexicoSelected = true;
-    if (selected.length === 5) return diversifySelection(selected, candidates);
-  }
-
-  for (const candidate of candidates) {
-    if (selected.some((item) => item.url === candidate.url)) continue;
-    if (hasSameSignalTitle(selected, candidate)) continue;
-    selected.push(candidate);
-    if (selected.length === 5) return diversifySelection(selected, candidates);
-  }
-
-  for (const candidate of candidates) {
-    if (selected.some((item) => item.url === candidate.url)) continue;
-    selected.push(candidate);
-    if (selected.length === 5) return diversifySelection(selected, candidates);
-  }
-
-  return diversifySelection(selected, candidates);
-}
-
 function signalTitleForCandidate(candidate: DingtalkNewsCandidate): string {
-  return localizedTitle(categoryForCandidate(candidate), candidate);
+  const category = categoryForCandidate(candidate);
+  return tailoredCopy(category, candidate)?.title || localizedTitle(category, candidate);
 }
 
 function hasSameSignalTitle(selected: DingtalkNewsCandidate[], candidate: DingtalkNewsCandidate): boolean {
   const title = signalTitleForCandidate(candidate);
   return selected.some((item) => signalTitleForCandidate(item) === title);
+}
+
+function tryAddCandidate(
+  selected: DingtalkNewsCandidate[],
+  candidate: DingtalkNewsCandidate,
+  options: { avoidMexico?: boolean } = {},
+): boolean {
+  if (selected.length >= 5) return false;
+  if (selected.some((item) => item.url === candidate.url)) return false;
+  if (hasSameSignalTitle(selected, candidate)) return false;
+  const isMexico = isMexicoOrLatamCandidate(candidate);
+  if (options.avoidMexico && isMexico) return false;
+  if (isMexico && selected.some(isMexicoOrLatamCandidate)) return false;
+  selected.push(candidate);
+  return true;
+}
+
+function addFromPool(
+  selected: DingtalkNewsCandidate[],
+  pool: DingtalkNewsCandidate[],
+  targetLength: number,
+  options: { avoidMexico?: boolean } = {},
+): void {
+  for (const candidate of pool) {
+    if (selected.length >= targetLength) return;
+    tryAddCandidate(selected, candidate, options);
+  }
+}
+
+function domesticCount(selected: DingtalkNewsCandidate[]): number {
+  return selected.filter(isDomesticMediaCandidate).length;
 }
 
 function selectionCategoryCounts(selected: DingtalkNewsCandidate[]): Map<SignalCategory, number> {
@@ -199,57 +234,91 @@ function selectionCategoryCounts(selected: DingtalkNewsCandidate[]): Map<SignalC
   return counts;
 }
 
-function hasDomesticCandidate(selected: DingtalkNewsCandidate[]): boolean {
-  return selected.some((candidate) => candidate.market_focus === "domestic_seller");
-}
-
-function insertDomesticSignal(
+function guaranteeDomesticMajority(
   selected: DingtalkNewsCandidate[],
   candidates: DingtalkNewsCandidate[],
 ): DingtalkNewsCandidate[] {
-  if (hasDomesticCandidate(selected.slice(0, 3))) return selected;
-  const domestic = candidates.find((candidate) => (
-    candidate.market_focus === "domestic_seller"
-    && candidate.account_opening_score >= 20
-    && !selected.some((item) => item.url === candidate.url)
-    && !hasSameSignalTitle(selected, candidate)
-  ));
-  if (!domestic || selected.some((candidate) => candidate.url === domestic.url)) return selected;
   const output = selected.slice(0, 5);
-  if (output.length < 3) {
-    output.push(domestic);
-    return output;
+  const domesticPool = candidates.filter(isDomesticMediaCandidate);
+  if (domesticPool.length < 4) return output;
+
+  for (const candidate of domesticPool) {
+    if (domesticCount(output) >= 4) break;
+    if (output.some((item) => item.url === candidate.url)) continue;
+    if (hasSameSignalTitle(output, candidate)) continue;
+    if (isMexicoOrLatamCandidate(candidate) && output.some(isMexicoOrLatamCandidate)) continue;
+
+    let replaceIndex = -1;
+    for (let index = output.length - 1; index >= 0; index -= 1) {
+      if (!isDomesticMediaCandidate(output[index] as DingtalkNewsCandidate)) {
+        replaceIndex = index;
+        break;
+      }
+    }
+    if (replaceIndex >= 0) output[replaceIndex] = candidate;
   }
-  const replaceIndex = output.findIndex((candidate, index) => index >= 2 && candidate.market_focus !== "domestic_seller");
-  output[replaceIndex >= 0 ? replaceIndex : Math.min(2, output.length - 1)] = domestic;
+
   return output;
 }
 
-function diversifySelection(
+function improveCategorySpread(
   selected: DingtalkNewsCandidate[],
   candidates: DingtalkNewsCandidate[],
 ): DingtalkNewsCandidate[] {
-  const output = insertDomesticSignal(selected, candidates).slice(0, 5);
-  let counts = selectionCategoryCounts(output);
-  if (counts.size >= 3) return output;
+  const output = selected.slice(0, 5);
+  const counts = selectionCategoryCounts(output);
+  if (counts.size >= 2) return output;
+  const dominant = output[0] ? categoryForCandidate(output[0]) : undefined;
+  if (!dominant) return output;
+  const selectedDomesticCount = domesticCount(output);
 
-  for (const candidate of candidates) {
-    if (output.some((item) => item.url === candidate.url)) continue;
-    const category = categoryForCandidate(candidate);
-    if (counts.has(category)) continue;
-    const replaceIndex = [...output]
-      .reverse()
-      .findIndex((item) => (counts.get(categoryForCandidate(item)) || 0) > 1);
-    if (replaceIndex < 0) {
-      if (output.length < 5) output.push(candidate);
-    } else {
-      output[output.length - 1 - replaceIndex] = candidate;
+  const replacement = candidates.find((candidate) => {
+    if (output.some((item) => item.url === candidate.url)) return false;
+    if (hasSameSignalTitle(output, candidate)) return false;
+    if (categoryForCandidate(candidate) === dominant) return false;
+    return isDomesticMediaCandidate(candidate) || selectedDomesticCount > 4;
+  });
+  if (!replacement) return output;
+
+  for (let index = output.length - 1; index >= 0; index -= 1) {
+    const candidate = output[index] as DingtalkNewsCandidate;
+    if (!isDomesticMediaCandidate(candidate) || selectedDomesticCount > 4) {
+      output[index] = replacement;
+      break;
     }
-    counts = selectionCategoryCounts(output);
-    if (counts.size >= 3) break;
   }
 
   return output.slice(0, 5);
+}
+
+function finalizeSelection(
+  selected: DingtalkNewsCandidate[],
+  candidates: DingtalkNewsCandidate[],
+): DingtalkNewsCandidate[] {
+  return improveCategorySpread(guaranteeDomesticMajority(selected, candidates), candidates).slice(0, 5);
+}
+
+function selectTopBusinessCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
+  const selected: DingtalkNewsCandidate[] = [];
+  const useful = candidates.filter(isUsefulCandidate);
+  const pool = useful.length >= 5 ? useful : candidates;
+  const chineseDomestic = pool.filter(isChineseDomesticSource);
+  const domestic = pool.filter(isDomesticMediaCandidate);
+  const domesticUs = chineseDomestic.filter(isUsSellerRelevantCandidate);
+  const domesticMexico = chineseDomestic.filter(isMexicoOrLatamCandidate);
+
+  addFromPool(selected, domesticUs, 4, { avoidMexico: true });
+  addFromPool(selected, domestic.filter(isUsSellerRelevantCandidate), 4, { avoidMexico: true });
+  if (selected.length >= 4) addFromPool(selected, domesticMexico, 5);
+  addFromPool(selected, domesticUs, 5, { avoidMexico: true });
+  addFromPool(selected, chineseDomestic.filter((candidate) => !isMexicoOrLatamCandidate(candidate)), 5, { avoidMexico: true });
+  addFromPool(selected, domestic.filter((candidate) => !isMexicoOrLatamCandidate(candidate)), 5, { avoidMexico: true });
+  if (selected.length < 5) addFromPool(selected, domesticMexico, 5);
+  addFromPool(selected, pool.filter(isUsSellerRelevantCandidate), 5, { avoidMexico: true });
+  addFromPool(selected, pool, 5);
+  addFromPool(selected, candidates, 5);
+
+  return finalizeSelection(selected, candidates);
 }
 
 function pickCandidate(
@@ -370,6 +439,30 @@ function tailoredCopy(
       infoType: "customer",
     };
   }
+  if (/墨西哥|墨仓|美墨|拉美|美客多|mercado\s*libre|mercadolibre|巴西/i.test(text)) {
+    return {
+      title: "拉美平台履约变化作为墨仓旁路观察",
+      why: "拉美仓配投入会影响少量北美卖家对美国仓、墨仓和区域分仓的比较。",
+      yqn: "只把它作为补充问题：客户是否有墨西哥或拉美订单，以及是否需要分仓。",
+      infoType: "fulfillment",
+    };
+  }
+  if (/海运|运价|舱位|跨太平洋|ocean shipping|ocean rates|transpacific/i.test(text)) {
+    return {
+      title: "海运涨价压缩美国仓备货窗口",
+      why: "运价上行会让卖家更早决定是否前置备货、转美国仓或调整补货频率。",
+      yqn: "销售可追问客户备货周期、日单量和是否需要美国仓承接旺季库存。",
+      infoType: "market",
+    };
+  }
+  if ((/黑五|网络星期一|旺季|大促|holiday deal/i.test(text)) && (/亚马逊|amazon/i.test(text))) {
+    return {
+      title: "Amazon 旺季节点推动卖家提前备货",
+      why: "黑五和网一活动会提前牵动入仓、库存深度、尾程时效和退货预案。",
+      yqn: "内容和销售可围绕旺季前入仓、退货和尾程异常做开户切入。",
+      infoType: "platform",
+    };
+  }
   if (text.includes("amazon") && text.includes("holiday deal")) {
     return {
       title: "Amazon 旺季活动提报窗口打开",
@@ -420,7 +513,7 @@ function tailoredCopy(
   }
   if (category === "customer" && candidate.market_focus === "domestic_seller") {
     return {
-      title: "平台卖家更关注旺季履约确定性",
+      title: localizedTitle(category, candidate),
       why: "卖家在旺季前会同时比较费用、时效、售后和库存风险。",
       yqn: "内容选题要从低价转向确定性、退货和尾程异常处理。",
       infoType: "customer",
@@ -436,6 +529,9 @@ function localizedTitle(category: SignalCategory, candidate: DingtalkNewsCandida
   if (/tiktok shop.*fbt|fbt.*tiktok shop|美区 fbt/i.test(text)) return "TikTok Shop 美区 FBT 强化平台仓吸引力";
   if (/tiktok shop.*侵权|世界杯 ip|fifa/i.test(text)) return "TikTok Shop IP 合规提醒卖家收紧选品";
   if (/人民币结算|狂挖中国卖家|中国卖家/i.test(text)) return "平台继续争夺中国跨境卖家供给";
+  if (/墨西哥|墨仓|美墨|拉美|美客多|mercado\s*libre|mercadolibre|巴西/i.test(text)) return "拉美平台履约变化作为墨仓旁路观察";
+  if (/海运|运价|舱位|跨太平洋|ocean shipping|ocean rates|transpacific/i.test(text)) return "海运涨价压缩美国仓备货窗口";
+  if ((/黑五|网络星期一|旺季|大促|holiday deal/i.test(text)) && (/亚马逊|amazon/i.test(text))) return "Amazon 旺季节点推动卖家提前备货";
   if (text.includes("amazon") && text.includes("holiday deal")) return "Amazon 旺季活动提报窗口打开";
   if (text.includes("usps") && text.includes("noncompliance")) return "USPS 合规费用提醒卖家重算尾程成本";
   if (text.includes("usps") && (text.includes("rate") || text.includes("rates"))) return "USPS 费率变化影响平台卖家履约成本";
@@ -470,7 +566,7 @@ function buildFallbackRealBrief(
   return validateDingtalkBrief({
     date: config.date,
     title: `${productName}｜${config.date}`,
-    one_liner: "开户更吃交付确定性",
+    one_liner: "美仓确定性影响开户",
     signals: selected,
     sources: selected.map((signal) => {
       const candidate = candidates.find((item) => item.url === signal.source_url);

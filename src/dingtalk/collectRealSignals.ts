@@ -146,6 +146,11 @@ const usWarehouseKeywords = [
   "海外仓",
   "美国仓",
   "美仓",
+  "美国站",
+  "美国市场",
+  "美区",
+  "北美",
+  "北美站",
   "仓储",
   "履约",
   "尾程",
@@ -184,9 +189,15 @@ const mexicoKeywords = [
   "usmca",
   "customs brokerage",
   "墨西哥",
+  "墨仓",
   "美墨",
   "近岸",
   "拉美",
+  "拉美电商",
+  "美客多",
+  "mercado libre",
+  "mercadolibre",
+  "巴西",
 ];
 
 const sellerDemandKeywords = [
