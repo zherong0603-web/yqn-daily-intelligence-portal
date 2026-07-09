@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-09",
+  "generated_at": "2026-07-09T05:51:45.477Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-09T05:51:45.475Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "AI, semiconductors drive June air cargo demand",
+      "url": "https://www.supplychaindive.com/news/ai-semiconductors-drive-june-air-cargo-demand/824625/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T18:47:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple turns to Broadcom for custom chips",
+      "url": "https://www.supplychaindive.com/news/apple-turns-to-broadcom-for-custom-chips/824647/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T16:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nike expects nearly $1B in IEEPA tariff refunds",
+      "url": "https://www.supplychaindive.com/news/nike-expects-nearly-1b-in-ieepa-tariff-refunds/824492/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T15:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Maersk launches dedicated lithium-ion battery freight service in North America",
+      "url": "https://www.supplychaindive.com/news/maersk-launches-dedicated-lithium-ion-battery-freight-service-in-north-amer/824457/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T13:46:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Transpacific ocean rates fueled by early peak, frontloading",
+      "url": "https://www.supplychaindive.com/news/transpacific-ocean-rates-fueled-by-early-peak-frontloading/824491/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T18:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Levi Strauss to close Kentucky warehouse after yearlong delay",
+      "url": "https://www.supplychaindive.com/news/levi-strauss-to-close-kentucky-warehouse-after-yearlong-delay/824451/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:35:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "EV transition challenges auto supply chain resilience, Moody’s says",
+      "url": "https://www.supplychaindive.com/news/ev-transition-challenges-auto-supply-chain-resilience-moodys-says/824595/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Supply Chain exec highlights what distinguishes the best teams",
+      "url": "https://www.supplychaindive.com/news/dhl-supply-chain-exec-highlights-what-distinguishes-the-best-teams/824402/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:04:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USMCA: Retail, manufacturing and apparel groups call for preservation",
+      "url": "https://www.supplychaindive.com/news/usmca-retail-manufacturing-and-apparel-groups-call-for-preservation/824502/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T14:28:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cobots become simpler, smarter with AI",
+      "url": "https://www.supplychaindive.com/news/cobots-become-simpler-smarter-with-ai/824289/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T11:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Battle over NYC bill on Amazon DSPs waits to resume",
+      "url": "https://www.freightwaves.com/news/battle-over-nyc-bill-on-amazon-dsps-waits-to-resume",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-09T00:23:58.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Lovable reportedly in talks to double its valuation to $13.2B",
+      "url": "https://techcrunch.com/2026/07/08/lovable-reportedly-in-talks-to-double-its-valuation-to-13-2b/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-08T22:41:33.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking insurance fraud: The digital trap costing companies millions",
+      "url": "https://www.freightwaves.com/news/trucking-insurance-fraud-the-digital-trap-costing-companies-millions",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-08T21:21:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Is The Freight Market Headed For a Crisis? What the LMI Says",
+      "url": "https://www.freightwaves.com/news/is-the-freight-market-headed-for-a-crisis-what-the-lmi-says",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-08T21:20:57.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Rail Freight Booms: Why the Industrial Economy Is STRONGER Than You Think",
+      "url": "https://www.freightwaves.com/news/rail-freight-booms-why-the-industrial-economy-is-stronger-than-you-think",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-08T21:20:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Global Shipping at Risk: Middle East Instability, Iran, & UAE’s Counter-Strategy",
+      "url": "https://www.freightwaves.com/news/global-shipping-at-risk-middle-east-instability-iran-uaes-counter-strategy",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-08T21:19:53.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "US Rail Freight Surges: Industrial Economy at 15-Year High?",
+      "url": "https://www.freightwaves.com/news/us-rail-freight-surges-industrial-economy-at-15-year-high",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-08T21:19:04.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google’s deepfake detector system used to debunk McConnell hoax pic",
+      "url": "https://techcrunch.com/2026/07/08/googles-deepfake-detector-system-used-to-debunk-mcconnell-hoax-pic/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-08T20:37:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "SpaceXAI releases Grok 4.5, which Elon describes as an ‘Opus-class model’",
+      "url": "https://techcrunch.com/2026/07/08/spacexai-releases-grok-4-5-which-elon-describes-as-an-opus-class-model/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-08T19:30:16.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "28997003959",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
