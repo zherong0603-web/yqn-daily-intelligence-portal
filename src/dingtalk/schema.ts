@@ -22,7 +22,7 @@ export const infoRegionSchema = z.enum(["domestic", "overseas", "global"]);
 export const infoTypeSchema = z.enum(["policy", "market", "platform", "customer", "fulfillment", "growth", "yqn_view"]);
 export const confidenceLabelSchema = z.enum(["high", "medium", "low"]);
 export const sourceTypeSchema = z.enum(["official", "media", "public_yqn", "manual_approved"]);
-export const sourceFetchTypeSchema = z.enum(["rss", "webpage"]);
+export const sourceFetchTypeSchema = z.enum(["rss", "webpage", "webpage_list", "baijing_article_api", "baijing_flash_api"]);
 export const marketFocusSchema = z.enum(["us_warehouse", "mexico_warehouse", "domestic_seller", "platform", "global"]);
 export const briefModeSchema = z.enum(["demo", "live"]);
 
@@ -86,6 +86,7 @@ export const dingtalkSourceConfigSchema = z.object({
   enabled: z.boolean().default(true),
   fetch_url: z.string().url().optional(),
   fetch_type: sourceFetchTypeSchema.optional(),
+  url_include_patterns: z.array(z.string().min(1)).optional(),
   market_focus: marketFocusSchema.optional(),
   weight: z.number().min(0).max(20).optional(),
   sample_summary: z.string().max(500).optional(),

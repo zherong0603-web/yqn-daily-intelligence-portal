@@ -64,9 +64,15 @@ dingtalk_sources:
   - category: domestic_crossborder
     title: 雨果跨境
     url: https://www.cifnews.com/
+    fetch_url: https://www.cifnews.com/
+    fetch_type: webpage_list
     source_type: media
-    auto_fetch: false
+    auto_fetch: true
     enabled: true
+    market_focus: domestic_seller
+    weight: 15
+    url_include_patterns:
+      - "cifnews\\.com/article/"
     sample_summary: 国内跨境电商公开资讯来源，可观察卖家经营、平台变化和出口环境；群版只引用公开页面。
   - category: domestic_crossborder
     title: 亿邦动力跨境电商
@@ -75,6 +81,41 @@ dingtalk_sources:
     auto_fetch: false
     enabled: true
     sample_summary: 国内电商与跨境公开资讯来源，可作为国内跨境出口环境和平台生态补充。
+  - category: domestic_crossborder
+    title: 白鲸出海文章
+    url: https://www.baijing.cn/
+    fetch_url: https://www.baijing.cn/index/ajax/get_article/
+    fetch_type: baijing_article_api
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: domestic_seller
+    weight: 12
+    sample_summary: 白鲸出海公开文章接口，覆盖国内出海媒体、自媒体、平台运营和跨境内容趋势。
+  - category: domestic_crossborder
+    title: 白鲸出海快讯
+    url: https://www.baijing.cn/newsflashes_txzq/
+    fetch_url: https://www.baijing.cn/index/ajax/get_newsflash/
+    fetch_type: baijing_flash_api
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: domestic_seller
+    weight: 14
+    sample_summary: 白鲸出海公开快讯接口，适合捕捉国内自媒体汇总的平台规则、合规提醒和卖家经营变化。
+  - category: domestic_crossborder
+    title: 电商报
+    url: https://www.dsb.cn/
+    fetch_url: https://www.dsb.cn/news
+    fetch_type: webpage_list
+    source_type: media
+    auto_fetch: true
+    enabled: true
+    market_focus: domestic_seller
+    weight: 9
+    url_include_patterns:
+      - "dsb\\.cn/(news|p)/"
+    sample_summary: 国内电商与物流公开新闻来源，可补充平台、物流、跨境平台和国内卖家经营动态。
   - category: domestic_crossborder
     title: EcommerceBytes
     url: https://www.ecommercebytes.com/

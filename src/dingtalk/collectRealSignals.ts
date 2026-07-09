@@ -44,17 +44,19 @@ export interface DingtalkRealSignalCollection {
   source_errors: Array<{ source_name: string; reason: string }>;
 }
 
-async function fetchText(url: string, timeoutMs = 15_000): Promise<string> {
+async function fetchText(url: string, timeoutMs = 15_000, init: RequestInit = {}): Promise<string> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const response = await fetch(url, {
+        ...init,
         signal: controller.signal,
         headers: {
           "User-Agent": "YQN-Daily-5-Minutes/1.3",
           Accept: "text/html,application/rss+xml,application/atom+xml,application/xml;q=0.9,*/*;q=0.8",
+          ...(init.headers || {}),
         },
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -70,7 +72,7 @@ async function fetchText(url: string, timeoutMs = 15_000): Promise<string> {
 }
 
 function stripHtml(input: string): string {
-  return input
+  return htmlEntityDecode(input)
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]*>/g, " ")
@@ -85,7 +87,9 @@ function htmlEntityDecode(input: string): string {
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, "\"")
-    .replace(/&#39;/g, "'");
+    .replace(/&#39;/g, "'")
+    .replace(/&#(\d+);/g, (_matched, code: string) => String.fromCodePoint(Number.parseInt(code, 10)))
+    .replace(/&#x([0-9a-f]+);/gi, (_matched, code: string) => String.fromCodePoint(Number.parseInt(code, 16)));
 }
 
 function firstMatch(html: string, patterns: RegExp[]): string {
@@ -94,6 +98,19 @@ function firstMatch(html: string, patterns: RegExp[]): string {
     if (matched) return htmlEntityDecode(matched.trim());
   }
   return "";
+}
+
+function attrValue(attrs: string, name: string): string {
+  const pattern = new RegExp(`${name}=["']([^"']+)["']`, "i");
+  return htmlEntityDecode(attrs.match(pattern)?.[1]?.trim() || "");
+}
+
+function normalizeTitle(input: string): string {
+  return htmlEntityDecode(input)
+    .replace(/\s+/g, " ")
+    .replace(/^[-_｜|·\s]+|[-_｜|·\s]+$/g, "")
+    .trim()
+    .slice(0, 180);
 }
 
 function includesAny(text: string, keywords: string[]): boolean {
@@ -126,6 +143,34 @@ const usWarehouseKeywords = [
   "tariff",
   "de minimis",
   "section 321",
+  "海外仓",
+  "美国仓",
+  "美仓",
+  "仓储",
+  "履约",
+  "尾程",
+  "头程",
+  "备货",
+  "库存",
+  "清关",
+  "海关",
+  "关税",
+  "低值",
+  "小包",
+  "直邮",
+  "美线",
+  "物流",
+  "发货",
+  "配送",
+  "cpsc",
+  "efiling",
+  "fba",
+  "fbt",
+  "buy box",
+  "prime",
+  "dhl",
+  "极兔",
+  "顺丰",
 ];
 
 const mexicoKeywords = [
@@ -138,6 +183,10 @@ const mexicoKeywords = [
   "nearshoring",
   "usmca",
   "customs brokerage",
+  "墨西哥",
+  "美墨",
+  "近岸",
+  "拉美",
 ];
 
 const sellerDemandKeywords = [
@@ -156,6 +205,31 @@ const sellerDemandKeywords = [
   "noncompliance",
   "shipping",
   "returns",
+  "卖家",
+  "商家",
+  "跨境",
+  "出海",
+  "亚马逊",
+  "美客多",
+  "虾皮",
+  "平台",
+  "店铺",
+  "合规",
+  "侵权",
+  "大促",
+  "黑五",
+  "旺季",
+  "退货",
+  "运费",
+  "买家",
+  "开店",
+  "招商",
+  "tiktok",
+  "temu",
+  "shein",
+  "shopee",
+  "lazada",
+  "wayfair",
 ];
 
 const accountOpeningKeywords = [
@@ -171,6 +245,22 @@ const accountOpeningKeywords = [
   "delivery",
   "customs",
   "compliance",
+  "开户",
+  "开店",
+  "卖家",
+  "商家",
+  "跨境",
+  "海外仓",
+  "美国仓",
+  "尾程",
+  "清关",
+  "合规",
+  "备货",
+  "发货",
+  "退货",
+  "时效",
+  "库存",
+  "平台",
 ];
 
 const salesQuestionKeywords = [
@@ -186,6 +276,19 @@ const salesQuestionKeywords = [
   "returns",
   "inventory",
   "warehouse",
+  "费用",
+  "费率",
+  "运费",
+  "合规",
+  "清关",
+  "关税",
+  "延误",
+  "配送",
+  "退货",
+  "库存",
+  "海外仓",
+  "美国仓",
+  "尾程",
 ];
 
 const contentTopicKeywords = [
@@ -200,6 +303,24 @@ const contentTopicKeywords = [
   "ups",
   "returns",
   "shipping",
+  "卖家",
+  "平台",
+  "亚马逊",
+  "美客多",
+  "虾皮",
+  "退货",
+  "发货",
+  "运费",
+  "大促",
+  "旺季",
+  "合规",
+  "侵权",
+  "tiktok",
+  "temu",
+  "shein",
+  "shopee",
+  "lazada",
+  "wayfair",
 ];
 
 const fulfillmentExplainKeywords = [
@@ -214,6 +335,19 @@ const fulfillmentExplainKeywords = [
   "delivery",
   "returns",
   "supply chain",
+  "履约",
+  "海外仓",
+  "美国仓",
+  "仓储",
+  "尾程",
+  "承运商",
+  "物流",
+  "配送",
+  "入库",
+  "出库",
+  "库存",
+  "退货",
+  "发货",
 ];
 
 const weakKeywords = [
@@ -224,6 +358,11 @@ const weakKeywords = [
   "earnings",
   "automotive",
   "electric vehicle",
+  "手游",
+  "短剧",
+  "智能体",
+  "汽车",
+  "招聘",
 ];
 
 function scoreCandidate(input: {
@@ -341,6 +480,66 @@ function inferMarketFocus(source: DingtalkSourceConfig, title: string, summary: 
   return sourceFocus(source);
 }
 
+function patternMatched(value: string, patterns: string[] | undefined): boolean {
+  if (!patterns?.length) return true;
+  return patterns.some((pattern) => new RegExp(pattern, "i").test(value));
+}
+
+function parseChineseRelativeTime(value: unknown, now: Date): Date {
+  if (typeof value !== "string" || !value.trim()) return now;
+  const text = value.trim();
+  if (/刚刚|刚才/.test(text)) return now;
+  const minutes = text.match(/(\d+)\s*分钟/);
+  if (minutes?.[1]) return new Date(now.getTime() - Number.parseInt(minutes[1], 10) * 60_000);
+  const hours = text.match(/(\d+)\s*小时/);
+  if (hours?.[1]) return new Date(now.getTime() - Number.parseInt(hours[1], 10) * 3_600_000);
+  const days = text.match(/(\d+)\s*天/);
+  if (days?.[1]) return new Date(now.getTime() - Number.parseInt(days[1], 10) * 86_400_000);
+  const dateText = text.match(/(\d{4})[-/年](\d{1,2})[-/月](\d{1,2})/)?.slice(1, 4);
+  if (dateText?.[0] && dateText[1] && dateText[2]) {
+    const parsed = new Date(`${dateText[0]}-${dateText[1].padStart(2, "0")}-${dateText[2].padStart(2, "0")}T08:00:00+08:00`);
+    if (!Number.isNaN(parsed.getTime())) return parsed;
+  }
+  return parseDateMaybe(text, now);
+}
+
+function candidateFromSource(input: {
+  source: DingtalkSourceConfig;
+  title: string;
+  url: string;
+  summary: string;
+  publishedAt: Date;
+  now: Date;
+  sourceName?: string;
+}): DingtalkNewsCandidate {
+  const scored = scoreCandidate({
+    title: input.title,
+    summary: input.summary,
+    publishedAt: input.publishedAt,
+    source: input.source,
+    now: input.now,
+  });
+  const marketFocus = inferMarketFocus(input.source, input.title, input.summary);
+  return {
+    title: input.title,
+    url: normalizeUrl(input.url),
+    domain: sourceDomain(input.url),
+    summary: stripHtml(input.summary || input.title),
+    source_name: normalizeTitle(input.sourceName || input.source.title).slice(0, 120),
+    source_home_url: input.source.url,
+    source_category: input.source.category,
+    source_type: input.source.source_type,
+    source_published_at: dateInTimeZone("Asia/Shanghai", input.publishedAt),
+    published_at_iso: input.publishedAt.toISOString(),
+    collected_at: new Date().toISOString(),
+    market_focus: marketFocus,
+    score: scored.score,
+    account_opening_score: scored.accountOpeningScore,
+    score_reasons: scored.reasons,
+    business_value_reasons: scored.businessValueReasons,
+  };
+}
+
 async function collectFeed(source: DingtalkSourceConfig, now: Date): Promise<DingtalkNewsCandidate[]> {
   const feedUrl = source.fetch_url || source.url;
   const raw = await fetchText(feedUrl);
@@ -352,26 +551,14 @@ async function collectFeed(source: DingtalkSourceConfig, now: Date): Promise<Din
       const publishedAt = parseDateMaybe(item.isoDate || item.pubDate, now);
       const title = htmlEntityDecode(item.title || feed.title || source.title).replace(/\s+/g, " ").trim().slice(0, 180);
       const summary = stripHtml(item.contentSnippet || item.content || item.summary || item.title || "");
-      const scored = scoreCandidate({ title, summary, publishedAt, source, now });
-      const marketFocus = inferMarketFocus(source, title, summary);
-      return {
+      return candidateFromSource({
+        source,
         title,
         url,
-        domain: sourceDomain(url),
         summary,
-        source_name: source.title,
-        source_home_url: source.url,
-        source_category: source.category,
-        source_type: source.source_type,
-        source_published_at: dateInTimeZone("Asia/Shanghai", publishedAt),
-        published_at_iso: publishedAt.toISOString(),
-        collected_at: collectedAt,
-        market_focus: marketFocus,
-        score: scored.score,
-        account_opening_score: scored.accountOpeningScore,
-        score_reasons: scored.reasons,
-        business_value_reasons: scored.businessValueReasons,
-      };
+        publishedAt,
+        now,
+      });
     })
     .filter((candidate) => candidate.title.length > 2 && candidate.url.startsWith("http"));
 }
@@ -388,30 +575,130 @@ async function collectWebpage(source: DingtalkSourceConfig, now: Date): Promise<
     /<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["'][^>]*>/i,
   ]) || title;
   const publishedAt = now;
-  const scored = scoreCandidate({ title, summary, publishedAt, source, now });
-  const marketFocus = inferMarketFocus(source, title, summary);
-  return [{
+  return [candidateFromSource({
+    source,
     title: title.slice(0, 180),
     url: normalizeUrl(source.url),
-    domain: sourceDomain(source.url),
     summary: stripHtml(summary),
-    source_name: source.title,
-    source_home_url: source.url,
-    source_category: source.category,
-    source_type: source.source_type,
-    source_published_at: dateInTimeZone("Asia/Shanghai", publishedAt),
-    published_at_iso: publishedAt.toISOString(),
-    collected_at: new Date().toISOString(),
-    market_focus: marketFocus,
-    score: scored.score,
-    account_opening_score: scored.accountOpeningScore,
-    score_reasons: scored.reasons,
-    business_value_reasons: scored.businessValueReasons,
-  }];
+    publishedAt,
+    now,
+  })];
+}
+
+function extractWebpageListAnchors(html: string, source: DingtalkSourceConfig): Array<{ title: string; url: string; summary: string }> {
+  const anchors: Array<{ title: string; url: string; summary: string }> = [];
+  const anchorPattern = /<a\b([^>]*?)>([\s\S]*?)<\/a>/gi;
+  let matched: RegExpExecArray | null;
+  while ((matched = anchorPattern.exec(html))) {
+    const attrs = matched[1] || "";
+    const inner = matched[2] || "";
+    const href = attrValue(attrs, "href");
+    if (!href || href.startsWith("#") || href.startsWith("javascript:") || href.includes("{{")) continue;
+    let url = "";
+    try {
+      url = new URL(href, source.url).href;
+    } catch {
+      continue;
+    }
+    if (!patternMatched(url, source.url_include_patterns)) continue;
+    const title = normalizeTitle(attrValue(attrs, "data-fetch-title") || attrValue(attrs, "title") || stripHtml(inner));
+    if (title.length < 8 || title.includes("{{") || /^[\d\s:.-]+$/.test(title)) continue;
+    const summary = normalizeTitle(stripHtml(inner)) || title;
+    anchors.push({ title, url, summary });
+  }
+  return anchors;
+}
+
+async function collectWebpageList(source: DingtalkSourceConfig, now: Date): Promise<DingtalkNewsCandidate[]> {
+  const html = await fetchText(source.fetch_url || source.url);
+  return extractWebpageListAnchors(html, source)
+    .slice(0, 30)
+    .map((item) => candidateFromSource({
+      source,
+      title: item.title,
+      url: item.url,
+      summary: item.summary,
+      publishedAt: now,
+      now,
+    }));
+}
+
+interface BaijingArticleItem {
+  id?: number | string;
+  title?: string;
+  synopsis?: string;
+  add_time?: string;
+  from?: string;
+  article_link?: string;
+  user_info?: { user_name?: string };
+}
+
+interface BaijingFlashItem {
+  id?: number | string;
+  title?: string;
+  content?: string;
+  add_time?: string;
+  source?: string;
+  source_url?: string;
+}
+
+function parseBaijingList<T>(raw: string, key: "article_list" | "news_list"): T[] {
+  const parsed = JSON.parse(raw) as { data?: Record<string, unknown> };
+  const value = parsed.data?.[key];
+  return Array.isArray(value) ? value as T[] : [];
+}
+
+async function postBaijing(source: DingtalkSourceConfig, body: string): Promise<string> {
+  return fetchText(source.fetch_url || source.url, 15_000, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
+    body,
+  });
+}
+
+async function collectBaijingArticles(source: DingtalkSourceConfig, now: Date): Promise<DingtalkNewsCandidate[]> {
+  const raw = await postBaijing(source, "pn=1&ps=20&type=0");
+  return parseBaijingList<BaijingArticleItem>(raw, "article_list")
+    .filter((item) => item.id && item.title)
+    .map((item) => {
+      const title = normalizeTitle(item.title || "");
+      const sourceName = [source.title, item.from || item.user_info?.user_name].filter(Boolean).join("｜");
+      return candidateFromSource({
+        source,
+        title,
+        url: item.article_link || new URL(`/article/${item.id}`, source.url).href,
+        summary: item.synopsis || title,
+        publishedAt: parseChineseRelativeTime(item.add_time, now),
+        now,
+        sourceName,
+      });
+    });
+}
+
+async function collectBaijingFlashes(source: DingtalkSourceConfig, now: Date): Promise<DingtalkNewsCandidate[]> {
+  const raw = await postBaijing(source, "pn=1&ps=20");
+  return parseBaijingList<BaijingFlashItem>(raw, "news_list")
+    .filter((item) => item.id && item.title)
+    .map((item) => {
+      const title = normalizeTitle(item.title || "");
+      const sourceName = [source.title, item.source].filter(Boolean).join("｜");
+      return candidateFromSource({
+        source,
+        title,
+        url: item.source_url || new URL(`/newsflashes_txzq/${item.id}`, source.url).href,
+        summary: item.content || title,
+        publishedAt: parseChineseRelativeTime(item.add_time, now),
+        now,
+        sourceName,
+      });
+    });
 }
 
 async function collectOne(source: DingtalkSourceConfig, now: Date): Promise<DingtalkNewsCandidate[]> {
-  if ((source.fetch_type || "rss") === "webpage") return collectWebpage(source, now);
+  if (source.fetch_type === "webpage") return collectWebpage(source, now);
+  if (source.fetch_type === "webpage_list") return collectWebpageList(source, now);
+  if (source.fetch_type === "baijing_article_api") return collectBaijingArticles(source, now);
+  if (source.fetch_type === "baijing_flash_api") return collectBaijingFlashes(source, now);
   return collectFeed(source, now);
 }
 

@@ -62,6 +62,7 @@ function buildLivePrompt(
       "按影响力排序，不要按来源平均分配；群内只会展示前3条，所以前3条必须最值得看。",
       "筛选标准：直接服务客户开户数；老板能看风险和方向，运营能看规则变化，销售能看客户提问，内容能看选题切口，履约能看供给变化。",
       "内容比例：约90%聚焦美仓、美国尾程、北美履约、美国平台卖家；约10%保留墨仓/美墨链路，只有强信号才写。",
+      "如果 candidates 里有国内公开媒体/自媒体/快讯的强信号，signals 前3条至少保留1条国内信号，帮助团队理解国内卖家正在关注什么。",
       "每条 signal 必须有 source_name、source_url、source_published_at、collected_at、info_region、info_type、confidence_label、is_test_data、source_summary。",
       "source_url 只能使用 candidates 里的 url；source_name 必须使用对应 candidate 的 source_name。",
       `source_published_at 必须写 YYYY-MM-DD；如果来源没有发布日期，写当天日期 ${config.date}，不要写“来源未注明日期”。`,
@@ -137,6 +138,9 @@ function textOf(candidate: DingtalkNewsCandidate): string {
 function categoryForCandidate(candidate: DingtalkNewsCandidate): SignalCategory {
   const text = textOf(candidate);
   if (candidate.market_focus === "mexico_warehouse") return "yqn_view";
+  if (/亚马逊|tiktok|美客多|lazada|shopee|temu|shein|wayfair|buy box|fba|fbt|prime|平台|店铺|大促|黑五|旺季/i.test(text)) return "platform";
+  if (/清关|海关|关税|efiling|cpsc|低值|小包|美线|合规大洗牌/i.test(text)) return "market";
+  if (/海外仓|美国仓|仓库|仓储|物流|履约|发货|配送|尾程|退货|承运商|dhl|岗位/i.test(text)) return "fulfillment";
   if (/tariff|customs|de minimis|section 321|usmca|ocean|rate|transpacific|import|port/i.test(text)) return "market";
   if (/seller|marketplace|amazon|walmart|ebay|tiktok|shopify|usps|fee|noncompliance/i.test(text)) return "platform";
   if (/warehouse|fulfillment|3pl|carrier|ltl|last mile|delivery|returns|supply chain|inventory/i.test(text)) return "fulfillment";
@@ -154,9 +158,17 @@ function selectTopBusinessCandidates(candidates: DingtalkNewsCandidate[]): Dingt
     const isMexico = candidate.market_focus === "mexico_warehouse";
     if (isMexico && (mexicoSelected || candidate.account_opening_score < 35)) continue;
     if ((categoryCounts.get(category) || 0) >= 2) continue;
+    if (hasSameSignalTitle(selected, candidate)) continue;
     selected.push(candidate);
     categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
     if (isMexico) mexicoSelected = true;
+    if (selected.length === 5) return diversifySelection(selected, candidates);
+  }
+
+  for (const candidate of candidates) {
+    if (selected.some((item) => item.url === candidate.url)) continue;
+    if (hasSameSignalTitle(selected, candidate)) continue;
+    selected.push(candidate);
     if (selected.length === 5) return diversifySelection(selected, candidates);
   }
 
@@ -169,6 +181,15 @@ function selectTopBusinessCandidates(candidates: DingtalkNewsCandidate[]): Dingt
   return diversifySelection(selected, candidates);
 }
 
+function signalTitleForCandidate(candidate: DingtalkNewsCandidate): string {
+  return localizedTitle(categoryForCandidate(candidate), candidate);
+}
+
+function hasSameSignalTitle(selected: DingtalkNewsCandidate[], candidate: DingtalkNewsCandidate): boolean {
+  const title = signalTitleForCandidate(candidate);
+  return selected.some((item) => signalTitleForCandidate(item) === title);
+}
+
 function selectionCategoryCounts(selected: DingtalkNewsCandidate[]): Map<SignalCategory, number> {
   const counts = new Map<SignalCategory, number>();
   selected.forEach((candidate) => {
@@ -178,11 +199,37 @@ function selectionCategoryCounts(selected: DingtalkNewsCandidate[]): Map<SignalC
   return counts;
 }
 
+function hasDomesticCandidate(selected: DingtalkNewsCandidate[]): boolean {
+  return selected.some((candidate) => candidate.market_focus === "domestic_seller");
+}
+
+function insertDomesticSignal(
+  selected: DingtalkNewsCandidate[],
+  candidates: DingtalkNewsCandidate[],
+): DingtalkNewsCandidate[] {
+  if (hasDomesticCandidate(selected.slice(0, 3))) return selected;
+  const domestic = candidates.find((candidate) => (
+    candidate.market_focus === "domestic_seller"
+    && candidate.account_opening_score >= 20
+    && !selected.some((item) => item.url === candidate.url)
+    && !hasSameSignalTitle(selected, candidate)
+  ));
+  if (!domestic || selected.some((candidate) => candidate.url === domestic.url)) return selected;
+  const output = selected.slice(0, 5);
+  if (output.length < 3) {
+    output.push(domestic);
+    return output;
+  }
+  const replaceIndex = output.findIndex((candidate, index) => index >= 2 && candidate.market_focus !== "domestic_seller");
+  output[replaceIndex >= 0 ? replaceIndex : Math.min(2, output.length - 1)] = domestic;
+  return output;
+}
+
 function diversifySelection(
   selected: DingtalkNewsCandidate[],
   candidates: DingtalkNewsCandidate[],
 ): DingtalkNewsCandidate[] {
-  const output = selected.slice(0, 5);
+  const output = insertDomesticSignal(selected, candidates).slice(0, 5);
   let counts = selectionCategoryCounts(output);
   if (counts.size >= 3) return output;
 
@@ -283,6 +330,46 @@ function tailoredCopy(
   candidate: DingtalkNewsCandidate,
 ): { title: string; why: string; yqn: string; infoType: DingtalkBrief["signals"][number]["info_type"] } | undefined {
   const text = textOf(candidate);
+  if (/cpsc|efiling|电子申报|美国海关|清关强制/i.test(text)) {
+    return {
+      title: "国内卖家关注美国 eFiling 清关执行",
+      why: "清关申报尺度会影响直邮、小包和美国仓备货的风险判断。",
+      yqn: "销售可用这条追问客户品类、申报资料和是否需要美国仓兜底。",
+      infoType: "policy",
+    };
+  }
+  if (/buy box|前置资格预审/i.test(text)) {
+    return {
+      title: "Amazon Buy Box 门槛变化影响卖家履约选择",
+      why: "Buy Box 竞争仍看价格、配送速度、绩效和 Prime 等履约因素。",
+      yqn: "内容和销售可把话题落到库存深度、配送时效和平台仓替代方案。",
+      infoType: "platform",
+    };
+  }
+  if (/tiktok shop.*fbt|fbt.*tiktok shop|美区 fbt/i.test(text)) {
+    return {
+      title: "TikTok Shop 美区 FBT 强化平台仓吸引力",
+      why: "平台仓政策会改变卖家对自建美国仓、平台仓和第三方仓的比较。",
+      yqn: "销售要准备平台仓与 YQN 美国仓在尾程、退货和异常处理上的差异问答。",
+      infoType: "platform",
+    };
+  }
+  if (/tiktok shop.*侵权|世界杯 ip|fifa/i.test(text)) {
+    return {
+      title: "TikTok Shop IP 合规提醒卖家收紧选品",
+      why: "平台合规动作会影响卖家上新节奏和旺季选品风险。",
+      yqn: "内容可做平台合规选题，销售可追问客户是否有高风险品类。",
+      infoType: "platform",
+    };
+  }
+  if (/人民币结算|狂挖中国卖家|中国卖家/i.test(text)) {
+    return {
+      title: "平台继续争夺中国跨境卖家供给",
+      why: "平台招商和结算便利会推动卖家扩平台，也会带来多仓多平台履约需求。",
+      yqn: "开户沟通可从客户是否扩平台、是否需要美国仓多平台出库切入。",
+      infoType: "customer",
+    };
+  }
   if (text.includes("amazon") && text.includes("holiday deal")) {
     return {
       title: "Amazon 旺季活动提报窗口打开",
@@ -344,6 +431,11 @@ function tailoredCopy(
 
 function localizedTitle(category: SignalCategory, candidate: DingtalkNewsCandidate): string {
   const text = textOf(candidate);
+  if (/cpsc|efiling|电子申报|美国海关|清关强制/i.test(text)) return "国内卖家关注美国 eFiling 清关执行";
+  if (/buy box|前置资格预审/i.test(text)) return "Amazon Buy Box 门槛变化影响卖家履约选择";
+  if (/tiktok shop.*fbt|fbt.*tiktok shop|美区 fbt/i.test(text)) return "TikTok Shop 美区 FBT 强化平台仓吸引力";
+  if (/tiktok shop.*侵权|世界杯 ip|fifa/i.test(text)) return "TikTok Shop IP 合规提醒卖家收紧选品";
+  if (/人民币结算|狂挖中国卖家|中国卖家/i.test(text)) return "平台继续争夺中国跨境卖家供给";
   if (text.includes("amazon") && text.includes("holiday deal")) return "Amazon 旺季活动提报窗口打开";
   if (text.includes("usps") && text.includes("noncompliance")) return "USPS 合规费用提醒卖家重算尾程成本";
   if (text.includes("usps") && (text.includes("rate") || text.includes("rates"))) return "USPS 费率变化影响平台卖家履约成本";
