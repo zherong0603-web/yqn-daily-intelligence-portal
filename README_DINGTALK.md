@@ -1,4 +1,4 @@
-# YQN 每日 5 分钟 V1.3
+# YQN 跨境电商 5 分钟晨报 V1.3
 
 定位：面向 YQN 团队的钉钉测试群晨报，覆盖行业、市场、客户、平台和履约变化。
 
@@ -9,15 +9,18 @@
 当前状态：
 - 默认发送到钉钉测试群。
 - 标题保留【测试版】。
+- 配置 `DINGTALK_FORMAL_WEBHOOK_URL` / `DINGTALK_FORMAL_SECRET` 且设置 `DINGTALK_FORMAL_GROUP_ENABLED=true` 后，才会切到正式内部群；测试群 webhook 会保留用于回滚。
 - demo 模式不消耗 OpenAI API。
 - live 模式先抓取真实公开 RSS / 网页信号，再用 OpenAI API 或 GitHub Models 提炼；模型不可用时会用真实候选源生成保守版，不回退 demo。
-- 内容按开户价值 top-down 排序，群内只展示前三条，归档保留五条；优先 90% 美仓 / 北美履约 / 美国平台卖家，只有强信号才保留墨仓 / 美墨链路。
+- 内容按开户价值 top-down 排序，群内和归档都展示五条；优先 90% 美仓 / 北美履约 / 美国平台卖家，只有强信号才保留墨仓 / 美墨链路。
 - 06:00 预演会额外生成 `mini_research_pack` 候选资料包，只作为资料员输出，不直接发群。
 - 发送前会做 schema、敏感边界、来源字段、消息长度、测试标识和归档链接验收。
 
 关键密钥和变量：
-- `DINGTALK_WEBHOOK_URL`：钉钉自定义机器人 webhook，真实发送必须配置。
-- `DINGTALK_SECRET`：钉钉机器人加签 secret，开启加签时必须配置。
+- `DINGTALK_WEBHOOK_URL`：测试群钉钉自定义机器人 webhook，测试群真实发送必须配置。
+- `DINGTALK_SECRET`：测试群钉钉机器人加签 secret，开启加签时必须配置。
+- `DINGTALK_FORMAL_WEBHOOK_URL`：正式内部群机器人 webhook，切正式群时配置。
+- `DINGTALK_FORMAL_SECRET`：正式内部群机器人加签 secret，正式群机器人开启加签时配置。
 - `OPENAI_API_KEY`：live 模式需要。
 - `OPENAI_MODEL`：live 模式模型名。
 - `PUBLIC_BASE_URL` 或 `PAGES_BASE_URL`：GitHub Pages 根地址，推荐 `https://zherong0603-web.github.io/yqn-daily-intelligence-portal`。

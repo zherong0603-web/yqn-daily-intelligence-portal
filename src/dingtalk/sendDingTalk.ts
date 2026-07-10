@@ -55,6 +55,16 @@ async function notifyOwner(config: DingtalkRuntimeConfig, brief: DingtalkBrief, 
   }
 }
 
+function deliveryTarget(config: DingtalkRuntimeConfig): { webhookUrl?: string; secret?: string; label: string } {
+  if (config.formalGroupEnabled) {
+    if (!config.formalWebhookUrl) {
+      throw new Error("SETUP_ERROR: DINGTALK_FORMAL_WEBHOOK_URL is required when DINGTALK_FORMAL_GROUP_ENABLED=true");
+    }
+    return { webhookUrl: config.formalWebhookUrl, secret: config.formalSecret, label: "formal-group" };
+  }
+  return { webhookUrl: config.webhookUrl, secret: config.secret, label: "test-group" };
+}
+
 export async function sendOwnerFailure(config = readDingtalkRuntimeConfig()): Promise<void> {
   if (!config.ownerWebhookUrl) {
     console.warn("[dingtalk:failure] DINGTALK_OWNER_WEBHOOK_URL is not configured; owner notification skipped");
@@ -89,17 +99,41 @@ export async function sendDingtalkBrief(config = readDingtalkRuntimeConfig()): P
     console.log("[dingtalk:send] dry_run=true; DingTalk message was not sent");
     return;
   }
-  if (!config.webhookUrl) {
-    console.warn("[dingtalk:send] DINGTALK_WEBHOOK_URL is not configured; send skipped");
+  const target = deliveryTarget(config);
+  if (!target.webhookUrl) {
+    console.warn(`[dingtalk:send] ${target.label} webhook is not configured; send skipped`);
     return;
   }
 
-  await postMarkdown(config.webhookUrl, config.secret, validation.brief.title, validation.markdown);
-  console.log("[dingtalk:send] test-group markdown message sent");
+  await postMarkdown(target.webhookUrl, target.secret, validation.brief.title, validation.markdown);
+  console.log(`[dingtalk:send] ${target.label} markdown message sent`);
+}
+
+export async function sendDingtalkIntro(config = readDingtalkRuntimeConfig()): Promise<void> {
+  if (config.dryRun) {
+    console.log("[dingtalk:intro] dry_run=true; DingTalk intro was not sent");
+    return;
+  }
+  const target = deliveryTarget(config);
+  if (!target.webhookUrl) {
+    console.warn(`[dingtalk:intro] ${target.label} webhook is not configured; intro skipped`);
+    return;
+  }
+  const markdown = [
+    `# ${productName}已接入`,
+    "",
+    `大家好，我是 ${productName} 机器人，每个工作日 8:45 自动整理国内跨境卖家最该关注的美国平台、清关、美仓履约和少量墨仓/拉美公开信号。`,
+  ].join("\n");
+  await postMarkdown(target.webhookUrl, target.secret, `${productName}已接入`, markdown);
+  console.log(`[dingtalk:intro] ${target.label} intro message sent`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const task = process.argv[2] === "failure" ? sendOwnerFailure() : sendDingtalkBrief();
+  const task = process.argv[2] === "failure"
+    ? sendOwnerFailure()
+    : process.argv[2] === "intro"
+      ? sendDingtalkIntro()
+      : sendDingtalkBrief();
   task.catch((error) => {
     console.error(error instanceof Error ? error.message : "DingTalk send failed");
     process.exit(1);

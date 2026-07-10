@@ -54,7 +54,7 @@ function renderArchivePage(
     p { margin:0; }
     a { color:#0566d6; overflow-wrap:anywhere; }
     .subtitle { margin-top:8px; color:var(--muted); font-weight:700; }
-    .one { margin-top:12px; font-size:20px; color:#0b4fb3; font-weight:800; }
+    .one { margin:14px 0 0; font-size:21px; color:#0b4fb3; font-weight:800; }
     .meta { margin-top:12px; color:var(--muted); font-size:13px; }
     .status { display:inline-block; margin-top:14px; padding:4px 10px; border:1px solid #bcd2ef; border-radius:999px; color:#0b4fb3; background:#f4f8ff; font-weight:800; font-size:13px; }
     .signal { border-left:4px solid var(--green); }
@@ -71,7 +71,7 @@ function renderArchivePage(
       main { padding:18px 12px 46px; }
       header, section, nav { padding:18px; }
       h1 { font-size:24px; }
-      .one { font-size:18px; }
+      .one { font-size:20px; }
       pre { font-size:13px; }
     }
   </style>
@@ -81,7 +81,7 @@ function renderArchivePage(
     <header>
       <h1>${escapeHtml(productName)}｜${escapeHtml(brief.date)}</h1>
       <p class="subtitle">${escapeHtml(productSubtitle)}</p>
-      <p class="one">今日判断：${escapeHtml(brief.one_liner)}</p>
+      <h2 class="one">今日判断｜${escapeHtml(brief.one_liner)}</h2>
       <p class="meta">生成时间：${escapeHtml(brief.generated_at)}｜模式：${escapeHtml(brief.mode)}</p>
       <span class="status">${escapeHtml(status)}</span>
     </header>
@@ -155,7 +155,7 @@ function renderIndexPage(briefs: DingtalkBrief[]): string {
   return `<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>YQN 跨境增长情报归档</title>
 <style>body{margin:0;background:#f4f7fb;color:#172033;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:920px;margin:0 auto;padding:32px 18px}.card{display:block;margin:12px 0;padding:18px;border:1px solid #d8e2ef;border-radius:8px;background:#fff;color:inherit;text-decoration:none;box-shadow:0 10px 24px rgba(28,63,101,.08)}h1{margin:0 0 8px}.muted{color:#65758b}.subtitle{color:#65758b;margin:0 0 18px}</style></head>
-<body><main><h1>YQN 每日 5 分钟归档</h1><p class="subtitle">${escapeHtml(productSubtitle)}</p>${cards}</main></body></html>`;
+<body><main><h1>${escapeHtml(productName)}归档</h1><p class="subtitle">${escapeHtml(productSubtitle)}</p>${cards}</main></body></html>`;
 }
 
 export async function archiveDingtalkBrief(): Promise<void> {

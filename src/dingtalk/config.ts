@@ -23,6 +23,8 @@ export interface DingtalkRuntimeConfig {
   githubModelsModel: string;
   webhookUrl?: string;
   secret?: string;
+  formalWebhookUrl?: string;
+  formalSecret?: string;
   ownerWebhookUrl?: string;
   publicBaseUrl: string;
   runId: string;
@@ -80,6 +82,8 @@ export function readDingtalkRuntimeConfig(
     githubModelsModel: readEnv("GH_MODELS_MODEL") || readEnv("GITHUB_MODELS_MODEL") || "openai/gpt-4o",
     webhookUrl: readEnv("DINGTALK_WEBHOOK_URL"),
     secret: readEnv("DINGTALK_SECRET"),
+    formalWebhookUrl: readEnv("DINGTALK_FORMAL_WEBHOOK_URL"),
+    formalSecret: readEnv("DINGTALK_FORMAL_SECRET"),
     ownerWebhookUrl: readEnv("DINGTALK_OWNER_WEBHOOK_URL"),
     publicBaseUrl: defaultPublicBaseUrl(),
     runId: readEnv("GITHUB_RUN_ID") || `local-${Date.now()}`,

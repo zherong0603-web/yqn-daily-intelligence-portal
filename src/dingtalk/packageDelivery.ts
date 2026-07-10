@@ -12,6 +12,7 @@ import {
   sourceReportPath,
   validationReportPath,
 } from "./config.js";
+import { productName } from "./schema.js";
 
 const packageRootName = "YQN_Daily_5_Minutes_V1_3_Delivery";
 const zipName = "YQN_Daily_5_Minutes_V1_3_Delivery.zip";
@@ -42,7 +43,7 @@ async function copyIfExists(from: string, to: string): Promise<void> {
   }
 }
 
-async function buildManifest(root: string, date: string): Promise<Record<string, unknown>> {
+async function buildManifest(root: string, date: string, formalGroupEnabled: boolean): Promise<Record<string, unknown>> {
   const files = await walk(root);
   const fileEntries = await Promise.all(files.map(async (file) => ({
     path: path.relative(root, file).replace(/\\/g, "/"),
@@ -50,7 +51,7 @@ async function buildManifest(root: string, date: string): Promise<Record<string,
   })));
   return {
     generated_at: new Date().toISOString(),
-    product: "YQN 每日 5 分钟",
+    product: productName,
     version: "V1.3",
     date,
     files: fileEntries,
@@ -61,7 +62,7 @@ async function buildManifest(root: string, date: string): Promise<Record<string,
     contains_recording: fileEntries.some((entry) => entry.path === "preview/dingtalk-operation-recording.webm"),
     contains_preflight_research_pack: fileEntries.some((entry) => entry.path === "checks/mini_research_pack.json"),
     dry_run_default: true,
-    sends_to_test_group_only: true,
+    sends_to_test_group_only: !formalGroupEnabled,
     forbidden_content_guard_enabled: true,
   };
 }
@@ -100,9 +101,9 @@ export async function packageDingtalkDelivery(): Promise<string> {
   await copyIfExists(path.join(config.repoRoot, "docs", "dingtalk"), path.join(root, "docs", "dingtalk"));
   await copyIfExists(path.join(config.repoRoot, "dist", "dingtalk"), path.join(root, "dist", "dingtalk"));
 
-  let manifest = await buildManifest(root, config.date);
+  let manifest = await buildManifest(root, config.date, config.formalGroupEnabled);
   await writeFile(path.join(root, "MANIFEST.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
-  manifest = await buildManifest(root, config.date);
+  manifest = await buildManifest(root, config.date, config.formalGroupEnabled);
   await writeFile(path.join(root, "MANIFEST.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 
   await rm(zipPath, { force: true });

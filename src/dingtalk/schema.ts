@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-export const productName = "YQN 每日 5 分钟";
-export const robotDisplayName = "YQN 每日 5 分钟";
+export const productName = "YQN 跨境电商 5 分钟晨报";
+export const robotDisplayName = "YQN 跨境电商 5 分钟晨报";
 export const productSubtitle = "行业｜市场｜客户｜平台｜履约";
 
 export const signalCategorySchema = z.enum([

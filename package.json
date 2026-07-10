@@ -26,6 +26,7 @@
     "dingtalk:preview": "tsx src/dingtalk/buildPreview.ts",
     "dingtalk:validate": "tsx src/dingtalk/validateBeforeSend.ts",
     "dingtalk:send": "tsx src/dingtalk/sendDingTalk.ts",
+    "dingtalk:intro": "tsx src/dingtalk/sendDingTalk.ts intro",
     "dingtalk:failure": "tsx src/dingtalk/sendDingTalk.ts failure",
     "dingtalk:watchdog": "tsx src/dingtalk/watchdog.ts",
     "dingtalk:mini-pack": "tsx src/dingtalk/miniResearchPack.ts",

@@ -189,7 +189,7 @@ async function notify(config: WatchdogConfig, markdown: string): Promise<void> {
     return;
   }
   try {
-    await postMarkdown(target.url, target.secret, "YQN 每日 5 分钟兜底提醒", markdown);
+    await postMarkdown(target.url, target.secret, "YQN 跨境电商 5 分钟晨报兜底提醒", markdown);
     console.warn(`[dingtalk:watchdog] notification sent to ${target.label}`);
   } catch {
     console.warn("[dingtalk:watchdog] notification failed");
@@ -208,7 +208,7 @@ export async function runWatchdog(config = readConfig()): Promise<WatchdogDecisi
   }
 
   await notify(config, [
-    `# YQN 每日 5 分钟 09:05 兜底触发｜${config.date}`,
+    `# YQN 跨境电商 5 分钟晨报兜底触发｜${config.date}`,
     "",
     `**原因：** ${decision.reason}`,
     "",

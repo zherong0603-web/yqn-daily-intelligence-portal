@@ -42,7 +42,7 @@ export function renderDingtalkMarkdown(brief: DingtalkBrief, options: DingtalkMa
   lines.push("");
   lines.push(archiveAvailable && archiveUrl ? `完整归档：[打开网页看完整版](${archiveUrl})` : "完整归档：归档暂未启用");
   lines.push("");
-  lines.push(`**今日判断：** ${brief.one_liner}`);
+  lines.push(`## 今日判断｜${brief.one_liner}`);
   if (briefHasTestData(brief)) {
     lines.push("> demo 样例，非实时新闻。");
   }

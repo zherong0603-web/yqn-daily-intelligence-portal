@@ -77,12 +77,13 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
   it("renders Markdown with source links and archive link", () => {
     const brief = buildSampleBrief("2026-07-08", sources);
     const markdown = renderDingtalkMarkdown(brief, { publicBaseUrl: "https://example.com/yqn", archiveAvailable: true });
-    expect(markdown).toContain("【测试版】YQN 每日 5 分钟");
+    expect(markdown).toContain("【测试版】YQN 跨境电商 5 分钟晨报");
     expect(markdown).not.toContain("今日 3 个动作");
     expect(markdown).not.toContain("今天动作");
     expect(markdown).toContain("完整归档：[打开网页看完整版]");
     expect(markdown).toContain("- 来源：");
-    expect(markdown.match(/^## /gm)).toHaveLength(5);
+    expect(markdown).toContain("## 今日判断｜");
+    expect(markdown.match(/^## \d+\./gm)).toHaveLength(5);
     expect(markdown).toContain("https://example.com/yqn/dingtalk/2026-07-08.html");
     expect(markdown).not.toContain("是否敏感");
     expect(markdown).not.toContain("置信度：");

@@ -53,7 +53,7 @@ function buildLivePrompt(
   return JSON.stringify({
     date: config.date,
     title: `${productName}｜${config.date}`,
-    role: "你是 YQN 每日 5 分钟编辑，只服务 YQN 团队的公开信息晨报，目标是帮助客户开户数增长。",
+    role: "你是 YQN 跨境电商 5 分钟晨报编辑，只服务 YQN 团队的公开信息晨报，目标是帮助客户开户数增长。",
     format: "固定 1+5：今日判断、5条高权重真实公开信号。群内和归档都展示全部5条。",
     hard_rules: [
       "只输出符合 schema 的 JSON，不输出 Markdown。",

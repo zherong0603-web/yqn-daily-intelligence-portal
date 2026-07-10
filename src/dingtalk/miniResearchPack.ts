@@ -46,7 +46,7 @@ function marketLabel(value: string): string {
 
 function renderMarkdown(report: SourceReport, selected: SourceReportCandidate[]): string {
   const lines = [
-    `# YQN 每日 5 分钟 06:00 候选资料包｜${report.date}`,
+    `# YQN 跨境电商 5 分钟晨报 06:00 候选资料包｜${report.date}`,
     "",
     `来源窗口：${report.source_window_hours} 小时`,
     `采集候选：${report.source_count_before_window} 条`,
