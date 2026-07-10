@@ -2,8 +2,13 @@ name: DingTalk YQN Daily 5 Minutes Watchdog
 
 on:
   schedule:
-    # 01:05 UTC equals 09:05 Asia/Shanghai. Checks whether the 08:45 sender ran.
+    # 01:05/01:20/01:35/01:50 UTC equals 09:05/09:20/09:35/09:50 Asia/Shanghai.
+    # GitHub scheduled workflows can be delayed or dropped under load, so use
+    # several idempotent checks instead of relying on one watchdog tick.
     - cron: "5 1 * * 1-5"
+    - cron: "20 1 * * 1-5"
+    - cron: "35 1 * * 1-5"
+    - cron: "50 1 * * 1-5"
   workflow_dispatch:
     inputs:
       brief_date:

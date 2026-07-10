@@ -128,4 +128,18 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     ], "2026-07-09", new Date("2026-07-09T01:05:00.000Z"));
     expect(successful.shouldDispatch).toBe(false);
   });
+
+  it("does not dispatch duplicate fallback after a manual补发 has succeeded", () => {
+    const decision = decideWatchdog([
+      {
+        id: 3,
+        event: "workflow_dispatch",
+        status: "completed",
+        conclusion: "success",
+        created_at: "2026-07-09T01:12:00.000Z",
+        html_url: "https://github.com/example/actions/runs/3",
+      },
+    ], "2026-07-09", new Date("2026-07-09T01:35:00.000Z"));
+    expect(decision.shouldDispatch).toBe(false);
+  });
 });

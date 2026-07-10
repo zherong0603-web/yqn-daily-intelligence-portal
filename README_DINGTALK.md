@@ -4,7 +4,7 @@
 
 默认推送时间：工作日 08:45 Asia/Shanghai，对应 GitHub Actions cron `45 0 * * 1-5`。
 预抓取时间：工作日 06:00 Asia/Shanghai，对应 GitHub Actions cron `0 22 * * 0-4`，只 dry-run，不发群。
-兜底检查时间：工作日 09:05 Asia/Shanghai，对应 GitHub Actions cron `5 1 * * 1-5`。如果 08:45 后没有成功或正在运行的主任务，会自动触发一次 `workflow_dispatch live dry_run=false` 补发到钉钉测试群。
+兜底检查时间：工作日 09:05 / 09:20 / 09:35 / 09:50 Asia/Shanghai，对应 GitHub Actions cron `5 1 * * 1-5`、`20 1 * * 1-5`、`35 1 * * 1-5`、`50 1 * * 1-5`。如果 08:45 后没有成功或正在运行的主任务，会自动触发一次 `workflow_dispatch live dry_run=false` 补发到钉钉测试群；后续兜底检查会识别已成功或运行中的主任务，避免重复发送。
 
 当前状态：
 - 默认发送到钉钉测试群。
