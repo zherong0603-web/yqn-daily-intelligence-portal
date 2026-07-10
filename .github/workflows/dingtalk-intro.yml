@@ -1,0 +1,37 @@
+name: DingTalk YQN Intro
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dingtalk-yqn-intro
+  cancel-in-progress: false
+
+jobs:
+  send-intro:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      DRY_RUN: "false"
+      DINGTALK_FORMAL_GROUP_ENABLED: "true"
+      DINGTALK_FORMAL_WEBHOOK_URL: ${{ secrets.DINGTALK_FORMAL_WEBHOOK_URL }}
+      DINGTALK_FORMAL_SECRET: ${{ secrets.DINGTALK_FORMAL_SECRET }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Send DingTalk intro
+        run: npm run dingtalk:intro
