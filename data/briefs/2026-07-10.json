@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-10",
+  "generated_at": "2026-07-10T05:44:25.770Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-10T05:44:25.768Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ford, GM sign memory supply agreements with Micron",
+      "url": "https://www.supplychaindive.com/news/ford-gm-sign-memory-supply-agreements-with-micron/824651/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T16:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Scotts Miracle-Gro widens tech partnership for supply chain AI",
+      "url": "https://www.supplychaindive.com/news/scotts-miracle-gro-widens-tech-partnership-for-supply-chain-ai/824764/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T14:57:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon Shipping looks to snag FedEx, UPS customers with low pricing",
+      "url": "https://www.supplychaindive.com/news/amazon-shipping-looks-to-snag-fedex-ups-customers-with-low-pricing/824726/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T14:38:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Toyota plans Tacoma production in Texas with $3.6B expansion",
+      "url": "https://www.supplychaindive.com/news/toyota-plans-tacoma-production-in-texas-with-36b-expansion/824766/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T14:00:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "AI, semiconductors drive June air cargo demand",
+      "url": "https://www.supplychaindive.com/news/ai-semiconductors-drive-june-air-cargo-demand/824625/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T18:47:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple turns to Broadcom for custom chips",
+      "url": "https://www.supplychaindive.com/news/apple-turns-to-broadcom-for-custom-chips/824647/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T16:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nike expects nearly $1B in IEEPA tariff refunds",
+      "url": "https://www.supplychaindive.com/news/nike-expects-nearly-1b-in-ieepa-tariff-refunds/824492/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T15:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Maersk launches dedicated lithium-ion battery freight service in North America",
+      "url": "https://www.supplychaindive.com/news/maersk-launches-dedicated-lithium-ion-battery-freight-service-in-north-amer/824457/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T13:46:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Transpacific ocean rates fueled by early peak, frontloading",
+      "url": "https://www.supplychaindive.com/news/transpacific-ocean-rates-fueled-by-early-peak-frontloading/824491/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T18:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Levi Strauss to close Kentucky warehouse after yearlong delay",
+      "url": "https://www.supplychaindive.com/news/levi-strauss-to-close-kentucky-warehouse-after-yearlong-delay/824451/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-07T15:35:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI says GPT 5.6 is the ‘preferred model’ for Microsoft Copilot 365 amid breakup chatter",
+      "url": "https://techcrunch.com/2026/07/09/openai-says-gpt-5-6-is-the-preferred-model-for-microsoft-copilot-amid-breakup-chatter/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-10T00:16:54.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Fidji Simo steps down from OpenAI’s no. 2 role",
+      "url": "https://techcrunch.com/2026/07/09/fidji-simo-steps-down-from-openais-no-2-role/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-09T23:38:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Proposed EPA change keeps NoX limits in place, impacts other truck regulations",
+      "url": "https://www.freightwaves.com/news/proposed-epa-change-keeps-nox-limits-in-place-impacts-other-truck-regulations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-09T22:54:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI launches its new family of models with GPT-5.6",
+      "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-09T22:24:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "An AI agent startup just let its agent run its $100M fundraise",
+      "url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-09T22:08:58.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI is shutting down Atlas, but its AI browser ambitions are still growing",
+      "url": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-09T22:03:54.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Elon Musk praises Mythos/Fable, promises not to ‘cut off’ Anthropic",
+      "url": "https://techcrunch.com/2026/07/09/elon-musk-praises-mythos-fable-promises-not-to-cut-off-anthropic/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-09T21:57:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Can AI answer the $3 trillion question?",
+      "url": "https://techcrunch.com/2026/07/09/can-ai-answer-the-3-trillion-question/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-09T21:47:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Jury awards $104M in wrongful death verdict against major US carrier",
+      "url": "https://www.freightwaves.com/news/jury-awards-104m-in-wrongful-death-verdict-against-major-us-carrier",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-09T19:42:34.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "29072048926",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
