@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-11",
+  "generated_at": "2026-07-11T04:46:22.742Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-11T04:46:22.740Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart inks nuclear energy deal to power Illinois warehouse",
+      "url": "https://www.supplychaindive.com/news/walmart-inks-nuclear-energy-deal-to-power-illinois-warehouse/824676/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-10T15:10:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tariff exemptions: Ford, Nestlé and others seek relief from proposed levies",
+      "url": "https://www.supplychaindive.com/news/tariff-exemptions-ford-nestle-and-others-seek-relief-from-proposed-levies/824836/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-10T15:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "BNSF to build $4B rail facility in California",
+      "url": "https://www.supplychaindive.com/news/bnsf-to-build-4b-rail-facility-in-california/824618/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-10T14:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump chooses trade talks over tariffs after aircraft probe",
+      "url": "https://www.supplychaindive.com/news/trump-chooses-trade-talks-over-tariffs-after-aircraft-probe/824941/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-10T11:23:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ford, GM sign memory supply agreements with Micron",
+      "url": "https://www.supplychaindive.com/news/ford-gm-sign-memory-supply-agreements-with-micron/824651/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T16:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Scotts Miracle-Gro widens tech partnership for supply chain AI",
+      "url": "https://www.supplychaindive.com/news/scotts-miracle-gro-widens-tech-partnership-for-supply-chain-ai/824764/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T14:57:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon Shipping looks to snag FedEx, UPS customers with low pricing",
+      "url": "https://www.supplychaindive.com/news/amazon-shipping-looks-to-snag-fedex-ups-customers-with-low-pricing/824726/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T14:38:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Toyota plans Tacoma production in Texas with $3.6B expansion",
+      "url": "https://www.supplychaindive.com/news/toyota-plans-tacoma-production-in-texas-with-36b-expansion/824766/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-09T14:00:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "AI, semiconductors drive June air cargo demand",
+      "url": "https://www.supplychaindive.com/news/ai-semiconductors-drive-june-air-cargo-demand/824625/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T18:47:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple turns to Broadcom for custom chips",
+      "url": "https://www.supplychaindive.com/news/apple-turns-to-broadcom-for-custom-chips/824647/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-08T16:12:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta removes controversial AI feature on Instagram after backlash",
+      "url": "https://techcrunch.com/2026/07/10/meta-removes-controversial-ai-feature-on-instagram-after-backlash/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-10T23:55:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple sues OpenAI over alleged trade secret theft",
+      "url": "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-10T21:00:29.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Open source AI matters more than ever, according to Hugging Face’s Clem Delangue",
+      "url": "https://techcrunch.com/podcast/open-source-ai-matters-more-than-ever-according-to-hugging-faces-clem-delangue/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-10T19:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Savannah opens last piece in project to ease port truck traffic",
+      "url": "https://www.freightwaves.com/news/savannah-opens-last-piece-in-project-to-ease-port-truck-traffic",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-10T18:22:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Analysts raise TL, LTL estimates ahead of Q2 earnings season",
+      "url": "https://www.freightwaves.com/news/analysts-raise-tl-ltl-estimates-ahead-of-q2-earnings-season",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-10T17:53:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Recession Over? Bloomberg Analyst on Trucking Market & Stocks",
+      "url": "https://www.freightwaves.com/news/freight-recession-over-bloomberg-analyst-on-trucking-market-stocks",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-10T17:33:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "NOx Emissions Rule: What It Means for Trucking in 2027",
+      "url": "https://www.freightwaves.com/news/nox-emissions-rule-what-it-means-for-trucking-in-2027",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-10T17:32:25.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "SK Hynix raises $26.5B in the biggest foreign IPO in US history, is urged to build new US fabs",
+      "url": "https://techcrunch.com/2026/07/10/sk-hynix-raises-26-5b-in-the-biggest-foreign-ipo-in-us-history-is-urged-to-build-new-us-fabs/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-10T17:17:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon air bridge supports Venezuela earthquake relief",
+      "url": "https://www.freightwaves.com/news/amazon-air-bridge-supports-venezuela-earthquake-relief",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-10T16:10:27.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "29140129344",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
