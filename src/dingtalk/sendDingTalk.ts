@@ -39,7 +39,8 @@ async function postMarkdown(webhookUrl: string, secret: string | undefined, titl
 }
 
 async function notifyOwner(config: DingtalkRuntimeConfig, brief: DingtalkBrief, riskTypes: string[]): Promise<void> {
-  if (!config.ownerWebhookUrl) return;
+  const target = notificationTarget(config);
+  if (!target.webhookUrl) return;
   const markdown = [
     `# ${productName}发送已阻断｜${brief.date}`,
     "",
@@ -48,8 +49,8 @@ async function notifyOwner(config: DingtalkRuntimeConfig, brief: DingtalkBrief, 
     "系统已生成 risk_report.json。日志和提醒不包含原文敏感内容。",
   ].join("\n");
   try {
-    await postMarkdown(config.ownerWebhookUrl, undefined, "YQN 钉钉晨报发送已阻断", markdown);
-    console.warn("[dingtalk:send] owner risk warning sent");
+    await postMarkdown(target.webhookUrl, target.secret, "YQN 钉钉晨报发送已阻断", markdown);
+    console.warn(`[dingtalk:send] risk warning sent to ${target.label}`);
   } catch {
     console.warn("[dingtalk:send] owner risk warning failed");
   }
@@ -65,9 +66,18 @@ function deliveryTarget(config: DingtalkRuntimeConfig): { webhookUrl?: string; s
   return { webhookUrl: config.webhookUrl, secret: config.secret, label: "test-group" };
 }
 
+function notificationTarget(config: DingtalkRuntimeConfig): { webhookUrl?: string; secret?: string; label: string } {
+  if (config.ownerWebhookUrl) return { webhookUrl: config.ownerWebhookUrl, label: "owner" };
+  if (config.formalGroupEnabled && config.formalWebhookUrl) {
+    return { webhookUrl: config.formalWebhookUrl, secret: config.formalSecret, label: "formal-group" };
+  }
+  return { webhookUrl: config.webhookUrl, secret: config.secret, label: "test-group" };
+}
+
 export async function sendOwnerFailure(config = readDingtalkRuntimeConfig()): Promise<void> {
-  if (!config.ownerWebhookUrl) {
-    console.warn("[dingtalk:failure] DINGTALK_OWNER_WEBHOOK_URL is not configured; owner notification skipped");
+  const target = notificationTarget(config);
+  if (!target.webhookUrl) {
+    console.warn("[dingtalk:failure] no owner/formal/test webhook configured; failure notification skipped");
     return;
   }
   const stage = process.env.FAILURE_STAGE || "unknown stage";
@@ -78,8 +88,8 @@ export async function sendOwnerFailure(config = readDingtalkRuntimeConfig()): Pr
     "",
     "请打开 GitHub Actions 查看失败步骤。此提醒不包含 webhook、secret、API key 或原文敏感内容。",
   ].join("\n");
-  await postMarkdown(config.ownerWebhookUrl, undefined, "YQN 钉钉晨报 workflow 失败", markdown);
-  console.warn("[dingtalk:failure] owner failure warning sent");
+  await postMarkdown(target.webhookUrl, target.secret, "YQN 钉钉晨报 workflow 失败", markdown);
+  console.warn(`[dingtalk:failure] failure warning sent to ${target.label}`);
 }
 
 export async function sendDingtalkBrief(config = readDingtalkRuntimeConfig()): Promise<void> {

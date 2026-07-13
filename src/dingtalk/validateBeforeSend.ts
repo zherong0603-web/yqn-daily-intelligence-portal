@@ -50,6 +50,16 @@ function hasDisplayableSourceDate(value: string): boolean {
   return /^\d{4}-\d{2}-\d{2}$/.test(value.trim());
 }
 
+export function hasForbiddenDisplayMarker(markdown: string): boolean {
+  return [
+    "是否敏感：",
+    "置信度：",
+    "[查看来源]",
+    "今日 3 个动作",
+    "今天动作",
+  ].some((marker) => markdown.includes(marker));
+}
+
 export async function checkArchiveLink(config: DingtalkRuntimeConfig, brief: DingtalkBrief): Promise<ArchiveLinkCheck> {
   const archiveUrl = getArchiveUrl(brief, config.publicBaseUrl);
   const base: ArchiveLinkCheck = {
@@ -112,12 +122,7 @@ export async function runPreSendValidation(
   const testLabelPresent = markdown.includes(buildMessageTitle(brief, true));
   const testLabelOk = !testLabelRequired || testLabelPresent;
   const noSensitiveInfo = !brief.signals.some((signal) => signal.is_sensitive);
-  const noForbiddenDisplay = !markdown.includes("是否敏感：")
-    && !markdown.includes("置信度：")
-    && !markdown.includes("[查看来源]")
-    && !markdown.includes("今日 3 个动作")
-    && !markdown.includes("今天动作")
-    && !/%/.test(markdown);
+  const noForbiddenDisplay = !hasForbiddenDisplayMarker(markdown);
   const archiveSafeForGroup = archive.ok || markdown.includes("归档暂未启用");
   const messageLengthOk = messageLength <= 2200;
   const checks = {

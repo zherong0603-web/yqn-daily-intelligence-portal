@@ -4,6 +4,7 @@ import { checkDingtalkBriefRisk } from "../../src/dingtalk/riskCheck.js";
 import { countMessageCharacters, renderDingtalkMarkdown } from "../../src/dingtalk/renderMarkdown.js";
 import { DingtalkSourceConfig, validateDingtalkBrief } from "../../src/dingtalk/schema.js";
 import { signDingTalkUrl } from "../../src/dingtalk/utils/signDingTalk.js";
+import { hasForbiddenDisplayMarker } from "../../src/dingtalk/validateBeforeSend.js";
 import { decideWatchdog } from "../../src/dingtalk/watchdog.js";
 
 const sources: DingtalkSourceConfig[] = [
@@ -89,6 +90,13 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     expect(markdown).not.toContain("置信度：");
     expect(markdown).not.toContain("[查看来源]");
     expect(countMessageCharacters(markdown)).toBeLessThanOrEqual(2200);
+  });
+
+  it("allows public percentage figures while blocking forbidden debug fields", () => {
+    expect(hasForbiddenDisplayMarker("平台费率公开调整 5%，卖家需要关注履约成本变化。")).toBe(false);
+    expect(hasForbiddenDisplayMarker("是否敏感：否")).toBe(true);
+    expect(hasForbiddenDisplayMarker("置信度：82%")).toBe(true);
+    expect(hasForbiddenDisplayMarker("今日 3 个动作")).toBe(true);
   });
 
   it("adds DingTalk timestamp and sign without exposing the secret", () => {
