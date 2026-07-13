@@ -9,11 +9,102 @@ interface DingTalkResponse {
   errmsg?: string;
 }
 
+interface WorkflowRun {
+  id: number;
+  status: string;
+  conclusion: string | null;
+  created_at: string;
+  html_url: string;
+}
+
+interface WorkflowRunsResponse {
+  workflow_runs?: WorkflowRun[];
+}
+
+interface WorkflowJob {
+  id: number;
+}
+
+interface WorkflowJobsResponse {
+  jobs?: WorkflowJob[];
+}
+
+const formalSendMarker = "[dingtalk:send] formal-group markdown message sent";
+
 function markdownPayload(title: string, text: string) {
   return {
     msgtype: "markdown",
     markdown: { title, text },
   };
+}
+
+function expectedMorningSendStartUtc(date: string): Date {
+  return new Date(`${date}T00:45:00.000Z`);
+}
+
+export function priorSuccessfulRunCandidates(runs: WorkflowRun[], date: string, currentRunId: string): WorkflowRun[] {
+  const expectedStart = expectedMorningSendStartUtc(date).getTime();
+  const current = Number(currentRunId);
+  return runs
+    .filter((run) => Number.isFinite(current) ? run.id !== current : String(run.id) !== currentRunId)
+    .filter((run) => new Date(run.created_at).getTime() >= expectedStart)
+    .filter((run) => run.status === "completed" && run.conclusion === "success")
+    .sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
+async function githubJson<T>(config: DingtalkRuntimeConfig, path: string): Promise<T> {
+  if (!config.githubToken) throw new Error("GITHUB_TOKEN is required");
+  const response = await fetch(`https://api.github.com${path}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      Authorization: `Bearer ${config.githubToken}`,
+    },
+  });
+  const text = await response.text();
+  if (!response.ok) throw new Error(`GitHub API request failed with HTTP ${response.status}`);
+  return (text ? JSON.parse(text) : {}) as T;
+}
+
+async function githubText(config: DingtalkRuntimeConfig, path: string): Promise<string> {
+  if (!config.githubToken) throw new Error("GITHUB_TOKEN is required");
+  const response = await fetch(`https://api.github.com${path}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      Authorization: `Bearer ${config.githubToken}`,
+    },
+  });
+  const text = await response.text();
+  if (!response.ok) throw new Error(`GitHub API request failed with HTTP ${response.status}`);
+  return text;
+}
+
+async function runHasFormalSendMarker(config: DingtalkRuntimeConfig, repository: string, runId: number): Promise<boolean> {
+  const jobs = await githubJson<WorkflowJobsResponse>(config, `/repos/${repository}/actions/runs/${runId}/jobs?per_page=50`);
+  for (const job of jobs.jobs || []) {
+    const logText = await githubText(config, `/repos/${repository}/actions/jobs/${job.id}/logs`);
+    if (logText.includes(formalSendMarker)) return true;
+  }
+  return false;
+}
+
+async function priorFormalSend(config: DingtalkRuntimeConfig): Promise<WorkflowRun | undefined> {
+  if (!config.formalGroupEnabled || !config.githubToken || !process.env.GITHUB_REPOSITORY) return undefined;
+  if (!/^\d+$/.test(config.runId)) return undefined;
+  const repository = process.env.GITHUB_REPOSITORY;
+  const params = new URLSearchParams({
+    per_page: "20",
+    created: `>=${expectedMorningSendStartUtc(config.date).toISOString()}`,
+  });
+  const runs = await githubJson<WorkflowRunsResponse>(
+    config,
+    `/repos/${repository}/actions/workflows/dingtalk-morning-brief.yml/runs?${params.toString()}`,
+  );
+  for (const run of priorSuccessfulRunCandidates(runs.workflow_runs || [], config.date, config.runId)) {
+    if (await runHasFormalSendMarker(config, repository, run.id)) return run;
+  }
+  return undefined;
 }
 
 async function postMarkdown(webhookUrl: string, secret: string | undefined, title: string, markdown: string): Promise<DingTalkResponse> {
@@ -107,6 +198,11 @@ export async function sendDingtalkBrief(config = readDingtalkRuntimeConfig()): P
   }
   if (config.dryRun) {
     console.log("[dingtalk:send] dry_run=true; DingTalk message was not sent");
+    return;
+  }
+  const alreadySent = await priorFormalSend(config);
+  if (alreadySent) {
+    console.log(`[dingtalk:send] formal-group send already confirmed in run ${alreadySent.id}; duplicate send skipped`);
     return;
   }
   const target = deliveryTarget(config);

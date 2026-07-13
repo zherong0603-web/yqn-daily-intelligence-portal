@@ -6,6 +6,7 @@ import { DingtalkSourceConfig, validateDingtalkBrief } from "../../src/dingtalk/
 import { signDingTalkUrl } from "../../src/dingtalk/utils/signDingTalk.js";
 import { hasForbiddenDisplayMarker } from "../../src/dingtalk/validateBeforeSend.js";
 import { decideWatchdog } from "../../src/dingtalk/watchdog.js";
+import { priorSuccessfulRunCandidates } from "../../src/dingtalk/sendDingTalk.js";
 
 const sources: DingtalkSourceConfig[] = [
   {
@@ -150,5 +151,40 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
       },
     ], "2026-07-09", new Date("2026-07-09T01:35:00.000Z"));
     expect(decision.shouldDispatch).toBe(false);
+  });
+
+  it("skips duplicate DingTalk sends when today's formal send already succeeded", () => {
+    const candidates = priorSuccessfulRunCandidates([
+      {
+        id: 10,
+        status: "completed",
+        conclusion: "success",
+        created_at: "2026-07-13T03:14:32.000Z",
+        html_url: "https://github.com/example/actions/runs/10",
+      },
+      {
+        id: 11,
+        status: "completed",
+        conclusion: "success",
+        created_at: "2026-07-13T04:20:56.000Z",
+        html_url: "https://github.com/example/actions/runs/11",
+      },
+      {
+        id: 12,
+        status: "completed",
+        conclusion: "failure",
+        created_at: "2026-07-13T01:05:00.000Z",
+        html_url: "https://github.com/example/actions/runs/12",
+      },
+      {
+        id: 13,
+        status: "completed",
+        conclusion: "success",
+        created_at: "2026-07-12T22:00:00.000Z",
+        html_url: "https://github.com/example/actions/runs/13",
+      },
+    ], "2026-07-13", "11");
+
+    expect(candidates.map((run) => run.id)).toEqual([10]);
   });
 });

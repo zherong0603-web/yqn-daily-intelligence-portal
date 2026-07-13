@@ -212,7 +212,7 @@ export async function runWatchdog(config = readConfig()): Promise<WatchdogDecisi
     "",
     `**原因：** ${decision.reason}`,
     "",
-    "系统将自动补发一次 live 版到钉钉测试群。此提醒不包含 webhook、secret 或 API key。",
+    "系统将触发一次 live 版主发送流程，发送目标由主流程配置决定。此提醒不包含 webhook、secret 或 API key。",
   ].join("\n"));
   await dispatchMainWorkflow(config);
   console.log("[dingtalk:watchdog] workflow_dispatch triggered for live dry_run=false");
