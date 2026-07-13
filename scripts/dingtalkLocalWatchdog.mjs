@@ -2,10 +2,11 @@
 import { execFileSync } from "node:child_process";
 import { appendFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const repo = "zherong0603-web/yqn-daily-intelligence-portal";
 const workflow = "dingtalk-morning-brief.yml";
-const cwd = path.resolve(new URL("..", import.meta.url).pathname);
+const cwd = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const logDir = path.join(cwd, "logs");
 const logPath = path.join(logDir, "dingtalk-local-watchdog.log");
 const env = {
