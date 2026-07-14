@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-14",
+  "generated_at": "2026-07-14T04:33:23.321Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-14T04:33:23.319Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "General Mills plans supply chain revamp as part of $3B cost-cutting effort",
+      "url": "https://www.supplychaindive.com/news/general-mills-plans-supply-chain-revamp-as-part-of-3b-cost-cutting-effort/824889/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T15:32:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Gordie Howe bridge set to open July 27 after weekslong delay",
+      "url": "https://www.supplychaindive.com/news/gordie-howe-bridge-set-to-open-july-27-after-weekslong-delay/825066/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T15:23:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon preps robotics-equipped sorting warehouse in Texas",
+      "url": "https://www.supplychaindive.com/news/amazon-preps-robotics-equipped-sorting-warehouse-in-texas/824978/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T14:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon announces 2026 holiday fulfillment fees, advises early shipping",
+      "url": "https://www.supplychaindive.com/news/amazon-announces-2026-holiday-fulfillment-fees-advises-early-shipping/824962/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T14:06:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How restaurants can combat ingredient inconsistencies",
+      "url": "https://www.supplychaindive.com/news/how-restaurants-can-combat-ingredient-inconsistencies/824857/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T12:53:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DP World plans UAE port, container terminal to bypass Strait of Hormuz: Report",
+      "url": "https://www.freightwaves.com/news/dp-world-plans-uae-port-container-terminal-to-bypass-strait-of-hormuz-report",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-14T03:37:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Already rich, already successful, why the last wave of tech winners is grinding again",
+      "url": "https://techcrunch.com/2026/07/13/already-rich-already-successful-why-the-last-wave-of-tech-winners-is-grinding-again/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T02:46:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Uber’s product chief on hotels, robotaxis, and why the company doesn’t want to be “everything for everyone”",
+      "url": "https://techcrunch.com/2026/07/13/ubers-product-chief-on-hotels-robotaxis-and-why-the-company-doesnt-want-to-be-everything-for-everyone/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T00:45:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Video-generation startup PixVerse raises $439M, valuation soars past $2B",
+      "url": "https://techcrunch.com/2026/07/13/video-generation-startup-pixverse-raises-439m-valuation-soars-past-2b/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T00:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Hermes agent maker Nous Research in talks for new funding at $1.5B valuation",
+      "url": "https://techcrunch.com/2026/07/13/hermes-agent-maker-nous-research-in-talks-for-new-funding-at-1-5b-valuation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-13T23:31:18.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Satya Nadella has issued a shocking warning to companies using AI",
+      "url": "https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-13T20:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Illinois employee driver v. contractor lawsuit now a class action fight",
+      "url": "https://www.freightwaves.com/news/illinois-employee-driver-v-contractor-lawsuit-now-a-class-action-fight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-13T19:55:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Federal grants set $62M for truck parking in five states",
+      "url": "https://www.freightwaves.com/news/federal-grants-set-62m-for-truck-parking-in-five-states",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-13T19:53:02.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Price of Forever stamp reaches 82 cents",
+      "url": "https://www.freightwaves.com/news/price-of-forever-stamp-reaches-82-cents",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-13T19:44:07.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Iran conflict drives up Asia-US container rate by 276% ",
+      "url": "https://www.freightwaves.com/news/iran-conflict-drives-up-asia-us-container-rate-by-276",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-13T19:10:41.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The wildest allegations in Apple’s trade secrets lawsuit against OpenAI",
+      "url": "https://techcrunch.com/2026/07/13/the-wildest-allegations-in-apples-trade-secrets-lawsuit-against-openai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-13T18:22:10.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "‘AI Agents Without Context Are Just Guessing Faster’",
+      "url": "https://www.freightwaves.com/news/ai-agents-without-context-are-just-guessing-faster",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-13T17:31:20.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Sam Altman’s space data center trash talk is what most experts already believe",
+      "url": "https://techcrunch.com/2026/07/13/sam-altmans-space-data-center-trash-talk-is-what-most-experts-already-believe/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-13T17:28:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DHL Forwarding charters 777 cargo jets to beef up Transpacific capacity",
+      "url": "https://www.freightwaves.com/news/dhl-forwarding-charters-777-cargo-jets-to-beef-up-transpacific-capacity",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-13T17:25:39.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "29306238418",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
