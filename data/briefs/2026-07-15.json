@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-15",
+  "generated_at": "2026-07-15T04:32:57.066Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-15T04:32:55.365Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Marzetti taps Schwan supply chain head for CSCO",
+      "url": "https://www.supplychaindive.com/news/marzetti-taps-schwan-supply-chain-head-for-csco/825089/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T17:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Strauss, DHL Supply Chain ink end-to-end logistics deal",
+      "url": "https://www.supplychaindive.com/news/strauss-dhl-supply-chain-ink-end-to-end-logistics-deal/825079/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T14:35:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of Savannah-linked corridor to streamline flow of goods",
+      "url": "https://www.supplychaindive.com/news/port-of-savannah-linked-corridor-to-streamline-flow-of-goods/825087/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Should the Postal Service reassess its UPS air contract?",
+      "url": "https://www.supplychaindive.com/news/should-the-postal-service-reassess-its-ups-air-contract/825073/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T13:41:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "PepsiCo improves sustainable sourcing, delays emissions reporting",
+      "url": "https://www.supplychaindive.com/news/pepsico-improves-sustainable-sourcing-delays-emissions-reporting/824903/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T13:35:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mars to close Nature’s Bakery plant, lay off 345 workers",
+      "url": "https://www.supplychaindive.com/news/mars-to-close-natures-bakery-plant-lay-off-345-workers/824855/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T11:23:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "General Mills plans supply chain revamp as part of $3B cost-cutting effort",
+      "url": "https://www.supplychaindive.com/news/general-mills-plans-supply-chain-revamp-as-part-of-3b-cost-cutting-effort/824889/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T15:32:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Gordie Howe bridge set to open July 27 after weekslong delay",
+      "url": "https://www.supplychaindive.com/news/gordie-howe-bridge-set-to-open-july-27-after-weekslong-delay/825066/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T15:23:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon preps robotics-equipped sorting warehouse in Texas",
+      "url": "https://www.supplychaindive.com/news/amazon-preps-robotics-equipped-sorting-warehouse-in-texas/824978/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T14:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon announces 2026 holiday fulfillment fees, advises early shipping",
+      "url": "https://www.supplychaindive.com/news/amazon-announces-2026-holiday-fulfillment-fees-advises-early-shipping/824962/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-13T14:06:21.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI researcher Miles Wang in talks to launch AI drug discovery startup valued at $2B",
+      "url": "https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-15T00:27:04.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Lorde says AI glasses are ‘not sexy’",
+      "url": "https://techcrunch.com/2026/07/14/lorde-says-ai-glasses-are-not-sexy/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T23:10:02.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s first hardware device is reportedly a screenless speaker that can move",
+      "url": "https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T22:22:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI pushes back on Apple trade secret lawsuit",
+      "url": "https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T22:07:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s new flagship model deletes files on its own, people keep warning",
+      "url": "https://techcrunch.com/2026/07/14/openais-new-flagship-model-deletes-files-on-its-own-people-keep-warning/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T21:50:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "BulkLoads expands ag freight footprint with Livestock Network acquisition ",
+      "url": "https://www.freightwaves.com/news/bulkloads-expands-ag-freight-footprint-with-livestock-network-acquisition",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-14T19:47:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple opens its new Siri AI to everyone with the iOS 27 public beta",
+      "url": "https://techcrunch.com/2026/07/14/apple-opens-its-new-siri-ai-to-everyone-with-the-ios-27-public-beta/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T19:42:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s newest ad is creeping people out",
+      "url": "https://techcrunch.com/2026/07/14/anthropics-newest-ad-is-creeping-people-out/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T19:41:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The founder of Hinge raised $18M to build a new AI dating service, Overtone",
+      "url": "https://techcrunch.com/2026/07/14/the-founder-of-hinge-raised-18m-to-build-a-new-ai-dating-service-overtone/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-14T19:39:39.000Z"
+    }
+  ],
+  "model": "gpt-4o-mini-api-key-missing",
+  "run_id": "29389222220",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
