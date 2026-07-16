@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-16",
+  "generated_at": "2026-07-16T04:43:06.983Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Agentic orchestration: Enterprise AI organizations have a deployment problem, not a platform problem — and most are calling chatbots agents",
+      "url": "https://venturebeat.com/ai/agentic-orchestration-enterprise-ai-organizations-have-a-deployment-problem-not-a-platform-problem-and-most-are-calling-chatbots-agents",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-15T22:24:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-16T04:43:06.981Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Global Forwarding expands Transpacific air cargo capacity with new route",
+      "url": "https://www.supplychaindive.com/news/dhl-global-forwarding-expands-transpacific-air-cargo-capacity-with-new-rout/825195/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T15:47:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Rapid delivery cements itself as a ‘mainstream’ grocery option, report says",
+      "url": "https://www.supplychaindive.com/news/rapid-delivery-cements-itself-as-a-mainstream-grocery-option-report-says/824859/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Osprey brand owner says high supply chain costs are outpacing IEEPA tariff refunds",
+      "url": "https://www.supplychaindive.com/news/osprey-brand-owner-says-high-supply-chain-costs-are-outpacing-ieepa-tariff/825081/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T13:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lululemon’s new distribution center to bolster US, Canada fulfillment",
+      "url": "https://www.supplychaindive.com/news/lululemons-new-distribution-center-to-bolster-us-canada-fulfillment/825182/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T13:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mitsubishi Motors taps Texas port to boost US auto distribution",
+      "url": "https://www.supplychaindive.com/news/mitsubishi-motors-taps-texas-port-to-boost-us-auto-distribution/824971/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T11:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Marzetti taps Schwan supply chain head for CSCO",
+      "url": "https://www.supplychaindive.com/news/marzetti-taps-schwan-supply-chain-head-for-csco/825089/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T17:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Strauss, DHL Supply Chain ink end-to-end logistics deal",
+      "url": "https://www.supplychaindive.com/news/strauss-dhl-supply-chain-ink-end-to-end-logistics-deal/825079/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T14:35:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of Savannah-linked corridor to streamline flow of goods",
+      "url": "https://www.supplychaindive.com/news/port-of-savannah-linked-corridor-to-streamline-flow-of-goods/825087/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Should the Postal Service reassess its UPS air contract?",
+      "url": "https://www.supplychaindive.com/news/should-the-postal-service-reassess-its-ups-air-contract/825073/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T13:41:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "PepsiCo improves sustainable sourcing, delays emissions reporting",
+      "url": "https://www.supplychaindive.com/news/pepsico-improves-sustainable-sourcing-delays-emissions-reporting/824903/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-14T13:35:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Applied Computing wants to give oil and gas operators an AI model for the entire plant",
+      "url": "https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-16T04:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic",
+      "url": "https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-15T23:59:44.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Former FedEx CFO John Dietrich joins American Airlines board",
+      "url": "https://www.freightwaves.com/news/former-fedex-cfo-john-dietrich-joins-american-airlines-board",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-15T23:32:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "J.B. Hunt’s shares up 9% on Q2 earnings beat",
+      "url": "https://www.freightwaves.com/news/j-b-hunts-shares-up-9-on-q2-earnings-beat",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-15T21:01:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "OOIDA urges House to vote on Dalilah’s Law after deadly Pennsylvania crash",
+      "url": "https://www.freightwaves.com/news/ooida-urges-house-to-vote-on-dalilahs-law-after-deadly-pennsylvania-crash",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-15T20:23:55.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Avoiding AI Failure: The #1 mistake costing logistics companies",
+      "url": "https://www.freightwaves.com/news/avoiding-ai-failure-the-1-mistake-costing-logistics-companies",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-15T19:52:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Is AI the Next Digital Brokerage Hype Cycle? | Logistics & Supply Chain",
+      "url": "https://www.freightwaves.com/news/is-ai-the-next-digital-brokerage-hype-cycle-logistics-supply-chain",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-15T19:52:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "LSP44 vs. project44: Why Project44 Split Into Two Companies",
+      "url": "https://www.freightwaves.com/news/lsp44-vs-project44-why-project44-split-into-two-companies",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-15T19:51:22.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "29472015973",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
