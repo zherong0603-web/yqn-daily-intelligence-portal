@@ -1,0 +1,61 @@
+name: DingTalk YQN Seller Problem Brief
+
+on:
+  workflow_dispatch:
+    inputs:
+      brief_b64:
+        description: "Base64 encoded validated seller-problem brief"
+        required: true
+        type: string
+      expected_date:
+        description: "Asia/Shanghai brief date"
+        required: true
+        type: string
+      dry_run:
+        description: "Validate only"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: dingtalk-yqn-seller-problem-${{ inputs.expected_date }}
+  cancel-in-progress: false
+
+jobs:
+  send-livestream-brief:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
+      BRIEF_DATE: ${{ inputs.expected_date }}
+      SELLER_BRIEF_SEND_APPROVED: ${{ inputs.dry_run == 'false' && 'true' || 'false' }}
+      DINGTALK_YQN_LIVE_GROUP_ENABLED: ${{ vars.DINGTALK_YQN_LIVE_GROUP_ENABLED || 'false' }}
+      DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL }}
+      DINGTALK_YQN_LIVE_GROUP_SECRET: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_SECRET }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run guardrail tests
+        run: npm test
+
+      - name: Validate and send livestream brief
+        run: npm run codex:seller-brief:send
