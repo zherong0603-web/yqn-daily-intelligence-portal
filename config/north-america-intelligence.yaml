@@ -1,0 +1,89 @@
+version: 1
+updated_at: 2026-07-16
+search_windows_hours:
+  primary: 24
+  fallback: 168
+minimum_core_value_score: 70
+archive_value_score_range: [55, 69]
+required_mix:
+  us_warehouse: 2
+  mexico_warehouse: 2
+  us_mexico_bridge: 1
+
+regions:
+  us_warehouse:
+    label: 美国与美仓
+    allowed_domains:
+      - cbp.gov
+      - federalregister.gov
+      - cpsc.gov
+      - fmc.gov
+      - ustr.gov
+      - commerce.gov
+      - portoflosangeles.org
+      - polb.com
+      - ups.com
+      - fedex.com
+      - usps.com
+      - about.usps.com
+      - sellercentral.amazon.com
+      - marketplace.walmart.com
+      - seller-us.tiktok.com
+    queries:
+      - United States cross-border ecommerce import customs warehouse fulfillment last mile official update
+      - CBP CPSC FMC ecommerce importer warehouse carrier surcharge official effective date
+  mexico_warehouse:
+    label: 墨西哥与墨仓
+    allowed_domains:
+      - dof.gob.mx
+      - sat.gob.mx
+      - anam.gob.mx
+      - economia.gob.mx
+      - snice.gob.mx
+      - sict.gob.mx
+      - gob.mx
+      - mercadolibre.com.mx
+      - amazon.com.mx
+      - fedex.com
+      - ups.com
+    queries:
+      - Mexico comercio electronico aduana almacen cumplimiento ultima milla cambio oficial
+      - Mexico comercio exterior mensajeria paqueteria SAT ANAM DOF regla fecha efectiva
+  us_mexico_bridge:
+    label: 美墨联动
+    allowed_domains:
+      - cbp.gov
+      - ustr.gov
+      - transportation.gov
+      - fmc.gov
+      - dof.gob.mx
+      - sat.gob.mx
+      - anam.gob.mx
+      - economia.gob.mx
+      - gob.mx
+    queries:
+      - US Mexico border ecommerce customs trucking rail Laredo USMCA official update
+      - Estados Unidos Mexico cruce fronterizo aduana transporte comercio electronico oficial
+
+value_score:
+  merchant_impact: 30
+  urgency: 20
+  yqn_service_relevance: 20
+  merchant_coverage: 15
+  source_credibility: 10
+  novelty: 5
+
+source_policy:
+  official_first: true
+  media_requires_official_confirmation_for_policy: true
+  yqn_public_is_capability_context_only: true
+  blocked_regions:
+    - 俄罗斯
+    - 欧洲
+    - 英国
+    - 东南亚
+    - 中东
+  blocked_generic_topics:
+    - 泛 AI 新闻
+    - 股票与财报
+    - 泛商业鸡汤

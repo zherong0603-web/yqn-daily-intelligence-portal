@@ -2,6 +2,16 @@ name: DingTalk YQN Intro
 
 on:
   workflow_dispatch:
+    inputs:
+      target:
+        description: "intro target"
+        required: true
+        default: "livestream"
+        type: choice
+        options:
+          - livestream
+          - formal
+          - both
 
 permissions:
   contents: read
@@ -16,9 +26,12 @@ jobs:
     env:
       TZ: Asia/Shanghai
       DRY_RUN: "false"
-      DINGTALK_FORMAL_GROUP_ENABLED: "true"
+      DINGTALK_FORMAL_GROUP_ENABLED: ${{ (inputs.target == 'formal' || inputs.target == 'both') && 'true' || 'false' }}
       DINGTALK_FORMAL_WEBHOOK_URL: ${{ secrets.DINGTALK_FORMAL_WEBHOOK_URL }}
       DINGTALK_FORMAL_SECRET: ${{ secrets.DINGTALK_FORMAL_SECRET }}
+      DINGTALK_YQN_LIVE_GROUP_ENABLED: ${{ (inputs.target == 'livestream' || inputs.target == 'both') && 'true' || 'false' }}
+      DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL }}
+      DINGTALK_YQN_LIVE_GROUP_SECRET: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_SECRET }}
 
     steps:
       - name: Checkout

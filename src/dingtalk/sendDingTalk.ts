@@ -1,6 +1,6 @@
 import { pathToFileURL } from "node:url";
 import { readDingtalkRuntimeConfig, DingtalkRuntimeConfig } from "./config.js";
-import { DingtalkBrief, productName } from "./schema.js";
+import { DingtalkBrief, productName, robotDisplayName } from "./schema.js";
 import { signDingTalkUrl } from "./utils/signDingTalk.js";
 import { runPreSendValidation } from "./validateBeforeSend.js";
 
@@ -29,7 +29,11 @@ interface WorkflowJobsResponse {
   jobs?: WorkflowJob[];
 }
 
-const formalSendMarker = "[dingtalk:send] formal-group markdown message sent";
+export interface DingTalkDeliveryTarget {
+  webhookUrl?: string;
+  secret?: string;
+  label: "formal-group" | "yqn-livestream-group" | "test-group";
+}
 
 function markdownPayload(title: string, text: string) {
   return {
@@ -49,6 +53,16 @@ export function priorSuccessfulRunCandidates(runs: WorkflowRun[], date: string, 
     .filter((run) => Number.isFinite(current) ? run.id !== current : String(run.id) !== currentRunId)
     .filter((run) => new Date(run.created_at).getTime() >= expectedStart)
     .filter((run) => run.status === "completed" && run.conclusion === "success")
+    .sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
+export function priorCompletedRunCandidates(runs: WorkflowRun[], date: string, currentRunId: string): WorkflowRun[] {
+  const expectedStart = expectedMorningSendStartUtc(date).getTime();
+  const current = Number(currentRunId);
+  return runs
+    .filter((run) => Number.isFinite(current) ? run.id !== current : String(run.id) !== currentRunId)
+    .filter((run) => new Date(run.created_at).getTime() >= expectedStart)
+    .filter((run) => run.status === "completed")
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
 }
 
@@ -80,17 +94,17 @@ async function githubText(config: DingtalkRuntimeConfig, path: string): Promise<
   return text;
 }
 
-async function runHasFormalSendMarker(config: DingtalkRuntimeConfig, repository: string, runId: number): Promise<boolean> {
+async function runHasSendMarker(config: DingtalkRuntimeConfig, repository: string, runId: number, marker: string): Promise<boolean> {
   const jobs = await githubJson<WorkflowJobsResponse>(config, `/repos/${repository}/actions/runs/${runId}/jobs?per_page=50`);
   for (const job of jobs.jobs || []) {
     const logText = await githubText(config, `/repos/${repository}/actions/jobs/${job.id}/logs`);
-    if (logText.includes(formalSendMarker)) return true;
+    if (logText.includes(marker)) return true;
   }
   return false;
 }
 
-async function priorFormalSend(config: DingtalkRuntimeConfig): Promise<WorkflowRun | undefined> {
-  if (!config.formalGroupEnabled || !config.githubToken || !process.env.GITHUB_REPOSITORY) return undefined;
+async function priorTargetSend(config: DingtalkRuntimeConfig, target: DingTalkDeliveryTarget): Promise<WorkflowRun | undefined> {
+  if (!config.githubToken || !process.env.GITHUB_REPOSITORY) return undefined;
   if (!/^\d+$/.test(config.runId)) return undefined;
   const repository = process.env.GITHUB_REPOSITORY;
   const params = new URLSearchParams({
@@ -101,8 +115,9 @@ async function priorFormalSend(config: DingtalkRuntimeConfig): Promise<WorkflowR
     config,
     `/repos/${repository}/actions/workflows/dingtalk-morning-brief.yml/runs?${params.toString()}`,
   );
-  for (const run of priorSuccessfulRunCandidates(runs.workflow_runs || [], config.date, config.runId)) {
-    if (await runHasFormalSendMarker(config, repository, run.id)) return run;
+  const marker = `[dingtalk:send] ${target.label} markdown message sent`;
+  for (const run of priorCompletedRunCandidates(runs.workflow_runs || [], config.date, config.runId)) {
+    if (await runHasSendMarker(config, repository, run.id, marker)) return run;
   }
   return undefined;
 }
@@ -147,28 +162,33 @@ async function notifyOwner(config: DingtalkRuntimeConfig, brief: DingtalkBrief, 
   }
 }
 
-function deliveryTarget(config: DingtalkRuntimeConfig): { webhookUrl?: string; secret?: string; label: string } {
+export function deliveryTargets(config: DingtalkRuntimeConfig): DingTalkDeliveryTarget[] {
+  const targets: DingTalkDeliveryTarget[] = [];
   if (config.formalGroupEnabled) {
     if (!config.formalWebhookUrl) {
       throw new Error("SETUP_ERROR: DINGTALK_FORMAL_WEBHOOK_URL is required when DINGTALK_FORMAL_GROUP_ENABLED=true");
     }
-    return { webhookUrl: config.formalWebhookUrl, secret: config.formalSecret, label: "formal-group" };
+    targets.push({ webhookUrl: config.formalWebhookUrl, secret: config.formalSecret, label: "formal-group" });
   }
-  return { webhookUrl: config.webhookUrl, secret: config.secret, label: "test-group" };
+  if (config.livestreamGroupEnabled) {
+    if (!config.livestreamWebhookUrl) {
+      throw new Error("SETUP_ERROR: DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL is required when DINGTALK_YQN_LIVE_GROUP_ENABLED=true");
+    }
+    targets.push({ webhookUrl: config.livestreamWebhookUrl, secret: config.livestreamSecret, label: "yqn-livestream-group" });
+  }
+  if (!targets.length) targets.push({ webhookUrl: config.webhookUrl, secret: config.secret, label: "test-group" });
+  return targets;
 }
 
 function notificationTarget(config: DingtalkRuntimeConfig): { webhookUrl?: string; secret?: string; label: string } {
   if (config.ownerWebhookUrl) return { webhookUrl: config.ownerWebhookUrl, label: "owner" };
-  if (config.formalGroupEnabled && config.formalWebhookUrl) {
-    return { webhookUrl: config.formalWebhookUrl, secret: config.formalSecret, label: "formal-group" };
-  }
   return { webhookUrl: config.webhookUrl, secret: config.secret, label: "test-group" };
 }
 
 export async function sendOwnerFailure(config = readDingtalkRuntimeConfig()): Promise<void> {
   const target = notificationTarget(config);
   if (!target.webhookUrl) {
-    console.warn("[dingtalk:failure] no owner/formal/test webhook configured; failure notification skipped");
+    console.warn("[dingtalk:failure] no owner/test webhook configured; failure notification skipped");
     return;
   }
   const stage = process.env.FAILURE_STAGE || "unknown stage";
@@ -200,19 +220,23 @@ export async function sendDingtalkBrief(config = readDingtalkRuntimeConfig()): P
     console.log("[dingtalk:send] dry_run=true; DingTalk message was not sent");
     return;
   }
-  const alreadySent = await priorFormalSend(config);
-  if (alreadySent) {
-    console.log(`[dingtalk:send] formal-group send already confirmed in run ${alreadySent.id}; duplicate send skipped`);
-    return;
+  const targets = deliveryTargets(config);
+  let sent = 0;
+  for (const target of targets) {
+    const alreadySent = await priorTargetSend(config, target);
+    if (alreadySent) {
+      console.log(`[dingtalk:send] ${target.label} send already confirmed in run ${alreadySent.id}; duplicate send skipped`);
+      continue;
+    }
+    if (!target.webhookUrl) {
+      console.warn(`[dingtalk:send] ${target.label} webhook is not configured; send skipped`);
+      continue;
+    }
+    await postMarkdown(target.webhookUrl, target.secret, validation.brief.title, validation.markdown);
+    console.log(`[dingtalk:send] ${target.label} markdown message sent`);
+    sent += 1;
   }
-  const target = deliveryTarget(config);
-  if (!target.webhookUrl) {
-    console.warn(`[dingtalk:send] ${target.label} webhook is not configured; send skipped`);
-    return;
-  }
-
-  await postMarkdown(target.webhookUrl, target.secret, validation.brief.title, validation.markdown);
-  console.log(`[dingtalk:send] ${target.label} markdown message sent`);
+  if (!sent) console.log("[dingtalk:send] no unsent delivery targets remained");
 }
 
 export async function sendDingtalkIntro(config = readDingtalkRuntimeConfig()): Promise<void> {
@@ -220,18 +244,19 @@ export async function sendDingtalkIntro(config = readDingtalkRuntimeConfig()): P
     console.log("[dingtalk:intro] dry_run=true; DingTalk intro was not sent");
     return;
   }
-  const target = deliveryTarget(config);
-  if (!target.webhookUrl) {
-    console.warn(`[dingtalk:intro] ${target.label} webhook is not configured; intro skipped`);
-    return;
-  }
   const markdown = [
-    `# ${productName}已接入`,
+    `# ${robotDisplayName}已接入`,
     "",
-    `大家好，我是 ${productName} 机器人，每个工作日 8:45 自动整理国内跨境卖家最该关注的美国平台、清关、美仓履约和少量墨仓/拉美公开信号。`,
+    `大家好，我是 ${robotDisplayName}。每个工作日 8:45 提供 2 条美国、2 条墨西哥和 1 条美墨联动的跨境电商物流晨报。`,
   ].join("\n");
-  await postMarkdown(target.webhookUrl, target.secret, `${productName}已接入`, markdown);
-  console.log(`[dingtalk:intro] ${target.label} intro message sent`);
+  for (const target of deliveryTargets(config)) {
+    if (!target.webhookUrl) {
+      console.warn(`[dingtalk:intro] ${target.label} webhook is not configured; intro skipped`);
+      continue;
+    }
+    await postMarkdown(target.webhookUrl, target.secret, `${robotDisplayName}已接入`, markdown);
+    console.log(`[dingtalk:intro] ${target.label} intro message sent`);
+  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

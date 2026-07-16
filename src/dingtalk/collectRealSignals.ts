@@ -5,6 +5,7 @@ import { normalizeUrl, sourceDomain } from "../utils/domain.js";
 import { collectDingtalkSources } from "./collectSources.js";
 import {
   DingtalkSourceConfig,
+  ImpactStage,
   MarketFocus,
   SourceCategory,
   SourceType,
@@ -30,6 +31,11 @@ export interface DingtalkNewsCandidate {
   published_at_iso: string;
   collected_at: string;
   market_focus: MarketFocus;
+  effective_at: string;
+  affected_sellers: string;
+  impact_stages: ImpactStage[];
+  seller_check: string;
+  value_score: number;
   score: number;
   account_opening_score: number;
   score_reasons: string[];
@@ -197,7 +203,18 @@ const mexicoKeywords = [
   "美客多",
   "mercado libre",
   "mercadolibre",
-  "巴西",
+];
+
+const bridgeKeywords = [
+  "usmca",
+  "laredo",
+  "cross-border",
+  "border crossing",
+  "borderlands",
+  "美墨",
+  "边境口岸",
+  "跨境卡车",
+  "跨境铁路",
 ];
 
 const sellerDemandKeywords = [
@@ -462,6 +479,10 @@ function scoreCandidate(input: {
     score += 4;
     accountOpeningScore += 4;
   }
+  if (input.source.market_focus === "us_mexico_bridge") {
+    score += 6;
+    accountOpeningScore += 8;
+  }
   if (input.source.market_focus === "domestic_seller") {
     score += 5;
     accountOpeningScore += 8;
@@ -487,8 +508,25 @@ function sourceFocus(source: DingtalkSourceConfig): MarketFocus {
 
 function inferMarketFocus(source: DingtalkSourceConfig, title: string, summary: string): MarketFocus {
   const text = `${title} ${summary}`.toLowerCase();
+  if (keywordHits(text, bridgeKeywords) > 0) return "us_mexico_bridge";
   if (keywordHits(text, mexicoKeywords) > 0) return "mexico_warehouse";
   return sourceFocus(source);
+}
+
+function inferImpactStages(title: string, summary: string): ImpactStage[] {
+  const text = `${title} ${summary}`.toLowerCase();
+  const stages: ImpactStage[] = [];
+  if (/ocean|air freight|import|customs|tariff|port|border|海运|空运|进口|清关|海关|关税|港口|口岸/i.test(text)) stages.push("first_mile");
+  if (/warehouse|inventory|storage|fulfillment|returns|仓库|仓储|库存|履约|退货|换标|入库/i.test(text)) stages.push("warehousing");
+  if (/last mile|delivery|carrier|parcel|ltl|ups|fedex|usps|尾程|配送|快递|卡派|承运商/i.test(text)) stages.push("last_mile");
+  return stages.length ? stages : ["warehousing"];
+}
+
+function boundedValueScore(score: number, sourceType: SourceType): number {
+  const raw = Math.max(0, Math.min(100, score + 20));
+  if (sourceType === "public_yqn") return Math.min(54, raw);
+  if (sourceType !== "official") return Math.min(69, raw);
+  return raw;
 }
 
 function patternMatched(value: string, patterns: string[] | undefined): boolean {
@@ -531,6 +569,8 @@ function candidateFromSource(input: {
     now: input.now,
   });
   const marketFocus = inferMarketFocus(input.source, input.title, input.summary);
+  const impactStages = inferImpactStages(input.title, input.summary);
+  const valueScore = boundedValueScore(scored.score, input.source.source_type);
   return {
     title: input.title,
     url: normalizeUrl(input.url),
@@ -544,6 +584,15 @@ function candidateFromSource(input: {
     published_at_iso: input.publishedAt.toISOString(),
     collected_at: new Date().toISOString(),
     market_focus: marketFocus,
+    effective_at: dateInTimeZone("Asia/Shanghai", input.publishedAt),
+    affected_sellers: marketFocus === "mexico_warehouse"
+      ? "经营墨西哥站或使用墨西哥仓的跨境电商卖家"
+      : marketFocus === "us_mexico_bridge"
+        ? "经营美国与墨西哥双市场、涉及美墨跨境运输的卖家"
+        : "经营美国站或使用美国仓的跨境电商卖家",
+    impact_stages: impactStages,
+    seller_check: "检查现有运输、库存和配送方案是否受该变化影响。",
+    value_score: valueScore,
     score: scored.score,
     account_opening_score: scored.accountOpeningScore,
     score_reasons: scored.reasons,
@@ -727,20 +776,14 @@ function dedupe(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
 
 function sortCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
   return candidates.sort((a, b) => {
+    const valueDiff = b.value_score - a.value_score;
+    if (valueDiff !== 0) return valueDiff;
     const openingDiff = b.account_opening_score - a.account_opening_score;
     if (openingDiff !== 0) return openingDiff;
     const scoreDiff = b.score - a.score;
     if (scoreDiff !== 0) return scoreDiff;
     return b.published_at_iso.localeCompare(a.published_at_iso);
   });
-}
-
-function capMexicoShare(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
-  const mexico = candidates.filter((candidate) => candidate.market_focus === "mexico_warehouse");
-  const nonMexico = candidates.filter((candidate) => candidate.market_focus !== "mexico_warehouse");
-  if (!mexico.length) return nonMexico;
-  const topMexico = mexico[0] as DingtalkNewsCandidate;
-  return [...nonMexico.slice(0, 24), topMexico].sort((a, b) => b.score - a.score);
 }
 
 export async function collectDingtalkRealSignals(
@@ -775,7 +818,7 @@ export async function collectDingtalkRealSignals(
       };
 
   return {
-    candidates: capMexicoShare(windowed.candidates).slice(0, 35),
+    candidates: windowed.candidates.slice(0, 60),
     source_count_before_window: unique.length,
     source_window_hours: windowed.source_window_hours,
     collected_at: new Date().toISOString(),

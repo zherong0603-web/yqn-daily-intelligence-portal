@@ -6,7 +6,12 @@ import { DingtalkSourceConfig, validateDingtalkBrief } from "../../src/dingtalk/
 import { signDingTalkUrl } from "../../src/dingtalk/utils/signDingTalk.js";
 import { hasForbiddenDisplayMarker } from "../../src/dingtalk/validateBeforeSend.js";
 import { decideWatchdog } from "../../src/dingtalk/watchdog.js";
-import { priorSuccessfulRunCandidates } from "../../src/dingtalk/sendDingTalk.js";
+import { priorCompletedRunCandidates, priorSuccessfulRunCandidates } from "../../src/dingtalk/sendDingTalk.js";
+import { deliveryTargets } from "../../src/dingtalk/sendDingTalk.js";
+import { selectBalancedBusinessCandidates } from "../../src/dingtalk/generateBrief.js";
+import { calculateValueScore } from "../../src/dingtalk/webResearch.js";
+import { DingtalkNewsCandidate } from "../../src/dingtalk/collectRealSignals.js";
+import { DingtalkRuntimeConfig } from "../../src/dingtalk/config.js";
 
 const sources: DingtalkSourceConfig[] = [
   {
@@ -51,6 +56,32 @@ const sources: DingtalkSourceConfig[] = [
   },
 ];
 
+function candidate(id: string, marketFocus: DingtalkNewsCandidate["market_focus"], valueScore = 80): DingtalkNewsCandidate {
+  return {
+    title: `${marketFocus} official change ${id}`,
+    url: `https://example.gov/${marketFocus}/${id}`,
+    domain: "example.gov",
+    summary: "Official customs warehouse delivery cost and compliance change affecting ecommerce sellers.",
+    source_name: "Official Authority",
+    source_home_url: "https://example.gov",
+    source_category: "overseas_policy",
+    source_type: "official",
+    source_published_at: "2026-07-16",
+    published_at_iso: "2026-07-16T00:00:00.000Z",
+    effective_at: "2026-07-20",
+    affected_sellers: "大中小件跨境电商卖家",
+    impact_stages: ["first_mile", "warehousing", "last_mile"],
+    seller_check: "检查申报、库存和配送方案是否需要调整。",
+    collected_at: "2026-07-16T01:00:00.000Z",
+    market_focus: marketFocus,
+    score: valueScore,
+    value_score: valueScore,
+    account_opening_score: valueScore,
+    score_reasons: ["official"],
+    business_value_reasons: ["merchant impact"],
+  };
+}
+
 describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
   it("builds a valid 1+5 demo brief", () => {
     const brief = buildSampleBrief("2026-07-08", sources);
@@ -66,6 +97,13 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     ]);
     expect(brief.signals.every((signal) => signal.source_url.startsWith("https://"))).toBe(true);
     expect(brief.signals.every((signal) => signal.is_test_data)).toBe(true);
+    expect(brief.signals.map((signal) => signal.market_focus)).toEqual([
+      "us_warehouse",
+      "us_warehouse",
+      "mexico_warehouse",
+      "mexico_warehouse",
+      "us_mexico_bridge",
+    ]);
   });
 
   it("blocks forbidden content before sending", () => {
@@ -84,6 +122,8 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     expect(markdown).not.toContain("今天动作");
     expect(markdown).toContain("完整归档：[打开网页看完整版]");
     expect(markdown).toContain("- 来源：");
+    expect(markdown).toContain("- 生效：");
+    expect(markdown).toContain("- 卖家检查：");
     expect(markdown).toContain("## 今日判断｜");
     expect(markdown.match(/^## \d+\./gm)).toHaveLength(5);
     expect(markdown).toContain("https://example.com/yqn/dingtalk/2026-07-08.html");
@@ -186,5 +226,80 @@ describe("DingTalk YQN Daily 5 Minutes V1.2", () => {
     ], "2026-07-13", "11");
 
     expect(candidates.map((run) => run.id)).toEqual([10]);
+  });
+
+  it("keeps per-target duplicate markers from a partially failed multi-group run", () => {
+    const candidates = priorCompletedRunCandidates([
+      {
+        id: 21,
+        status: "completed",
+        conclusion: "failure",
+        created_at: "2026-07-13T01:02:00.000Z",
+        html_url: "https://github.com/example/actions/runs/21",
+      },
+    ], "2026-07-13", "22");
+
+    expect(candidates.map((run) => run.id)).toEqual([21]);
+  });
+
+  it("selects exactly 2 US, 2 Mexico and 1 bridge signal without unrelated filler", () => {
+    const selected = selectBalancedBusinessCandidates([
+      candidate("us-1", "us_warehouse", 92),
+      candidate("us-2", "us_warehouse", 88),
+      candidate("mx-1", "mexico_warehouse", 91),
+      candidate("mx-2", "mexico_warehouse", 85),
+      candidate("bridge-1", "us_mexico_bridge", 89),
+      { ...candidate("russia", "global", 99), title: "俄罗斯电商物流变化" },
+    ]);
+    expect(selected.map((item) => item.market_focus)).toEqual([
+      "us_warehouse",
+      "us_warehouse",
+      "mexico_warehouse",
+      "mexico_warehouse",
+      "us_mexico_bridge",
+    ]);
+  });
+
+  it("blocks generation when one side cannot meet the core signal quota", () => {
+    expect(() => selectBalancedBusinessCandidates([
+      candidate("us-1", "us_warehouse"),
+      candidate("us-2", "us_warehouse"),
+      candidate("mx-1", "mexico_warehouse"),
+      candidate("bridge-1", "us_mexico_bridge"),
+    ])).toThrow(/mexico_warehouse requires 2/);
+  });
+
+  it("does not admit an official policy without an explicit effective date", () => {
+    expect(() => selectBalancedBusinessCandidates([
+      candidate("us-1", "us_warehouse"),
+      candidate("us-2", "us_warehouse"),
+      candidate("mx-1", "mexico_warehouse"),
+      { ...candidate("mx-undated", "mexico_warehouse"), effective_at: "未公布" },
+      candidate("bridge-1", "us_mexico_bridge"),
+    ])).toThrow(/mexico_warehouse requires 2/);
+  });
+
+  it("scores a recent official compliance change above the group threshold", () => {
+    const score = calculateValueScore({
+      title: "Mandatory customs eFiling takes effect",
+      summary: "Importer compliance certificates affect customs cost, delays and warehouse inventory.",
+      affectedSellers: "美国站大中小件进口商和跨境电商卖家",
+      impactStages: ["first_mile", "warehousing"],
+      publishedAt: new Date("2026-07-16T00:00:00.000Z"),
+      effectiveAt: "2026-07-16",
+      official: true,
+      now: new Date("2026-07-16T02:00:00.000Z"),
+    });
+    expect(score).toBeGreaterThanOrEqual(70);
+  });
+
+  it("keeps the formal group and YQN livestream group as separate delivery targets", () => {
+    const config = {
+      formalGroupEnabled: true,
+      formalWebhookUrl: "https://oapi.dingtalk.com/robot/send?access_token=formal",
+      livestreamGroupEnabled: true,
+      livestreamWebhookUrl: "https://oapi.dingtalk.com/robot/send?access_token=live",
+    } as DingtalkRuntimeConfig;
+    expect(deliveryTargets(config).map((target) => target.label)).toEqual(["formal-group", "yqn-livestream-group"]);
   });
 });

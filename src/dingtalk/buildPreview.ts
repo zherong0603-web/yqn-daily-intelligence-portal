@@ -8,7 +8,7 @@ import { dataPath, distDingtalkDir, readDingtalkRuntimeConfig } from "./config.j
 import { renderDingtalkMarkdown, renderMarkdownHtml } from "./renderMarkdown.js";
 import { validateDingtalkBrief } from "./schema.js";
 
-const packageRootName = "YQN_Daily_5_Minutes_V1_3_Delivery";
+const packageRootName = "YQN_Daily_5_Minutes_V1_4_Delivery";
 const systemChrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 function packageRoot(repoRoot: string): string {

@@ -1,0 +1,61 @@
+version: 1
+updated_at: 2026-07-16
+purpose: YQN 北美情报判断与公开表达边界
+
+disclosure_levels:
+  public_official: YQN 官网已公开，可直接引用并附官网来源
+  internal_approved_public: 内部已确认可公开，但不得自行扩展数字或承诺
+  unconfirmed: 未经确认，不得写进群版晨报
+
+capabilities:
+  first_mile:
+    disclosure: public_official
+    services:
+      - 海运
+      - 空运
+      - 清关
+      - 跨境运输
+    source: https://open.yqn.com/intro/about-us
+  warehousing:
+    disclosure: public_official
+    services:
+      - 美国仓
+      - 墨西哥仓
+      - 库存管理
+      - 入库与出库
+      - 贴标与换标
+      - 退货处理
+      - 分仓与转运
+    source: https://www.yqn.com/cn/warehousing/home
+  delivery:
+    disclosure: public_official
+    services:
+      - 本地快递
+      - 卡派
+      - 大件配送
+      - 尾程方案匹配
+    source: https://www.yqn.com/cn/warehousing/home
+  merchant_scope:
+    disclosure: internal_approved_public
+    markets:
+      - 美国站卖家
+      - 墨西哥站卖家
+      - 北美跨境电商卖家
+    cargo_sizes:
+      - 大件
+      - 中件
+      - 小件
+  mexico_dual_warehouse:
+    disclosure: internal_approved_public
+    approved_expression: 墨西哥 1 号仓与 2 号仓双仓布局
+    forbidden_extensions:
+      - 未确认的仓库地址
+      - 未确认的面积与库容
+      - 未确认的时效承诺
+      - 未确认的价格与折扣
+
+content_rules:
+  - YQN 官网用于校准服务能力，不得作为外部行业新闻替代品
+  - 每条 YQN 可用点必须映射到已公开或内部确认可公开的能力
+  - 不得承诺绝对时效、绝对低价、绝对无风险或无限库容
+  - 不得写入客户名单、报价、合同、毛利、内部成本和未公开案例

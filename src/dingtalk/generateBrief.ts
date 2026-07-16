@@ -1,5 +1,8 @@
 import OpenAI from "openai";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { pathToFileURL } from "node:url";
+import YAML from "yaml";
 import { writeTextFile, writeJsonFile } from "../utils/fs.js";
 import { collectDingtalkSources } from "./collectSources.js";
 import {
@@ -14,6 +17,7 @@ import {
   DingtalkNewsCandidate,
   DingtalkRealSignalCollection,
 } from "./collectRealSignals.js";
+import { collectMandatoryWebResearch, WebSearchAudit } from "./webResearch.js";
 import { renderDingtalkMarkdown } from "./renderMarkdown.js";
 import { buildSampleBrief } from "./sampleBrief.js";
 import {
@@ -44,28 +48,40 @@ function coerceJson(text: string): unknown {
   }
 }
 
+function mergeCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
+  const seen = new Set<string>();
+  return candidates
+    .slice()
+    .sort((a, b) => b.value_score - a.value_score || b.published_at_iso.localeCompare(a.published_at_iso))
+    .filter((candidate) => {
+      const key = candidate.url.replace(/\/$/, "");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 function buildLivePrompt(
   config: DingtalkRuntimeConfig,
   sources: DingtalkSourceConfig[],
   candidates: DingtalkNewsCandidate[],
+  businessKnowledge: unknown,
 ): string {
   const promptCandidates = promptCandidateList(candidates);
   return JSON.stringify({
     date: config.date,
     title: `${productName}｜${config.date}`,
-    role: "你是 YQN 跨境电商 5 分钟晨报编辑，只服务 YQN 团队的公开信息晨报，目标是帮助客户开户数增长。",
-    format: "固定 1+5：今日判断、5条高权重真实公开信号。群内和归档都展示全部5条。",
+    role: "你是 YQN 北美跨境电商物流情报编辑。你必须从卖家成本、时效、合规、库存和订单履约判断信息价值。",
+    format: "固定 1+5：1条专家判断、2条美国、2条墨西哥、1条美墨联动。",
     hard_rules: [
       "只输出符合 schema 的 JSON，不输出 Markdown。",
       "one_liner 必须 30 字以内，说明今天最值得 YQN 团队花 5 分钟看的判断。",
-      "signals 必须刚好 5 条，按开户价值和影响力排序，不要按类别平均凑数。",
-      "category 根据内容选择，可以重复；至少覆盖 2 类，不要为了类别均衡牺牲信号价值。",
-      "按影响力排序，不要按来源平均分配；5条都会发到群里，所以每条都必须值得看。",
-      "筛选标准：直接服务客户开户数；老板能看风险和方向，运营能看规则变化，销售能看客户提问，内容能看选题切口，履约能看供给变化。",
-      "内容比例：至少4条聚焦美仓、美国尾程、北美履约、美国平台卖家；最多1条保留墨仓/美墨/拉美链路，只有强信号才写。",
-      "国内来源优先：如果 candidates 里有足够国内公开媒体/自媒体/快讯强信号，5条里至少4条必须来自国内公开来源。",
-      "聚焦国内跨境卖家关心的问题：美国平台规则、清关合规、旺季备货、海外仓/尾程、退货、招商和买家体验。",
-      "每条 signal 必须有 source_name、source_url、source_published_at、collected_at、info_region、info_type、confidence_label、is_test_data、source_summary。",
+      "signals 必须使用给出的5个 candidates 各一次：2条 us_warehouse、2条 mexico_warehouse、1条 us_mexico_bridge。",
+      "每条 value_score 必须至少70，不能使用低分候选或其他地区新闻填空。",
+      "每条 signal 必须写发生事实、生效时间、受影响卖家、影响环节、卖家检查项和 YQN 可承接需求。",
+      "impact_stages 只能从 first_mile、warehousing、last_mile 选择。",
+      "政策类信息 effective_at 必须是 YYYY-MM-DD 的明确日期。",
+      "每条 signal 必须有 source_name、source_url、source_published_at、effective_at、market_focus、affected_sellers、impact_stages、seller_check、value_score、collected_at、info_region、info_type、confidence_label、is_test_data、source_summary。",
       "source_url 只能使用 candidates 里的 url；source_name 必须使用对应 candidate 的 source_name。",
       `source_published_at 必须写 YYYY-MM-DD；如果来源没有发布日期，写当天日期 ${config.date}，不要写“来源未注明日期”。`,
       "collected_at 必须是 ISO datetime。",
@@ -78,14 +94,10 @@ function buildLivePrompt(
       "不得出现客户名单、客户联系方式、报价、合同、毛利、内部成本、未公开客户案例、销售聊天记录、私域客户明细。",
       "不得出现 Codex、OPC、个人副业、个人赚钱、用户个人叙事。",
       "只写公开信号和 YQN 可公开表达的业务动作；任何需要登录、后台、客户数据的来源不得进入群版。",
-      `如果资料不足，source_published_at 写当天日期 ${config.date}、confidence_label=low，并明确资料不足，不要编造。`,
+      "资料不足时不得编造或使用 low 置信度，生成流程会直接阻断发送。",
       "live 模式必须基于 candidates 的真实公开条目；is_test_data 必须为 false。",
     ],
-    business_context: [
-      "YQN 当前核心任务是客户开户数增长。",
-      "晨报要帮助销售找到更好的开户切入点，帮助内容找到选题，帮助履约理解卖家为什么会问美仓、退货、尾程、备货、墨仓。",
-      "不要为了发而发。当天弱信号也要说清弱在哪里，不包装成重大机会。",
-    ],
+    business_knowledge: businessKnowledge,
     sources: sources.map((source) => ({
       title: source.title,
       url: source.url,
@@ -105,11 +117,21 @@ function buildLivePrompt(
       market_focus: candidate.market_focus,
       score: candidate.score,
       account_opening_score: candidate.account_opening_score,
+      value_score: candidate.value_score,
+      effective_at: candidate.effective_at,
+      affected_sellers: candidate.affected_sellers,
+      impact_stages: candidate.impact_stages,
+      seller_check: candidate.seller_check,
       score_reasons: candidate.score_reasons,
       business_value_reasons: candidate.business_value_reasons,
       summary: candidate.summary,
     })),
   });
+}
+
+async function loadBusinessKnowledge(repoRoot: string): Promise<unknown> {
+  const knowledgePath = path.join(repoRoot, "knowledge", "yqn-capabilities.yaml");
+  return YAML.parse(await readFile(knowledgePath, "utf8"));
 }
 
 function ensureSignalDiversity(brief: DingtalkBrief): void {
@@ -132,14 +154,6 @@ function textOf(candidate: DingtalkNewsCandidate): string {
   return `${candidate.title} ${candidate.summary}`.toLowerCase();
 }
 
-function isDomesticMediaCandidate(candidate: DingtalkNewsCandidate): boolean {
-  return candidate.source_category === "domestic_crossborder";
-}
-
-function isChineseDomesticSource(candidate: DingtalkNewsCandidate): boolean {
-  return isDomesticMediaCandidate(candidate) && /[\u3400-\u9fff]/.test(candidate.source_name);
-}
-
 function isMexicoOrLatamCandidate(candidate: DingtalkNewsCandidate): boolean {
   const text = textOf(candidate);
   return candidate.market_focus === "mexico_warehouse"
@@ -151,24 +165,8 @@ function isExplicitNonNorthAmericaCandidate(candidate: DingtalkNewsCandidate): b
   return /东南亚|欧英|欧洲|欧盟|英国|泰国|马来西亚|越南|印尼|俄罗斯|俄电商|lazada|shopee|sendo|thaimart/i.test(text);
 }
 
-function isUsSellerRelevantCandidate(candidate: DingtalkNewsCandidate): boolean {
-  if (isMexicoOrLatamCandidate(candidate)) return false;
-  const text = textOf(candidate);
-  if (/美国|美区|美国站|美国市场|美线|北美|美国仓|美仓|cpsc|efiling|cbp|section 321|de minimis|usps|跨太平洋|transpacific/i.test(text)) return true;
-  if (isExplicitNonNorthAmericaCandidate(candidate)) return false;
-  return candidate.market_focus === "us_warehouse"
-    || /亚马逊|amazon|walmart|temu|shein|wayfair|ups|fedex|fba|fbt|buy box|prime|低值|小包|清关|海关|关税|海外仓|尾程|退货|海运|运价|旺季|黑五|网一/i.test(text);
-}
-
-function isUsefulCandidate(candidate: DingtalkNewsCandidate): boolean {
-  return candidate.account_opening_score >= 16 || candidate.score >= 24;
-}
-
 function promptCandidateList(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
-  const domesticChinese = candidates.filter((candidate) => isChineseDomesticSource(candidate) && isUsefulCandidate(candidate));
-  const domesticOther = candidates.filter((candidate) => isDomesticMediaCandidate(candidate) && !domesticChinese.some((item) => item.url === candidate.url));
-  const rest = candidates.filter((candidate) => !domesticChinese.some((item) => item.url === candidate.url) && !domesticOther.some((item) => item.url === candidate.url));
-  return [...domesticChinese, ...domesticOther, ...rest].slice(0, 30);
+  return candidates.slice(0, 5);
 }
 
 function categoryForCandidate(candidate: DingtalkNewsCandidate): SignalCategory {
@@ -184,141 +182,46 @@ function categoryForCandidate(candidate: DingtalkNewsCandidate): SignalCategory 
   return "customer";
 }
 
-function signalTitleForCandidate(candidate: DingtalkNewsCandidate): string {
-  const category = categoryForCandidate(candidate);
-  return tailoredCopy(category, candidate)?.title || localizedTitle(category, candidate);
-}
-
-function hasSameSignalTitle(selected: DingtalkNewsCandidate[], candidate: DingtalkNewsCandidate): boolean {
-  const title = signalTitleForCandidate(candidate);
-  return selected.some((item) => signalTitleForCandidate(item) === title);
-}
-
-function tryAddCandidate(
-  selected: DingtalkNewsCandidate[],
-  candidate: DingtalkNewsCandidate,
-  options: { avoidMexico?: boolean } = {},
-): boolean {
-  if (selected.length >= 5) return false;
-  if (selected.some((item) => item.url === candidate.url)) return false;
-  if (hasSameSignalTitle(selected, candidate)) return false;
-  const isMexico = isMexicoOrLatamCandidate(candidate);
-  if (options.avoidMexico && isMexico) return false;
-  if (isMexico && selected.some(isMexicoOrLatamCandidate)) return false;
-  selected.push(candidate);
-  return true;
-}
-
-function addFromPool(
-  selected: DingtalkNewsCandidate[],
-  pool: DingtalkNewsCandidate[],
-  targetLength: number,
-  options: { avoidMexico?: boolean } = {},
-): void {
-  for (const candidate of pool) {
-    if (selected.length >= targetLength) return;
-    tryAddCandidate(selected, candidate, options);
-  }
-}
-
-function domesticCount(selected: DingtalkNewsCandidate[]): number {
-  return selected.filter(isDomesticMediaCandidate).length;
-}
-
-function selectionCategoryCounts(selected: DingtalkNewsCandidate[]): Map<SignalCategory, number> {
-  const counts = new Map<SignalCategory, number>();
-  selected.forEach((candidate) => {
-    const category = categoryForCandidate(candidate);
-    counts.set(category, (counts.get(category) || 0) + 1);
-  });
-  return counts;
-}
-
-function guaranteeDomesticMajority(
-  selected: DingtalkNewsCandidate[],
+export function selectBalancedBusinessCandidates(
   candidates: DingtalkNewsCandidate[],
+  minimumValueScore = 70,
+  requiredMix = { us_warehouse: 2, mexico_warehouse: 2, us_mexico_bridge: 1 },
 ): DingtalkNewsCandidate[] {
-  const output = selected.slice(0, 5);
-  const domesticPool = candidates.filter(isDomesticMediaCandidate);
-  if (domesticPool.length < 4) return output;
+  const ranked = candidates
+    .filter((candidate) => candidate.value_score >= minimumValueScore)
+    .filter((candidate) => !isExplicitNonNorthAmericaCandidate(candidate))
+    .filter((candidate) => ["us_warehouse", "mexico_warehouse", "us_mexico_bridge"].includes(candidate.market_focus))
+    .filter((candidate) => candidate.source_category !== "overseas_policy" || /^\d{4}-\d{2}-\d{2}$/.test(candidate.effective_at))
+    .slice()
+    .sort((a, b) => {
+      const officialDiff = Number(b.source_type === "official") - Number(a.source_type === "official");
+      if (officialDiff !== 0) return officialDiff;
+      const valueDiff = b.value_score - a.value_score;
+      if (valueDiff !== 0) return valueDiff;
+      return b.published_at_iso.localeCompare(a.published_at_iso);
+    });
 
-  for (const candidate of domesticPool) {
-    if (domesticCount(output) >= 4) break;
-    if (output.some((item) => item.url === candidate.url)) continue;
-    if (hasSameSignalTitle(output, candidate)) continue;
-    if (isMexicoOrLatamCandidate(candidate) && output.some(isMexicoOrLatamCandidate)) continue;
-
-    let replaceIndex = -1;
-    for (let index = output.length - 1; index >= 0; index -= 1) {
-      if (!isDomesticMediaCandidate(output[index] as DingtalkNewsCandidate)) {
-        replaceIndex = index;
-        break;
-      }
+  const usedUrls = new Set<string>();
+  const take = (focus: DingtalkNewsCandidate["market_focus"], count: number): DingtalkNewsCandidate[] => {
+    const selected: DingtalkNewsCandidate[] = [];
+    for (const candidate of ranked) {
+      if (candidate.market_focus !== focus || usedUrls.has(candidate.url)) continue;
+      if (selected.some((item) => item.title.trim().toLowerCase() === candidate.title.trim().toLowerCase())) continue;
+      selected.push(candidate);
+      usedUrls.add(candidate.url);
+      if (selected.length >= count) break;
     }
-    if (replaceIndex >= 0) output[replaceIndex] = candidate;
-  }
-
-  return output;
-}
-
-function improveCategorySpread(
-  selected: DingtalkNewsCandidate[],
-  candidates: DingtalkNewsCandidate[],
-): DingtalkNewsCandidate[] {
-  const output = selected.slice(0, 5);
-  const counts = selectionCategoryCounts(output);
-  if (counts.size >= 2) return output;
-  const dominant = output[0] ? categoryForCandidate(output[0]) : undefined;
-  if (!dominant) return output;
-  const selectedDomesticCount = domesticCount(output);
-
-  const replacement = candidates.find((candidate) => {
-    if (output.some((item) => item.url === candidate.url)) return false;
-    if (hasSameSignalTitle(output, candidate)) return false;
-    if (categoryForCandidate(candidate) === dominant) return false;
-    return isDomesticMediaCandidate(candidate) || selectedDomesticCount > 4;
-  });
-  if (!replacement) return output;
-
-  for (let index = output.length - 1; index >= 0; index -= 1) {
-    const candidate = output[index] as DingtalkNewsCandidate;
-    if (!isDomesticMediaCandidate(candidate) || selectedDomesticCount > 4) {
-      output[index] = replacement;
-      break;
+    if (selected.length !== count) {
+      throw new Error(`send_blocked: ${focus} requires ${count} core signals but only ${selected.length} passed value/source checks`);
     }
-  }
+    return selected;
+  };
 
-  return output.slice(0, 5);
-}
-
-function finalizeSelection(
-  selected: DingtalkNewsCandidate[],
-  candidates: DingtalkNewsCandidate[],
-): DingtalkNewsCandidate[] {
-  return improveCategorySpread(guaranteeDomesticMajority(selected, candidates), candidates).slice(0, 5);
-}
-
-function selectTopBusinessCandidates(candidates: DingtalkNewsCandidate[]): DingtalkNewsCandidate[] {
-  const selected: DingtalkNewsCandidate[] = [];
-  const useful = candidates.filter(isUsefulCandidate);
-  const pool = useful.length >= 5 ? useful : candidates;
-  const chineseDomestic = pool.filter(isChineseDomesticSource);
-  const domestic = pool.filter(isDomesticMediaCandidate);
-  const domesticUs = chineseDomestic.filter(isUsSellerRelevantCandidate);
-  const domesticMexico = chineseDomestic.filter(isMexicoOrLatamCandidate);
-
-  addFromPool(selected, domesticUs, 4, { avoidMexico: true });
-  addFromPool(selected, domestic.filter(isUsSellerRelevantCandidate), 4, { avoidMexico: true });
-  if (selected.length >= 4) addFromPool(selected, domesticMexico, 5);
-  addFromPool(selected, domesticUs, 5, { avoidMexico: true });
-  addFromPool(selected, chineseDomestic.filter((candidate) => !isMexicoOrLatamCandidate(candidate)), 5, { avoidMexico: true });
-  addFromPool(selected, domestic.filter((candidate) => !isMexicoOrLatamCandidate(candidate)), 5, { avoidMexico: true });
-  if (selected.length < 5) addFromPool(selected, domesticMexico, 5);
-  addFromPool(selected, pool.filter(isUsSellerRelevantCandidate), 5, { avoidMexico: true });
-  addFromPool(selected, pool, 5);
-  addFromPool(selected, candidates, 5);
-
-  return finalizeSelection(selected, candidates);
+  return [
+    ...take("us_warehouse", requiredMix.us_warehouse),
+    ...take("mexico_warehouse", requiredMix.mexico_warehouse),
+    ...take("us_mexico_bridge", requiredMix.us_mexico_bridge),
+  ];
 }
 
 function pickCandidate(
@@ -336,8 +239,8 @@ function pickCandidate(
 
 function candidateCategory(category: SignalCategory, candidate: DingtalkNewsCandidate) {
   const title = localizedTitle(category, candidate);
-  const what = `公开来源发布「${clipText(candidate.title, 72)}」。`;
-  const summary = clipText(candidate.summary || candidate.title, 70);
+  const what = clipText(candidate.summary || `公开来源发布「${candidate.title}」。`, 170);
+  const summary = clipText(candidate.summary || candidate.title, 120);
   const sourceSummary = clipText(summary || `${candidate.source_name} 公开条目，按真实来源采集。`, 160);
 
   const categoryCopy: Record<SignalCategory, { title: string; why: string; yqn: string; infoType: DingtalkBrief["signals"][number]["info_type"] }> = {
@@ -384,10 +287,16 @@ function candidateCategory(category: SignalCategory, candidate: DingtalkNewsCand
     source_name: candidate.source_name,
     source_url: candidate.url,
     source_published_at: candidate.source_published_at,
+    effective_at: candidate.effective_at,
     collected_at: candidate.collected_at,
+    market_focus: candidate.market_focus,
+    affected_sellers: clipText(candidate.affected_sellers, 120),
+    impact_stages: candidate.impact_stages,
+    seller_check: clipText(candidate.seller_check, 130),
+    value_score: candidate.value_score,
     info_region: candidate.market_focus === "domestic_seller" ? "domestic" as const : candidate.market_focus === "global" ? "global" as const : "overseas" as const,
     info_type: copy.infoType,
-    confidence_label: candidate.score >= 38 ? "high" as const : candidate.score >= 25 ? "medium" as const : "low" as const,
+    confidence_label: candidate.source_type === "official" && candidate.value_score >= 70 ? "high" as const : "medium" as const,
     is_test_data: false,
     source_summary: sourceSummary,
     is_sensitive: false,
@@ -439,11 +348,19 @@ function tailoredCopy(
       infoType: "customer",
     };
   }
-  if (/墨西哥|墨仓|美墨|拉美|美客多|mercado\s*libre|mercadolibre|巴西/i.test(text)) {
+  if (candidate.market_focus === "us_mexico_bridge") {
     return {
-      title: "拉美平台履约变化作为墨仓旁路观察",
-      why: "拉美仓配投入会影响少量北美卖家对美国仓、墨仓和区域分仓的比较。",
-      yqn: "只把它作为补充问题：客户是否有墨西哥或拉美订单，以及是否需要分仓。",
+      title: "美墨链路变化要求卖家重算双仓与跨境运输",
+      why: "口岸、关税或跨境运力变化会同时影响美国库存、墨西哥补货和尾程承诺。",
+      yqn: "结合美国仓与墨西哥双仓布局，先核对货型、库存位置和跨境补货节奏。",
+      infoType: "fulfillment",
+    };
+  }
+  if (/墨西哥|墨仓|美客多|mercado\s*libre|mercadolibre/i.test(text)) {
+    return {
+      title: "墨西哥规则与履约变化影响本地备货",
+      why: "墨西哥政策、平台和本地配送变化会直接影响入仓、库存周转与订单履约。",
+      yqn: "结合墨西哥1号仓与2号仓双仓布局，核对大中小件的备货、分仓和尾程需求。",
       infoType: "fulfillment",
     };
   }
@@ -529,7 +446,8 @@ function localizedTitle(category: SignalCategory, candidate: DingtalkNewsCandida
   if (/tiktok shop.*fbt|fbt.*tiktok shop|美区 fbt/i.test(text)) return "TikTok Shop 美区 FBT 强化平台仓吸引力";
   if (/tiktok shop.*侵权|世界杯 ip|fifa/i.test(text)) return "TikTok Shop IP 合规提醒卖家收紧选品";
   if (/人民币结算|狂挖中国卖家|中国卖家/i.test(text)) return "平台继续争夺中国跨境卖家供给";
-  if (/墨西哥|墨仓|美墨|拉美|美客多|mercado\s*libre|mercadolibre|巴西/i.test(text)) return "拉美平台履约变化作为墨仓旁路观察";
+  if (candidate.market_focus === "us_mexico_bridge") return "美墨链路变化要求卖家重算双仓与跨境运输";
+  if (/墨西哥|墨仓|美客多|mercado\s*libre|mercadolibre/i.test(text)) return "墨西哥规则与履约变化影响本地备货";
   if (/海运|运价|舱位|跨太平洋|ocean shipping|ocean rates|transpacific/i.test(text)) return "海运涨价压缩美国仓备货窗口";
   if ((/黑五|网络星期一|旺季|大促|holiday deal/i.test(text)) && (/亚马逊|amazon/i.test(text))) return "Amazon 旺季节点推动卖家提前备货";
   if (text.includes("amazon") && text.includes("holiday deal")) return "Amazon 旺季活动提报窗口打开";
@@ -556,17 +474,19 @@ function localizedTitle(category: SignalCategory, candidate: DingtalkNewsCandida
 function buildFallbackRealBrief(
   config: DingtalkRuntimeConfig,
   realSignals: DingtalkRealSignalCollection,
+  minimumValueScore = 70,
+  requiredMix = { us_warehouse: 2, mexico_warehouse: 2, us_mexico_bridge: 1 },
 ): DingtalkBrief {
   const candidates = realSignals.candidates;
   if (candidates.length < 5) {
     throw new Error("Not enough real public candidates to build a fallback brief");
   }
-  const selected = selectTopBusinessCandidates(candidates)
+  const selected = selectBalancedBusinessCandidates(candidates, minimumValueScore, requiredMix)
     .map((candidate) => candidateCategory(categoryForCandidate(candidate), candidate));
   return validateDingtalkBrief({
     date: config.date,
     title: `${productName}｜${config.date}`,
-    one_liner: "美仓确定性影响开户",
+    one_liner: "美墨规则正在重算履约成本",
     signals: selected,
     sources: selected.map((signal) => {
       const candidate = candidates.find((item) => item.url === signal.source_url);
@@ -584,15 +504,66 @@ function buildFallbackRealBrief(
   });
 }
 
-function validateSourceUrls(brief: DingtalkBrief, allowedUrls: string[]): DingtalkBrief {
-  const urls = new Set(allowedUrls.map((url) => url.replace(/\/$/, "")));
+function anchorCandidateMetadata(brief: DingtalkBrief, candidates: DingtalkNewsCandidate[]): DingtalkBrief {
+  const byUrl = new Map(candidates.map((candidate) => [candidate.url.replace(/\/$/, ""), candidate]));
+  return validateDingtalkBrief({
+    ...brief,
+    signals: brief.signals.map((signal) => {
+      const candidate = byUrl.get(signal.source_url.replace(/\/$/, ""));
+      if (!candidate) return signal;
+      return {
+        ...signal,
+        source_name: candidate.source_name,
+        source_type: candidate.source_type,
+        source_published_at: candidate.source_published_at,
+        effective_at: candidate.effective_at,
+        collected_at: candidate.collected_at,
+        market_focus: candidate.market_focus,
+        affected_sellers: candidate.affected_sellers,
+        impact_stages: candidate.impact_stages,
+        seller_check: candidate.seller_check,
+        value_score: candidate.value_score,
+        confidence_label: candidate.source_type === "official" ? "high" : "medium",
+        is_test_data: false,
+        is_sensitive: false,
+      };
+    }),
+  });
+}
+
+function ensureRequiredMix(brief: DingtalkBrief, minimumValueScore = 70): void {
+  const counts = new Map<string, number>();
   for (const signal of brief.signals) {
+    counts.set(signal.market_focus, (counts.get(signal.market_focus) || 0) + 1);
+    if (signal.value_score < minimumValueScore) throw new Error(`send_blocked: signal value score below ${minimumValueScore}`);
+    if (signal.info_type === "policy" && !/^\d{4}-\d{2}-\d{2}$/.test(signal.effective_at)) {
+      throw new Error("send_blocked: policy signal missing an explicit effective date");
+    }
+    if (!signal.impact_stages.length) throw new Error("send_blocked: signal missing impact stage");
+  }
+  if (counts.get("us_warehouse") !== 2 || counts.get("mexico_warehouse") !== 2 || counts.get("us_mexico_bridge") !== 1) {
+    throw new Error("send_blocked: brief must contain exactly 2 US, 2 Mexico and 1 US-Mexico bridge signals");
+  }
+}
+
+function validateSourceUrls(
+  brief: DingtalkBrief,
+  candidatesOrUrls: DingtalkNewsCandidate[] | string[],
+  minimumValueScore = 70,
+): DingtalkBrief {
+  const candidateObjects = typeof candidatesOrUrls[0] === "string" ? undefined : candidatesOrUrls as DingtalkNewsCandidate[];
+  const urls = new Set((candidateObjects || candidatesOrUrls as string[]).map((item) =>
+    (typeof item === "string" ? item : item.url).replace(/\/$/, ""),
+  ));
+  const anchored = candidateObjects ? anchorCandidateMetadata(brief, candidateObjects) : brief;
+  for (const signal of anchored.signals) {
     if (!urls.has(signal.source_url.replace(/\/$/, ""))) {
       throw new Error("model selected source_url outside configured source list");
     }
   }
-  ensureSignalDiversity(brief);
-  return brief;
+  ensureSignalDiversity(anchored);
+  if (anchored.mode === "live") ensureRequiredMix(anchored, minimumValueScore);
+  return anchored;
 }
 
 async function callOpenAi(
@@ -604,6 +575,7 @@ async function callOpenAi(
   if (!config.openAiModel) throw new Error("SETUP_ERROR: OPENAI_MODEL is required in live mode");
 
   const client = new OpenAI({ apiKey: config.openAiApiKey });
+  const businessKnowledge = await loadBusinessKnowledge(config.repoRoot);
   const response = await client.responses.create({
     model: config.openAiModel,
     input: [
@@ -613,7 +585,7 @@ async function callOpenAi(
       },
       {
         role: "user",
-        content: buildLivePrompt(config, sources, candidates),
+        content: buildLivePrompt(config, sources, candidates, businessKnowledge),
       },
     ],
     text: {
@@ -626,7 +598,7 @@ async function callOpenAi(
     },
   });
 
-  return validateSourceUrls(validateDingtalkBrief(coerceJson(extractOutputText(response))), candidates.map((candidate) => candidate.url));
+  return validateSourceUrls(validateDingtalkBrief(coerceJson(extractOutputText(response))), candidates);
 }
 
 function extractGitHubModelsText(response: unknown): string {
@@ -644,6 +616,7 @@ async function callGitHubModels(
   if (!config.githubToken) {
     throw new Error("SETUP_ERROR: live mode requires OPENAI_API_KEY or GitHub Actions GITHUB_TOKEN with models: read");
   }
+  const businessKnowledge = await loadBusinessKnowledge(config.repoRoot);
   const response = await fetch("https://models.github.ai/inference/chat/completions", {
     method: "POST",
     headers: {
@@ -663,7 +636,7 @@ async function callGitHubModels(
         },
         {
           role: "user",
-          content: buildLivePrompt(config, sources, candidates),
+          content: buildLivePrompt(config, sources, candidates, businessKnowledge),
         },
       ],
     }),
@@ -672,7 +645,7 @@ async function callGitHubModels(
   if (!response.ok) {
     throw new Error(`GitHub Models request failed with HTTP ${response.status}`);
   }
-  return validateSourceUrls(validateDingtalkBrief(coerceJson(extractGitHubModelsText(JSON.parse(body)))), candidates.map((candidate) => candidate.url));
+  return validateSourceUrls(validateDingtalkBrief(coerceJson(extractGitHubModelsText(JSON.parse(body)))), candidates);
 }
 
 async function callLiveModel(
@@ -688,36 +661,68 @@ async function generateLiveWithRetry(
   config: DingtalkRuntimeConfig,
   sources: DingtalkSourceConfig[],
   realSignals: DingtalkRealSignalCollection,
+  minimumValueScore: number,
+  requiredMix: { us_warehouse: number; mexico_warehouse: number; us_mexico_bridge: number },
 ): Promise<DingtalkBrief> {
+  const balancedCandidates = selectBalancedBusinessCandidates(realSignals.candidates, minimumValueScore, requiredMix);
   let lastError: unknown;
   for (let attempt = 1; attempt <= 2; attempt += 1) {
     try {
-      return await callLiveModel(config, sources, realSignals.candidates);
+      return await callLiveModel(config, sources, balancedCandidates);
     } catch (error) {
       lastError = error;
       console.warn(`[dingtalk:generate] live schema/source validation failed on attempt ${attempt}`);
     }
   }
   console.warn(`[dingtalk:generate] live model failed; publishing deterministic real-source brief: ${lastError instanceof Error ? lastError.message : "unknown error"}`);
-  return buildFallbackRealBrief(config, realSignals);
+  return buildFallbackRealBrief(config, realSignals, minimumValueScore, requiredMix);
 }
 
 export async function generateDingtalkBrief(config = readDingtalkRuntimeConfig()): Promise<DingtalkBrief> {
   const collection = await collectDingtalkSources(config.repoRoot);
-  const realSignals = config.mode === "live" ? await collectDingtalkRealSignals(config.repoRoot) : undefined;
+  let webSearchAudits: WebSearchAudit[] = [];
+  let minimumValueScore = 70;
+  let requiredMix = { us_warehouse: 2, mexico_warehouse: 2, us_mexico_bridge: 1 };
+  let realSignals: DingtalkRealSignalCollection | undefined;
+  if (config.mode === "live") {
+    const [rssSignals, webResearch] = await Promise.all([
+      collectDingtalkRealSignals(config.repoRoot),
+      collectMandatoryWebResearch(config),
+    ]);
+    webSearchAudits = webResearch.audits;
+    minimumValueScore = webResearch.minimumCoreValueScore;
+    requiredMix = webResearch.requiredMix;
+    realSignals = {
+      ...rssSignals,
+      candidates: mergeCandidates([...webResearch.candidates, ...rssSignals.candidates]),
+      source_count_before_window: rssSignals.source_count_before_window + webResearch.candidates.length,
+    };
+  }
   if (realSignals) {
     await writeJsonFile(sourceReportPath(config), {
       date: config.date,
       generated_at: new Date().toISOString(),
+      research_method: "openai_responses_web_search",
+      send_authorized: true,
       source_window_hours: realSignals.source_window_hours,
       source_count_before_window: realSignals.source_count_before_window,
       source_errors: realSignals.source_errors,
+      web_search_required: true,
+      web_search_audits: webSearchAudits,
+      minimum_core_value_score: minimumValueScore,
+      required_mix: requiredMix,
       candidates: realSignals.candidates.map((candidate) => ({
         title: candidate.title,
         url: candidate.url,
         source_name: candidate.source_name,
+        source_type: candidate.source_type,
         source_published_at: candidate.source_published_at,
         market_focus: candidate.market_focus,
+        effective_at: candidate.effective_at,
+        affected_sellers: candidate.affected_sellers,
+        impact_stages: candidate.impact_stages,
+        seller_check: candidate.seller_check,
+        value_score: candidate.value_score,
         score: candidate.score,
         account_opening_score: candidate.account_opening_score,
         score_reasons: candidate.score_reasons,
@@ -727,17 +732,23 @@ export async function generateDingtalkBrief(config = readDingtalkRuntimeConfig()
   }
   const brief = config.mode === "demo"
     ? buildSampleBrief(config.date, collection.sources)
-    : await generateLiveWithRetry(config, collection.sources, realSignals as DingtalkRealSignalCollection);
-  const allowedUrls = config.mode === "demo"
-    ? collection.sources.map((source) => source.url)
-    : (realSignals as DingtalkRealSignalCollection).candidates.map((candidate) => candidate.url);
+    : await generateLiveWithRetry(
+        config,
+        collection.sources,
+        realSignals as DingtalkRealSignalCollection,
+        minimumValueScore,
+        requiredMix,
+      );
 
+  const candidateInputs = config.mode === "demo"
+    ? collection.sources.map((source) => source.url)
+    : (realSignals as DingtalkRealSignalCollection).candidates;
   const parsed = validateSourceUrls(validateDingtalkBrief({
     ...brief,
     date: config.date,
     title: `${productName}｜${config.date}`,
     mode: brief.mode === "demo" ? "demo" : config.mode,
-  }), allowedUrls);
+  }), candidateInputs, minimumValueScore);
 
   await writeJsonFile(dataPath(config), parsed);
   await writeTextFile(markdownPath(config), renderDingtalkMarkdown(parsed, {

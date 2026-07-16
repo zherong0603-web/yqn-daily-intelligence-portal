@@ -24,6 +24,15 @@
 - 飞书只发入口卡片，不发送完整正文。
 - 飞书失败不会阻断网页部署。
 
+## 钉钉北美情报晨报 V1.4
+
+- 机器人显示名：`YQN 信息小助手`。
+- 每次强制联网搜索美国、墨西哥、美墨联动三组官方来源。
+- 群内固定为 2 条美国、2 条墨西哥、1 条美墨联动，70 分以下不发送。
+- 每条都包含生效时间、影响卖家、物流环节、卖家检查、YQN 可承接和官方链接。
+- 现有正式群与 `YQN 直播天团` 是两个独立目标，不相互覆盖，并分别防重复发送。
+- 统一业务口径位于 `knowledge/yqn-capabilities.yaml`，完整配置见 `docs/dingtalk/配置说明.md`。
+
 ## 必须配置
 
 最傻瓜的配置方式是在本机打开网页配置助手：
@@ -43,11 +52,11 @@ GitHub Secrets：
 
 GitHub Variables：
 
-- `OPENAI_MODEL`：真实 AI 简报必填，建议先填 `gpt-4o-mini`；如果账号不可用，再换成你 OpenAI API 账号实际可用的模型名。
+- `OPENAI_MODEL`：真实 AI 简报必填；钉钉强制联网晨报默认使用支持 Responses API `web_search` 的 `gpt-5`。
 - `SITE_URL`：正式 Pages 地址。
 - `BRIEF_ENCRYPTION_ENABLED`：是否开启客户端加密，填 `true` 或 `false`。
-- `OPENAI_WEB_SEARCH_ENABLED`：是否开启额外搜索增强，填 `true` 或 `false`。
-- `MAX_SEARCH_CALLS`：搜索增强最大调用次数。
+- `OPENAI_WEB_SEARCH_ENABLED`：钉钉 live 模式必须为 `true`。
+- `MAX_SEARCH_CALLS`：钉钉 live 模式必须至少为 `3`。
 
 ## OpenAI 成本边界
 

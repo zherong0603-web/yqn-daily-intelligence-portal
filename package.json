@@ -35,6 +35,7 @@
     "dingtalk:v1": "npm run dingtalk:generate -- --mode demo --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:package",
     "dingtalk:v1.1": "npm run dingtalk:generate -- --mode demo --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:validate && npm run dingtalk:package",
     "dingtalk:v1.3": "npm run dingtalk:generate -- --mode live --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:validate && npm run dingtalk:package",
+    "dingtalk:v1.4": "npm run dingtalk:generate -- --mode live --dry_run true && npm run dingtalk:risk && npm run dingtalk:archive && npm run dingtalk:preview && npm run dingtalk:validate && npm run dingtalk:package",
     "typecheck": "tsc --noEmit",
     "test": "npm run typecheck && vitest run"
   },

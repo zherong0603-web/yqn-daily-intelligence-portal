@@ -31,6 +31,21 @@ function shortSourceDate(value: string): string {
   return value === "来源未注明日期" ? "未注明日期" : value;
 }
 
+const focusLabels: Record<DingtalkBrief["signals"][number]["market_focus"], string> = {
+  us_warehouse: "美国",
+  mexico_warehouse: "墨西哥",
+  us_mexico_bridge: "美墨联动",
+  domestic_seller: "国内卖家",
+  platform: "平台",
+  global: "全球",
+};
+
+const stageLabels: Record<DingtalkBrief["signals"][number]["impact_stages"][number], string> = {
+  first_mile: "头程",
+  warehousing: "仓储",
+  last_mile: "配送",
+};
+
 export function renderDingtalkMarkdown(brief: DingtalkBrief, options: DingtalkMarkdownOptions = {}): string {
   const archiveUrl = options.archiveUrl ?? getArchiveUrl(brief, options.publicBaseUrl);
   const archiveAvailable = options.archiveAvailable ?? Boolean(archiveUrl);
@@ -49,10 +64,12 @@ export function renderDingtalkMarkdown(brief: DingtalkBrief, options: DingtalkMa
   lines.push("");
 
   brief.signals.slice(0, 5).forEach((signal, index) => {
-    lines.push(`## ${index + 1}. ${categoryLabels[signal.category]}｜${signal.title}`);
+    lines.push(`## ${index + 1}. ${focusLabels[signal.market_focus]}｜${categoryLabels[signal.category]}｜${signal.title}`);
     lines.push(`- 发生：${signal.what_happened}`);
-    lines.push(`- 影响：${signal.why_it_matters}`);
-    lines.push(`- YQN 看法：${signal.yqn_use}`);
+    lines.push(`- 生效：${signal.effective_at}｜影响：${signal.affected_sellers}`);
+    lines.push(`- 链路：${signal.impact_stages.map((stage) => stageLabels[stage]).join("、")}｜${signal.why_it_matters}`);
+    lines.push(`- 卖家检查：${signal.seller_check}`);
+    lines.push(`- YQN 可承接：${signal.yqn_use}`);
     lines.push(`- 来源：[${signal.source_name}｜${shortSourceDate(signal.source_published_at)}](${signal.source_url})`);
     lines.push("");
   });

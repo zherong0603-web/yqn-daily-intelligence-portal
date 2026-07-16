@@ -89,11 +89,15 @@ function renderArchivePage(
       <h2>${index + 1}. ${escapeHtml(categoryLabels[signal.category])}｜${escapeHtml(signal.title)}</h2>
       <dl>
         <dt>发生</dt><dd>${escapeHtml(signal.what_happened)}</dd>
+        <dt>生效时间</dt><dd>${escapeHtml(signal.effective_at)}</dd>
+        <dt>影响卖家</dt><dd>${escapeHtml(signal.affected_sellers)}</dd>
+        <dt>影响链路</dt><dd>${escapeHtml(signal.impact_stages.join(" / "))}</dd>
         <dt>影响</dt><dd>${escapeHtml(signal.why_it_matters)}</dd>
-        <dt>YQN 看法</dt><dd>${escapeHtml(signal.yqn_use)}</dd>
+        <dt>卖家检查</dt><dd>${escapeHtml(signal.seller_check)}</dd>
+        <dt>YQN 可承接</dt><dd>${escapeHtml(signal.yqn_use)}</dd>
         <dt>来源</dt><dd>${renderSourceLink(signal.source_url, `${signal.source_name}｜${signal.source_published_at}`)}</dd>
         <dt>采集时间</dt><dd>${escapeHtml(signal.collected_at)}</dd>
-        <dt>区域 / 类型 / 可信度</dt><dd>${escapeHtml(signal.info_region)} / ${escapeHtml(signal.info_type)} / ${escapeHtml(confidenceLabels[signal.confidence_label])}</dd>
+        <dt>区域 / 类型 / 可信度 / 价值分</dt><dd>${escapeHtml(signal.market_focus)} / ${escapeHtml(signal.info_type)} / ${escapeHtml(confidenceLabels[signal.confidence_label])} / ${escapeHtml(signal.value_score)}</dd>
         <dt>来源摘要</dt><dd>${escapeHtml(signal.source_summary)}</dd>
       </dl>
     </section>`).join("\n")}

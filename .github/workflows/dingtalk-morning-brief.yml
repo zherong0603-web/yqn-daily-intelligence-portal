@@ -1,4 +1,4 @@
-name: DingTalk YQN Daily 5 Minutes V1.3
+name: DingTalk YQN North America Intelligence V1.4
 
 on:
   schedule:
@@ -55,15 +55,20 @@ jobs:
       DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
       DINGTALK_FORMAL_WEBHOOK_URL: ${{ secrets.DINGTALK_FORMAL_WEBHOOK_URL }}
       DINGTALK_FORMAL_SECRET: ${{ secrets.DINGTALK_FORMAL_SECRET }}
+      DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL }}
+      DINGTALK_YQN_LIVE_GROUP_SECRET: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_SECRET }}
       DINGTALK_OWNER_WEBHOOK_URL: ${{ secrets.DINGTALK_OWNER_WEBHOOK_URL }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || vars.OPENAI_MODEL }}
+      OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || vars.OPENAI_MODEL || 'gpt-5' }}
+      OPENAI_WEB_SEARCH_ENABLED: "true"
+      MAX_SEARCH_CALLS: ${{ vars.MAX_SEARCH_CALLS || '3' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_MODELS_MODEL: ${{ vars.GH_MODELS_MODEL || 'openai/gpt-4o' }}
       SITE_URL: ${{ vars.SITE_URL }}
       PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL || vars.PAGES_BASE_URL || vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
       PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
       DINGTALK_FORMAL_GROUP_ENABLED: ${{ vars.DINGTALK_FORMAL_GROUP_ENABLED || 'false' }}
+      DINGTALK_YQN_LIVE_GROUP_ENABLED: ${{ vars.DINGTALK_YQN_LIVE_GROUP_ENABLED || 'false' }}
       FAILURE_STAGE: checkout
 
     steps:
@@ -177,10 +182,10 @@ jobs:
       - name: Upload delivery artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YQN_Daily_5_Minutes_V1_3_Delivery
+          name: YQN_Daily_5_Minutes_V1_4_Delivery
           path: |
-            delivery/YQN_Daily_5_Minutes_V1_3_Delivery.zip
-            delivery/YQN_Daily_5_Minutes_V1_3_Delivery/
+            delivery/YQN_Daily_5_Minutes_V1_4_Delivery.zip
+            delivery/YQN_Daily_5_Minutes_V1_4_Delivery/
           if-no-files-found: error
 
       - name: Notify owner on failure

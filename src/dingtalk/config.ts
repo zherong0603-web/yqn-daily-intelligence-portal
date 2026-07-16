@@ -16,6 +16,9 @@ export interface DingtalkRuntimeConfig {
   mode: BriefMode;
   dryRun: boolean;
   formalGroupEnabled: boolean;
+  livestreamGroupEnabled: boolean;
+  webSearchEnabled: boolean;
+  maxSearchCalls: number;
   timeZone: "Asia/Shanghai";
   openAiApiKey?: string;
   openAiModel?: string;
@@ -25,6 +28,8 @@ export interface DingtalkRuntimeConfig {
   secret?: string;
   formalWebhookUrl?: string;
   formalSecret?: string;
+  livestreamWebhookUrl?: string;
+  livestreamSecret?: string;
   ownerWebhookUrl?: string;
   publicBaseUrl: string;
   runId: string;
@@ -33,6 +38,11 @@ export interface DingtalkRuntimeConfig {
 export function parseBoolean(value: string | undefined, fallback: boolean): boolean {
   if (value === undefined || value === "") return fallback;
   return ["1", "true", "yes", "y"].includes(value.trim().toLowerCase());
+}
+
+function parsePositiveInteger(value: string | undefined, fallback: number): number {
+  const parsed = Number.parseInt(value || "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }
 
 export function parseCliArgs(argv = process.argv.slice(2)): Record<string, string> {
@@ -75,6 +85,9 @@ export function readDingtalkRuntimeConfig(
     mode,
     dryRun,
     formalGroupEnabled: parseBoolean(readEnv("DINGTALK_FORMAL_GROUP_ENABLED"), false),
+    livestreamGroupEnabled: parseBoolean(readEnv("DINGTALK_YQN_LIVE_GROUP_ENABLED"), false),
+    webSearchEnabled: parseBoolean(readEnv("OPENAI_WEB_SEARCH_ENABLED"), mode === "live"),
+    maxSearchCalls: parsePositiveInteger(readEnv("MAX_SEARCH_CALLS"), 3),
     timeZone: "Asia/Shanghai",
     openAiApiKey: readEnv("OPENAI_API_KEY"),
     openAiModel: readEnv("OPENAI_MODEL"),
@@ -84,6 +97,8 @@ export function readDingtalkRuntimeConfig(
     secret: readEnv("DINGTALK_SECRET"),
     formalWebhookUrl: readEnv("DINGTALK_FORMAL_WEBHOOK_URL"),
     formalSecret: readEnv("DINGTALK_FORMAL_SECRET"),
+    livestreamWebhookUrl: readEnv("DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL"),
+    livestreamSecret: readEnv("DINGTALK_YQN_LIVE_GROUP_SECRET"),
     ownerWebhookUrl: readEnv("DINGTALK_OWNER_WEBHOOK_URL"),
     publicBaseUrl: defaultPublicBaseUrl(),
     runId: readEnv("GITHUB_RUN_ID") || `local-${Date.now()}`,

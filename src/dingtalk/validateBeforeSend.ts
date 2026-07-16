@@ -5,6 +5,7 @@ import {
   archiveLinkCheckPath,
   dataPath,
   readDingtalkRuntimeConfig,
+  sourceReportPath,
   validationReportPath,
 } from "./config.js";
 import {
@@ -43,7 +44,7 @@ export interface ValidationReport {
 }
 
 export function shouldUseTestLabel(config: DingtalkRuntimeConfig, brief: DingtalkBrief): boolean {
-  return !(brief.mode === "live" && config.formalGroupEnabled && !briefHasTestData(brief));
+  return !(brief.mode === "live" && (config.formalGroupEnabled || config.livestreamGroupEnabled) && !briefHasTestData(brief));
 }
 
 function hasDisplayableSourceDate(value: string): boolean {
@@ -114,6 +115,19 @@ export async function runPreSendValidation(
   const risk = checkDingtalkBriefRisk(brief);
   await writeRiskReport(config, brief, risk);
 
+  let sourceReport: {
+    send_authorized?: boolean;
+    web_search_audits?: Array<{ market_focus?: string; completed?: boolean }>;
+    candidates?: Array<{ url?: string; source_type?: string }>;
+  } = {};
+  if (brief.mode === "live") {
+    try {
+      sourceReport = await readJsonFile(sourceReportPath(config));
+    } catch {
+      sourceReport = {};
+    }
+  }
+
   const messageLength = countMessageCharacters(markdown);
   const sourceUrlOk = brief.signals.every((signal) => Boolean(signal.source_url));
   const sourceNameOk = brief.signals.every((signal) => Boolean(signal.source_name.trim()));
@@ -125,6 +139,23 @@ export async function runPreSendValidation(
   const noForbiddenDisplay = !hasForbiddenDisplayMarker(markdown);
   const archiveSafeForGroup = archive.ok || markdown.includes("归档暂未启用");
   const messageLengthOk = messageLength <= 2200;
+  const mixCounts = new Map<string, number>();
+  brief.signals.forEach((signal) => mixCounts.set(signal.market_focus, (mixCounts.get(signal.market_focus) || 0) + 1));
+  const requiredMixOk = brief.mode !== "live"
+    || (mixCounts.get("us_warehouse") === 2 && mixCounts.get("mexico_warehouse") === 2 && mixCounts.get("us_mexico_bridge") === 1);
+  const valueScoreOk = brief.mode !== "live" || brief.signals.every((signal) => signal.value_score >= 70);
+  const impactStageOk = brief.signals.every((signal) => signal.impact_stages.length > 0);
+  const policyEffectiveDateOk = brief.signals.every((signal) => signal.info_type !== "policy" || /^\d{4}-\d{2}-\d{2}$/.test(signal.effective_at));
+  const completedSearches = new Set((sourceReport.web_search_audits || [])
+    .filter((audit) => audit.completed)
+    .map((audit) => audit.market_focus));
+  const mandatoryWebSearchOk = brief.mode !== "live"
+    || (["us_warehouse", "mexico_warehouse", "us_mexico_bridge"].every((focus) => completedSearches.has(focus)));
+  const sourceTypeByUrl = new Map((sourceReport.candidates || []).map((candidate) => [candidate.url?.replace(/\/$/, ""), candidate.source_type]));
+  const officialSourceOk = brief.mode !== "live" || brief.signals.every((signal) =>
+    sourceTypeByUrl.get(signal.source_url.replace(/\/$/, "")) === "official",
+  );
+  const previewAuthorizationOk = config.dryRun || sourceReport.send_authorized !== false;
   const checks = {
     schema: true,
     forbidden_words: risk.ok,
@@ -137,6 +168,13 @@ export async function runPreSendValidation(
     test_label: testLabelOk,
     no_sensitive_info: noSensitiveInfo,
     no_forbidden_display: noForbiddenDisplay,
+    required_2_2_1_mix: requiredMixOk,
+    minimum_value_score: valueScoreOk,
+    impact_stage: impactStageOk,
+    policy_effective_date: policyEffectiveDateOk,
+    mandatory_web_search: mandatoryWebSearchOk,
+    official_source: officialSourceOk,
+    preview_authorized_for_send: previewAuthorizationOk,
   };
   const blockers = Object.entries(checks)
     .filter(([, ok]) => !ok)

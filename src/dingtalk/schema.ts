@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const productName = "YQN 跨境电商 5 分钟晨报";
-export const robotDisplayName = "YQN 跨境电商 5 分钟晨报";
-export const productSubtitle = "行业｜市场｜客户｜平台｜履约";
+export const robotDisplayName = "YQN 信息小助手";
+export const productSubtitle = "美国｜墨西哥｜头程｜仓储｜配送";
 
 export const signalCategorySchema = z.enum([
   "market",
@@ -23,7 +23,15 @@ export const infoTypeSchema = z.enum(["policy", "market", "platform", "customer"
 export const confidenceLabelSchema = z.enum(["high", "medium", "low"]);
 export const sourceTypeSchema = z.enum(["official", "media", "public_yqn", "manual_approved"]);
 export const sourceFetchTypeSchema = z.enum(["rss", "webpage", "webpage_list", "baijing_article_api", "baijing_flash_api"]);
-export const marketFocusSchema = z.enum(["us_warehouse", "mexico_warehouse", "domestic_seller", "platform", "global"]);
+export const marketFocusSchema = z.enum([
+  "us_warehouse",
+  "mexico_warehouse",
+  "us_mexico_bridge",
+  "domestic_seller",
+  "platform",
+  "global",
+]);
+export const impactStageSchema = z.enum(["first_mile", "warehousing", "last_mile"]);
 export const briefModeSchema = z.enum(["demo", "live"]);
 
 export const signalSchema = z.object({
@@ -35,7 +43,13 @@ export const signalSchema = z.object({
   source_name: z.string().min(2).max(120),
   source_url: z.string().url(),
   source_published_at: z.string().min(4).max(40),
+  effective_at: z.string().min(4).max(40),
   collected_at: z.string().datetime(),
+  market_focus: marketFocusSchema,
+  affected_sellers: z.string().min(4).max(120),
+  impact_stages: z.array(impactStageSchema).min(1).max(3),
+  seller_check: z.string().min(8).max(130),
+  value_score: z.number().int().min(0).max(100),
   info_region: infoRegionSchema,
   info_type: infoTypeSchema,
   confidence_label: confidenceLabelSchema,
@@ -101,6 +115,7 @@ export type SourceCategory = z.infer<typeof sourceCategorySchema>;
 export type SourceType = z.infer<typeof sourceTypeSchema>;
 export type SourceFetchType = z.infer<typeof sourceFetchTypeSchema>;
 export type MarketFocus = z.infer<typeof marketFocusSchema>;
+export type ImpactStage = z.infer<typeof impactStageSchema>;
 export type BriefMode = z.infer<typeof briefModeSchema>;
 export type DingtalkSignal = z.infer<typeof signalSchema>;
 export type DingtalkSource = z.infer<typeof sourceSchema>;
@@ -155,7 +170,13 @@ export const dingtalkBriefJsonSchema = {
           "source_name",
           "source_url",
           "source_published_at",
+          "effective_at",
           "collected_at",
+          "market_focus",
+          "affected_sellers",
+          "impact_stages",
+          "seller_check",
+          "value_score",
           "info_region",
           "info_type",
           "confidence_label",
@@ -175,7 +196,21 @@ export const dingtalkBriefJsonSchema = {
           source_name: { type: "string", minLength: 2, maxLength: 120 },
           source_url: { type: "string", format: "uri" },
           source_published_at: { type: "string", minLength: 4, maxLength: 40 },
+          effective_at: { type: "string", minLength: 4, maxLength: 40 },
           collected_at: { type: "string", format: "date-time" },
+          market_focus: {
+            type: "string",
+            enum: ["us_warehouse", "mexico_warehouse", "us_mexico_bridge", "domestic_seller", "platform", "global"],
+          },
+          affected_sellers: { type: "string", minLength: 4, maxLength: 120 },
+          impact_stages: {
+            type: "array",
+            minItems: 1,
+            maxItems: 3,
+            items: { type: "string", enum: ["first_mile", "warehousing", "last_mile"] },
+          },
+          seller_check: { type: "string", minLength: 8, maxLength: 130 },
+          value_score: { type: "integer", minimum: 0, maximum: 100 },
           info_region: { type: "string", enum: ["domestic", "overseas", "global"] },
           info_type: { type: "string", enum: ["policy", "market", "platform", "customer", "fulfillment", "growth", "yqn_view"] },
           confidence_label: { type: "string", enum: ["high", "medium", "low"] },
