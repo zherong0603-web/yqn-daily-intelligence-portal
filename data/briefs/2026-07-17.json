@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-17",
+  "generated_at": "2026-07-17T04:45:51.918Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The AI compute gap: Enterprises are buying infrastructure faster than they can measure what it costs",
+      "url": "https://venturebeat.com/ai/the-ai-compute-gap-enterprises-are-buying-infrastructure-faster-than-they-can-measure-what-it-costs",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T19:16:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The agent security gap: 54% of enterprises have already had an AI agent incident, and most still let agents share credentials",
+      "url": "https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident-and-most-still-let-agents-share-credentials",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T19:02:38.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The AI context gap: Enterprise AI organizations have a trust problem, not a retrieval problem — and most are still building the fix",
+      "url": "https://venturebeat.com/ai/the-ai-context-gap-enterprise-ai-organizations-have-a-trust-problem-not-a-retrieval-problem-and-most-are-still-building-the-fix",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T17:06:08.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The agent evaluation gap: Enterprise AI organizations have a reality-alignment problem, not a coverage problem — and most are shipping to production anyway",
+      "url": "https://venturebeat.com/ai/the-agent-evaluation-gap-enterprise-ai-organizations-have-a-reality-alignment-problem-not-a-coverage-problem-and-most-are-shipping-to-production-anyway",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T16:40:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Agentic orchestration: Enterprise AI organizations have a deployment problem, not a platform problem — and most are calling chatbots agents",
+      "url": "https://venturebeat.com/ai/agentic-orchestration-enterprise-ai-organizations-have-a-deployment-problem-not-a-platform-problem-and-most-are-calling-chatbots-agents",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-15T22:24:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-17T04:45:50.307Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "‘Always-on’ supply chains are becoming the norm, experts say",
+      "url": "https://www.supplychaindive.com/news/always-on-supply-chains-becoming-the-norm-experts-say-outlook/825481/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T20:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Renfro broadens AI tools for tighter supply chain compliance",
+      "url": "https://www.supplychaindive.com/news/renfro-broadens-ai-tools-for-tighter-supply-chain-compliance/825203/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T15:35:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Levi’s builds toward unified ERP system by mid-2027",
+      "url": "https://www.supplychaindive.com/news/levis-builds-toward-unified-erp-system-by-mid-2027/825243/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T15:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart bets on AI and digital twins to shape its supply chain strategy",
+      "url": "https://www.supplychaindive.com/news/walmart-bets-on-ai-and-digital-twins-to-shape-its-supply-chain-strategy/825163/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T15:05:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US tags Brazil imports with 25% tariff",
+      "url": "https://www.supplychaindive.com/news/us-tags-brazil-imports-with-25-tariff/825397/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T11:52:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Global Forwarding expands Transpacific air cargo capacity with new route",
+      "url": "https://www.supplychaindive.com/news/dhl-global-forwarding-expands-transpacific-air-cargo-capacity-with-new-rout/825195/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T15:47:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Rapid delivery cements itself as a ‘mainstream’ grocery option, report says",
+      "url": "https://www.supplychaindive.com/news/rapid-delivery-cements-itself-as-a-mainstream-grocery-option-report-says/824859/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Osprey brand owner says high supply chain costs are outpacing IEEPA tariff refunds",
+      "url": "https://www.supplychaindive.com/news/osprey-brand-owner-says-high-supply-chain-costs-are-outpacing-ieepa-tariff/825081/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T13:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lululemon’s new distribution center to bolster US, Canada fulfillment",
+      "url": "https://www.supplychaindive.com/news/lululemons-new-distribution-center-to-bolster-us-canada-fulfillment/825182/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T13:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mitsubishi Motors taps Texas port to boost US auto distribution",
+      "url": "https://www.supplychaindive.com/news/mitsubishi-motors-taps-texas-port-to-boost-us-auto-distribution/824971/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T11:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "ArcBest announces layoffs, closing 10 LTL terminals",
+      "url": "https://www.freightwaves.com/news/arcbest-announces-layoffs-closing-10-ltl-terminals",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-16T21:52:33.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DHS, DOT partner to investigate 75 CDL training schools suspected of fraud",
+      "url": "https://www.freightwaves.com/news/dhs-dot-partner-to-investigate-75-cdl-training-schools-suspected-of-fraud",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-16T21:22:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Plastic-bag manufacturer settles allegations of customs fraud for $7.3M",
+      "url": "https://www.freightwaves.com/news/plastic-bag-manufacturer-settles-allegations-of-customs-fraud-for-7-3m",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-16T20:03:21.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google Vids now lets you star in your own AI videos",
+      "url": "https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-16T18:32:54.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "29555622848",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
