@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-18",
+  "generated_at": "2026-07-18T04:32:16.884Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The AI compute gap: Enterprises are buying infrastructure faster than they can measure what it costs",
+      "url": "https://venturebeat.com/ai/the-ai-compute-gap-enterprises-are-buying-infrastructure-faster-than-they-can-measure-what-it-costs",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T19:16:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The agent security gap: 54% of enterprises have already had an AI agent incident, and most still let agents share credentials",
+      "url": "https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident-and-most-still-let-agents-share-credentials",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T19:02:38.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The AI context gap: Enterprise AI organizations have a trust problem, not a retrieval problem — and most are still building the fix",
+      "url": "https://venturebeat.com/ai/the-ai-context-gap-enterprise-ai-organizations-have-a-trust-problem-not-a-retrieval-problem-and-most-are-still-building-the-fix",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T17:06:08.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "The agent evaluation gap: Enterprise AI organizations have a reality-alignment problem, not a coverage problem — and most are shipping to production anyway",
+      "url": "https://venturebeat.com/ai/the-agent-evaluation-gap-enterprise-ai-organizations-have-a-reality-alignment-problem-not-a-coverage-problem-and-most-are-shipping-to-production-anyway",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-16T16:40:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Agentic orchestration: Enterprise AI organizations have a deployment problem, not a platform problem — and most are calling chatbots agents",
+      "url": "https://venturebeat.com/ai/agentic-orchestration-enterprise-ai-organizations-have-a-deployment-problem-not-a-platform-problem-and-most-are-calling-chatbots-agents",
+      "domain": "venturebeat.com",
+      "published_at": "2026-07-15T22:24:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-18T04:32:16.881Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tariffs, Iran war prompt ocean shippers to scrap tradition",
+      "url": "https://www.supplychaindive.com/news/tariffs-iran-war-prompt-ocean-shippers-to-scrap-tradition/825454/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-17T14:29:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "4 ways tariffs and geopolitics are impacting commodity markets",
+      "url": "https://www.supplychaindive.com/news/4-ways-tariffs-and-geopolitics-are-impacting-commodity-markets/825482/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T20:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "‘Always-on’ supply chains are becoming the norm, experts say",
+      "url": "https://www.supplychaindive.com/news/always-on-supply-chains-becoming-the-norm-experts-say-outlook/825481/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T20:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Renfro broadens AI tools for tighter supply chain compliance",
+      "url": "https://www.supplychaindive.com/news/renfro-broadens-ai-tools-for-tighter-supply-chain-compliance/825203/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T15:35:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Levi’s builds toward unified ERP system by mid-2027",
+      "url": "https://www.supplychaindive.com/news/levis-builds-toward-unified-erp-system-by-mid-2027/825243/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T15:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart bets on AI and digital twins to shape its supply chain strategy",
+      "url": "https://www.supplychaindive.com/news/walmart-bets-on-ai-and-digital-twins-to-shape-its-supply-chain-strategy/825163/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T15:05:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US tags Brazil imports with 25% tariff",
+      "url": "https://www.supplychaindive.com/news/us-tags-brazil-imports-with-25-tariff/825397/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-16T11:52:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Global Forwarding expands Transpacific air cargo capacity with new route",
+      "url": "https://www.supplychaindive.com/news/dhl-global-forwarding-expands-transpacific-air-cargo-capacity-with-new-rout/825195/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T15:47:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Rapid delivery cements itself as a ‘mainstream’ grocery option, report says",
+      "url": "https://www.supplychaindive.com/news/rapid-delivery-cements-itself-as-a-mainstream-grocery-option-report-says/824859/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Osprey brand owner says high supply chain costs are outpacing IEEPA tariff refunds",
+      "url": "https://www.supplychaindive.com/news/osprey-brand-owner-says-high-supply-chain-costs-are-outpacing-ieepa-tariff/825081/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-15T13:34:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Vertu wants executives to pay $6,880 for an AI agent — here’s how it actually performs",
+      "url": "https://techcrunch.com/2026/07/17/vertu-wants-executives-to-pay-6880-for-an-ai-agent-heres-how-it-actually-performs/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T22:55:09.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Databricks hits $188B valuation, extending its run as AI’s favorite second act",
+      "url": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T22:12:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The Zoom hack that says, ‘Don’t record me’",
+      "url": "https://techcrunch.com/2026/07/17/the-zoom-hack-that-says-dont-record-me/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T21:20:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "SONAR Sitrep: Freight market pushes shippers toward network flexibility",
+      "url": "https://www.freightwaves.com/news/sonar-sitrep-freight-market-pushes-shippers-toward-network-flexibility",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-17T20:21:40.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "29630673219",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
