@@ -1,4 +1,5 @@
 name: DingTalk YQN Seller Problem Brief
+run-name: YQN Seller Brief ${{ inputs.expected_date }} [${{ inputs.dispatch_id }}]
 
 on:
   workflow_dispatch:
@@ -19,6 +20,10 @@ on:
         options:
           - "true"
           - "false"
+      dispatch_id:
+        description: "Unique dispatch correlation id"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -31,6 +36,7 @@ concurrency:
 jobs:
   send-livestream-brief:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
       TZ: Asia/Shanghai
       SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
