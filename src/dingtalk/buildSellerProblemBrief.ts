@@ -6,27 +6,43 @@ import { z } from "zod";
 const focusSchema = z.enum(["us_warehouse", "mexico_warehouse", "us_mexico_bridge"]);
 const evidenceRoleSchema = z.enum(["seller_signal", "fact_basis"]);
 
+const calendarDateSchema = z.string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/)
+  .refine((value) => {
+    const parsed = new Date(`${value}T00:00:00Z`);
+    return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+  }, "Invalid calendar date");
+
+const webUrlSchema = z.string().url().refine((value) => {
+  const protocol = new URL(value).protocol;
+  return protocol === "https:" || protocol === "http:";
+}, "Only HTTP(S) source URLs are allowed");
+
+function singleLine(min: number, max: number): z.ZodString {
+  return z.string().min(min).max(max).refine((value) => !/[\r\n]/.test(value), "Must be a single line");
+}
+
 const evidenceSchema = z.object({
-  title: z.string().min(2).max(140),
-  url: z.string().url(),
+  title: singleLine(2, 140),
+  url: webUrlSchema,
   source_type: z.enum(["official", "platform_announcement", "seller_forum", "media", "internal_approved"]),
-  published_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
-  effective_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
+  published_at: calendarDateSchema.nullable(),
+  effective_at: calendarDateSchema.nullable(),
   checked_at: z.string().datetime({ offset: true }),
   roles: z.array(evidenceRoleSchema).min(1).max(2),
-  supports: z.string().min(8).max(240),
+  supports: singleLine(8, 240),
 });
 
 const problemSignalSchema = z.object({
   market_focus: focusSchema,
-  title: z.string().min(4).max(90),
-  seller_problem: z.string().min(20).max(360),
-  affected_sellers: z.string().min(8).max(180),
-  why_now: z.string().min(12).max(260),
-  business_impact: z.string().min(12).max(220),
-  market_angle: z.string().min(8).max(160),
-  sales_question: z.string().min(8).max(160),
-  yqn_entry: z.string().min(12).max(260),
+  title: singleLine(4, 90),
+  seller_problem: singleLine(20, 360),
+  affected_sellers: singleLine(8, 180),
+  why_now: singleLine(12, 260),
+  business_impact: singleLine(12, 220),
+  market_angle: singleLine(8, 160),
+  sales_question: singleLine(8, 160),
+  yqn_entry: singleLine(12, 260),
   evidence: z.array(evidenceSchema).min(1).max(4),
   value_score: z.number().int().min(0).max(100),
   confidence_label: z.enum(["high", "medium", "low"]),
@@ -41,14 +57,14 @@ const publicationSchema = z.object({
 });
 
 export const sellerProblemBriefSchema = z.object({
-  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  title: z.string().min(8).max(100),
-  market_stage: z.string().min(20).max(360),
+  date: calendarDateSchema,
+  title: singleLine(8, 100),
+  market_stage: singleLine(20, 360),
   signals: z.array(problemSignalSchema).length(5),
   watchlist: z.array(z.object({
-    title: z.string().min(4).max(100),
-    reason: z.string().min(8).max(220),
-    url: z.string().url(),
+    title: singleLine(4, 100),
+    reason: singleLine(8, 220),
+    url: webUrlSchema,
   })).max(5),
   generated_at: z.string().datetime(),
   publication: publicationSchema,
@@ -121,6 +137,37 @@ function countFocus(brief: SellerProblemBrief, focus: z.infer<typeof focusSchema
   return brief.signals.filter((signal) => signal.market_focus === focus).length;
 }
 
+function dateInShanghai(value: string): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date(value));
+  const valueOf = (type: Intl.DateTimeFormatPartTypes): string => parts.find((part) => part.type === type)?.value || "";
+  return `${valueOf("year")}-${valueOf("month")}-${valueOf("day")}`;
+}
+
+function daysBefore(referenceDate: string, candidateDate: string): number {
+  return Math.round((Date.parse(`${referenceDate}T00:00:00Z`) - Date.parse(`${candidateDate}T00:00:00Z`)) / 86_400_000);
+}
+
+function normalizeEvidenceUrl(value: string): string {
+  const url = new URL(value);
+  url.hash = "";
+  for (const key of [...url.searchParams.keys()]) {
+    if (/^(utm_|ref$|source$)/i.test(key)) url.searchParams.delete(key);
+  }
+  url.searchParams.sort();
+  url.pathname = url.pathname.replace(/\/$/, "") || "/";
+  return url.toString();
+}
+
+function expectedTitleDate(date: string): string {
+  const [, month, day] = date.split("-").map(Number);
+  return `${month}月${day}日`;
+}
+
 export function validateSellerProblemBrief(input: unknown, checkedAt = new Date().toISOString()): {
   brief?: SellerProblemBrief;
   report: SellerProblemValidationReport;
@@ -152,12 +199,69 @@ export function validateSellerProblemBrief(input: unknown, checkedAt = new Date(
   if (counts.mexico_warehouse !== 2) blockers.push(`ratio:mexico_warehouse:${counts.mexico_warehouse}`);
   if (counts.us_mexico_bridge !== 1) blockers.push(`ratio:us_mexico_bridge:${counts.us_mexico_bridge}`);
 
+  if (!brief.title.includes(expectedTitleDate(brief.date))) blockers.push("brief:title_date_mismatch");
+  if (dateInShanghai(brief.generated_at) !== brief.date) blockers.push("brief:generated_at_date_mismatch");
+  const expectedSendAt = new Date(`${brief.date}T08:45:00+08:00`).getTime();
+  if (new Date(brief.publication.proposed_send_at).getTime() !== expectedSendAt) {
+    blockers.push("brief:proposed_send_at_mismatch");
+  }
+
+  const seenUrls = new Map<string, number>();
+  const seenTitles = new Set<string>();
+
   brief.signals.forEach((signal, index) => {
+    const normalizedTitle = signal.title.trim().toLowerCase();
+    if (seenTitles.has(normalizedTitle)) blockers.push(`signal:${index}:duplicate_title`);
+    seenTitles.add(normalizedTitle);
     if (signal.value_score < 70) blockers.push(`signal:${index}:value_score_below_70`);
     if (signal.confidence_label !== "high") blockers.push(`signal:${index}:confidence_not_high`);
     const roles = new Set(signal.evidence.flatMap((evidence) => evidence.roles));
     if (!roles.has("seller_signal")) blockers.push(`signal:${index}:missing_seller_signal`);
     if (!roles.has("fact_basis")) blockers.push(`signal:${index}:missing_fact_basis`);
+
+    signal.evidence.forEach((evidence, evidenceIndex) => {
+      if (dateInShanghai(evidence.checked_at) !== brief.date) {
+        blockers.push(`signal:${index}:evidence:${evidenceIndex}:checked_at_date_mismatch`);
+      }
+      if (evidence.roles.length !== 1) {
+        blockers.push(`signal:${index}:evidence:${evidenceIndex}:roles_must_be_separate`);
+      }
+      const role = evidence.roles[0];
+      if (role === "seller_signal") {
+        if (!evidence.published_at) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_missing_date`);
+        } else {
+          const age = daysBefore(brief.date, evidence.published_at);
+          if (age < 0) blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_from_future`);
+          if (age > 7) blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_older_than_7_days`);
+        }
+        if (!(["seller_forum", "media"] as const).includes(evidence.source_type as "seller_forum" | "media")) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_source_type_invalid`);
+        }
+      }
+      if (role === "fact_basis" && !(["official", "platform_announcement", "internal_approved"] as const)
+        .includes(evidence.source_type as "official" | "platform_announcement" | "internal_approved")) {
+        blockers.push(`signal:${index}:evidence:${evidenceIndex}:fact_basis_source_type_invalid`);
+      }
+
+      const normalizedUrl = normalizeEvidenceUrl(evidence.url);
+      const previousSignal = seenUrls.get(normalizedUrl);
+      if (previousSignal !== undefined) blockers.push(`signal:${index}:evidence:${evidenceIndex}:duplicate_source_url`);
+      else seenUrls.set(normalizedUrl, index);
+    });
+
+    if (signal.market_focus === "us_mexico_bridge") {
+      const namesBothMarkets = (evidence: SellerProblemBrief["signals"][number]["evidence"][number]): boolean => {
+        const text = `${evidence.title} ${evidence.supports}`;
+        const namesMexico = /(墨西哥|m[eé]xico|mexican|\bmx\b)/i.test(text);
+        const namesUnitedStates = /(美国|united states|u\.s\.|\busa\b|\bus\b)/i.test(text);
+        return namesMexico && namesUnitedStates;
+      };
+      const sellerSignalHasBridge = signal.evidence.some((evidence) => evidence.roles.includes("seller_signal") && namesBothMarkets(evidence));
+      const factBasisHasBridge = signal.evidence.some((evidence) => evidence.roles.includes("fact_basis") && namesBothMarkets(evidence));
+      if (!sellerSignalHasBridge) blockers.push(`signal:${index}:bridge_seller_signal_missing_us_mexico_link`);
+      if (!factBasisHasBridge) blockers.push(`signal:${index}:bridge_fact_basis_missing_us_mexico_link`);
+    }
   });
 
   return {

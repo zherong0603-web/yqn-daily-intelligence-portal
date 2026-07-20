@@ -30,6 +30,8 @@ interface SendState {
 
 const workflowFile = "dingtalk-seller-problem-send.yml";
 const targetLabel = "yqn-livestream-group";
+const maxMarkdownBytes = 18_000;
+const networkTimeoutMs = 20_000;
 
 function readArg(name: string): string | undefined {
   const index = process.argv.indexOf(name);
@@ -55,6 +57,7 @@ async function githubJson<T>(apiPath: string, token: string): Promise<T> {
       "X-GitHub-Api-Version": "2022-11-28",
       Authorization: `Bearer ${token}`,
     },
+    signal: AbortSignal.timeout(networkTimeoutMs),
   });
   if (!response.ok) throw new Error(`GitHub duplicate check failed with HTTP ${response.status}`);
   return await response.json() as T;
@@ -67,6 +70,7 @@ async function githubText(apiPath: string, token: string): Promise<string> {
       "X-GitHub-Api-Version": "2022-11-28",
       Authorization: `Bearer ${token}`,
     },
+    signal: AbortSignal.timeout(networkTimeoutMs),
   });
   if (!response.ok) throw new Error(`GitHub duplicate log check failed with HTTP ${response.status}`);
   return await response.text();
@@ -82,7 +86,7 @@ async function alreadySentInGithub(date: string): Promise<boolean> {
   const currentRunId = Number(readEnv("GITHUB_RUN_ID") || "0");
   if (!token || !repository || !currentRunId) return false;
   const runs = await githubJson<{ workflow_runs?: WorkflowRun[] }>(
-    `/repos/${repository}/actions/workflows/${workflowFile}/runs?per_page=20`,
+    `/repos/${repository}/actions/workflows/${workflowFile}/runs?per_page=100`,
     token,
   );
   for (const run of runs.workflow_runs || []) {
@@ -121,22 +125,49 @@ async function recordLocalSend(date: string): Promise<void> {
   await writeFile(localStatePath(), `${JSON.stringify(state, null, 2)}\n`, { mode: 0o600 });
 }
 
-async function postMarkdown(webhookUrl: string, secret: string | undefined, title: string, markdown: string): Promise<void> {
+export function dateInShanghai(now = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const valueOf = (type: Intl.DateTimeFormatPartTypes): string => parts.find((part) => part.type === type)?.value || "";
+  return `${valueOf("year")}-${valueOf("month")}-${valueOf("day")}`;
+}
+
+export function assertFormalSendDate(date: string, now = new Date()): void {
+  const today = dateInShanghai(now);
+  if (date !== today) throw new Error(`Seller brief blocked: formal send date must be today (${today}), got ${date}`);
+}
+
+export async function postMarkdown(
+  webhookUrl: string,
+  secret: string | undefined,
+  title: string,
+  markdown: string,
+): Promise<void> {
+  const markdownBytes = Buffer.byteLength(markdown, "utf8");
+  if (markdownBytes > maxMarkdownBytes) {
+    throw new Error(`Seller brief blocked: markdown payload is ${markdownBytes} bytes (limit ${maxMarkdownBytes})`);
+  }
   const response = await fetch(signDingTalkUrl(webhookUrl, secret), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ msgtype: "markdown", markdown: { title, text: markdown } }),
+    signal: AbortSignal.timeout(networkTimeoutMs),
   });
   const text = await response.text();
-  let body: DingTalkResponse = {};
-  try {
-    body = text ? JSON.parse(text) as DingTalkResponse : {};
-  } catch {
-    body = { errmsg: text.slice(0, 120) };
-  }
   if (!response.ok) throw new Error(`DingTalk webhook failed with HTTP ${response.status}`);
-  if (typeof body.errcode === "number" && body.errcode !== 0) {
-    throw new Error(`DingTalk webhook rejected message: errcode ${body.errcode}`);
+  let body: DingTalkResponse;
+  try {
+    body = JSON.parse(text) as DingTalkResponse;
+  } catch {
+    throw new Error("DingTalk webhook returned an invalid acknowledgement");
+  }
+  if (body.errcode !== 0) {
+    const code = typeof body.errcode === "number" ? body.errcode : "missing";
+    throw new Error(`DingTalk webhook rejected message: errcode ${code}`);
   }
 }
 
@@ -153,6 +184,7 @@ export async function sendSellerProblemBrief(): Promise<void> {
     console.log(`[seller-brief:send] date=${brief.date} dry run validated; message not sent`);
     return;
   }
+  assertFormalSendDate(expectedDate);
   if (parseBoolean(readEnv("DINGTALK_YQN_LIVE_GROUP_ENABLED")) !== true) {
     throw new Error("SETUP_ERROR: DINGTALK_YQN_LIVE_GROUP_ENABLED must be true");
   }
@@ -163,7 +195,8 @@ export async function sendSellerProblemBrief(): Promise<void> {
   const webhookUrl = readEnv("DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL");
   if (!webhookUrl) throw new Error("SETUP_ERROR: livestream group webhook is missing");
   const markdown = renderSellerProblemMarkdown(brief, { publication: "production" });
-  await postMarkdown(webhookUrl, readEnv("DINGTALK_YQN_LIVE_GROUP_SECRET"), brief.title, markdown);
+  const productionTitle = brief.title.replace(/^【待验收】\s*/, "");
+  await postMarkdown(webhookUrl, readEnv("DINGTALK_YQN_LIVE_GROUP_SECRET"), productionTitle, markdown);
   await recordLocalSend(brief.date);
   console.log(successMarker(brief.date));
 }
