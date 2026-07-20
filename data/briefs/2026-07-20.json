@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-20",
+  "generated_at": "2026-07-20T05:10:18.694Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-20T05:10:18.692Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tariffs, Iran war prompt ocean shippers to scrap tradition: Los Angeles port head",
+      "url": "https://www.supplychaindive.com/news/tariffs-iran-war-prompt-ocean-shippers-to-scrap-tradition-los-angeles-por/825454/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-17T14:29:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "What to watch for after Jensen Huang’s Japan visit",
+      "url": "https://techcrunch.com/2026/07/19/what-to-watch-for-after-jensen-huangs-japan-visit/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-19T21:16:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Can an Apple lawsuit derail OpenAI’s hardware plans?",
+      "url": "https://techcrunch.com/2026/07/19/can-an-apple-lawsuit-derail-openais-hardware-plans/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-19T19:24:45.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "‘Odyssey’ director Christopher Nolan calls AI an obvious ‘Trojan horse’",
+      "url": "https://techcrunch.com/2026/07/19/odyssey-director-christopher-nolan-calls-ai-an-obvious-trojan-horse/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-19T14:52:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Truck tractors hauled 132 pounds of cocaine to Florida, sheriff says",
+      "url": "https://www.freightwaves.com/news/truck-tractors-hauled-132-pounds-of-cocaine-to-florida-sheriff-says",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-19T14:08:18.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nonprofit Current AI is racing to build the World Wide Web of AI, free for all",
+      "url": "https://techcrunch.com/2026/07/19/nonprofit-current-ai-is-racing-to-build-the-world-wide-web-of-ai-free-for-all/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-19T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Borderlands Mexico: Cross-border trade tops $87B in May",
+      "url": "https://www.freightwaves.com/news/borderlands-mexico-cross-border-trade-tops-87b-in-may",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-19T11:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Intermodal’s historic growth",
+      "url": "https://www.freightwaves.com/news/intermodals-historic-growth",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-19T00:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Kimi: Threat or menace?",
+      "url": "https://techcrunch.com/2026/07/18/kimi-threat-or-menace/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-18T18:51:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Neil Rimer thinks the AI money is coming back out",
+      "url": "https://techcrunch.com/2026/07/17/neil-rimer-thinks-the-ai-money-is-coming-back-out/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-18T04:47:25.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Vertu wants executives to pay $6,880 for an AI agent — here’s how it actually performs",
+      "url": "https://techcrunch.com/2026/07/17/vertu-wants-executives-to-pay-6880-for-an-ai-agent-heres-how-it-actually-performs/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T22:55:09.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Databricks hits $188B valuation, extending its run as AI’s favorite second act",
+      "url": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T22:12:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The Zoom hack that says, ‘Don’t record me’",
+      "url": "https://techcrunch.com/2026/07/17/the-zoom-hack-that-says-dont-record-me/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T21:20:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "SONAR Sitrep: Freight market pushes shippers toward network flexibility",
+      "url": "https://www.freightwaves.com/news/sonar-sitrep-freight-market-pushes-shippers-toward-network-flexibility",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-17T20:21:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Agility Robotics plants its flag in Tesla’s backyard",
+      "url": "https://techcrunch.com/2026/07/17/agility-robotics-plants-its-flag-in-teslas-backyard/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T20:19:49.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI-driven memory crunch jolts India’s smartphone market",
+      "url": "https://techcrunch.com/2026/07/17/ai-driven-memory-crunch-jolts-indias-smartphone-market/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-17T20:09:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Saronic picks Texas port for $3B shipyard, betting on defense manufacturing boom",
+      "url": "https://www.freightwaves.com/news/saronic-picks-texas-port-for-3b-shipyard-betting-on-defense-manufacturing-boom",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-17T19:54:07.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The AI Experimentation Phase Is Over",
+      "url": "https://www.freightwaves.com/news/the-ai-experimentation-phase-is-over",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-17T19:04:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "High yields, Covid-like volumes drive 23% gain in United’s cargo revenue ",
+      "url": "https://www.freightwaves.com/news/high-yields-covid-like-volumes-drive-23-gain-in-uniteds-cargo-revenue",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-17T18:39:55.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "29718479548",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
