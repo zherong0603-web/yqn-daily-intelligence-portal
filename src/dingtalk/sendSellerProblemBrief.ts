@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { appendFile, readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readEnv } from "../utils/env.js";
@@ -22,10 +22,6 @@ interface WorkflowRun {
 
 interface WorkflowJob {
   id: number;
-}
-
-interface SendState {
-  sent_dates: Record<string, { sent_at: string; target: string }>;
 }
 
 const workflowFile = "dingtalk-seller-problem-send.yml";
@@ -80,49 +76,47 @@ function successMarker(date: string): string {
   return `[seller-brief:send] date=${date} ${targetLabel} markdown message sent`;
 }
 
-export async function alreadySentInGithub(date: string): Promise<boolean> {
+export function formalAttemptMarker(date: string): string {
+  return `[seller-brief:attempt] date=${date} ${targetLabel} formal webhook attempt authorized`;
+}
+
+export type PriorSendState = "none" | "sent" | "ambiguous";
+
+export function assertGithubFormalContext(): void {
   const token = readEnv("GITHUB_TOKEN");
   const repository = readEnv("GITHUB_REPOSITORY");
   const currentRunId = Number(readEnv("GITHUB_RUN_ID") || "0");
-  if (!token || !repository || !currentRunId) return false;
+  if (!token || !repository || !currentRunId) {
+    throw new Error("SETUP_ERROR: formal seller brief sends must run in GitHub Actions");
+  }
+}
+
+export async function priorSendStateInGithub(date: string): Promise<PriorSendState> {
+  assertGithubFormalContext();
+  const token = readEnv("GITHUB_TOKEN")!;
+  const repository = readEnv("GITHUB_REPOSITORY")!;
+  const currentRunId = Number(readEnv("GITHUB_RUN_ID"));
   const runs = await githubJson<{ workflow_runs?: WorkflowRun[] }>(
     `/repos/${repository}/actions/workflows/${workflowFile}/runs?per_page=100`,
     token,
   );
+  let ambiguous = false;
   for (const run of runs.workflow_runs || []) {
-    if (run.id === currentRunId || run.status !== "completed" || run.conclusion !== "success") continue;
+    if (run.id === currentRunId || run.status !== "completed") continue;
     const jobs = await githubJson<{ jobs?: WorkflowJob[] }>(`/repos/${repository}/actions/runs/${run.id}/jobs?per_page=20`, token);
     for (const job of jobs.jobs || []) {
       const logs = await githubText(`/repos/${repository}/actions/jobs/${job.id}/logs`, token);
-      if (logs.includes(successMarker(date))) return true;
+      if (logs.includes(successMarker(date))) return "sent";
+      if (logs.includes(formalAttemptMarker(date))) ambiguous = true;
     }
   }
-  return false;
+  return ambiguous ? "ambiguous" : "none";
 }
 
-function localStatePath(): string {
-  return path.resolve("data", "codex-shadow", ".seller-send-state.json");
-}
-
-async function readLocalState(): Promise<SendState> {
-  try {
-    return JSON.parse(await readFile(localStatePath(), "utf8")) as SendState;
-  } catch {
-    return { sent_dates: {} };
-  }
-}
-
-async function alreadySentLocally(date: string): Promise<boolean> {
-  if (readEnv("GITHUB_RUN_ID")) return false;
-  return Boolean((await readLocalState()).sent_dates[date]);
-}
-
-async function recordLocalSend(date: string): Promise<void> {
-  if (readEnv("GITHUB_RUN_ID")) return;
-  const state = await readLocalState();
-  state.sent_dates[date] = { sent_at: new Date().toISOString(), target: targetLabel };
-  await mkdir(path.dirname(localStatePath()), { recursive: true });
-  await writeFile(localStatePath(), `${JSON.stringify(state, null, 2)}\n`, { mode: 0o600 });
+async function setGithubOutput(name: string, value: string): Promise<void> {
+  const outputFile = readEnv("GITHUB_OUTPUT");
+  if (!outputFile) throw new Error("SETUP_ERROR: GITHUB_OUTPUT is required for seller brief preflight");
+  await appendFile(outputFile, `${name}=${value}\n`, "utf8");
 }
 
 export function dateInShanghai(now = new Date()): string {
@@ -188,16 +182,36 @@ export async function sendSellerProblemBrief(): Promise<void> {
   if (parseBoolean(readEnv("DINGTALK_YQN_LIVE_GROUP_ENABLED")) !== true) {
     throw new Error("SETUP_ERROR: DINGTALK_YQN_LIVE_GROUP_ENABLED must be true");
   }
-  if (await alreadySentInGithub(brief.date) || await alreadySentLocally(brief.date)) {
-    console.log(`[seller-brief:send] date=${brief.date} ${targetLabel} duplicate send skipped`);
-    return;
-  }
+  assertGithubFormalContext();
+  const phase = readEnv("SELLER_BRIEF_SEND_PHASE") || "send";
+  if (phase !== "preflight" && phase !== "send") throw new Error(`SETUP_ERROR: unsupported send phase ${phase}`);
   const webhookUrl = readEnv("DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL");
   if (!webhookUrl) throw new Error("SETUP_ERROR: livestream group webhook is missing");
   const markdown = renderSellerProblemMarkdown(brief, { publication: "production" });
   const productionTitle = brief.title.replace(/^【待验收】\s*/, "");
+
+  if (phase === "preflight") {
+    const priorState = await priorSendStateInGithub(brief.date);
+    if (priorState === "sent") {
+      await setGithubOutput("send_required", "false");
+      console.log(`[seller-brief:send] date=${brief.date} ${targetLabel} duplicate send skipped`);
+      return;
+    }
+    if (priorState === "ambiguous") {
+      throw new Error("Seller brief blocked: a prior formal webhook attempt has no confirmed result; verify DingTalk before retrying");
+    }
+    if (Buffer.byteLength(markdown, "utf8") > maxMarkdownBytes) {
+      throw new Error(`Seller brief blocked: markdown payload exceeds ${maxMarkdownBytes} bytes`);
+    }
+    await setGithubOutput("send_required", "true");
+    console.log(`[seller-brief:preflight] date=${brief.date} formal send preflight passed`);
+    return;
+  }
+
+  if (!parseBoolean(readEnv("SELLER_BRIEF_ATTEMPT_MARKED"))) {
+    throw new Error("SETUP_ERROR: durable formal-send attempt marker is missing");
+  }
   await postMarkdown(webhookUrl, readEnv("DINGTALK_YQN_LIVE_GROUP_SECRET"), productionTitle, markdown);
-  await recordLocalSend(brief.date);
   console.log(successMarker(brief.date));
 }
 

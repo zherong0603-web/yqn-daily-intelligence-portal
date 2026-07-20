@@ -1,9 +1,12 @@
+import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
-  alreadySentInGithub,
+  assertGithubFormalContext,
   assertFormalSendDate,
   dateInShanghai,
+  formalAttemptMarker,
   postMarkdown,
+  priorSendStateInGithub,
 } from "./sendSellerProblemBrief.js";
 
 describe("seller problem brief delivery guardrails", () => {
@@ -12,6 +15,7 @@ describe("seller problem brief delivery guardrails", () => {
     delete process.env.GITHUB_TOKEN;
     delete process.env.GITHUB_REPOSITORY;
     delete process.env.GITHUB_RUN_ID;
+    delete process.env.GITHUB_OUTPUT;
   });
 
   it("uses the Asia/Shanghai date for formal sends", () => {
@@ -20,6 +24,7 @@ describe("seller problem brief delivery guardrails", () => {
     expect(dateInShanghai(now)).toBe("2026-07-20");
     expect(() => assertFormalSendDate("2026-07-20", now)).not.toThrow();
     expect(() => assertFormalSendDate("2026-07-19", now)).toThrow(/must be today/);
+    expect(() => assertGithubFormalContext()).toThrow(/must run in GitHub Actions/);
   });
 
   it("requires an explicit DingTalk errcode=0 acknowledgement", async () => {
@@ -71,8 +76,41 @@ describe("seller problem brief delivery guardrails", () => {
       ));
     vi.stubGlobal("fetch", fetchMock);
 
-    await expect(alreadySentInGithub("2026-07-20")).resolves.toBe(true);
+    await expect(priorSendStateInGithub("2026-07-20")).resolves.toBe("sent");
     expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(String(fetchMock.mock.calls[0]![0])).toContain("per_page=100");
+  });
+
+  it("blocks an automatic retry after an unconfirmed prior webhook attempt", async () => {
+    process.env.GITHUB_TOKEN = "test-token";
+    process.env.GITHUB_REPOSITORY = "owner/repo";
+    process.env.GITHUB_RUN_ID = "300";
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({
+        workflow_runs: [
+          { id: 300, status: "in_progress", conclusion: null, created_at: "2026-07-20T00:00:00Z" },
+          { id: 299, status: "completed", conclusion: "failure", created_at: "2026-07-20T00:00:00Z" },
+        ],
+      }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ jobs: [{ id: 199 }] }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(
+        "[seller-brief:attempt] date=2026-07-20 yqn-livestream-group formal webhook attempt authorized",
+        { status: 200 },
+      ));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(priorSendStateInGithub("2026-07-20")).resolves.toBe("ambiguous");
+  });
+
+  it("keeps the durable workflow marker synchronized with duplicate detection", () => {
+    const workflow = readFileSync(
+      new URL("../../.github/workflows/dingtalk-seller-problem-send.yml", import.meta.url),
+      "utf8",
+    );
+
+    expect(formalAttemptMarker("${BRIEF_DATE}")).toBe(
+      "[seller-brief:attempt] date=${BRIEF_DATE} yqn-livestream-group formal webhook attempt authorized",
+    );
+    expect(workflow).toContain(formalAttemptMarker("${BRIEF_DATE}"));
   });
 });

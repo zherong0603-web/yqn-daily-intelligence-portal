@@ -63,5 +63,24 @@ jobs:
       - name: Run guardrail tests
         run: npm test
 
-      - name: Validate and send livestream brief
+      - name: Validate dry-run brief
+        if: inputs.dry_run == 'true'
+        run: npm run codex:seller-brief:send
+
+      - name: Preflight formal send
+        if: inputs.dry_run == 'false'
+        id: formal-preflight
+        env:
+          SELLER_BRIEF_SEND_PHASE: preflight
+        run: npm run codex:seller-brief:send
+
+      - name: Mark durable formal-send attempt
+        if: inputs.dry_run == 'false' && steps.formal-preflight.outputs.send_required == 'true'
+        run: echo "[seller-brief:attempt] date=${BRIEF_DATE} yqn-livestream-group formal webhook attempt authorized"
+
+      - name: Send livestream brief
+        if: inputs.dry_run == 'false' && steps.formal-preflight.outputs.send_required == 'true'
+        env:
+          SELLER_BRIEF_SEND_PHASE: send
+          SELLER_BRIEF_ATTEMPT_MARKED: "true"
         run: npm run codex:seller-brief:send
