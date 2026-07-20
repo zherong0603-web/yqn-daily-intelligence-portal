@@ -24,6 +24,9 @@ describe("seller problem brief delivery guardrails", () => {
     expect(dateInShanghai(now)).toBe("2026-07-20");
     expect(() => assertFormalSendDate("2026-07-20", now)).not.toThrow();
     expect(() => assertFormalSendDate("2026-07-19", now)).toThrow(/must be today/);
+    delete process.env.GITHUB_TOKEN;
+    delete process.env.GITHUB_REPOSITORY;
+    delete process.env.GITHUB_RUN_ID;
     expect(() => assertGithubFormalContext()).toThrow(/must run in GitHub Actions/);
   });
 
