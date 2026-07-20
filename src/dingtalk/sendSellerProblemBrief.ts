@@ -25,7 +25,8 @@ interface WorkflowJob {
 }
 
 const workflowFile = "dingtalk-seller-problem-send.yml";
-const targetLabel = "yqn-livestream-group";
+const defaultTargetLabel = "yqn-livestream-group";
+const targetLabelPattern = /^[a-z0-9][a-z0-9-]{0,62}$/;
 const maxMarkdownBytes = 18_000;
 const networkTimeoutMs = 20_000;
 
@@ -72,11 +73,19 @@ async function githubText(apiPath: string, token: string): Promise<string> {
   return await response.text();
 }
 
-function successMarker(date: string): string {
+export function resolveTargetLabel(): string {
+  const label = readEnv("SELLER_BRIEF_TARGET_LABEL") || defaultTargetLabel;
+  if (!targetLabelPattern.test(label)) {
+    throw new Error("SETUP_ERROR: seller brief target label must use lowercase letters, digits, and hyphens");
+  }
+  return label;
+}
+
+export function successMarker(date: string, targetLabel = defaultTargetLabel): string {
   return `[seller-brief:send] date=${date} ${targetLabel} markdown message sent`;
 }
 
-export function formalAttemptMarker(date: string): string {
+export function formalAttemptMarker(date: string, targetLabel = defaultTargetLabel): string {
   return `[seller-brief:attempt] date=${date} ${targetLabel} formal webhook attempt authorized`;
 }
 
@@ -91,7 +100,10 @@ export function assertGithubFormalContext(): void {
   }
 }
 
-export async function priorSendStateInGithub(date: string): Promise<PriorSendState> {
+export async function priorSendStateInGithub(
+  date: string,
+  targetLabel = resolveTargetLabel(),
+): Promise<PriorSendState> {
   assertGithubFormalContext();
   const token = readEnv("GITHUB_TOKEN")!;
   const repository = readEnv("GITHUB_REPOSITORY")!;
@@ -102,12 +114,16 @@ export async function priorSendStateInGithub(date: string): Promise<PriorSendSta
   );
   let ambiguous = false;
   for (const run of runs.workflow_runs || []) {
-    if (run.id === currentRunId || run.status !== "completed") continue;
+    if (
+      run.id === currentRunId
+      || run.status !== "completed"
+      || dateInShanghai(new Date(run.created_at)) !== date
+    ) continue;
     const jobs = await githubJson<{ jobs?: WorkflowJob[] }>(`/repos/${repository}/actions/runs/${run.id}/jobs?per_page=20`, token);
     for (const job of jobs.jobs || []) {
       const logs = await githubText(`/repos/${repository}/actions/jobs/${job.id}/logs`, token);
-      if (logs.includes(successMarker(date))) return "sent";
-      if (logs.includes(formalAttemptMarker(date))) ambiguous = true;
+      if (logs.includes(successMarker(date, targetLabel))) return "sent";
+      if (logs.includes(formalAttemptMarker(date, targetLabel))) ambiguous = true;
     }
   }
   return ambiguous ? "ambiguous" : "none";
@@ -179,19 +195,25 @@ export async function sendSellerProblemBrief(): Promise<void> {
     return;
   }
   assertFormalSendDate(expectedDate);
-  if (parseBoolean(readEnv("DINGTALK_YQN_LIVE_GROUP_ENABLED")) !== true) {
-    throw new Error("SETUP_ERROR: DINGTALK_YQN_LIVE_GROUP_ENABLED must be true");
+  const targetLabel = resolveTargetLabel();
+  const targetEnabled = readEnv("SELLER_BRIEF_TARGET_ENABLED")
+    ?? readEnv("DINGTALK_YQN_LIVE_GROUP_ENABLED");
+  if (parseBoolean(targetEnabled) !== true) {
+    throw new Error(`SETUP_ERROR: seller brief target ${targetLabel} must be enabled`);
   }
   assertGithubFormalContext();
   const phase = readEnv("SELLER_BRIEF_SEND_PHASE") || "send";
   if (phase !== "preflight" && phase !== "send") throw new Error(`SETUP_ERROR: unsupported send phase ${phase}`);
-  const webhookUrl = readEnv("DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL");
-  if (!webhookUrl) throw new Error("SETUP_ERROR: livestream group webhook is missing");
+  const webhookUrl = readEnv("SELLER_BRIEF_TARGET_WEBHOOK_URL")
+    ?? readEnv("DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL");
+  const webhookSecret = readEnv("SELLER_BRIEF_TARGET_SECRET")
+    ?? readEnv("DINGTALK_YQN_LIVE_GROUP_SECRET");
+  if (!webhookUrl) throw new Error(`SETUP_ERROR: seller brief target ${targetLabel} webhook is missing`);
   const markdown = renderSellerProblemMarkdown(brief, { publication: "production" });
   const productionTitle = brief.title.replace(/^【待验收】\s*/, "");
 
   if (phase === "preflight") {
-    const priorState = await priorSendStateInGithub(brief.date);
+    const priorState = await priorSendStateInGithub(brief.date, targetLabel);
     if (priorState === "sent") {
       await setGithubOutput("send_required", "false");
       console.log(`[seller-brief:send] date=${brief.date} ${targetLabel} duplicate send skipped`);
@@ -204,15 +226,15 @@ export async function sendSellerProblemBrief(): Promise<void> {
       throw new Error(`Seller brief blocked: markdown payload exceeds ${maxMarkdownBytes} bytes`);
     }
     await setGithubOutput("send_required", "true");
-    console.log(`[seller-brief:preflight] date=${brief.date} formal send preflight passed`);
+    console.log(`[seller-brief:preflight] date=${brief.date} ${targetLabel} formal send preflight passed`);
     return;
   }
 
   if (!parseBoolean(readEnv("SELLER_BRIEF_ATTEMPT_MARKED"))) {
     throw new Error("SETUP_ERROR: durable formal-send attempt marker is missing");
   }
-  await postMarkdown(webhookUrl, readEnv("DINGTALK_YQN_LIVE_GROUP_SECRET"), productionTitle, markdown);
-  console.log(successMarker(brief.date));
+  await postMarkdown(webhookUrl, webhookSecret, productionTitle, markdown);
+  console.log(successMarker(brief.date, targetLabel));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

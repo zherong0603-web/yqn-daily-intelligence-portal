@@ -34,18 +34,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  send-livestream-brief:
+  validate-brief:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
       TZ: Asia/Shanghai
       SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
       BRIEF_DATE: ${{ inputs.expected_date }}
-      SELLER_BRIEF_SEND_APPROVED: ${{ inputs.dry_run == 'false' && 'true' || 'false' }}
-      DINGTALK_YQN_LIVE_GROUP_ENABLED: ${{ vars.DINGTALK_YQN_LIVE_GROUP_ENABLED || 'false' }}
-      DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL }}
-      DINGTALK_YQN_LIVE_GROUP_SECRET: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_SECRET }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SELLER_BRIEF_SEND_APPROVED: "false"
 
     steps:
       - name: Checkout
@@ -63,23 +59,96 @@ jobs:
       - name: Run guardrail tests
         run: npm test
 
-      - name: Validate dry-run brief
-        if: inputs.dry_run == 'true'
+      - name: Validate seller brief
         run: npm run codex:seller-brief:send
 
+  send-livestream-brief:
+    needs: validate-brief
+    if: inputs.dry_run == 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: Asia/Shanghai
+      SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
+      BRIEF_DATE: ${{ inputs.expected_date }}
+      SELLER_BRIEF_SEND_APPROVED: "true"
+      SELLER_BRIEF_TARGET_LABEL: yqn-livestream-group
+      SELLER_BRIEF_TARGET_ENABLED: ${{ vars.DINGTALK_YQN_LIVE_GROUP_ENABLED || 'false' }}
+      SELLER_BRIEF_TARGET_WEBHOOK_URL: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL }}
+      SELLER_BRIEF_TARGET_SECRET: ${{ secrets.DINGTALK_YQN_LIVE_GROUP_SECRET }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+
+      - name: Setup Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Preflight formal send
-        if: inputs.dry_run == 'false'
         id: formal-preflight
         env:
           SELLER_BRIEF_SEND_PHASE: preflight
         run: npm run codex:seller-brief:send
 
       - name: Mark durable formal-send attempt
-        if: inputs.dry_run == 'false' && steps.formal-preflight.outputs.send_required == 'true'
+        if: steps.formal-preflight.outputs.send_required == 'true'
         run: echo "[seller-brief:attempt] date=${BRIEF_DATE} yqn-livestream-group formal webhook attempt authorized"
 
       - name: Send livestream brief
-        if: inputs.dry_run == 'false' && steps.formal-preflight.outputs.send_required == 'true'
+        if: steps.formal-preflight.outputs.send_required == 'true'
+        env:
+          SELLER_BRIEF_SEND_PHASE: send
+          SELLER_BRIEF_ATTEMPT_MARKED: "true"
+        run: npm run codex:seller-brief:send
+
+  send-ryan-internal-brief:
+    needs: validate-brief
+    if: inputs.dry_run == 'false' && vars.DINGTALK_RYAN_INTERNAL_GROUP_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: Asia/Shanghai
+      SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
+      BRIEF_DATE: ${{ inputs.expected_date }}
+      SELLER_BRIEF_SEND_APPROVED: "true"
+      SELLER_BRIEF_TARGET_LABEL: ryan-internal-group
+      SELLER_BRIEF_TARGET_ENABLED: "true"
+      SELLER_BRIEF_TARGET_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
+      SELLER_BRIEF_TARGET_SECRET: ${{ secrets.DINGTALK_SECRET }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+
+      - name: Setup Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Preflight internal-group send
+        id: formal-preflight
+        env:
+          SELLER_BRIEF_SEND_PHASE: preflight
+        run: npm run codex:seller-brief:send
+
+      - name: Mark durable internal-group send attempt
+        if: steps.formal-preflight.outputs.send_required == 'true'
+        run: echo "[seller-brief:attempt] date=${BRIEF_DATE} ryan-internal-group formal webhook attempt authorized"
+
+      - name: Send internal-group brief
+        if: steps.formal-preflight.outputs.send_required == 'true'
         env:
           SELLER_BRIEF_SEND_PHASE: send
           SELLER_BRIEF_ATTEMPT_MARKED: "true"
