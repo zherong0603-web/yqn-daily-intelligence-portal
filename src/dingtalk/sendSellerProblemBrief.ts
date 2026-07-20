@@ -80,7 +80,7 @@ function successMarker(date: string): string {
   return `[seller-brief:send] date=${date} ${targetLabel} markdown message sent`;
 }
 
-async function alreadySentInGithub(date: string): Promise<boolean> {
+export async function alreadySentInGithub(date: string): Promise<boolean> {
   const token = readEnv("GITHUB_TOKEN");
   const repository = readEnv("GITHUB_REPOSITORY");
   const currentRunId = Number(readEnv("GITHUB_RUN_ID") || "0");
