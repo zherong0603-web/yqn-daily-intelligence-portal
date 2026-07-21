@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-21",
+  "generated_at": "2026-07-21T04:51:13.097Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-21T04:51:12.537Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US slaps 50% tariffs on many Canada imports",
+      "url": "https://www.supplychaindive.com/news/us-slaps-50-tariffs-on-many-canada-imports/825726/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-21T01:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump offers to cut aluminum tariffs in half for onshoring promises",
+      "url": "https://www.supplychaindive.com/news/trump-offers-to-cut-aluminum-tariffs-in-half-for-onshoring-promises/825725/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T23:11:32.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fuel surcharges wallop FedEx, UPS shippers as Amazon looms",
+      "url": "https://www.supplychaindive.com/news/fuel-surcharges-wallop-fedex-ups-shippers-as-amazon-looms/825580/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T19:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Logistics resiliency is critical as disruptions pile up in 2026",
+      "url": "https://www.supplychaindive.com/news/logistics-resiliency-is-critical-as-disruptions-pile-up-in-2026/825655/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T16:01:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "WD-40 hit with 100% spike in some sourcing costs from Iran war",
+      "url": "https://www.supplychaindive.com/news/wd-40-hit-with-100-spike-in-some-sourcing-costs-from-iran-war/825422/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T14:02:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ransomware attack forces Coca-Cola to suspend US production at dairy unit",
+      "url": "https://www.supplychaindive.com/news/ransomware-attack-forces-coca-cola-to-suspend-us-production-at-dairy-unit/825598/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T13:54:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon to temporarily close Florida facility, lay off nearly 500",
+      "url": "https://www.supplychaindive.com/news/amazon-to-temporarily-close-florida-facility-lay-off-nearly-500/825555/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T13:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How supply chain leaders can avoid common AI pitfalls",
+      "url": "https://www.supplychaindive.com/news/how-supply-chain-leaders-can-avoid-common-ai-pitfalls/825423/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-20T11:03:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Private vs. Public: How ODW Logistics Navigates Growth & Strategy",
+      "url": "https://www.freightwaves.com/news/private-vs-public-how-odw-logistics-navigates-growth-strategy",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:31:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Market: July Doldrums or Goldilocks Zone?",
+      "url": "https://www.freightwaves.com/news/freight-market-july-doldrums-or-goldilocks-zone",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:30:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "70% Logistics Cost Cut? | Why Custom AI Models are the Future",
+      "url": "https://www.freightwaves.com/news/70-logistics-cost-cut-why-custom-ai-models-are-the-future",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:29:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking Market Update: Is a Strong Retail Peak Season Inbound?",
+      "url": "https://www.freightwaves.com/news/trucking-market-update-is-a-strong-retail-peak-season-inbound",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:28:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Exclusive: The $1 Billion Cargo Theft Network Plaguing the Supply Chain",
+      "url": "https://www.freightwaves.com/news/exclusive-the-1-billion-cargo-theft-network-plaguing-the-supply-chain",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:27:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI Data Center Boom: Is It an Absolute Bubble for Freight?",
+      "url": "https://www.freightwaves.com/news/ai-data-center-boom-is-it-an-absolute-bubble-for-freight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:27:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Broker Data: How Your Tech Could Lead to Lawsuits",
+      "url": "https://www.freightwaves.com/news/freight-broker-data-how-your-tech-could-lead-to-lawsuits",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:26:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Iran’s Strait of Hormuz Blockade: What it Means for Global Oil [FreightWaves]",
+      "url": "https://www.freightwaves.com/news/irans-strait-of-hormuz-blockade-what-it-means-for-global-oil-freightwaves",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-21T02:26:10.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s landmark $1.5B copyright settlement is approved",
+      "url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-21T00:12:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trump hits Canadian imports with new 50% tariffs, escalating trade fight ",
+      "url": "https://www.freightwaves.com/news/trump-hits-canadian-imports-with-new-50-tariffs-escalating-trade-fight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-20T23:13:11.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Trump’s latest AI czar has already resigned",
+      "url": "https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-20T22:21:04.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "29802338812",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
