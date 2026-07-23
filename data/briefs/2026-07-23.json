@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-23",
+  "generated_at": "2026-07-23T04:56:43.155Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-23T04:56:43.018Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tractor Supply taps Instacart for same-day delivery",
+      "url": "https://www.supplychaindive.com/news/tractor-supply-taps-instacart-for-same-day-delivery/825664/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T19:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump maps out 200% tariffs for generic pharmaceuticals",
+      "url": "https://www.supplychaindive.com/news/trump-maps-out-200-tariffs-for-generic-pharmaceuticals/825882/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T15:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Providence names new chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/providence-names-new-chief-supply-chain-officer/825622/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T15:13:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS launches smart locker service for local transactions",
+      "url": "https://www.supplychaindive.com/news/usps-launches-smart-locker-service-for-local-transactions/825787/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T14:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Maersk to open $100M fulfillment hub in Massachusetts",
+      "url": "https://www.supplychaindive.com/news/maersk-to-open-100m-fulfillment-hub-in-massachusetts/825544/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T14:03:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Taylor Farms lettuce didn’t contain parasite behind diarrhea outbreak, FDA says",
+      "url": "https://www.supplychaindive.com/news/taylor-farms-lettuce-didnt-contain-parasite-behind-diarrhea-outbreak-fda/825804/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-21T20:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "JM Smucker snags Hershey exec as SVP of operations, supply chain",
+      "url": "https://www.supplychaindive.com/news/jm-smucker-snags-hershey-exec-as-svp-of-operations-supply-chain/825649/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-21T17:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "JBS axes 2040 net-zero goal, citing ‘immense’ execution challenges",
+      "url": "https://www.supplychaindive.com/news/jbs-axes-2040-net-zero-goal-citing-immense-execution-challenges/824984/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-21T14:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Best Buy names chief fulfillment and operations officer",
+      "url": "https://www.supplychaindive.com/news/best-buy-names-chief-fulfillment-and-operations-officer/825576/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-21T11:04:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US slaps 50% tariffs on many Canada imports",
+      "url": "https://www.supplychaindive.com/news/us-slaps-50-tariffs-on-many-canada-imports/825726/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-21T01:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Regulatory capacity cleanup fuels Knight-Swift’s bullish outlook",
+      "url": "https://www.freightwaves.com/news/regulatory-capacity-cleanup-fuels-knight-swifts-bullish-outlook",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-23T02:09:28.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "After shocking quarter, IBM insists that AI isn’t killing the mainframe",
+      "url": "https://techcrunch.com/2026/07/22/after-shocking-quarter-ibm-insists-that-ai-isnt-killing-the-mainframe/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-22T23:47:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Texas trucker pleads guilty in failed human smuggling run",
+      "url": "https://www.freightwaves.com/news/texas-trucker-pleads-guilty-in-failed-human-smuggling-run",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-22T22:54:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google justifies its massive AI spending with a booming cloud business",
+      "url": "https://techcrunch.com/2026/07/22/google-justifies-its-massive-ai-spending-with-a-booming-cloud-business/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-22T22:01:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Knight-Swift sees ‘rapid progression’ in TL fundamentals during Q2",
+      "url": "https://www.freightwaves.com/news/knight-swifts-q2-sees-rapid-progression-in-tl-fundamentals",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-22T21:27:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trump’s tariff on drugs targets one of the world’s most globalized supply chains ",
+      "url": "https://www.freightwaves.com/news/trumps-tariff-on-drugs-targets-one-of-the-worlds-most-globalized-supply-chains",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-22T20:51:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Treasury threatens sanctions after White House claims Moonshot distilled Anthropic’s Fable",
+      "url": "https://techcrunch.com/2026/07/22/treasury-threatens-sanctions-after-white-house-claims-moonshot-distilled-anthropics-fable/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-22T20:49:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "First look: CSX earnings",
+      "url": "https://www.freightwaves.com/news/first-look-csx-earnings",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-22T20:48:12.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "How OpenAI’s human mistake led to the AI-powered hack on Hugging Face",
+      "url": "https://techcrunch.com/2026/07/22/how-an-openais-human-mistake-led-to-the-ai-powered-hack-on-hugging-face/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-22T19:11:46.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "29980810067",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
