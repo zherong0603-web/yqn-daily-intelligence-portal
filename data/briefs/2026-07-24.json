@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-24",
+  "generated_at": "2026-07-24T04:52:29.209Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-24T04:52:29.207Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US imposes tariffs over forced labor before global duty ends",
+      "url": "https://www.supplychaindive.com/news/us-imposes-tariffs-over-forced-labor-before-global-duty-ends/825951/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T23:13:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx unveils 2026 peak season fees, higher home delivery prices loom",
+      "url": "https://www.supplychaindive.com/news/fedex-unveils-2026-peak-season-fees-higher-home-delivery-prices-loom/826049/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T15:04:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "PepsiCo to cease warehouse operations at Oklahoma production site",
+      "url": "https://www.supplychaindive.com/news/pepsico-to-cease-warehouse-operations-at-oklahoma-production-site/825833/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T14:17:19.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "TSMC makes another $100B US investment",
+      "url": "https://www.supplychaindive.com/news/tsmc-100B-US-semiconductor-investment-supply-chain/825599/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T14:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mondelēz shows uneven gains on 2025 sustainable sourcing goals",
+      "url": "https://www.supplychaindive.com/news/mondelez-shows-uneven-gains-on-2025-sustainable-sourcing-goals/825659/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T13:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "MSC, CMA CGM introduce fresh Panama Canal surcharges",
+      "url": "https://www.supplychaindive.com/news/msc-cma-cgm-introduce-fresh-panama-canal-surcharges/825941/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T11:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tractor Supply taps Instacart for same-day delivery",
+      "url": "https://www.supplychaindive.com/news/tractor-supply-taps-instacart-for-same-day-delivery/825664/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T19:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump maps out 200% tariffs for generic pharmaceuticals",
+      "url": "https://www.supplychaindive.com/news/trump-maps-out-200-tariffs-for-generic-pharmaceuticals/825882/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T15:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Providence names new chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/providence-names-new-chief-supply-chain-officer/825622/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T15:13:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS launches smart locker service for local transactions",
+      "url": "https://www.supplychaindive.com/news/usps-launches-smart-locker-service-for-local-transactions/825787/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T14:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "C.H Robinson hit with huge nuclear verdict in a post-Montgomery world",
+      "url": "https://www.freightwaves.com/news/c-h-robinson-hit-with-huge-nuclear-verdict-in-a-post-montgomery-world",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-24T04:01:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "How AI guardrails are impeding the work of offensive cybersecurity researchers",
+      "url": "https://techcrunch.com/2026/07/23/how-ai-guardrails-are-impeding-the-work-of-offensive-cybersecurity-researchers/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T01:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AMD takes on Nvidia with its Helios AI rack-scale system",
+      "url": "https://techcrunch.com/2026/07/23/amd-takes-on-nvidia-with-its-helios-ai-rack-scale-system/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-23T20:33:02.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Once again, Ryder’s bottom line is boosted by used vehicle sales",
+      "url": "https://www.freightwaves.com/news/once-again-ryders-bottom-line-is-boosted-by-used-vehicle-sales",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-23T19:21:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Union Pacific posts record financial results, raises outlook",
+      "url": "https://www.freightwaves.com/news/union-pacific-posts-record-financial-results-raises-outlook",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-23T19:19:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "BasicBlock acquires TrueNorth, expands beyond finance",
+      "url": "https://www.freightwaves.com/news/basicblock-acquires-truenorth-expands-beyond-finance",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-23T19:17:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Norfolk Southern’s earnings rise with volume gains",
+      "url": "https://www.freightwaves.com/news/norfolk-southerns-earnings-rise-with-volume-gains",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-23T19:05:54.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic updates Claude voice mode with more capable models",
+      "url": "https://techcrunch.com/2026/07/23/anthropic-updates-claude-voice-mode-with-more-capable-models/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-23T19:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AegisAI, founded by former Google security execs, lands $36M to stop AI-driven spear phishing",
+      "url": "https://techcrunch.com/2026/07/23/aegisai-founded-by-former-google-security-execs-lands-36m-to-stop-ai-driven-spear-phishing/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-23T18:38:34.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30067887242",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
