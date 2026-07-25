@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-25",
+  "generated_at": "2026-07-25T04:48:47.846Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-25T04:48:46.754Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Iran war escalation rankles plastic supply chains",
+      "url": "https://www.supplychaindive.com/news/iran-war-escalation-rankles-plastic-supply-chains/826055/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-24T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Conagra to invest $125M in supply chain resilience",
+      "url": "https://www.supplychaindive.com/news/conagra-to-invest-125m-in-supply-chain-resilience/825796/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-24T13:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US imposes tariffs over forced labor before global duty ends",
+      "url": "https://www.supplychaindive.com/news/us-imposes-tariffs-over-forced-labor-before-global-duty-ends/825951/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T23:13:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx unveils 2026 peak season fees, higher home delivery prices loom",
+      "url": "https://www.supplychaindive.com/news/fedex-unveils-2026-peak-season-fees-higher-home-delivery-prices-loom/826049/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T15:04:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "PepsiCo to cease warehouse operations at Oklahoma production site",
+      "url": "https://www.supplychaindive.com/news/pepsico-to-cease-warehouse-operations-at-oklahoma-production-site/825833/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T14:17:19.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "TSMC makes another $100B US investment",
+      "url": "https://www.supplychaindive.com/news/tsmc-100B-US-semiconductor-investment-supply-chain/825599/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T14:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mondelēz shows uneven gains on 2025 sustainable sourcing goals",
+      "url": "https://www.supplychaindive.com/news/mondelez-shows-uneven-gains-on-2025-sustainable-sourcing-goals/825659/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T13:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "MSC, CMA CGM introduce fresh Panama Canal surcharges",
+      "url": "https://www.supplychaindive.com/news/msc-cma-cgm-introduce-fresh-panama-canal-surcharges/825941/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-23T11:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tractor Supply taps Instacart for same-day delivery",
+      "url": "https://www.supplychaindive.com/news/tractor-supply-taps-instacart-for-same-day-delivery/825664/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T19:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump maps out 200% tariffs for generic pharmaceuticals",
+      "url": "https://www.supplychaindive.com/news/trump-maps-out-200-tariffs-for-generic-pharmaceuticals/825882/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-22T15:26:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "I tried out OpenAI’s new AI keypad — which will be fun for some coders and slightly mystifying to everyone else",
+      "url": "https://techcrunch.com/2026/07/24/i-tried-out-openais-new-ai-keypad-which-will-be-fun-for-coders-and-slightly-mystifying-to-everyone-else/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-25T00:23:11.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Prentis, new AI lab co-founded by Reid Hoffman, Mark Pincus in talks to raise $100M",
+      "url": "https://techcrunch.com/2026/07/24/prentis-new-ai-lab-co-founded-by-reid-hoffman-mark-pincus-in-talks-to-raise-100m/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T22:25:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "3PL stocks drop in wake of stunning Texas case against C.H. Robinson",
+      "url": "https://www.freightwaves.com/news/3pl-stocks-drop-in-wake-of-stunning-texas-case-against-c-h-robinson",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-24T22:05:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Why Cognition bought Poke: AI personality is becoming a competitive advantage",
+      "url": "https://techcrunch.com/2026/07/24/why-cognition-bought-poke-ai-personality-is-becoming-a-competitive-advantage/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T18:07:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic launches Opus 5",
+      "url": "https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T17:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CN boosts outlook as volume growth tops expectations",
+      "url": "https://www.freightwaves.com/news/cn-boosts-outlook-as-volume-growth-tops-expectations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-24T16:44:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "As US weighs response to Chinese AI, industry urges against broad open-weight restrictions",
+      "url": "https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T15:51:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Distress Report: Supply chain providers cut more than 1,200 jobs",
+      "url": "https://www.freightwaves.com/news/freight-distress-report-supply-chain-providers-cut-more-than-1200-jobs",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-24T15:49:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New test program puts nuclear container ships on the horizon",
+      "url": "https://www.freightwaves.com/news/new-test-program-puts-nuclear-container-ships-on-the-horizon",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-24T15:37:11.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30144650170",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
