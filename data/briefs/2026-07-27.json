@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-27",
+  "generated_at": "2026-07-27T05:28:48.951Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-27T05:28:47.724Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Iran war escalation rankles plastic supply chains",
+      "url": "https://www.supplychaindive.com/news/iran-war-escalation-rankles-plastic-supply-chains/826055/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-24T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Conagra to invest $125M in supply chain resilience",
+      "url": "https://www.supplychaindive.com/news/conagra-to-invest-125m-in-supply-chain-resilience/825796/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-24T13:56:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Are brain waves the next unlock for physical AI?",
+      "url": "https://techcrunch.com/2026/07/26/are-brain-waves-the-next-unlock-for-physical-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T00:19:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Making sense of the panic over Chinese AI",
+      "url": "https://techcrunch.com/2026/07/26/making-sense-of-the-panic-over-chinese-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-26T19:40:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Hugging Face CEO calls for ‘radical transparency’ after ‘unprecedented’ OpenAI hack",
+      "url": "https://techcrunch.com/2026/07/26/hugging-face-ceo-calls-for-radical-transparency-after-unprecedented-openai-hack/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-26T16:33:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Georgia Is Building 41 Miles of Toll-Free, Truck-Only Lanes on I-75. GDOT Thinks Nearly Every Truck Will Use Them.",
+      "url": "https://www.freightwaves.com/news/georgia-is-building-41-miles-of-toll-free-truck-only-lanes-on-i-75-gdot-thinks-nearly-every-truck-will-use-them",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-26T16:30:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The Safety Audit Comes After the Trucks Are Already Rolling. A Long-Dormant Rule Asks Whether That’s Backwards.",
+      "url": "https://www.freightwaves.com/news/the-safety-audit-comes-after-the-trucks-are-already-rolling-a-long-dormant-rule-asks-whether-thats-backwards",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-26T15:43:31.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Borderlands Mexico: US widens Mexican cartel crackdown to tequila makers, baby shoe company",
+      "url": "https://www.freightwaves.com/news/borderlands-mexico-us-widens-mexican-cartel-crackdown-to-tequila-makers-baby-shoe-company",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-26T11:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Monday.com is the latest tech company to blame AI for layoffs — here are 20 others",
+      "url": "https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-26T01:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Why do tender lead times keep climbing",
+      "url": "https://www.freightwaves.com/news/why-do-tender-lead-times-keep-climbing",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-26T00:31:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Librarians are hosting viral ‘Avoiding AI’ workshops for people who are fed up with Big Tech",
+      "url": "https://techcrunch.com/2026/07/25/librarians-are-hosting-viral-avoiding-ai-workshops-for-people-who-are-fed-up-with-big-tech/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-25T16:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "One fallen power line exposed a growing AI data center problem. Here’s how to fix it.",
+      "url": "https://techcrunch.com/2026/07/25/one-fallen-power-line-exposed-a-growing-ai-data-center-problem-heres-how-to-fix-it/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-25T13:05:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Shippers face tighter capacity as trucking rates hold near record highs",
+      "url": "https://www.freightwaves.com/news/truck-capacity-shortage",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-25T12:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Banana shipment from Ecuador to Europe concealed $290 million in cocaine",
+      "url": "https://www.freightwaves.com/news/banana-shipment-from-ecuador-to-europe-concealed-290-million-in-cocaine",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-25T11:03:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "I tried out OpenAI’s new AI keypad — which will be fun for some coders and slightly mystifying to everyone else",
+      "url": "https://techcrunch.com/2026/07/24/i-tried-out-openais-new-ai-keypad-which-will-be-fun-for-coders-and-slightly-mystifying-to-everyone-else/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-25T00:23:11.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Prentis, new AI lab co-founded by Reid Hoffman, Mark Pincus in talks to raise $100M",
+      "url": "https://techcrunch.com/2026/07/24/prentis-new-ai-lab-co-founded-by-reid-hoffman-mark-pincus-in-talks-to-raise-100m/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T22:25:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "3PL stocks drop in wake of stunning Texas case against C.H. Robinson",
+      "url": "https://www.freightwaves.com/news/3pl-stocks-drop-in-wake-of-stunning-texas-case-against-c-h-robinson",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-24T22:05:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Why Cognition bought Poke: AI personality is becoming a competitive advantage",
+      "url": "https://techcrunch.com/2026/07/24/why-cognition-bought-poke-ai-personality-is-becoming-a-competitive-advantage/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T18:07:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic launches Opus 5",
+      "url": "https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-24T17:00:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30239842282",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
