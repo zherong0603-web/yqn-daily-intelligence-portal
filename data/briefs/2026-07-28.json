@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-28",
+  "generated_at": "2026-07-28T04:46:13.972Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-28T04:46:12.259Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump’s Section 301 tariffs face lawsuit seeking removal, refunds",
+      "url": "https://www.supplychaindive.com/news/trumps-section-301-tariffs-face-lawsuit-seeking-removal-refunds/826264/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T19:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Canadian National won’t fight UP-NS merger under new deal",
+      "url": "https://www.supplychaindive.com/news/canadian-national-wont-fight-up-ns-merger-under-new-deal/826098/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T15:21:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Express to lower import, export fuel surcharge calculations",
+      "url": "https://www.supplychaindive.com/news/dhl-express-to-lower-import-export-fuel-surcharge-calculations/826162/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T15:07:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Schnucks to shutter sole company-owned warehouse",
+      "url": "https://www.supplychaindive.com/news/schnucks-to-shutter-sole-company-owned-warehouse/825932/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T14:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "American Eagle Outfitters to open $41M North Carolina distribution center",
+      "url": "https://www.supplychaindive.com/news/american-eagle-outfitters-to-open-41m-north-carolina-distribution-center/825917/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T13:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "3 tips for shippers watching the USMCA review",
+      "url": "https://www.supplychaindive.com/news/3-tips-for-shippers-watching-the-usmca-review/825979/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T12:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Beyond more tools: Building supply chain stability through orchestration",
+      "url": "https://www.supplychaindive.com/spons/beyond-more-tools-building-supply-chain-stability-through-orchestration/825855/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "What 100,000 industrial vending machines taught us",
+      "url": "https://www.supplychaindive.com/spons/what-100000-industrial-vending-machines-taught-us/825260/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cursor makes its biggest India push yet ahead of SpaceX acquisition with localized pricing",
+      "url": "https://techcrunch.com/2026/07/27/cursor-makes-its-biggest-india-push-yet-ahead-of-spacex-acquisition-with-localized-pricing/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-28T04:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s Dario Amodei responds: doesn’t oppose open-weight models, but fears Chinese AI",
+      "url": "https://techcrunch.com/2026/07/27/anthropics-dario-amodei-responds-doesnt-oppose-open-weight-models-but-fears-chinese-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-28T00:13:33.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Satya Nadella says companies that trust one AI for everything may not survive",
+      "url": "https://techcrunch.com/2026/07/27/satya-nadella-says-companies-that-trust-one-ai-for-everything-may-not-survive/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T21:17:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "TFI first look: truckload shines, LTL doesn’t keep up",
+      "url": "https://www.freightwaves.com/news/tfi-first-look-truckload-shines-ltl-doesnt-keep-up",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-27T20:56:01.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "PSA: Your Claude shared chats and Artifacts may have ended up on Google",
+      "url": "https://techcrunch.com/2026/07/27/psa-your-claude-shared-chats-and-artifacts-may-have-ended-up-on-google/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T20:19:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Political divide: red states back non-domiciled CDL changes",
+      "url": "https://www.freightwaves.com/news/political-divide-red-states-back-non-domiciled-cdl-changes",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-27T19:32:18.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft launches its first cybersecurity model, plus a new agentic cybersecurity system",
+      "url": "https://techcrunch.com/2026/07/27/microsoft-launches-its-first-cyber-model-and-a-new-agentic-cybersecurity-system/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T18:32:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DHL eCommerce to acquire Baltic parcel carrier Venipak",
+      "url": "https://www.freightwaves.com/news/dhl-ecommerce-to-acquire-baltic-parcel-carrier-venipak",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-27T17:43:58.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s Hugging Face breach has reignited the debate over alignment and control",
+      "url": "https://techcrunch.com/2026/07/27/openais-hugging-face-breach-has-reignited-the-debate-over-alignment-and-control/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T17:28:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Threads users can now chat with Meta AI in their DMs",
+      "url": "https://techcrunch.com/2026/07/27/threads-users-can-now-chat-with-meta-ai-in-their-dms/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T16:45:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google’s AI search is rapidly becoming the default, new data shows",
+      "url": "https://techcrunch.com/2026/07/27/googles-ai-search-is-rapidly-becoming-the-default-new-data-shows/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-27T15:57:12.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30329649997",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
