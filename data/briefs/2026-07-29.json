@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-29",
+  "generated_at": "2026-07-29T04:51:16.650Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-29T04:51:15.530Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon to add supply chain facilities in New York, Texas",
+      "url": "https://www.supplychaindive.com/news/amazon-to-add-supply-chain-facilities-in-new-york-texas/826256/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T17:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS CEO outlines edge versus Amazon’s competing service",
+      "url": "https://www.supplychaindive.com/news/ups-ceo-outlines-edge-versus-amazons-competing-service/826361/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T14:50:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Steel producer uses collapsible containers to optimize transport, lower costs",
+      "url": "https://www.supplychaindive.com/news/steel-producer-uses-collapsible-containers-to-optimize-transport-lower-cos/826254/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T14:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Coca-Cola restores most production capacity at dairy unit after ransomware attack",
+      "url": "https://www.supplychaindive.com/news/coca-cola-restores-most-production-capacity-at-dairy-unit-after-ransomware/826334/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T13:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Gap meets 2025 fabric sourcing goals, emissions cuts uneven",
+      "url": "https://www.supplychaindive.com/news/gap-meets-2025-fabric-sourcing-goals-emissions-cuts-uneven/826142/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T13:40:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump’s Section 301 tariffs face lawsuit seeking removal, refunds",
+      "url": "https://www.supplychaindive.com/news/trumps-section-301-tariffs-face-lawsuit-seeking-removal-refunds/826264/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T19:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Canadian National won’t fight UP-NS merger under new deal",
+      "url": "https://www.supplychaindive.com/news/canadian-national-wont-fight-up-ns-merger-under-new-deal/826098/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T15:21:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Express to lower import, export fuel surcharge calculations",
+      "url": "https://www.supplychaindive.com/news/dhl-express-to-lower-import-export-fuel-surcharge-calculations/826162/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T15:07:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Schnucks to shutter sole company-owned warehouse",
+      "url": "https://www.supplychaindive.com/news/schnucks-to-shutter-sole-company-owned-warehouse/825932/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T14:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "American Eagle Outfitters to open $41M North Carolina distribution center",
+      "url": "https://www.supplychaindive.com/news/american-eagle-outfitters-to-open-41m-north-carolina-distribution-center/825917/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-27T13:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Werner CEO Leathers: just the 3rd inning in driver attrition",
+      "url": "https://www.freightwaves.com/news/werner-ceo-leathers-just-the-3rd-inning-in-driver-attrition",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-29T01:32:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cyera agrees to acquire Oasis Security for $1B to safeguard proliferating AI agents",
+      "url": "https://techcrunch.com/2026/07/28/cyera-agrees-to-acquire-oasis-security-for-1b-to-safeguard-proliferating-ai-agents/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-29T00:09:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Landstar expects to emerge a winner in post-Montgomery world",
+      "url": "https://www.freightwaves.com/news/landstar-expects-to-emerge-a-winner-in-post-montgomery-world",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-28T23:21:26.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New Senate bill targets ‘chameleon carriers’ that reopen to escape penalties and enforcement",
+      "url": "https://www.freightwaves.com/news/new-senate-bill-targets-chameleon-carriers-that-reopen-to-escape-penalties-and-enforcement",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-28T22:12:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Bot-detection startup Spur nabs $200M from Insight",
+      "url": "https://techcrunch.com/2026/07/28/bot-detection-startup-spur-nabs-200m-from-insight/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-28T21:29:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "First look: Werner boasts of better revenue per truck",
+      "url": "https://www.freightwaves.com/news/first-look-werner-boasts-of-better-revenue-per-truck",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-28T21:07:12.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "MCP startup Runlayer accuses Rippling of stealing its product idea",
+      "url": "https://techcrunch.com/2026/07/28/mcp-startup-runlayer-accuses-rippling-of-stealing-its-product-idea/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-28T20:45:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CMA CGM in new terminal venture with private equity firm",
+      "url": "https://www.freightwaves.com/news/cma-cgm-in-new-terminal-venture-with-private-equity-firm",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-28T20:27:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Sam Altman is ready to decelerate",
+      "url": "https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-28T20:17:08.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30423368546",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
