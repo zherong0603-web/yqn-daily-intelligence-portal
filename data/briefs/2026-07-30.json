@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-30",
+  "generated_at": "2026-07-30T04:38:48.684Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-30T04:38:47.481Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Caraway Home’s 3PL collaboration drives parcel savings, returns benefits",
+      "url": "https://www.supplychaindive.com/news/caraway-homes-3pl-collaboration-drives-parcel-savings-returns-benefits/826398/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T18:41:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fashion brands plan to consolidate sourcing over next 2 years",
+      "url": "https://www.supplychaindive.com/news/fashion-brands-plan-to-consolidate-sourcing-over-next-2-years/826380/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T15:25:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How Walmart uses AI to limit weather disruptions in its supply chain",
+      "url": "https://www.supplychaindive.com/news/how-walmart-uses-ai-to-limit-weather-disruptions-in-its-supply-chain/826391/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T14:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US to lift Mexico cattle ban to combat high beef prices",
+      "url": "https://www.supplychaindive.com/news/us-to-lift-mexico-cattle-ban-to-combat-high-beef-prices/826353/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T13:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cup Noodles maker taps AI to sharpen planning, reduce costs",
+      "url": "https://www.supplychaindive.com/news/cup-noodles-maker-taps-ai-to-sharpen-planning-reduce-costs/826381/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T13:32:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon to add supply chain facilities in New York, Texas",
+      "url": "https://www.supplychaindive.com/news/amazon-to-add-supply-chain-facilities-in-new-york-texas/826256/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T17:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS CEO outlines edge versus Amazon’s competing service",
+      "url": "https://www.supplychaindive.com/news/ups-ceo-outlines-edge-versus-amazons-competing-service/826361/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T14:50:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Steel producer uses collapsible containers to optimize transport, lower costs",
+      "url": "https://www.supplychaindive.com/news/steel-producer-uses-collapsible-containers-to-optimize-transport-lower-cos/826254/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T14:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Coca-Cola restores most production capacity at dairy unit after ransomware attack",
+      "url": "https://www.supplychaindive.com/news/coca-cola-restores-most-production-capacity-at-dairy-unit-after-ransomware/826334/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T13:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Gap meets 2025 fabric sourcing goals, emissions cuts uneven",
+      "url": "https://www.supplychaindive.com/news/gap-meets-2025-fabric-sourcing-goals-emissions-cuts-uneven/826142/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T13:40:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "J.B. Hunt on Freight Recession & Rate Hikes: What’s Next?",
+      "url": "https://www.freightwaves.com/news/j-b-hunt-on-freight-recession-rate-hikes-whats-next",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T02:02:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Rates: Are they rising because of DEMAND or CAPACITY?",
+      "url": "https://www.freightwaves.com/news/freight-rates-are-they-rising-because-of-demand-or-capacity",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T02:01:57.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Knight-Swift Q2: Why This Carrier’s Profit Beat Signals Market Shift",
+      "url": "https://www.freightwaves.com/news/knight-swift-q2-why-this-carriers-profit-beat-signals-market-shift",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T02:01:29.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Rail Merger Promises: “Where’s the Beef?” | FreightWaves Today",
+      "url": "https://www.freightwaves.com/news/rail-merger-promises-wheres-the-beef-freightwaves-today",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T02:00:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Unpacking Rail Earnings: How Volume Growth Fuels Merger Talks",
+      "url": "https://www.freightwaves.com/news/unpacking-rail-earnings-how-volume-growth-fuels-merger-talks",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T02:00:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Housing Market Crash Slams Last-Mile Delivery: What’s Next?",
+      "url": "https://www.freightwaves.com/news/housing-market-crash-slams-last-mile-delivery-whats-next",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T02:00:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Massive $600 Million Nuclear Verdict Hits C.H. Robinson & Brokerage Industry",
+      "url": "https://www.freightwaves.com/news/massive-600-million-nuclear-verdict-hits-c-h-robinson-brokerage-industry",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T01:59:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Broker Liability: $604M Judgment Signals New Era of Risk in Trucking",
+      "url": "https://www.freightwaves.com/news/broker-liability-604m-judgment-signals-new-era-of-risk-in-trucking",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T01:59:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The Unforeseen Pivot: XPO’s Bold Asset-Heavy Acquisition",
+      "url": "https://www.freightwaves.com/news/the-unforeseen-pivot-xpos-bold-asset-heavy-acquisition",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-30T01:58:38.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30514415872",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
