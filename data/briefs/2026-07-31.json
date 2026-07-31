@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-31",
+  "generated_at": "2026-07-31T05:05:09.256Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-07-31T05:05:08.412Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "General Motors is driving toward supply chain resiliency",
+      "url": "https://www.supplychaindive.com/news/general-motors-is-driving-toward-supply-chain-resiliency/826542/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T17:14:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS: Over two-thirds of US volume now handled by automated locations",
+      "url": "https://www.supplychaindive.com/news/ups-over-two-thirds-of-us-volume-now-handled-by-automated-locations/826477/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T13:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fed holds benchmark rate steady in vote with three dissents",
+      "url": "https://www.supplychaindive.com/news/fed-holds-benchmark-rate-steady-in-vote-with-three-dissents/826561/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T13:38:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walgreens opens Washington micro-fulfillment center",
+      "url": "https://www.supplychaindive.com/news/walgreens-opens-washington-micro-fulfillment-center/826480/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T13:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Caraway Home’s 3PL collaboration drives parcel savings, returns benefits",
+      "url": "https://www.supplychaindive.com/news/caraway-homes-3pl-collaboration-drives-parcel-savings-returns-benefits/826398/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T18:41:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fashion brands plan to consolidate sourcing over next 2 years",
+      "url": "https://www.supplychaindive.com/news/fashion-brands-plan-to-consolidate-sourcing-over-next-2-years/826380/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T15:25:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How Walmart uses AI to limit weather disruptions in its supply chain",
+      "url": "https://www.supplychaindive.com/news/how-walmart-uses-ai-to-limit-weather-disruptions-in-its-supply-chain/826391/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T14:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US to lift Mexico cattle ban to combat high beef prices",
+      "url": "https://www.supplychaindive.com/news/us-to-lift-mexico-cattle-ban-to-combat-high-beef-prices/826353/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T13:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cup Noodles maker taps AI to sharpen planning, reduce costs",
+      "url": "https://www.supplychaindive.com/news/cup-noodles-maker-taps-ai-to-sharpen-planning-reduce-costs/826381/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T13:32:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon to add supply chain facilities in New York, Texas",
+      "url": "https://www.supplychaindive.com/news/amazon-to-add-supply-chain-facilities-in-new-york-texas/826256/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-28T17:45:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic says its own AI models breached three companies during security tests",
+      "url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-31T01:06:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "They Watched the Family Business Get Rolled Up. Then They Built the Version They Wanted to Work For.",
+      "url": "https://www.freightwaves.com/news/they-watched-the-family-business-get-rolled-up-then-they-built-the-version-they-wanted-to-work-for",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:55:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Why ‘Shipper of Choice’ is a MUST in Chemical Logistics",
+      "url": "https://www.freightwaves.com/news/why-shipper-of-choice-is-a-must-in-chemical-logistics",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:38:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Is LTL the NEW King? Market Shift & Carrier Investment Explained",
+      "url": "https://www.freightwaves.com/news/is-ltl-the-new-king-market-shift-carrier-investment-explained",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:38:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Unlock Freight Success: Why Carrier Partnerships Matter | RXO Strategy",
+      "url": "https://www.freightwaves.com/news/unlock-freight-success-why-carrier-partnerships-matter-rxo-strategy",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:37:56.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Capacity CRUNCH: Why Trucks are Disappearing from the Market",
+      "url": "https://www.freightwaves.com/news/capacity-crunch-why-trucks-are-disappearing-from-the-market",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:37:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Carriers Gain Leverage: Become a Shipper of Choice to Win Capacity",
+      "url": "https://www.freightwaves.com/news/carriers-gain-leverage-become-a-shipper-of-choice-to-win-capacity",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:37:07.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DOT Says Freedom Haulers Opens an Express Lane for Veterans. Much of That Lane Was Already Built.",
+      "url": "https://www.freightwaves.com/news/dot-says-freedom-haulers-opens-an-express-lane-for-veterans-much-of-that-lane-was-already-built",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T00:35:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI hedge fund Situational Awareness may have sold its public portfolio, but it still has its Anthropic shares",
+      "url": "https://techcrunch.com/2026/07/30/ai-hedge-fund-situational-awareness-may-have-sold-its-public-portfolio-but-it-still-has-its-anthropic-shares/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-30T23:25:58.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30605804625",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
