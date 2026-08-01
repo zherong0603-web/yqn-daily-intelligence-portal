@@ -1,89 +1,179 @@
 {
   "date": "2026-08-01",
-  "generated_at": "2026-06-26T08:17:18.235Z",
-  "one_liner": "YQN 每日重点简报样例已生成：2026-08-01 可用于检查历史归档、搜索、主题筛选和分享打印。",
-  "executive_summary": "这是一篇明确标记为 Demo 样例的日报，用来验证 YQN 每日重点简报的上线可用性。它不是商业事实简报，不替代真实每日情报；真实运行必须配置 OpenAI API Key 和 OPENAI_MODEL。",
-  "items": [
-    {
-      "id": "sample_2026-08-01_1",
-      "topic": "ai",
-      "title": "AI 自动化信号：把重复线索分拣固化为每日动作 · 2026-08-01",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "strong",
-      "confidence": "high",
-      "source_title": "验收公开来源 1 · 2026-08-01",
-      "source_url": "https://venturebeat.com/yqn-acceptance-2026-08-01-1",
-      "source_published_at": "2026-08-01T00:00:00.000Z",
-      "source_domain": "venturebeat.com"
-    },
-    {
-      "id": "sample_2026-08-01_2",
-      "topic": "ecommerce_us_warehouse",
-      "title": "美国仓信号：客户更关心退货、补货和异常响应 · 2026-08-01",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "medium",
-      "confidence": "medium",
-      "source_title": "验收公开来源 2 · 2026-08-01",
-      "source_url": "https://supplychaindive.com/yqn-acceptance-2026-08-01-2",
-      "source_published_at": "2026-08-01T00:00:00.000Z",
-      "source_domain": "supplychaindive.com"
-    },
-    {
-      "id": "sample_2026-08-01_3",
-      "topic": "xiaohongshu_b2b",
-      "title": "小红书 B2B 信号：公开投放资料适合转成获客话术 · 2026-08-01",
-      "what_happened": "这是线上验收用样例数据，用于验证日报页面、归档、搜索、主题筛选、上一天下一天和分享打印功能。",
-      "why_it_matters": "样例补跑不依赖密钥，可以先证明门户站的长期结构和历史能力可用，真实内容仍必须通过 OpenAI API 和公开来源生成。",
-      "yqn_insight": "YQN 可以先验收门户的查看、分享、归档和安全边界，再配置密钥进入真实每日运行。",
-      "today_action": "今天打开这条日报，测试搜索关键词、主题筛选、复制分享链接和打印保存 PDF。",
-      "signal_strength": "medium",
-      "confidence": "medium",
-      "source_title": "验收公开来源 3 · 2026-08-01",
-      "source_url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-08-01-3",
-      "source_published_at": "2026-08-01T00:00:00.000Z",
-      "source_domain": "ad.xiaohongshu.com"
-    }
-  ],
+  "generated_at": "2026-08-01T04:58:52.271Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
   "action_checklist": [
-    "打开今日简报永久链接，确认网页可访问。",
-    "搜索“美国仓”并使用主题筛选检查结果。",
-    "点击复制简报摘要，再测试打印或保存 PDF。"
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
   ],
   "sources": [
     {
       "topic": "ai",
-      "name": "验收公开来源 1",
-      "title": "验收公开来源 1 · 2026-08-01",
-      "url": "https://venturebeat.com/yqn-acceptance-2026-08-01-1",
-      "domain": "venturebeat.com",
-      "published_at": "2026-08-01T00:00:00.000Z"
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-01T04:58:50.893Z"
     },
     {
       "topic": "ecommerce_us_warehouse",
-      "name": "验收公开来源 2",
-      "title": "验收公开来源 2 · 2026-08-01",
-      "url": "https://supplychaindive.com/yqn-acceptance-2026-08-01-2",
+      "name": "Supply Chain Dive",
+      "title": "Amazon’s 2025 emissions jump as AI brings ‘momentum and complexity’: report",
+      "url": "https://www.supplychaindive.com/news/amazon-2025-emissions-jump-as-ai-brings-momentum-and-complexity-report/826171/",
       "domain": "supplychaindive.com",
-      "published_at": "2026-08-01T00:00:00.000Z"
+      "published_at": "2026-07-31T14:51:00.000Z"
     },
     {
-      "topic": "xiaohongshu_b2b",
-      "name": "验收公开来源 3",
-      "title": "验收公开来源 3 · 2026-08-01",
-      "url": "https://ad.xiaohongshu.com/yqn-acceptance-2026-08-01-3",
-      "domain": "ad.xiaohongshu.com",
-      "published_at": "2026-08-01T00:00:00.000Z"
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Best Buy adds solar field to power California distribution center",
+      "url": "https://www.supplychaindive.com/news/best-buy-adds-solar-field-to-power-california-distribution-center/826609/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-31T14:49:55.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "GE Aerospace trims lead times by 60%",
+      "url": "https://www.supplychaindive.com/news/ge-aerospace-trims-lead-times-by-60/826607/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-31T14:22:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Johnson & Johnson embarks on supply chain restructuring",
+      "url": "https://www.supplychaindive.com/news/johnson-johnson-embarks-on-supply-chain-restructuring/826594/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-31T13:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "General Motors is driving toward supply chain resiliency",
+      "url": "https://www.supplychaindive.com/news/general-motors-is-driving-toward-supply-chain-resiliency/826542/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T17:14:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS: Over two-thirds of US volume now handled by automated locations",
+      "url": "https://www.supplychaindive.com/news/ups-over-two-thirds-of-us-volume-now-handled-by-automated-locations/826477/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T13:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fed holds benchmark rate steady in vote with three dissents",
+      "url": "https://www.supplychaindive.com/news/fed-holds-benchmark-rate-steady-in-vote-with-three-dissents/826561/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T13:38:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walgreens opens Washington micro-fulfillment center",
+      "url": "https://www.supplychaindive.com/news/walgreens-opens-washington-micro-fulfillment-center/826480/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-30T13:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Caraway Home’s 3PL collaboration drives parcel savings, returns benefits",
+      "url": "https://www.supplychaindive.com/news/caraway-homes-3pl-collaboration-drives-parcel-savings-returns-benefits/826398/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T18:41:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fashion brands plan to consolidate sourcing over next 2 years",
+      "url": "https://www.supplychaindive.com/news/fashion-brands-plan-to-consolidate-sourcing-over-next-2-years/826380/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-07-29T15:25:15.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI reportedly finds evidence that more of its agents ran amok",
+      "url": "https://techcrunch.com/2026/07/31/openai-reportedly-finds-evidence-that-more-of-its-agents-ran-amok/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-31T22:47:26.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "India is starting to pay for apps, not just download them",
+      "url": "https://techcrunch.com/2026/07/31/india-is-starting-to-pay-for-apps-not-just-download-them/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-31T21:07:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Erie truck driver faces 22 charges after police say he fled 9-vehicle crash carrying Bud Light",
+      "url": "https://www.freightwaves.com/news/erie-truck-driver-faces-22-charges-after-police-say-he-fled-9-vehicle-crash-carrying-bud-light",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T20:41:05.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google nixes its Earth AI feature one day after launch, amid criticism it would spread misinformation",
+      "url": "https://techcrunch.com/2026/07/31/google-nixes-its-earth-ai-feature-one-day-after-launch-amid-criticism-it-would-spread-misinformation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-31T19:47:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon ramps up delivery speed, robotics roll out",
+      "url": "https://www.freightwaves.com/news/amazon-ramps-up-delivery-speed-robotics-roll-out",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T18:29:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Gains from equipment sales save Heartland’s Q2",
+      "url": "https://www.freightwaves.com/news/gains-from-equipment-sales-save-heartlands-q2",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T17:36:21.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Sam Altman isn’t the only one who wants to pump the brakes on AI",
+      "url": "https://techcrunch.com/video/sam-altman-isnt-the-only-one-who-wants-to-pump-the-brakes-on-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-31T17:26:32.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Covenant’s earnings drop stock, company focused long-term",
+      "url": "https://www.freightwaves.com/news/covenants-earnings-drop-stock-company-focused-long-term",
+      "domain": "freightwaves.com",
+      "published_at": "2026-07-31T17:11:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Snapchat no longer rewards fully AI-generated Spotlight content",
+      "url": "https://techcrunch.com/2026/07/31/snapchat-no-longer-rewards-fully-ai-generated-spotlight-content/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-07-31T16:49:08.000Z"
     }
   ],
-  "model": "sample-backfill",
-  "run_id": "28226086909",
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30684936823",
   "source_window_hours": 72,
-  "is_low_signal_day": false,
+  "is_low_signal_day": true,
   "encryption_enabled": false
 }
