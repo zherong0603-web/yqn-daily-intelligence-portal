@@ -1,0 +1,191 @@
+{
+  "date": "2026-07-28",
+  "title": "【待验收】7月28日北美卖家问题晨报",
+  "market_stage": "美国尾程账单核对与墨西哥仓履约选择同时升温；先把包裹数据、入仓资料和跨境报价拆开核实，再决定补货与分仓。",
+  "signals": [
+    {
+      "market_focus": "us_warehouse",
+      "title": "美国尾程报价突增，先核验标签与承运商选项",
+      "seller_problem": "一名美国卖家在 Amazon Seller Forums 反馈，平时约 5.25 美元的包裹报价突然显示为 21 美元，正在确认是服务选择、重量体积还是报价异常。",
+      "affected_sellers": "使用美国本地仓自行履约、通过 Amazon Buy Shipping 打印面单的卖家。",
+      "why_now": "该卖家于7月28日发布，且问题直接影响当天接单后的尾程成本与发货选择。",
+      "business_impact": "若未逐单复核服务与计费重量，低客单订单可能被意外尾程成本吞掉利润。",
+      "market_angle": "可做一条“出库前先看哪三项”的履约核对清单内容。",
+      "sales_question": "你们最近一周是否出现同尺寸包裹报价跳升，使用的是哪种承运商服务？",
+      "yqn_entry": "可结合美国仓出库、贴标、尾程方案匹配，协助把订单按包裹属性和服务要求分流；报价以实际货况与承运商结果为准。",
+      "evidence": [
+        {
+          "title": "Amazon Seller Forums：Shipping prices went up",
+          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/ec2b9920-acf4-401c-8a95-fe76c743d205",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-28",
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["seller_signal"],
+          "supports": "美国卖家在7月28日反馈一个通常约5.25美元的包裹报价变为21美元，需先核验报价与包裹数据。"
+        },
+        {
+          "title": "Amazon Buy Shipping 官方说明",
+          "url": "https://sell.amazon.com/tools/buy-shipping?ld=ELXXSOA-issues.amazon.com&pageName=US%3ASD%3APrograms-shipping",
+          "source_type": "official",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon 官方说明 Buy Shipping 可比较承运商费率并购买面单，卖家可接入自有承运商协商费率。"
+        }
+      ],
+      "value_score": 86,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_warehouse",
+      "title": "美国面单出现附加调整，出库称重留档要前置",
+      "seller_problem": "Amazon Seller Forums 的卖家在7月28日反馈多个 Priority Mail Flat Rate 信封被追加 0.60 至 2.50 美元调整，正核对历史订单与面单数据。",
+      "affected_sellers": "从美国仓发货、使用 USPS 或 PC Postage 面单的中小卖家。",
+      "why_now": "卖家当天仍在汇总多笔调整，账单差异会直接影响已发订单的复盘与后续出库设置。",
+      "business_impact": "重量、尺寸、分区或包装属性记录不完整时，卖家难以及时比对附加费用并修正下一批操作。",
+      "market_angle": "适合用“出库称重、尺寸、面单、交接四留档”做直播问答。",
+      "sales_question": "你们是否收到过面单调整，能否按订单拿到重量、尺寸和交接记录？",
+      "yqn_entry": "可在美国仓入库、拣配、贴标与出库交接环节协助整理可核对的货物与包裹资料，并匹配尾程方案。",
+      "evidence": [
+        {
+          "title": "Amazon Seller Forums：Shipping adjustments on flat-rate envelopes",
+          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/2d0e0792-cc1b-4482-9316-6b3d8fe09e3e",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-28",
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["seller_signal"],
+          "supports": "美国卖家在7月28日反馈多笔 USPS Priority Mail Flat Rate 信封出现0.60至2.50美元调整，并在核对历史订单。"
+        },
+        {
+          "title": "USPS Automated Package Verification 官方说明",
+          "url": "https://faq.usps.com/articles/Knowledge/Automated-Package-Verification-Program",
+          "source_type": "official",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["fact_basis"],
+          "supports": "USPS 说明当面单特征与实际处理设备测得的重量、尺寸或分区不一致时，平台会通知并进行邮资调整。"
+        }
+      ],
+      "value_score": 88,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥发货可用性异常，库存与交接备选要预留",
+      "seller_problem": "墨西哥 Mercado Libre 卖家在7月26日仍反馈商品页面显示无法配送到目标地点、购买按钮受影响；有人通过暂停后重开刊登恢复，也有人仍在等待平台处理。",
+      "affected_sellers": "依赖 Mercado Libre 墨西哥站、从本地仓或交接点发货的卖家。",
+      "why_now": "7月26日仍有新增卖家确认受影响，问题会让可售库存无法正常转化为订单。",
+      "business_impact": "当履约配置或区域可用性异常时，单靠增加库存不能恢复成交，需要同时核查刊登、交接和库存可用状态。",
+      "market_angle": "可围绕“有货但买不了时先查什么”做墨西哥站实操选题。",
+      "sales_question": "你们近期是否遇到部分邮编无法下单，受影响 SKU 是否有可切换的本地库存与交接方案？",
+      "yqn_entry": "可围绕墨西哥双仓库存管理、入出库、分仓与本地配送方案，协助卖家评估备货和交接选择；平台状态仍需由卖家在后台确认。",
+      "evidence": [
+        {
+          "title": "Mercado Libre 卖家：所有刊登显示无法配送",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1ty20ls/todas_mis_publicaciones_tienen_la_leyenda_por_el/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-26",
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥卖家在7月26日更新称页面提示无法配送，部分卖家暂停后重开刊登恢复，仍有人等待平台处理。"
+        },
+        {
+          "title": "Mercado Libre：Envíos Full 服务说明",
+          "url": "https://www.mercadolibre.com.mx/ayuda/que-es-mercado-envios-full_5162",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 说明 Full 涵盖库存存放、包裹准备和配送，卖家需选择商品并创建发往配送中心的库存入仓。"
+        }
+      ],
+      "value_score": 84,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥新卖家在算佣金与配送，入仓前要拆成本",
+      "seller_problem": "一名墨西哥 Mercado Libre 卖家在7月21日的讨论中被提醒，平台佣金、配送和税务扣留会共同影响售价空间，盲目为成交降价可能压缩利润。",
+      "affected_sellers": "准备在墨西哥 Mercado Libre 上架、需要安排本地库存和配送的中小卖家。",
+      "why_now": "该讨论在7月21日仍围绕实际开店与发货成本展开，适合在首批备货前先锁定成本口径。",
+      "business_impact": "若只按商品采购价定价，入仓、仓储、配送和平台费用叠加后可能导致补货越多亏损越大。",
+      "market_angle": "可用“首批入仓前的三层成本表”帮助直播间卖家自检。",
+      "sales_question": "你的首批 SKU 是否已按最终包装重量尺寸拆出平台、配送和仓配成本？",
+      "yqn_entry": "可提供墨西哥仓入库、库存管理、贴标换标、出库和本地配送的物流方案沟通；不对平台费率、税务或最终利润作承诺。",
+      "evidence": [
+        {
+          "title": "Mercado Libre 卖家：新手开店与配送成本讨论",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1uy8fj3/quiero_vender_por_mercado_libre_pero_no_s%C3%A9_por/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-21",
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥卖家在7月21日讨论佣金、配送与扣留对售价空间的影响，并提醒先核算成本再备货。"
+        },
+        {
+          "title": "Mercado Libre：配送成本计算说明",
+          "url": "https://www.mercadolibre.com.mx/ayuda/costos-envios-gratis_3287",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 说明配送成本与最终包装的重量、尺寸和售价有关，Full 发货的包装成本由平台按已包装商品计算。"
+        }
+      ],
+      "value_score": 82,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_mexico_bridge",
+      "title": "美仓发墨西哥订单，跨境报价先拆运输与资料",
+      "seller_problem": "7月26日的跨境物流媒体内容聚焦美国发往墨西哥的包裹，指出不同重量段的运费和进口费用会影响线上购物与卖家跨境履约的最终成本判断。",
+      "affected_sellers": "从美国库存向墨西哥消费者发货、或评估美国仓与墨西哥仓联动的跨境卖家。",
+      "why_now": "该美国至墨西哥跨境物流材料于7月26日更新，正好可用于本周跨境订单与补货路径复核。",
+      "business_impact": "若把美国仓出库价直接当作墨西哥到手成本，容易漏掉跨境运输、资料衔接和目的地配送的费用与操作差异。",
+      "market_angle": "可做“美国库存卖墨西哥，先问四个物流问题”的直播引导。",
+      "sales_question": "墨西哥订单现在由美国仓直发还是本地备货，货物资料、运输段和尾程责任分别怎么安排？",
+      "yqn_entry": "可在美国仓、墨西哥仓、跨境运输、库存分仓及本地配送之间协助梳理物流路径和资料衔接；清关、税费与时效以实际规则和承运安排为准。",
+      "evidence": [
+        {
+          "title": "跨境物流媒体：美国购物寄送墨西哥指南",
+          "url": "https://argal.mx/mexico/comprar-en-estados-unidos-y-recibir-en-mexico/",
+          "source_type": "media",
+          "published_at": "2026-07-26",
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["seller_signal"],
+          "supports": "7月26日媒体材料明确讨论从美国发往墨西哥的包裹运输成本与进口费用，反映美墨跨境订单的履约成本关注。"
+        },
+        {
+          "title": "Walmart 官方：美国商品可配送至墨西哥",
+          "url": "https://corporate.walmart.com/news/2026/06/11/walmart-opens-walmartcom-to-international-customers-unlocking-access-to-hundreds-of-thousands-of-items-with-shipping-available-to-mexico",
+          "source_type": "official",
+          "published_at": "2026-06-11",
+          "effective_at": null,
+          "checked_at": "2026-07-28T08:28:12+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Walmart 官方确认其美国网络中的商品可配送给墨西哥客户，明确构成美国至墨西哥的跨境履约链路。"
+        }
+      ],
+      "value_score": 80,
+      "confidence_label": "high"
+    }
+  ],
+  "watchlist": [],
+  "generated_at": "2026-07-28T00:28:12.000Z",
+  "publication": {
+    "target": "yqn_livestream_group",
+    "status": "ready_for_review",
+    "send_allowed": false,
+    "approval_required": true,
+    "proposed_send_at": "2026-07-28T08:45:00+08:00"
+  }
+}

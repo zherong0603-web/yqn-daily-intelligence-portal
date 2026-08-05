@@ -1,0 +1,202 @@
+{
+  "date": "2026-07-21",
+  "title": "【待验收】7月21日北美卖家问题晨报",
+  "market_stage": "美国提前备货与港口到仓衔接仍在加压；墨西哥卖家更应把末端异常、库存回流与预约资料前置处理；美墨联动的关键是用一套完整资料和交接计划守住跨境入仓窗口。",
+  "signals": [
+    {
+      "market_focus": "us_warehouse",
+      "title": "提前备货把港口到仓的排程压力前移",
+      "seller_problem": "美国进口商为应对关税、燃油和运力不确定性而提前发货，卖家若只盯海运到港，可能在提柜、预约和入仓之间产生等待，库存虽到美国却未能及时进入可售节点。",
+      "affected_sellers": "依赖美国仓补货、正在为返校季和四季度备货的跨境卖家。",
+      "why_now": "7月20日物流经营报道仍把运力收紧和政策波动列为托运人的持续问题，且港口7月吞吐预期偏高。",
+      "business_impact": "到港与入库脱节会压缩补货缓冲，并放大临时转运、堆存和缺货风险。",
+      "market_angle": "可做成“到港不等于可售：美国仓前置预约清单”的直播选题。",
+      "sales_question": "你们7月至8月到港货，是否已按仓点、预约和尾程拆分到具体批次？",
+      "yqn_entry": "可协助梳理头程到美国仓的预约、分仓、入库与尾程衔接方案，不承诺固定时效。",
+      "evidence": [
+        {
+          "title": "Logistics resiliency is critical as disruptions pile up in 2026",
+          "url": "https://www.supplychaindive.com/news/logistics-resiliency-is-critical-as-disruptions-pile-up-in-2026/825655/",
+          "source_type": "media",
+          "published_at": "2026-07-20",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["seller_signal"],
+          "supports": "7月20日报道将运力收紧、燃油与政策波动列为美国托运人与物流经营者的持续执行压力。"
+        },
+        {
+          "title": "North America Market Update — July 2026",
+          "url": "https://www.maersk.com/news/articles/2026/06/29/north-america-market-update-july",
+          "source_type": "official",
+          "published_at": "2026-06-29",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["fact_basis"],
+          "supports": "马士基7月北美更新说明提前且压缩的旺季、前置进口和内陆运力压力正在提高计划与路由弹性的要求。"
+        }
+      ],
+      "value_score": 84,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_warehouse",
+      "title": "提前备货下美国仓补货批次更易失去节奏",
+      "seller_problem": "美国零售商和进口商在不确定环境下改变传统发货节奏、提前推进货物；若卖家没有把美国仓备货、贴标、入库和平台入仓计划连起来，旺季前可能被动调整补货。",
+      "affected_sellers": "使用美国 FBA、MCF 或多渠道履约，并计划四季度促销的卖家。",
+      "why_now": "7月17日行业报道显示托运人正改变传统季节性发货模式以应对政策和燃油不确定性，当前正是核对美国仓备货节奏的窗口。",
+      "business_impact": "入仓计划过晚会减少卖家在仓点、尾程和库存分配上的选择空间。",
+      "market_angle": "可做成“四季度前，美国仓库存该怎么拆批进场”的实操问答。",
+      "sales_question": "你的旺季货是否已区分平台入仓批次、美国仓备货批次和可延后补货批次？",
+      "yqn_entry": "可提供美国仓入库、贴标换标、库存管理及配送方案衔接，帮助卖家按批次准备物流动作。",
+      "evidence": [
+        {
+          "title": "Tariffs, Iran war prompt ocean shippers to scrap tradition",
+          "url": "https://www.supplychaindive.com/news/tariffs-iran-war-prompt-ocean-shippers-to-scrap-tradition/825454/",
+          "source_type": "media",
+          "published_at": "2026-07-17",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["seller_signal"],
+          "supports": "7月17日报道美国进口商为应对关税、燃油与不确定性而提前推进货物并改变传统发货节奏。"
+        },
+        {
+          "title": "Amazon MCF US Peak Fulfillment Storage Fees 2026",
+          "url": "https://supplychain.amazon.com/docs/2026-peak-card",
+          "source_type": "platform_announcement",
+          "published_at": "2026-07-14",
+          "effective_at": "2026-10-15",
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["fact_basis"],
+          "supports": "亚马逊供应链服务公开卡片列出美国 MCF 旺季费用的生效区间为2026年10月15日至2027年1月14日。"
+        }
+      ],
+      "value_score": 82,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥末端异常会拖慢退货和库存回流判断",
+      "seller_problem": "墨西哥站买家近期仍在公开反馈包裹显示已出库却未成功交付；卖家若没有本地仓的异常件、退货和可售库存回流规则，售后判断容易滞后。",
+      "affected_sellers": "在墨西哥本地仓或平台履约网络发货、需要处理售后退货的卖家。",
+      "why_now": "7月17日的墨西哥 Mercado Libre 社区讨论显示末端未妥投和再次派送仍是用户实际遇到的问题。",
+      "business_impact": "异常订单未及时区分，会影响补发、退回、库存可售状态与客服沟通节奏。",
+      "market_angle": "可做成“墨西哥末端异常后，卖家先看哪三类库存状态”的答疑。",
+      "sales_question": "你们墨西哥异常件是否有明确的签收、退回、质检和重新上架衔接表？",
+      "yqn_entry": "可在墨西哥仓承接退货处理、库存管理、出入库与本地配送方案衔接；具体平台责任以平台规则为准。",
+      "evidence": [
+        {
+          "title": "¿Qué significa No pudimos entregar el paquete si nunca me llamaron?",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1uze8ll/qu%C3%A9_significa_no_pudimos_entregar_el_paquete_si/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-17",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥 Mercado Libre 社区的7月17日讨论记录包裹经配送中心后未妥投、用户询问二次派送或退回的实际末端异常。"
+        },
+        {
+          "title": "Términos y condiciones de Envíos Full",
+          "url": "https://www.mercadolibre.com.mx/ayuda/terminos-y-condiciones-Merc-Env_4104",
+          "source_type": "platform_announcement",
+          "published_at": "2026-02-12",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 墨西哥 Full 条款说明该履约服务面向卖家管理销售，并规定部分仓内商品可要求卖家在期限内提取。"
+        }
+      ],
+      "value_score": 78,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "大件退货处理延迟会占用墨西哥可售库存判断",
+      "seller_problem": "墨西哥买家近期反馈第三方卖家的高客单商品退回后长期未完成处理，这类售后信号提醒卖家把本地退货收货、质检和库存状态更新作为独立流程管理。",
+      "affected_sellers": "在墨西哥销售中高客单商品、需处理本地退货回仓的跨境卖家。",
+      "why_now": "7月18日的公开个案反映退回商品已被收到但处理状态滞后，容易放大客服与库存信息不一致。",
+      "business_impact": "退货状态不清会让卖家无法及时判断是否补发、重新上架或安排后续库存。",
+      "market_angle": "可做成“墨西哥退货回仓后，先做质检还是先回写库存”的直播拆解。",
+      "sales_question": "你们墨西哥退货到仓后，谁负责签收、质检、状态回传和重新上架判断？",
+      "yqn_entry": "可提供墨西哥仓的退货处理、库存管理和出库衔接服务，帮助梳理可执行的仓内节点。",
+      "evidence": [
+        {
+          "title": "Me acaban de robar en amazon",
+          "url": "https://www.reddit.com/r/AmazonMX/comments/1uzk6re/me_acaban_de_robar_en_amazon/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-18",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥 Amazon 社区7月18日的公开个案称第三方卖家商品退回后已等待15天仍未完成处理，反映退货状态对交易双方的影响。"
+        },
+        {
+          "title": "Logística de Amazon México",
+          "url": "https://vender.amazon.com.mx/en/logistica-de-amazon?mons_sel_locale=en_US",
+          "source_type": "platform_announcement",
+          "published_at": "2026-06-04",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon México公开介绍 FBA 处理订单服务及费用更新信息，卖家需依据实际履约模式管理库存与售后。"
+        }
+      ],
+      "value_score": 76,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_mexico_bridge",
+      "title": "美墨跨境货的资料与交接不同步会直接丢失预约窗口",
+      "seller_problem": "美国—墨西哥跨境货并非只要车辆到边境即可完成：商业发票、收货人数据、墨西哥 pedimento、交接方和美国侧预约若不同步，小问题就可能变成滞留和错过后段预约。",
+      "affected_sellers": "从美国发往墨西哥或从墨西哥北向进入美国，并需要仓储与本地配送衔接的卖家。",
+      "why_now": "7月15日的美墨跨境运营指引把资料不完整、边境交接和后段预约列为同一执行链路；7月17日美墨贸易谈判也持续关注通关便利化。",
+      "business_impact": "资料或交接责任不清会导致边境等待、错失仓库预约并扰动跨国库存计划。",
+      "market_angle": "可做成“美墨一票货，谁在什么节点确认资料与预约”的流程图。",
+      "sales_question": "你的美墨订单是否在发车前确认了商业发票、进口资料、两侧承运交接和目的仓预约负责人？",
+      "yqn_entry": "可围绕美墨头程、仓储、配送及资料衔接梳理物流方案；不承诺税务、认证或通关结果。",
+      "evidence": [
+        {
+          "title": "Cross Border Shipping Guide for US-Mexico Freight",
+          "url": "https://www.borderflow.co/blog/cross-border-shipping-guide-us-mexico-freight",
+          "source_type": "media",
+          "published_at": "2026-07-15",
+          "effective_at": null,
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["seller_signal"],
+          "supports": "7月15日美墨跨境货运营指南明确说明 United States-Mexico 货物的发票、收货人、墨西哥 pedimento、边境交接与美国末端预约不同步会造成滞留。"
+        },
+        {
+          "title": "United States and Mexico to Convene for USMCA Joint Review",
+          "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/july/united-states-and-mexico-convene-mexico-city-third-bilateral-negotiating-round-related-joint-review",
+          "source_type": "official",
+          "published_at": "2026-07-17",
+          "effective_at": "2026-07-21",
+          "checked_at": "2026-07-21T10:27:03+08:00",
+          "roles": ["fact_basis"],
+          "supports": "美国贸易代表办公室7月17日声明明确 United States 与 Mexico 于7月21日就 USMCA 联合审议会谈，并提及墨西哥7月已实施跨境贸易操作相关措施。"
+        }
+      ],
+      "value_score": 88,
+      "confidence_label": "high"
+    }
+  ],
+  "watchlist": [
+    {
+      "title": "美国港口进口量与关税窗口",
+      "reason": "关注7月下旬政策变化是否继续推动提前备货，不替代卖家个案。",
+      "url": "https://www.portoflosangeles.org/references/news_071426_june-cargo"
+    },
+    {
+      "title": "墨西哥 FBA 费用变化",
+      "reason": "平台已披露部分费率调整，后续需以卖家后台适用条件为准。",
+      "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/b688a623-7116-46b2-8029-7b2b95420856?mons_sel_locale=it_IT"
+    }
+  ],
+  "generated_at": "2026-07-21T02:27:03Z",
+  "publication": {
+    "target": "yqn_livestream_group",
+    "status": "ready_for_review",
+    "send_allowed": false,
+    "approval_required": true,
+    "proposed_send_at": "2026-07-21T08:45:00+08:00"
+  }
+}

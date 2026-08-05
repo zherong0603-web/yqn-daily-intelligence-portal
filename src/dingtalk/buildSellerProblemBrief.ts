@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 import { z } from "zod";
 
 const focusSchema = z.enum(["us_warehouse", "mexico_warehouse", "us_mexico_bridge"]);
-const evidenceRoleSchema = z.enum(["seller_signal", "fact_basis"]);
+const evidenceRoleSchema = z.enum(["seller_signal", "market_signal", "fact_basis"]);
 
 const calendarDateSchema = z.string()
   .regex(/^\d{4}-\d{2}-\d{2}$/)
@@ -60,7 +60,7 @@ export const sellerProblemBriefSchema = z.object({
   date: calendarDateSchema,
   title: singleLine(8, 100),
   market_stage: singleLine(20, 360),
-  signals: z.array(problemSignalSchema).length(5),
+  signals: z.array(problemSignalSchema).length(3),
   watchlist: z.array(z.object({
     title: singleLine(4, 100),
     reason: singleLine(8, 220),
@@ -103,14 +103,14 @@ function manualChecks(): SellerProblemValidationReport["manual_checks"] {
     {
       id: "fact_readthrough",
       status: "pending",
-      question: "5 组证据是否真正支持文中结论，而不只是标题相似？",
+      question: "3 组证据是否真正支持文中结论，而不只是标题相似？",
       pass_condition: "逐条打开链接，核对日期、数字、适用卖家和生效条件。",
     },
     {
       id: "business_value",
       status: "pending",
       question: "市场或销售同事看完后，能否马上想到客户、选题或追问？",
-      pass_condition: "至少 4 条能直接转成销售问题或内容选题。",
+      pass_condition: "3 条都能直接转成销售问题、客户检查或内容选题。",
     },
     {
       id: "yqn_boundary",
@@ -121,7 +121,7 @@ function manualChecks(): SellerProblemValidationReport["manual_checks"] {
     {
       id: "group_readability",
       status: "pending",
-      question: "消息在直播天团群里是否能在 5 分钟内读完，是否过长或像培训课件？",
+      question: "消息在直播天团群里是否能在 3 分钟内读完，是否过长或像培训课件？",
       pass_condition: "首屏看到市场判断，每条都能快速看到卖家问题和团队用法。",
     },
     {
@@ -196,8 +196,8 @@ export function validateSellerProblemBrief(input: unknown, checkedAt = new Date(
   };
   const blockers: string[] = [];
   if (counts.us_warehouse !== 2) blockers.push(`ratio:us_warehouse:${counts.us_warehouse}`);
-  if (counts.mexico_warehouse !== 2) blockers.push(`ratio:mexico_warehouse:${counts.mexico_warehouse}`);
-  if (counts.us_mexico_bridge !== 1) blockers.push(`ratio:us_mexico_bridge:${counts.us_mexico_bridge}`);
+  if (counts.mexico_warehouse !== 1) blockers.push(`ratio:mexico_warehouse:${counts.mexico_warehouse}`);
+  if (counts.us_mexico_bridge !== 0) blockers.push(`ratio:us_mexico_bridge:${counts.us_mexico_bridge}`);
 
   if (!brief.title.includes(expectedTitleDate(brief.date))) blockers.push("brief:title_date_mismatch");
   if (dateInShanghai(brief.generated_at) !== brief.date) blockers.push("brief:generated_at_date_mismatch");
@@ -216,30 +216,39 @@ export function validateSellerProblemBrief(input: unknown, checkedAt = new Date(
     if (signal.value_score < 70) blockers.push(`signal:${index}:value_score_below_70`);
     if (signal.confidence_label !== "high") blockers.push(`signal:${index}:confidence_not_high`);
     const roles = new Set(signal.evidence.flatMap((evidence) => evidence.roles));
-    if (!roles.has("seller_signal")) blockers.push(`signal:${index}:missing_seller_signal`);
+    if (!roles.has("seller_signal") && !roles.has("market_signal")) blockers.push(`signal:${index}:missing_current_signal`);
     if (!roles.has("fact_basis")) blockers.push(`signal:${index}:missing_fact_basis`);
 
     signal.evidence.forEach((evidence, evidenceIndex) => {
       if (dateInShanghai(evidence.checked_at) !== brief.date) {
         blockers.push(`signal:${index}:evidence:${evidenceIndex}:checked_at_date_mismatch`);
       }
-      if (evidence.roles.length !== 1) {
-        blockers.push(`signal:${index}:evidence:${evidenceIndex}:roles_must_be_separate`);
-      }
-      const role = evidence.roles[0];
-      if (role === "seller_signal") {
+      if (evidence.roles.includes("seller_signal")) {
         if (!evidence.published_at) {
           blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_missing_date`);
         } else {
           const age = daysBefore(brief.date, evidence.published_at);
           if (age < 0) blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_from_future`);
-          if (age > 7) blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_older_than_7_days`);
+          if (age > 30) blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_older_than_30_days`);
         }
         if (!(["seller_forum", "media"] as const).includes(evidence.source_type as "seller_forum" | "media")) {
           blockers.push(`signal:${index}:evidence:${evidenceIndex}:seller_signal_source_type_invalid`);
         }
       }
-      if (role === "fact_basis" && !(["official", "platform_announcement", "internal_approved"] as const)
+      if (evidence.roles.includes("market_signal")) {
+        if (!evidence.published_at) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_missing_date`);
+        } else {
+          const age = daysBefore(brief.date, evidence.published_at);
+          if (age < 0) blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_from_future`);
+          if (age > 30) blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_older_than_30_days`);
+        }
+        if (!(["official", "platform_announcement", "seller_forum", "media"] as const)
+          .includes(evidence.source_type as "official" | "platform_announcement" | "seller_forum" | "media")) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_source_type_invalid`);
+        }
+      }
+      if (evidence.roles.includes("fact_basis") && !(["official", "platform_announcement", "internal_approved"] as const)
         .includes(evidence.source_type as "official" | "platform_announcement" | "internal_approved")) {
         blockers.push(`signal:${index}:evidence:${evidenceIndex}:fact_basis_source_type_invalid`);
       }
@@ -293,7 +302,7 @@ export function renderSellerProblemMarkdown(
     : brief.title;
   const lines = [
     `# 📡 ${displayTitle}`,
-    "🇺🇸 美国｜🇲🇽 墨西哥｜卖家问题｜物流机会",
+    "🇺🇸 美国 2 条｜🇲🇽 墨西哥 1 条｜跨境电商与物流",
     "",
     `## 🔎 今日市场判断｜${brief.market_stage}`,
     "",
