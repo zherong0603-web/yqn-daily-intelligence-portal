@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-05",
+  "generated_at": "2026-08-05T04:46:46.630Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-05T04:46:45.771Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Behind the scenes of Amazon’s automated Washington warehouse",
+      "url": "https://www.supplychaindive.com/news/behind-the-scenes-of-amazons-automated-washington-warehouse/826906/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-04T19:00:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS, Amazon fuel surcharges help blunt higher costs",
+      "url": "https://www.supplychaindive.com/news/ups-amazon-fuel-surcharges-help-blunt-higher-costs/826840/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-04T15:22:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "25 states sue Trump over Section 301 forced-labor tariffs",
+      "url": "https://www.supplychaindive.com/news/25-states-sue-trump-over-section-301-forced-labor-tariffs/826908/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-04T15:14:57.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump has another tariff plan to reshore generic drug production. Will it work?",
+      "url": "https://www.supplychaindive.com/news/trump-has-another-tariff-plan-to-reshore-generic-drug-production-will-it-w/826818/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-04T14:51:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon taps fulfillment model for dedicated, branded delivery trucks",
+      "url": "https://www.supplychaindive.com/news/amazon-taps-fulfillment-model-for-dedicated-branded-delivery-trucks/826726/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-04T11:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US manufacturing expands for seventh month in a row: ISM",
+      "url": "https://www.supplychaindive.com/news/us-manufacturing-expands-for-seventh-month-in-a-row-ism/826851/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-03T17:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Farm Rio targets digitized supply chain, improved traceability",
+      "url": "https://www.supplychaindive.com/news/farm-rio-targets-digitized-supply-chain-improved-traceability/826737/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-03T15:16:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "3 factors that may shape the air cargo market in H2",
+      "url": "https://www.supplychaindive.com/news/3-factors-that-may-shape-the-air-cargo-market-in-h2/826601/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-03T14:57:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart, Wing launch drone delivery service in Florida",
+      "url": "https://www.supplychaindive.com/news/walmart-wing-launch-drone-delivery-service-in-florida/826520/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-03T14:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Chocolate makers rethink supply chains in face of cocoa price swings",
+      "url": "https://www.supplychaindive.com/news/chocolate-makers-rethink-supply-chains-in-face-of-cocoa-price-swings/826772/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-03T14:09:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "SpaceX has bought $329M worth of Tesla Megapacks so far this year",
+      "url": "https://techcrunch.com/2026/08/04/spacex-has-bought-329m-worth-of-tesla-megapacks-so-far-this-year/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T21:07:26.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Open-weight AI models are catching up to the frontier. The safety gap remains. ",
+      "url": "https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T20:05:26.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic signs $10B deal with AI cloud startup Volta",
+      "url": "https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T19:48:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meet Wrinkles, an app that uncovers the hidden stories of the places around you",
+      "url": "https://techcrunch.com/2026/08/04/meet-wrinkles-an-ai-app-that-uncovers-the-hidden-stories-of-the-places-around-you/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T19:34:34.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia doesn’t mess around: A week after open AI industry group formed, it’s already showing progress",
+      "url": "https://techcrunch.com/2026/08/04/nvidia-doesnt-mess-around-a-week-after-open-ai-industry-group-formed-its-already-showing-progress/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T19:28:49.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Spotify expands AI remix and covers project with Merlin partnership",
+      "url": "https://techcrunch.com/2026/08/04/spotify-adds-merlin-to-its-ai-music-remix-and-covers-effort/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T15:50:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Texas halts new data centers as governor calls for audits",
+      "url": "https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T15:42:35.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Elon Musk spends half his time talking robots and AI on Tesla earnings calls",
+      "url": "https://techcrunch.com/2026/08/04/elon-musk-spends-half-his-time-talking-robots-and-ai-on-tesla-earnings-calls/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T15:20:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple says more ex-employees may have taken confidential data to OpenAI",
+      "url": "https://techcrunch.com/2026/08/04/apple-says-more-ex-employees-may-have-taken-confidential-data-to-openai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-04T14:03:01.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "30976098481",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
