@@ -2,7 +2,7 @@ version = 1
 id = "yqn-09-20"
 kind = "cron"
 name = "YQN 晨报 09:20 失败兜底"
-prompt = "进入 <REPO_PATH>，先检查当天 DingTalk YQN Seller Problem Brief 的每个已启用目标是否已有精确成功标记；全部成功则归档并结束。若没有成功且没有未确认 formal webhook attempt，完整读取并执行 docs/automation/工作日晨报执行规则.md，生成并交付当天 3 条。若已有 attempt 但无 success，严禁自动重试，保留任务并强提醒。结果追加到 <PRIMARY_AUTOMATION_MEMORY_PATH>。不读取、展示或记录任何密钥。"
+prompt = "进入 <REPO_PATH>，先检查当天 DingTalk YQN Seller Problem Brief 的每个已启用目标是否已有精确成功标记；全部成功则归档并结束。若没有成功且没有未确认 formal webhook attempt，完整读取并执行 docs/automation/工作日晨报执行规则.md，生成并交付当天 3 条。正式调度只能运行 npm run codex:seller-brief:dispatch，由脚本读取本机执行器授权；缺失或空白时必须停止。若已有 attempt 但无 success，严禁自动重试，保留任务并强提醒。结果追加到 <PRIMARY_AUTOMATION_MEMORY_PATH>。不读取、展示或记录任何密钥。"
 status = "ACTIVE"
 rrule = "RRULE:FREQ=DAILY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=9;BYMINUTE=20;BYSECOND=0"
 model = "gpt-5.6-terra"

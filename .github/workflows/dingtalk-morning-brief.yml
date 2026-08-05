@@ -42,6 +42,7 @@ concurrency:
 
 jobs:
   dingtalk-morning-brief:
+    if: ${{ vars.YQN_LEGACY_V14_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

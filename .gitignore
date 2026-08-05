@@ -8,3 +8,4 @@ coverage/
 _pages/
 logs/
 data/codex-shadow/.seller-send-state.json
+.yqn-primary-executor-id

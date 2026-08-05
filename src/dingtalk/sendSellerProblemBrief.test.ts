@@ -163,6 +163,7 @@ describe("seller problem brief delivery guardrails", () => {
     );
     expect(workflow).toContain(formalAttemptMarker("${BRIEF_DATE}"));
     expect(workflow).toContain(formalAttemptMarker("${BRIEF_DATE}", "ryan-internal-group"));
-    expect(workflow).toContain("needs: validate-brief");
+    expect(workflow).toContain("needs: authorize-executor");
+    expect(workflow).toContain("- authorize-executor\n      - validate-brief");
   });
 });

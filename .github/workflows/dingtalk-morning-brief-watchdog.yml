@@ -34,6 +34,7 @@ concurrency:
 
 jobs:
   watchdog:
+    if: ${{ vars.YQN_LEGACY_V14_ENABLED == 'true' && vars.YQN_LEGACY_V14_WATCHDOG_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai

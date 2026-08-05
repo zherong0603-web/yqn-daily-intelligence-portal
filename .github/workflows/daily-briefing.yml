@@ -41,6 +41,7 @@ jobs:
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
       FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
+      PORTAL_FEISHU_NOTIFICATIONS_ENABLED: ${{ vars.YQN_PORTAL_FEISHU_NOTIFICATIONS_ENABLED || 'false' }}
       BRIEF_ENCRYPTION_ENABLED: ${{ vars.BRIEF_ENCRYPTION_ENABLED || 'false' }}
       PAGE_ACCESS_PASSPHRASE: ${{ secrets.PAGE_ACCESS_PASSPHRASE }}
       SITE_URL: ${{ vars.SITE_URL }}
@@ -131,11 +132,11 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Send Feishu success card
-        if: success()
+        if: ${{ success() && env.PORTAL_FEISHU_NOTIFICATIONS_ENABLED == 'true' }}
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         run: npm run notify:success
 
       - name: Send Feishu failure card
-        if: failure()
+        if: ${{ failure() && env.PORTAL_FEISHU_NOTIFICATIONS_ENABLED == 'true' }}
         run: npm run notify:failure

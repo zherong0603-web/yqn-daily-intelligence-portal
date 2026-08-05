@@ -50,7 +50,7 @@ npm run setup:wizard
 GitHub Secrets：
 
 - `OPENAI_API_KEY`：真实 AI 简报必填。
-- `FEISHU_WEBHOOK_URL`：需要飞书通知时必填；缺失时只跳过通知。
+- `FEISHU_WEBHOOK_URL`：需要 Daily Briefing Portal 飞书通知时配置；仅配置 webhook 不会开启通知。
 - `FEISHU_SIGN_SECRET`：飞书机器人启用签名校验时才需要。
 - `PAGE_ACCESS_PASSPHRASE`：开启加密模式时必填。
 
@@ -61,6 +61,9 @@ GitHub Variables：
 - `BRIEF_ENCRYPTION_ENABLED`：是否开启客户端加密，填 `true` 或 `false`。
 - `OPENAI_WEB_SEARCH_ENABLED`：钉钉 live 模式必须为 `true`。
 - `MAX_SEARCH_CALLS`：钉钉 live 模式必须至少为 `3`。
+- `YQN_PRIMARY_EXECUTOR_ID`：Seller Problem Brief 唯一主执行电脑授权值，必须与主电脑本地值完全一致；缺失时禁止校验和发送。
+- `YQN_PORTAL_FEISHU_NOTIFICATIONS_ENABLED`：只有精确填 `true` 才允许 Daily Briefing Portal 发飞书通知；缺失时默认关闭。
+- `YQN_LEGACY_V14_ENABLED`、`YQN_LEGACY_V14_WATCHDOG_ENABLED`：旧 V1.4 和旧 watchdog 的退休闸门；正式路线保持缺失或非 `true`。
 
 ## OpenAI 成本边界
 

@@ -24,6 +24,10 @@ on:
         description: "Unique dispatch correlation id"
         required: true
         type: string
+      executor_id:
+        description: "Primary executor authorization id"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -34,7 +38,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  authorize-executor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      DISPATCH_EXECUTOR_ID: ${{ inputs.executor_id }}
+      PRIMARY_EXECUTOR_ID: ${{ vars.YQN_PRIMARY_EXECUTOR_ID }}
+
+    steps:
+      - name: Authorize primary executor
+        shell: bash
+        run: |
+          if [[ -z "$DISPATCH_EXECUTOR_ID" || -z "$PRIMARY_EXECUTOR_ID" ]]; then
+            echo "::error::Primary executor authorization is not configured."
+            exit 1
+          fi
+          if [[ "$DISPATCH_EXECUTOR_ID" != "$PRIMARY_EXECUTOR_ID" ]]; then
+            echo "::error::Dispatch is not authorized for the primary executor."
+            exit 1
+          fi
+          echo "[seller-brief:executor] authorized"
+
   validate-brief:
+    needs: authorize-executor
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -63,7 +89,9 @@ jobs:
         run: npm run codex:seller-brief:send
 
   send-livestream-brief:
-    needs: validate-brief
+    needs:
+      - authorize-executor
+      - validate-brief
     if: inputs.dry_run == 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -109,7 +137,9 @@ jobs:
         run: npm run codex:seller-brief:send
 
   send-ryan-internal-brief:
-    needs: validate-brief
+    needs:
+      - authorize-executor
+      - validate-brief
     if: inputs.dry_run == 'false' && vars.DINGTALK_RYAN_INTERNAL_GROUP_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
