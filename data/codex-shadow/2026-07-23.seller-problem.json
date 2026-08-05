@@ -1,0 +1,197 @@
+{
+  "date": "2026-07-23",
+  "title": "【待验收】7月23日北美卖家问题晨报",
+  "market_stage": "入仓与跨境交接的可执行性成为当前更直接的经营变量：先核对标签、包装、库存状态与资料交接，再安排仓储和末端方案。",
+  "signals": [
+    {
+      "market_focus": "us_warehouse",
+      "title": "AWD补货的单箱费用与分仓路径难核算",
+      "seller_problem": "美国卖家评估500件库存进入 AWD 时，发现货代报价之外还有按箱入仓与转运到FBA的费用，难以直接比较 AWD 与多仓直送。",
+      "affected_sellers": "准备向美国 Amazon AWD 或 FBA 补货的跨境卖家",
+      "why_now": "7月22日卖家正在比较 AWD、五仓直送与货代报价，并追问每箱入仓和转运费用如何叠加。",
+      "business_impact": "未把入仓、仓储和分仓转运拆开核算，容易把不同比较口径当成同一条履约路径。",
+      "market_angle": "可围绕“美国补货先拆箱数、仓点和转运路径”做直播答疑与客户筛选。",
+      "sales_question": "这批货的箱数、每箱件数、目标仓点和后续末端路径分别是什么？",
+      "yqn_entry": "可从美国仓储、库存管理、贴标换标、分仓转运与本地配送方案做路径衔接；不对平台费用、售价或利润作承诺。",
+      "evidence": [
+        {
+          "title": "卖家：Should I use AWD for 500 units?",
+          "url": "https://www.reddit.com/r/FulfillmentByAmazon/comments/1v3i4za/should_i_use_awd_for_500_units/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-22",
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:31:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家比较500件货进入美国 AWD 与直送五个 FBA 仓，追问货代报价外的按箱入仓和转运费用。"
+        },
+        {
+          "title": "Amazon FBA：费用与仓储说明",
+          "url": "https://sell.amazon.com/fulfillment-by-amazon?mons_sel_locale=en_US",
+          "source_type": "official",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:31:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon 说明 FBA 履约费与商品重量和尺寸有关，仓储费按库存占用空间计收。"
+        }
+      ],
+      "value_score": 82,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_warehouse",
+      "title": "入FBA前标签与申报资料被低估",
+      "seller_problem": "从中国补货到美国FBA的卖家反馈，条码印刷密度或贴放位置偏差会导致部分库存被系统拒收；同时担心商品税则或反倾销范围与供应商资料不一致。",
+      "affected_sellers": "向美国FBA补货、依赖工厂预贴标的跨境卖家",
+      "why_now": "7月17日卖家把条码被拒收和资料不一致列为补货时反复出现的风险点。",
+      "business_impact": "入仓前未做标签与资料交接复核，会造成库存不能及时可售，并增加后续处理沟通成本。",
+      "market_angle": "可用“FBA入仓前标签检查清单”吸引正在补货的卖家。",
+      "sales_question": "本批货由谁贴标，是否已核对每箱标签、SKU 与入仓计划？",
+      "yqn_entry": "可承接头程到仓后的美国仓收货、贴标换标、分仓转运和末端方案衔接；税则归类及清关结果须由有资质主体确认。",
+      "evidence": [
+        {
+          "title": "卖家：Curious question for Amazon FBA sellers sourcing from China",
+          "url": "https://www.reddit.com/r/FulfillmentByAmazon/comments/1uz7tp3/curious_question_for_amazon_fba_sellers_sourcing/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-17",
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:31:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家指出预贴 FNSKU 的印刷密度或贴放偏差会让部分货物被拒收，并提醒核对供应商资料。"
+        },
+        {
+          "title": "Amazon FBA 商品条码要求",
+          "url": "https://sellercentral.amazon.com/help/hub/reference/G201100910",
+          "source_type": "official",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:31:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon Seller Central 将 FBA 商品条码要求作为入仓商品识别规则，卖家需按相应条码要求准备库存。"
+        }
+      ],
+      "value_score": 86,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "Mercado Full入仓前的包装与标签要前置",
+      "seller_problem": "墨西哥卖家考虑把食品等商品送入 Mercado Full，最担心的是入仓后货损、退货与包装要求，因而不敢一次把库存全部转入仓内。",
+      "affected_sellers": "准备使用 Mercado Full、产品易损或需要额外保护的墨西哥卖家",
+      "why_now": "7月17日卖家在社区询问首次入Full后该如何避免货损、退货和入仓准备失误。",
+      "business_impact": "未在进仓前统一完成包装、标签和箱唛检查，可能造成识别困难、货损或可售库存延后。",
+      "market_angle": "适合做“进Full前仓内包装与标签复核”短内容。",
+      "sales_question": "SKU 是否易碎、是否已有产品标签和外箱标签，首批准备送仓多少箱？",
+      "yqn_entry": "可提供墨西哥仓入库、库存管理、贴标换标、分仓转运及本地配送方案衔接；不承诺平台审核、货损赔付或固定时效。",
+      "evidence": [
+        {
+          "title": "卖家：Consulta mercado full",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1uz6y7x/consulta_mercado_full/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-17",
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:32:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家准备把食品等商品送入 Mercado Full，明确询问如何避免仓内货损、退货和首批入仓失误。"
+        },
+        {
+          "title": "Mercado Libre：首次发送库存到 Full 的准备要求",
+          "url": "https://vendedores.mercadolibre.com.mx/nota/que-debes-tener-en-cuenta-al-hacer-tu-primer-envio-a-full?guideKeyId=GE10&moduleKeyId=MO47",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:32:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 要求卖家规划数量、预约入仓、保护商品、逐件贴标并在预约时段送达 Full 仓。"
+        }
+      ],
+      "value_score": 80,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥卖家遇到发货覆盖失效，库存难转化",
+      "seller_problem": "墨西哥 Mercado Libre 卖家反馈，商品有库存且账户无明显限制时，买家仍看到“无法配送到该地址”，导致订单入口被关闭或销量受损。",
+      "affected_sellers": "依赖 Mercado Envíos Colecta 或本地配送覆盖的墨西哥卖家",
+      "why_now": "7月20日卖家在持续讨论中报告刚出现无法配送、且已造成大量销售损失的情况。",
+      "business_impact": "当平台配送可用性失效，现有库存即使在手也无法正常转化为订单，需要尽快厘清可用的仓配承接路径。",
+      "market_angle": "可围绕“本地库存的备选仓配与配送覆盖”做客户排查。",
+      "sales_question": "库存所在城市、目前发货方式、受影响邮编和日均待发订单是多少？",
+      "yqn_entry": "可提供墨西哥仓收货、库存管理、贴标换标及本地配送方案衔接；不承诺平台恢复、平台赔付或固定时效。",
+      "evidence": [
+        {
+          "title": "卖家：所有商品显示无法配送到该地址",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1tadzzq/vendedores_problema_con_ventas_por_el_momento_no/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-20",
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:32:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥卖家在7月20日明确称刚遇到无法向任何邮编配送的问题，并表示销售损失很大。"
+        },
+        {
+          "title": "Mercado Libre：Full 的库存与发货模式说明",
+          "url": "https://vendedores.mercadolibre.com.mx/nota/envios-full-seguridad-y-velocidad-en-tus-entregas?guideKeyId=GE10&moduleKeyId=MO46",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:32:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 说明 Full 由平台仓储卖家库存并处理打包、发货与售后，卖家需要将库存送到仓内。"
+        }
+      ],
+      "value_score": 76,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_mexico_bridge",
+      "title": "美国采购到墨西哥销售，资料与库存交接有断点",
+      "seller_problem": "墨西哥 Mercado Libre 卖家说，从美国进口商品时最难的是判断成本、完成资料与把货物变成可转售库存；这条美国—墨西哥业务链路不能只靠单一采购报价管理。",
+      "affected_sellers": "从美国采购并在墨西哥电商平台销售的跨境卖家",
+      "why_now": "7月21日卖家公开描述多年在美国采购、跨境进入墨西哥与可销售库存衔接上的负担。",
+      "business_impact": "若美国端供应、跨境资料、墨西哥端收货和库存处理没有明确责任人，采购到货也难稳定转为可售库存。",
+      "market_angle": "适合以“美国到墨西哥：资料、收货、标签和库存交接清单”切入直播咨询。",
+      "sales_question": "美国供应地、墨西哥收货城市、资料责任人和上架前的标签处理分别由谁负责？",
+      "yqn_entry": "可围绕已确认合规资料的跨境运输、美国/墨西哥仓储、收货清点、贴标换标与本地配送进行方案衔接；不承诺税务、清关结果或固定过境时效。",
+      "evidence": [
+        {
+          "title": "卖家：从美国进口商品到墨西哥 Mercado Libre 转售",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1v2qwsg/arm%C3%A9_un_cat%C3%A1logo_para_importar_productos_de_eua_y/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-21",
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:33:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家明确描述从美国进口商品、在墨西哥取得可转售库存并面向 Mercado Libre 销售的实际业务链路。"
+        },
+        {
+          "title": "USTR：美国与墨西哥推进跨境贸易便利化",
+          "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/july/united-states-and-mexico-convene-mexico-city-third-bilateral-negotiating-round-related-joint-review",
+          "source_type": "official",
+          "published_at": "2026-07-17",
+          "effective_at": null,
+          "checked_at": "2026-07-23T08:33:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "美国贸易代表办公室说明美国与墨西哥的联合审查涵盖海关与贸易便利化，墨西哥在2026年推进单一窗口和跨境贸易流程更新。"
+        }
+      ],
+      "value_score": 88,
+      "confidence_label": "high"
+    }
+  ],
+  "watchlist": [
+    {
+      "title": "Amazon México 2026费用调整",
+      "reason": "费用仍会影响墨西哥卖家履约测算，但本日不把它作为卖家问题主条目。",
+      "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/b688a623-7116-46b2-8029-7b2b95420856"
+    }
+  ],
+  "generated_at": "2026-07-23T00:34:00Z",
+  "publication": {
+    "target": "yqn_livestream_group",
+    "status": "ready_for_review",
+    "send_allowed": false,
+    "approval_required": true,
+    "proposed_send_at": "2026-07-23T08:45:00+08:00"
+  }
+}

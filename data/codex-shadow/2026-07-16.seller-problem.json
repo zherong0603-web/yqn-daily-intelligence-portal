@@ -1,192 +1,192 @@
 {
   "date": "2026-07-16",
-  "title": "【待验收】YQN 北美卖家问题雷达｜2026-07-16",
-  "market_stage": "从今天抓到的卖家信号看，北美跨境电商正在从“能不能把货卖出去”，进入“订单能不能留下利润、库存能不能说清楚、承诺时效能不能做到”的阶段。",
+  "title": "【待验收】7月16日北美卖家问题晨报",
+  "market_stage": "美国端先复核刚生效的末端计费与重货履约单件利润；墨西哥端复盘7月6日后的FBA重货费率，并盯紧入库差异；美墨联动货物须把合规资料交接前置到入境前。",
   "signals": [
     {
       "market_focus": "us_warehouse",
-      "title": "订单还在出，利润为什么没有跟着涨？",
-      "seller_problem": "美国卖家开始面对多层履约收费：FBA 燃油及物流附加费、尾程区域附加费、偏远区、超尺寸和关税代垫费可能同时出现。",
-      "affected_sellers": "美国仓日单量已经上来、订单 ZIP 分布较散，以及经营家居、汽配、小家电等中大件的卖家。",
-      "why_now": "Amazon 已对美国 FBA 等履约费用加收 3.5% 燃油及物流附加费；FedEx 将于 7 月 20 日调整附加费区域并提高代垫费。",
-      "business_impact": "单项涨价不一定引起注意，但多层费用叠加后，可能出现销量上升、毛利下降。",
-      "market_angle": "《美国仓最容易漏算的，不是仓租，而是这 4 层尾程费用》",
-      "sales_question": "你们最近 30 天有没有按订单 ZIP、包裹重量和尺寸重新核过尾程账单？",
-      "yqn_entry": "将仓库位置、订单 ZIP、包裹尺寸和承运商组合一起重新测算，找出应该换渠道、调包装或调整库存位置的订单。",
+      "title": "USPS新计费生效后，轻小件FBM先重算分区利润",
+      "seller_problem": "一位Amazon卖家在7月12日费率生效后讨论，低于1磅的USPS Ground Advantage商业价不再按盎司细分，轻小件的远区发货成本与包邮定价需要重新核算。该帖子仅代表该卖家的经营观察。",
+      "affected_sellers": "美国本地自发货、低客单价、主要走USPS Ground Advantage的轻小件卖家。",
+      "why_now": "USPS已确认相关竞争性产品价格和邮件标准于7月12日生效；今天是生效后的首个完整核价窗口。",
+      "business_impact": "远区轻小件若沿用旧运费模板，包邮SKU可能出现单件毛利被压缩或报价失真。",
+      "market_angle": "做一条“轻小件FBM费率生效后先核三件事：重量、分区、包邮门槛”的直播选题。",
+      "sales_question": "你们低于1磅的FBM订单，7月12日后是否按分区重新测过每单尾程？",
+      "yqn_entry": "可承接美国仓备货、仓内出库与本地快递方案匹配；先按货重、体积和目的区域梳理可执行的配送组合，不承诺固定价格或时效。",
       "evidence": [
         {
-          "title": "Amazon 卖家附加费公告",
-          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/7cbc0233-ee5b-4359-978a-dee7cad5c6f4",
-          "source_type": "platform_announcement",
-          "published_at": "2026-04-17",
-          "effective_at": "2026-04-17",
-          "checked_at": "2026-07-16T12:15:00+08:00",
-          "roles": ["seller_signal", "fact_basis"],
-          "supports": "Amazon 明确对美国 FBA、MCF 等履约费用加收 3.5% 燃油及物流附加费。"
+          "title": "Amazon卖家讨论：USPS Rate change again July 12, 2026",
+          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/22ee1cdf-aa8d-4bf2-94fb-1b4d8c47ead2?postId=252654ea-b271-4832-9942-d5dd486fb9eb",
+          "source_type": "seller_forum",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-16T06:06:37Z",
+          "roles": ["seller_signal"],
+          "supports": "卖家公开讨论轻小件与分区运费变化对包邮和定价的经营压力；不作为官方费率事实。"
         },
         {
-          "title": "FedEx 7 月 20 日费率调整",
-          "url": "https://www.fedex.com/en-us/shipping/rate-changes.html",
+          "title": "USPS：2026年7月竞争性产品价格与标准变更",
+          "url": "https://about.usps.com/postal-bulletin/2026/pb22705/html/updt_001.htm",
           "source_type": "official",
-          "published_at": null,
-          "effective_at": "2026-07-20",
-          "checked_at": "2026-07-16T12:15:00+08:00",
+          "published_at": "2026-06-25",
+          "effective_at": "2026-07-12",
+          "checked_at": "2026-07-16T06:06:37Z",
           "roles": ["fact_basis"],
-          "supports": "FedEx 明确将调整配送和取件附加费 ZIP 清单，并提高 Disbursement Fee。"
+          "supports": "USPS确认7月12日修订Ground Advantage等竞争性产品标准，并调整商业盎司价格点。"
         }
       ],
-      "value_score": 91,
+      "value_score": 84,
       "confidence_label": "high"
     },
     {
       "market_focus": "us_warehouse",
-      "title": "仓库实际出不来，平台却已经承诺了时效",
-      "seller_problem": "自发货卖家在平台填写的处理时间，与仓库的真实拣货、周末人力、缺货同步和高峰处理能力不一致。",
-      "affected_sellers": "使用第三方美国仓自发货，同时经营 Amazon、Walmart、TikTok Shop 等多平台，或者依靠人工导单的卖家。",
-      "why_now": "Amazon 自 6 月 29 日起进一步要求自发货 SKU 设置准确的处理时间。",
-      "business_impact": "平台承诺两天发货，仓库实际需要三天时，会传导到账号表现、客户体验、退款和售后压力。",
-      "market_angle": "《美国海外仓最怕的不是慢一天，而是平台不知道你会慢一天》",
-      "sales_question": "你们平台承诺的处理时间，和仓库最近 30 天真实出库时间一致吗？",
-      "yqn_entry": "核对平台承诺时效、仓库真实出库时效、SKU 库存同步、周末及高峰期处理能力和异常订单反馈机制。",
+      "title": "46磅低客单品的FBA履约费挤压利润",
+      "seller_problem": "7月14日一名卖家公开称，46磅、售价45美元的桶装商品按其FBA报价核算后已亏损，正寻找从自有仓直发的替代履约办法。该金额为单一卖家个案，不外推为统一费率。",
+      "affected_sellers": "美国站重货、大件或低客单SKU，正在比较FBA与自有仓/第三方仓直发的卖家。",
+      "why_now": "该卖家信号发生在过去24小时；Amazon官方说明FBA履约成本随尺寸和重量变化，重货应立即以实际SKU重做履约测算。",
+      "business_impact": "若只看售价而未拆分仓储、出库和尾程，重货可能在销量增长时扩大亏损。",
+      "market_angle": "用真实算账场景讲“重货不是先问仓租，而是先看单件履约后的可售利润”。",
+      "sales_question": "你们最重的前三个SKU，FBA与本地仓直发各自的单件履约成本和可接受送达范围是多少？",
+      "yqn_entry": "可从美国仓存储、出库及大件/本地配送方案匹配切入，协助按SKU和目的地梳理履约路径；不承诺低价或特定利润结果。",
       "evidence": [
         {
-          "title": "Amazon 自发货处理时间要求",
-          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/da197a8b-e781-4530-99db-eb0ac8a5876d",
-          "source_type": "platform_announcement",
-          "published_at": "2026-06-29",
-          "effective_at": "2026-06-29",
-          "checked_at": "2026-07-16T12:15:00+08:00",
-          "roles": ["seller_signal", "fact_basis"],
-          "supports": "Amazon 要求自发货 SKU 维持准确的处理时间，直接对应仓库实际出库能力。"
-        }
-      ],
-      "value_score": 87,
-      "confidence_label": "high"
-    },
-    {
-      "market_focus": "mexico_warehouse",
-      "title": "货送进平台仓，不等于库存就安全了",
-      "seller_problem": "Amazon 墨西哥卖家公开反馈，货物进入平台仓后，在仓间转运过程中出现库存丢失、状态长期不清楚、工单关闭但问题没有解决。",
-      "affected_sellers": "大批量补货到 Amazon 墨西哥 FBA、没有当地库存对账人员，或者只保存物流签收不核对实际上架数量的卖家。",
-      "why_now": "Amazon 墨西哥已经把 FBA 库存丢失或损坏的索赔期限从 9 个月缩短到 3 个月。",
-      "business_impact": "如果没有定期对账和交付证明，库存差异可能同时造成断货、现金流占用和超期无法索赔。",
-      "market_angle": "《墨西哥 FBA 显示签收了，为什么你的库存还是对不上？》",
-      "sales_question": "你们的货到 Amazon 墨西哥以后，是谁核对发出数量、签收数量和实际上架数量？",
-      "yqn_entry": "把墨西哥头程、双仓暂存、交付证明和平台入仓衔接起来，帮助卖家保留完整库存交接记录；平台内部索赔仍由卖家按规则处理。",
-      "evidence": [
-        {
-          "title": "Amazon 墨西哥卖家库存丢失反馈",
-          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/6a97bc11-17c2-46f0-80d7-3d8de187cab2",
+          "title": "Reddit卖家讨论：Shipping through Amazon",
+          "url": "https://www.reddit.com/r/FulfillmentByAmazon/comments/1uwcebd/shipping_through_amazon/",
           "source_type": "seller_forum",
-          "published_at": "2026-07-13",
+          "published_at": "2026-07-14",
           "effective_at": null,
-          "checked_at": "2026-07-16T12:15:00+08:00",
+          "checked_at": "2026-07-16T06:06:37Z",
           "roles": ["seller_signal"],
-          "supports": "卖家公开描述 46 件库存在平台仓间转运后丢失，工单关闭但未解决。"
+          "supports": "卖家披露46磅低客单商品按其FBA报价后亏损，并在讨论直发替代方案；属于个案信号。"
         },
         {
-          "title": "Amazon 墨西哥 FBA 索赔期限",
-          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/5bf24e24-8d6a-4e0a-b3fe-119c54bd0ae9?mons_sel_locale=en_MX",
+          "title": "Amazon：2026年线上销售成本说明",
+          "url": "https://sell.amazon.com/sell-online?lang=en-US",
           "source_type": "platform_announcement",
-          "published_at": "2026-01-12",
-          "effective_at": "2026-01-12",
-          "checked_at": "2026-07-16T12:15:00+08:00",
-          "roles": ["fact_basis"],
-          "supports": "Amazon 墨西哥将 FBA 库存丢失或损坏的索赔期限从 9 个月缩短为 3 个月。"
-        }
-      ],
-      "value_score": 90,
-      "confidence_label": "high"
-    },
-    {
-      "market_focus": "mexico_warehouse",
-      "title": "大中件的利润，可能在量体积的时候就没了",
-      "seller_problem": "墨西哥平台卖家会同时面对佣金、配送和税费扣减；对轻但体积大的产品，最终计费还会采用实重与体积重中更高的一项。",
-      "affected_sellers": "家居、灯具、汽配、健身器材、大包装 3C，以及只按商品裸重核算利润的卖家。",
-      "why_now": "近期墨西哥卖家公开讨论显示，平台佣金、物流和退货正在明显压缩单笔利润；美客多官方规则则明确按最终包装后的较高重量计费。",
-      "business_impact": "产品没有变，包装大一点就可能跨过计费档位；多件销售还可能按单件数量重复计算配送费。",
-      "market_angle": "《墨西哥大件不是卖不动，而是很多人一开始就把物流成本算错了》",
-      "sales_question": "你现在核算的是商品裸重，还是最终包装后的体积重？",
-      "yqn_entry": "货进入墨西哥仓前，先确定包装后重量和尺寸、是否适合调整包装、进入 1 号仓还是 2 号仓，以及平台配送和本地尾程如何组合。",
-      "evidence": [
-        {
-          "title": "墨西哥卖家利润公开讨论",
-          "url": "https://www.reddit.com/r/mercadolibremx/comments/1up27sa/vend%C3%AD_6850_en_ml_y_recib%C3%AD_5132_as%C3%AD_est%C3%A1_normal_o/",
-          "source_type": "seller_forum",
-          "published_at": "2026-07-09",
-          "effective_at": null,
-          "checked_at": "2026-07-16T12:15:00+08:00",
-          "roles": ["seller_signal"],
-          "supports": "卖家公开讨论销售收入扣除平台相关费用后的利润落差，显示成本核算是真实需求。"
-        },
-        {
-          "title": "美客多墨西哥配送成本规则",
-          "url": "https://www.mercadolibre.com.mx/ayuda/costos-envios-gratis_3287",
-          "source_type": "official",
           "published_at": null,
           "effective_at": null,
-          "checked_at": "2026-07-16T12:15:00+08:00",
+          "checked_at": "2026-07-16T06:06:37Z",
           "roles": ["fact_basis"],
-          "supports": "美客多明确配送成本使用包装后实重和体积重中较高的一项，并按销售单位计算。"
+          "supports": "Amazon说明FBA履约成本以商品尺寸和重量为依据，且库存成本受体积、尺寸、重量与存放时长影响。"
+        }
+      ],
+      "value_score": 86,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥FBA重货费率已在7月6日调整",
+      "seller_problem": "面向墨西哥站的FBA卖家需要重新核算重量超过1千克、售价高于MXN 299的SKU：Amazon已公告该组商品的物流费自7月6日起平均上调MXN 8。业务媒体对该轮卖家费率调整的报道构成市场讨论信号，不替代平台费率表。",
+      "affected_sellers": "Amazon墨西哥站使用FBA、重量超过1千克且售价高于MXN 299的卖家。",
+      "why_now": "费率于7月6日已生效，当前应以新表核对在售SKU，避免继续用6月前的单件物流成本做补货与定价。",
+      "business_impact": "重货SKU的单件履约成本上升，可能改变补货量、促销价和本地仓备货的平衡。",
+      "market_angle": "把“7月6日后墨西哥重货SKU复盘”做成利润表核对清单，而非泛泛讲平台调价。",
+      "sales_question": "你们墨西哥站超过1千克且售价高于MXN 299的SKU，是否已用7月6日后的费率重算补货批次？",
+      "yqn_entry": "可从墨西哥仓储、库存管理、出库与尾程方案匹配切入；对需分散履约风险的货物，可按已确认的墨西哥1号仓与2号仓双仓布局讨论备货方案，不承诺平台费率或利润。",
+      "evidence": [
+        {
+          "title": "业务媒体：Amazon México调整卖家佣金与FBA成本",
+          "url": "https://elceo.com/negocios/amazon-mexico-reducira-hasta-51-las-comisiones-para-beneficiar-a-vendedores/",
+          "source_type": "media",
+          "published_at": "2026-02-17",
+          "effective_at": null,
+          "checked_at": "2026-07-16T06:06:37Z",
+          "roles": ["seller_signal"],
+          "supports": "业务媒体持续把Amazon墨西哥卖家费用和FBA成本调整作为卖家经营议题报道；不用于确定具体费率。"
+        },
+        {
+          "title": "Amazon墨西哥：2026年卖家费率调整公告",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/b688a623-7116-46b2-8029-7b2b95420856?mons_sel_locale=en_MX",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": "2026-07-06",
+          "checked_at": "2026-07-16T06:06:37Z",
+          "roles": ["fact_basis"],
+          "supports": "Amazon公告：重量超过1千克且售价高于MXN 299的FBA商品，自7月6日起平均增加MXN 8物流费。"
         }
       ],
       "value_score": 88,
       "confidence_label": "high"
     },
     {
-      "market_focus": "us_mexico_bridge",
-      "title": "不是美国、墨西哥各压一批货，而是不同 SKU 应该放在不同位置",
-      "seller_problem": "从美国库存远程覆盖墨西哥订单，会增加跨境履约和附加费；直接在墨西哥大量备货，又要承担清关、入库、库存对账和本地配送的风险。",
-      "affected_sellers": "同时经营美国与墨西哥市场，SKU 较多，但还没有按销量、周转和补货周期分配库存的卖家。",
-      "why_now": "Amazon 的燃油及物流附加费同样覆盖美国向墨西哥的远程履约，而墨西哥本地库存又出现对账和成本控制问题。",
-      "business_impact": "平均分配库存容易同时造成美国远程履约贵、墨西哥长尾 SKU 压库和高频 SKU 断货。",
-      "market_angle": "《做墨西哥市场，最危险的不是没库存，而是所有 SKU 都备库存》",
-      "sales_question": "你们现在是按销量和周转分配美墨库存，还是两个市场平均备货？",
-      "yqn_entry": "将 SKU 分为高频稳定、中频波动和长尾测试三类，利用美国仓、墨西哥 1 号仓和 2 号仓设计库存位置和补货方案。",
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥FBA入库差异要用到货证据逐单对账",
+      "seller_problem": "一名Amazon墨西哥卖家在过去3天公开称，46件发往TLC1的FBA货物经接收和中心间调拨后仅显示39件，并在自动赔付与后续调整间反复对账。该事件只证明存在卖家个案，不证明普遍丢件。",
+      "affected_sellers": "向Amazon墨西哥FBA补货、SKU金额较高或对入库数量敏感的卖家。",
+      "why_now": "这是最近3天的新入库对账信号；Amazon现行公告明确丢失或损坏库存的赔付以制造成本为基础，发货与签收资料需要前置留存。",
+      "business_impact": "接收数量、调拨记录和赔付口径不一致会造成可售库存判断偏差，也可能拖慢下一批补货决策。",
+      "market_angle": "直播可拆解“发仓不是结束：从出库、签收到入库差异的四张证据表”。",
+      "sales_question": "你们发往墨西哥FBA的每票货，能否快速对上出库清单、承运签收、平台接收和差异处理记录？",
+      "yqn_entry": "可承接墨西哥仓内出库、库存管理、贴标换标与入库资料衔接；协助建立物流节点凭证链路，不承诺平台赔付或争议结果。",
       "evidence": [
         {
-          "title": "Amazon 美国至墨西哥远程履约附加费",
-          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/7cbc0233-ee5b-4359-978a-dee7cad5c6f4",
-          "source_type": "platform_announcement",
-          "published_at": "2026-04-17",
-          "effective_at": "2026-04-17",
-          "checked_at": "2026-07-16T12:15:00+08:00",
-          "roles": ["seller_signal", "fact_basis"],
-          "supports": "Amazon 明确附加费覆盖从美国远程履约到墨西哥的订单。"
+          "title": "Amazon墨西哥卖家论坛：仓内遗失库存求助",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/6a97bc11-17c2-46f0-80d7-3d8de187cab2",
+          "source_type": "seller_forum",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-16T06:06:37Z",
+          "roles": ["seller_signal"],
+          "supports": "卖家披露一票TLC1入库在接收与调拨后出现数量差异，并正处理自动赔付和后续调整；属于个案。"
         },
         {
-          "title": "Amazon 墨西哥库存对账信号",
-          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/6a97bc11-17c2-46f0-80d7-3d8de187cab2",
+          "title": "Amazon墨西哥：FBA库存赔付政策更新",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/da761b17-58cc-4734-98d2-5608e1d11419",
+          "source_type": "platform_announcement",
+          "published_at": "2024-12-19",
+          "effective_at": "2025-03-10",
+          "checked_at": "2026-07-16T06:06:37Z",
+          "roles": ["fact_basis"],
+          "supports": "Amazon公告称，订单前丢失或损坏的FBA库存赔付以制造成本为基础，且不包括运输、处理和关税等成本。"
+        }
+      ],
+      "value_score": 82,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_mexico_bridge",
+      "title": "美墨联动货物入美前要补齐CPSC电子申报资料",
+      "seller_problem": "7月13日有小批量制造商在公开社区询问如何应对7月8日生效的CPSC eFiling；这反映部分进口商仍在处理新资料申报流程。该讨论不证明任何货物一定被扣留。",
+      "affected_sellers": "从墨西哥或其他地区向美国进口受CPSC认证规则约束的消费品，并由自己或合作方作为进口商操作的卖家。",
+      "why_now": "CPSC已于7月8日宣布该电子申报对大多数受监管进口消费品生效；今天仍值得关注，因为资料需要在入境申报时对接，而非货到后补齐。",
+      "business_impact": "若产品资料、进口商和报关协作信息未在发运前对齐，货物交接与入库计划可能需要临时调整。",
+      "market_angle": "做“美墨补货发车前的资料交接清单”内容，边界明确为物流节点协同，不讲税务或认证结论。",
+      "sales_question": "你们从墨西哥进入美国的受监管消费品，是否已确认进口商、资料负责人和入境前交接时间点？",
+      "yqn_entry": "可在美墨跨境运输、仓储衔接和资料交接节点上协助梳理物流流程；不提供认证、税务判断或清关必过承诺。",
+      "evidence": [
+        {
+          "title": "Reddit业务讨论：New CPSC eFiling Help needed",
+          "url": "https://www.reddit.com/r/CustomsBroker/comments/1uvs384/new_cpsc_efiling_help_needed/",
           "source_type": "seller_forum",
           "published_at": "2026-07-13",
           "effective_at": null,
-          "checked_at": "2026-07-16T12:15:00+08:00",
+          "checked_at": "2026-07-16T06:06:37Z",
           "roles": ["seller_signal"],
-          "supports": "卖家公开反馈墨西哥平台仓内库存转运和对账问题，说明本地备货后仍需库存控制。"
+          "supports": "小批量制造商公开询问7月8日生效的eFiling流程，说明新申报操作正在被经营者实际讨论。"
+        },
+        {
+          "title": "CPSC：合规证书电子申报现已实施",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Implements-Mandatory-eFiling-for-Certificates-of-Compliance-Targeting-Dangerous-Foreign-Imports",
+          "source_type": "official",
+          "published_at": "2026-07-08",
+          "effective_at": "2026-07-08",
+          "checked_at": "2026-07-16T06:06:37Z",
+          "roles": ["fact_basis"],
+          "supports": "CPSC宣布，多数受监管进口消费品的进口商须在货物进入美国商业流通前电子提交合规证书资料。"
         }
       ],
-      "value_score": 89,
+      "value_score": 90,
       "confidence_label": "high"
     }
   ],
   "watchlist": [
     {
-      "title": "CPSC eFiling 已生效",
-      "reason": "只在客户经营受 CPSC 监管消费品时升级为核心问题。",
-      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Implements-Mandatory-eFiling-for-Certificates-of-Compliance-Targeting-Dangerous-Foreign-Imports"
-    },
-    {
-      "title": "墨西哥 MVE 电子申报过渡期至 7 月 31 日",
-      "reason": "作为墨西哥进口客户的销售排查问题，不作为泛行业头条。",
-      "url": "https://www.gob.mx/sat/prensa/manifestacion-de-valor-electronica?idiom=es"
-    },
-    {
-      "title": "USMCA 第三轮美墨审议",
-      "reason": "等待出现正式原产地或关税规则变化后再进入正文。",
-      "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/may/united-states-and-mexico-conclude-first-bilateral-round-related-joint-review-usmca"
+      "title": "Mercado Envíos可用性讨论仍在延续",
+      "reason": "7月15日仍有卖家称下单按钮被阻断；缺少Mercado Libre对该具体问题的官方原因说明，暂不列为核心结论。",
+      "url": "https://www.reddit.com/r/mercadolibremx/comments/1tadzzq/vendedores_problema_con_ventas_por_el_momento_no/"
     }
   ],
-  "generated_at": "2026-07-16T04:15:00.000Z",
+  "generated_at": "2026-07-16T06:06:37Z",
   "publication": {
     "target": "yqn_livestream_group",
     "status": "ready_for_review",

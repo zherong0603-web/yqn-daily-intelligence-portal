@@ -1,0 +1,47 @@
+{
+  "date": "2026-07-20",
+  "content_valid": false,
+  "send_allowed": false,
+  "target": "yqn_livestream_group",
+  "counts": {
+    "us_warehouse": 2,
+    "mexico_warehouse": 2,
+    "us_mexico_bridge": 1
+  },
+  "automated_blockers": [
+    "signal:4:bridge_evidence_missing_us_mexico_link"
+  ],
+  "manual_checks": [
+    {
+      "id": "fact_readthrough",
+      "status": "pending",
+      "question": "5 组证据是否真正支持文中结论，而不只是标题相似？",
+      "pass_condition": "逐条打开链接，核对日期、数字、适用卖家和生效条件。"
+    },
+    {
+      "id": "business_value",
+      "status": "pending",
+      "question": "市场或销售同事看完后，能否马上想到客户、选题或追问？",
+      "pass_condition": "至少 4 条能直接转成销售问题或内容选题。"
+    },
+    {
+      "id": "yqn_boundary",
+      "status": "pending",
+      "question": "YQN 的可承接内容是否真实，是否出现了认证、税务、平台索赔等越界承诺？",
+      "pass_condition": "只表达头程、仓储、配送、资料衔接和方案建议。"
+    },
+    {
+      "id": "group_readability",
+      "status": "pending",
+      "question": "消息在直播天团群里是否能在 5 分钟内读完，是否过长或像培训课件？",
+      "pass_condition": "首屏看到市场判断，每条都能快速看到卖家问题和团队用法。"
+    },
+    {
+      "id": "schedule_and_target",
+      "status": "pending",
+      "question": "发布时间、目标群、机器人名称和失败处理是否已确认？",
+      "pass_condition": "目标为 YQN 直播天团，机器人为 YQN 信息小助手，08:45 为主发送，未审批或验证失败时停止发送。"
+    }
+  ],
+  "checked_at": "2026-07-20T02:24:05.373Z"
+}

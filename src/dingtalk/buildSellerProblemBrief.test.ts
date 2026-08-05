@@ -24,6 +24,7 @@ function validFixture(): Record<string, unknown> {
   fixture.title = "7月16日北美卖家问题晨报";
   fixture.generated_at = "2026-07-16T00:10:00Z";
   fixture.publication.proposed_send_at = "2026-07-16T08:45:00+08:00";
+  fixture.signals = fixture.signals.slice(0, 3);
   fixture.signals.forEach((signal, index) => {
     const bridge = signal.market_focus === "us_mexico_bridge";
     signal.evidence = [
@@ -53,13 +54,13 @@ function validFixture(): Record<string, unknown> {
 }
 
 describe("seller problem brief guardrails", () => {
-  it("accepts the reviewed 2+2+1 sample but never permits sending", () => {
+  it("accepts the reviewed 2+1 sample but never permits sending", () => {
     const fixture = validFixture();
     const { brief, report } = validateSellerProblemBrief(fixture, "2026-07-16T12:30:00+08:00");
 
     expect(report.content_valid).toBe(true);
     expect(report.send_allowed).toBe(false);
-    expect(report.counts).toEqual({ us_warehouse: 2, mexico_warehouse: 2, us_mexico_bridge: 1 });
+    expect(report.counts).toEqual({ us_warehouse: 2, mexico_warehouse: 1, us_mexico_bridge: 0 });
     expect(renderSellerProblemMarkdown(brief!, { publication: "production" })).not.toContain("待验收");
     expect(renderSellerProblemMarkdown(brief!, { publication: "production" })).toContain("工作日 08:45 更新");
   });
@@ -80,36 +81,45 @@ describe("seller problem brief guardrails", () => {
   it("blocks a report with the wrong market ratio", () => {
     const fixture = validFixture();
     const invalid = structuredClone(fixture) as { signals: Array<{ market_focus: string }> };
-    invalid.signals[4]!.market_focus = "us_warehouse";
+    invalid.signals[2]!.market_focus = "us_warehouse";
 
     const { report } = validateSellerProblemBrief(invalid, "2026-07-16T12:30:00+08:00");
 
     expect(report.content_valid).toBe(false);
     expect(report.automated_blockers).toContain("ratio:us_warehouse:3");
-    expect(report.automated_blockers).toContain("ratio:us_mexico_bridge:0");
+    expect(report.automated_blockers).toContain("ratio:mexico_warehouse:0");
     expect(report.send_allowed).toBe(false);
   });
 
-  it("blocks one source from impersonating both evidence roles", () => {
-    const invalid = validFixture() as { signals: Array<{ evidence: Array<{ roles: string[] }> }> };
-    invalid.signals[0]!.evidence[0]!.roles = ["seller_signal", "fact_basis"];
-    invalid.signals[0]!.evidence.splice(1, 1);
+  it("accepts one recent official source as both market signal and fact basis", () => {
+    const fixture = validFixture() as {
+      signals: Array<{ evidence: Array<Record<string, unknown>> }>;
+    };
+    fixture.signals[0]!.evidence = [{
+      title: "企业官方最新经营公告",
+      url: "https://official.example.com/current-market-update",
+      source_type: "official",
+      published_at: "2026-07-15",
+      effective_at: null,
+      checked_at: "2026-07-16T08:10:00+08:00",
+      roles: ["market_signal", "fact_basis"],
+      supports: "企业官方数据同时证明市场变化和文中事实。",
+    }];
 
-    const { report } = validateSellerProblemBrief(invalid, "2026-07-16T12:30:00+08:00");
+    const { report } = validateSellerProblemBrief(fixture, "2026-07-16T12:30:00+08:00");
 
-    expect(report.content_valid).toBe(false);
-    expect(report.automated_blockers).toContain("signal:0:evidence:0:roles_must_be_separate");
+    expect(report.content_valid).toBe(true);
   });
 
   it("blocks stale, future, and undated seller signals", () => {
     const stale = validFixture() as { signals: Array<{ evidence: Array<{ published_at: string | null }> }> };
-    stale.signals[0]!.evidence[0]!.published_at = "2026-07-08";
+    stale.signals[0]!.evidence[0]!.published_at = "2026-06-15";
     stale.signals[1]!.evidence[0]!.published_at = "2026-07-17";
     stale.signals[2]!.evidence[0]!.published_at = null;
 
     const { report } = validateSellerProblemBrief(stale, "2026-07-16T12:30:00+08:00");
 
-    expect(report.automated_blockers).toContain("signal:0:evidence:0:seller_signal_older_than_7_days");
+    expect(report.automated_blockers).toContain("signal:0:evidence:0:seller_signal_older_than_30_days");
     expect(report.automated_blockers).toContain("signal:1:evidence:0:seller_signal_from_future");
     expect(report.automated_blockers).toContain("signal:2:evidence:0:seller_signal_missing_date");
   });
@@ -131,12 +141,13 @@ describe("seller problem brief guardrails", () => {
     expect(report.automated_blockers).toContain("signal:0:evidence:0:checked_at_date_mismatch");
   });
 
-  it("blocks duplicate sources and a bridge claim without US-Mexico evidence", () => {
+  it("blocks duplicate sources and a bridge claim outside the 2+1 scope", () => {
     const invalid = validFixture() as {
       signals: Array<{ market_focus: string; evidence: Array<{ title: string; url: string; supports: string }> }>;
     };
     invalid.signals[1]!.evidence[0]!.url = invalid.signals[0]!.evidence[0]!.url;
-    const bridge = invalid.signals.find((signal) => signal.market_focus === "us_mexico_bridge")!;
+    invalid.signals[2]!.market_focus = "us_mexico_bridge";
+    const bridge = invalid.signals[2]!;
     bridge.evidence.forEach((evidence) => {
       evidence.title = "跨境规则页面";
       evidence.supports = "页面只描述一般跨境事项，没有明确两国业务链路。";
@@ -145,6 +156,8 @@ describe("seller problem brief guardrails", () => {
     const { report } = validateSellerProblemBrief(invalid, "2026-07-16T12:30:00+08:00");
 
     expect(report.automated_blockers).toContain("signal:1:evidence:0:duplicate_source_url");
+    expect(report.automated_blockers).toContain("ratio:mexico_warehouse:0");
+    expect(report.automated_blockers).toContain("ratio:us_mexico_bridge:1");
     expect(report.automated_blockers.some((blocker) => blocker.endsWith("bridge_seller_signal_missing_us_mexico_link"))).toBe(true);
     expect(report.automated_blockers.some((blocker) => blocker.endsWith("bridge_fact_basis_missing_us_mexico_link"))).toBe(true);
   });

@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-05",
+  "title": "8月5日北美跨境电商与物流晨报",
+  "market_stage": "今天的三个信号指向同一件事：美国电商需求仍在增长，但快速履约和单票成本同时抬高了竞争门槛；墨西哥空运快件则更要把品名、货值和单证一致性做在发货前。",
+  "signals": [
+    {
+      "market_focus": "us_warehouse",
+      "title": "亚马逊北美增长与极速履约同步加码",
+      "seller_problem": "亚马逊第二季度北美销售额同比增长16%，上半年Prime当日达或隔夜达商品件数同比增加超过40%。需求增长与时效竞争同时发生，长距离直发的时效短板更明显。",
+      "affected_sellers": "经营美国站日用品、复购品和稳定畅销SKU的中国跨境卖家。",
+      "why_now": "亚马逊7月30日发布Q2 2026经营结果，并披露Amazon Now新进入美国80个城市和城镇。",
+      "business_impact": "平台快速履约范围扩大后，备货位置、可售库存和稳定出库会更直接影响商品竞争力。",
+      "market_angle": "内容可讲“美国电商还在增长，但卖家拼的已从能到达变成库存放对地方”。",
+      "sales_question": "你们美国站销量前20%的SKU，国内直发与美国本地备货的完整成本和时效差是多少？",
+      "yqn_entry": "YQN可从美国仓备货、库存管理、入出库和本地配送方案匹配切入，协助按SKU周转设计库存位置，不承诺固定时效或转化结果。",
+      "evidence": [
+        {
+          "title": "Amazon官方：2026年第二季度经营结果",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx",
+          "source_type": "official",
+          "published_at": "2026-07-30",
+          "effective_at": null,
+          "checked_at": "2026-08-05T10:36:00+08:00",
+          "roles": ["market_signal", "fact_basis"],
+          "supports": "Amazon披露Q2北美销售额同比增长16%，上半年Prime当日达或隔夜达商品件数增加超过40%，Amazon Now扩展至美国80个新城市和城镇。"
+        }
+      ],
+      "value_score": 92,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_warehouse",
+      "title": "UPS包裹量下降，单票收入却上升",
+      "seller_problem": "UPS第二季度美国国内日均包裹量从1,655.3万件降至1,600.2万件，约下降3.3%；但美国国内单票收入同比增长9.3%。这更像承运商在降低低收益货量、提高单票产出，不能只用基础运价判断成本。",
+      "affected_sellers": "使用美国本地仓发货，且包裹邮编、重量段和尺寸分布较散的跨境卖家。",
+      "why_now": "UPS于7月28日发布Q2 2026数据，并表示已完成降低亚马逊业务占比及相关网络调整。",
+      "business_impact": "偏远、住宅、燃油、超尺寸和材积重等附加项，可能比公开基础价更直接地改变单票利润。",
+      "market_angle": "内容可用“包裹变少，为什么承运商每票收得更多”讲清尾程附加费的成本盲区。",
+      "sales_question": "你们最近30天真实账单中，基础运费之外的附加费占每票总成本多少？",
+      "yqn_entry": "YQN可基于实际货重、尺寸、邮编和配送需求匹配本地快递、卡派或大件配送方案，并建议核心线路保留备选承运方案。",
+      "evidence": [
+        {
+          "title": "UPS官方：2026年第二季度业绩",
+          "url": "https://investors.ups.com/news-events/press-releases/detail/2164/ups-releases-2q-2026-earnings",
+          "source_type": "official",
+          "published_at": "2026-07-28",
+          "effective_at": null,
+          "checked_at": "2026-08-05T10:36:00+08:00",
+          "roles": ["market_signal", "fact_basis"],
+          "supports": "UPS披露美国国内收入增长6.0%、单票收入增长9.3%，日均包裹量从1,655.3万件降至1,600.2万件，并说明已完成亚马逊业务缩减及网络调整。"
+        }
+      ],
+      "value_score": 90,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "AICM加强国际快件风险筛查",
+      "seller_problem": "墨西哥有关部门披露，在墨西哥城国际机场通过风险画像、文件审查、实物检查和非侵入式查验加强国际货运、快件和包裹监管。品名笼统、货值或申报目的地不一致的货件更容易进入查验。",
+      "affected_sellers": "通过AICM空运或国际快件进入墨西哥，且申报品名多、货值高或收件信息复杂的卖家。",
+      "why_now": "这是7月21日公布的AICM口岸执法动态；它不是墨西哥全国新税率，也不代表所有包裹都会变慢。",
+      "business_impact": "商业描述、货值、收件人和目的地不一致，会增加查验、补资料和入仓计划延误的风险。",
+      "market_angle": "内容可做“墨西哥空运发货前的四项单证核对”，重点讲真实品名、货值、收件人和目的地。",
+      "sales_question": "你们发往墨西哥的每票货，商业发票、运单和收件资料上的品名、货值和目的地是否一致？",
+      "yqn_entry": "YQN可在墨西哥空运、清关、跨境运输、仓储及资料交接节点协助梳理流程；具体税则归类和准入要求需由承运方或墨西哥报关方确认。",
+      "evidence": [
+        {
+          "title": "墨西哥官方：ANAM、SSPC与海军加强AICM货运监管",
+          "url": "https://www.gob.mx/sspc/prensa/mas-de-156-toneladas-de-mercancias-ilicitas-aseguradas-anam-sspc-y-marina-fortalecen-el-blindaje-de-mexico-desde-el-aicm-430794",
+          "source_type": "official",
+          "published_at": "2026-07-21",
+          "effective_at": null,
+          "checked_at": "2026-08-05T10:36:00+08:00",
+          "roles": ["market_signal", "fact_basis"],
+          "supports": "联合公告说明AICM使用风险画像、文件和实物检查、非侵入式查验等方式筛查国际货运、快件和包裹，并关注单证、商业描述和申报目的地差异。"
+        }
+      ],
+      "value_score": 91,
+      "confidence_label": "high"
+    }
+  ],
+  "watchlist": [],
+  "generated_at": "2026-08-05T02:36:00Z",
+  "publication": {
+    "target": "yqn_livestream_group",
+    "status": "ready_for_review",
+    "send_allowed": false,
+    "approval_required": true,
+    "proposed_send_at": "2026-08-05T08:45:00+08:00"
+  }
+}

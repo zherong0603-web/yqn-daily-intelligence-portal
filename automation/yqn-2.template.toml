@@ -1,0 +1,10 @@
+version = 1
+id = "yqn-2"
+kind = "cron"
+name = "YQN 工作日晨报（3条生成+交付）"
+prompt = "进入 <REPO_PATH>，完整读取并严格执行 docs/automation/工作日晨报执行规则.md。自动化 memory 为 <AUTOMATION_MEMORY_PATH>。用户已授权正式交付。成功或已发送时归档当前任务；失败时保留任务并只报精确失败环节。不读取、展示或记录任何密钥。"
+status = "ACTIVE"
+rrule = "RRULE:FREQ=DAILY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=8;BYMINUTE=35;BYSECOND=0"
+model = "gpt-5.6-terra"
+reasoning_effort = "high"
+execution_environment = "local"

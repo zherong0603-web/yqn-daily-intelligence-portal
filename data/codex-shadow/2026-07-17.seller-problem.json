@@ -1,0 +1,207 @@
+{
+  "date": "2026-07-17",
+  "title": "7月17日北美卖家问题晨报",
+  "market_stage": "Prime Day 后的第一轮补货与可售库存核对正在发生：美国端先把入库、预处理和可售状态拆开看；墨西哥端先做 FBA 到货证据链与发仓前确认；美墨联动货物把受监管品资料交接前置到入境申报前。",
+  "signals": [
+    {
+      "market_focus": "us_warehouse",
+      "title": "FBA到仓不等于立刻可售，Prime Day后先核FC Processing",
+      "seller_problem": "7月16日有卖家公开称，货已被仓点接收，却在卖家后台显示缺货或 FC Processing，销售与结算状态一时难以判断。该帖子仅证明存在个案状态困惑，不代表所有仓点发生延误。",
+      "affected_sellers": "刚在 Prime Day 后补货、依赖 FBA 可售库存和补货节奏的美国站卖家。",
+      "why_now": "这是过去24小时的入库状态信号；Amazon 说明 FC Processing 属于保留库存，相关单元会因尺寸重量核验、调查或移除订单等原因暂不可售，补货决策不能只看承运签收。",
+      "business_impact": "若把承运签收直接当作可售库存，促销后的补货量、断货预警和广告预算可能出现错配。",
+      "market_angle": "直播可讲“到仓、接收、FC Processing、可售”四个状态如何分别看，而不是只问货到没到。",
+      "sales_question": "你们 Prime Day 后在途与已签收货物中，有多少仍处于 FC Processing 或保留库存？",
+      "yqn_entry": "可从美国仓备货、仓内出库、库存节点记录和本地配送方案匹配切入，协助把发货、签收与可售状态分开管理；不承诺平台处理时效。",
+      "evidence": [
+        {
+          "title": "Reddit卖家讨论：首批FBA货物显示FC Processing",
+          "url": "https://www.reddit.com/r/AmazonFBA/comments/1uy55s0/very_first_unit_not_going_as_expected_or_am_i/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-16",
+          "effective_at": null,
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家披露已接收商品仍显示FC Processing及缺货状态，属于单一卖家信号。"
+        },
+        {
+          "title": "Amazon卖家论坛：FC Processing库存状态说明",
+          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/00d271be-6149-4403-9d23-56dcc7a3a163",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon说明FC Processing为保留库存，可能涉及尺寸重量核验、调查或移除订单处理。"
+        }
+      ],
+      "value_score": 88,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_warehouse",
+      "title": "FBA预处理退出后，贴标与包装差错要前置到发仓前",
+      "seller_problem": "Amazon卖家仍在讨论美国 FBA 停止预处理和贴标服务后，第三方预处理出错时谁承担返工、库存和对账风险。该讨论代表卖家的实际操作焦虑，不用来推断统一收费或赔付结果。",
+      "affected_sellers": "向美国 FBA 发货且依赖第三方贴标、套袋、包装或换标的卖家。",
+      "why_now": "讨论页未公开发布日期，因此不猜测发布时间；Amazon 已确认自2026年1月1日起美国 FBA 不再提供预处理和贴标服务，规则仍直接影响今天每一票补货的离仓核验。",
+      "business_impact": "标签、包装或预处理差错会使货物进入异常处理，拉长可售节奏并增加重复操作成本。",
+      "market_angle": "用“发 FBA 前的一张预处理交接单”讲清 SKU、标签、包装要求、箱规和出库照片。",
+      "sales_question": "你们发往美国 FBA 的货，谁对每个 SKU 的标签与包装终检负责，是否能回溯到出库照片？",
+      "yqn_entry": "可承接美国仓的贴标换标、库存管理、出库与资料衔接，按 SKU 梳理发仓前检查节点；不承诺平台赔付、免罚或必然入库。",
+      "evidence": [
+        {
+          "title": "Amazon卖家讨论：新FBA预处理规则的第三方风险",
+          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/32e1d348-10b4-46ae-ae29-74a0cb3b182a",
+          "source_type": "seller_forum",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家公开询问FBA预处理停止后第三方贴标差错、异常预处理和库存风险，属卖家讨论。"
+        },
+        {
+          "title": "Amazon卖家论坛：美国FBA预处理与贴标服务停止确认",
+          "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/5c63f045-b956-447b-9e6d-410b1e2a05bb",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": "2026-01-01",
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon确认自2026年1月1日起不再为美国FBA货件提供预处理和商品贴标服务，货物须在发往仓点前完成。"
+        }
+      ],
+      "value_score": 91,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥FBA入库差异先锁定出库与签收证据",
+      "seller_problem": "一位Amazon墨西哥卖家在近一周称，送达 MTY1 的一票货中部分单元先显示不可售，后又从库存中消失；其多次提交发票仍未获得一致的差异解释。该案例仅是单票入库对账信号。",
+      "affected_sellers": "向墨西哥 FBA 补货、货值较高或库存数量敏感的卖家。",
+      "why_now": "这是最近7天的新入库差异信号；今天补货前应把出库清单、承运交接和签收资料与平台接收记录并列保存，避免事后无法定位数量差异。",
+      "business_impact": "接收、可售和异常处置记录不一致，会影响可售库存判断和下一批补货量。",
+      "market_angle": "直播可拆解“墨西哥发 FBA 后的四张单：出库、承运、签收、平台接收”。",
+      "sales_question": "你们每票墨西哥 FBA 补货，能否在同一处对上箱单、承运签收、平台接收和异常记录？",
+      "yqn_entry": "可承接墨西哥仓内出库、库存管理、贴标换标和入库资料衔接，帮助建立物流节点证据链；不承诺平台赔付或争议处理结果。",
+      "evidence": [
+        {
+          "title": "Amazon墨西哥卖家论坛：FBA接收后库存与处置记录不一致",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions?categories%5B%5D=amzn1.spce.category.8b1ad526",
+          "source_type": "seller_forum",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "近6天的论坛列表展示卖家称一票送达MTY1的货物出现接收、不可售与后续消失的差异。"
+        },
+        {
+          "title": "Amazon墨西哥：FBA库存赔付政策更新",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/da761b17-58cc-4734-98d2-5608e1d11419",
+          "source_type": "platform_announcement",
+          "published_at": "2024-12-19",
+          "effective_at": null,
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon公告说明FBA库存赔付按制造成本处理，且不包括运输、处理和关税等成本。"
+        },
+        {
+          "title": "Amazon墨西哥：FBA库存赔付政策新生效日",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/ed8abc33-a1d5-417d-b2e2-03b789099833?postId=ed8abc33-a1d5-417d-b2e2-03b789099833",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": "2025-03-31",
+          "checked_at": "2026-07-17T12:30:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon后续公告将该FBA库存赔付政策的生效日从2025年3月10日调整为3月31日。"
+        }
+      ],
+      "value_score": 86,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "发往GDL1/GDL2前要复核仓点接收状态",
+      "seller_problem": "Amazon墨西哥卖家曾在官方中断公告下追问，已在途发往 GDL1/GDL2 的货物该如何处理，说明仓点变更会直接影响补货路径。该信号来自当时讨论，不代表今天仓点必然仍关闭。",
+      "affected_sellers": "被分配至墨西哥 GDL1 或 GDL2，或需要在墨西哥西部安排 FBA 补货的卖家。",
+      "why_now": "Amazon 原公告写明两个仓点自2026年2月23日起停止接收入库货与处理客户订单，直至另行通知；本次联网核查未找到官方恢复公告，因此今天发车前必须向平台或承运方复核接收状态，而不能沿用旧路线。",
+      "business_impact": "未确认接收状态即发货，可能造成改派、退回、在途滞留或补货断档。",
+      "market_angle": "做“墨西哥发仓前15分钟确认表”：仓点、预约、承运接收、替代仓与在途联系人。",
+      "sales_question": "你们最近一票发往墨西哥 FBA 的货，发车前是否确认过指定仓点仍接收入库及替代路径？",
+      "yqn_entry": "可从墨西哥1号仓与2号仓双仓布局、库存分配、出库和尾程方案匹配讨论备货路径；不承诺仓点开放、平台分仓或固定时效。",
+      "evidence": [
+        {
+          "title": "Amazon墨西哥卖家追问GDL1/GDL2在途货替代方案",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/9354470f-a8c6-4cb7-a556-c269af495d7c",
+          "source_type": "seller_forum",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家在官方中断公告下询问发往GDL1/GDL2的在途货有什么替代方案，证明该问题对补货路径有实际影响。"
+        },
+        {
+          "title": "Amazon墨西哥：卖家运营中断更新",
+          "url": "https://sellercentral.amazon.com.mx/seller-forums/discussions/t/9354470f-a8c6-4cb7-a556-c269af495d7c",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": "2026-02-23",
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon公告称GDL1和GDL2自2026年2月23日起停止接收入库货和处理客户订单，直至另行通知。"
+        }
+      ],
+      "value_score": 83,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_mexico_bridge",
+      "title": "受监管消费品进入美国前，CPSC电子申报资料要与物流交接",
+      "seller_problem": "公开社区中已有进口经营者在7月8日规则生效后询问 CPSC eFiling 的操作，反映部分小批量进口方仍在处理资料与报关节点的衔接。该讨论不证明任何货物一定被扣留。",
+      "affected_sellers": "从墨西哥或其他地区向美国进口受 CPSC 合规证书要求约束的消费品，并参与进口申报协作的卖家。",
+      "why_now": "CPSC 已于7月8日实施大多数受监管进口消费品的强制电子申报；今天仍值得看，因为资料应在货物入美国商业流通前完成交接，而非到仓后补齐。",
+      "business_impact": "进口商、资料负责人和物流交接点未提前对齐，跨境运输及后续入库计划可能需要临时调整。",
+      "market_angle": "用“美墨补货发车前资料交接清单”讲物流协同，明确不做认证或税务结论。",
+      "sales_question": "你们从墨西哥进入美国的受监管消费品，是否已明确进口商、资料负责人和发运前交接时间点？",
+      "yqn_entry": "可在美墨跨境运输、仓储衔接和资料交接节点上协助梳理物流流程；不提供认证或税务判断，也不承诺清关必过。",
+      "evidence": [
+        {
+          "title": "Reddit报关业务讨论：CPSC eFiling生效后的操作求助",
+          "url": "https://www.reddit.com/r/CustomsBroker/comments/1uvs384/new_cpsc_efiling_help_needed/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-13",
+          "effective_at": null,
+          "checked_at": "2026-07-17T12:30:00+08:00",
+          "roles": ["seller_signal"],
+          "supports": "小批量制造商与报关从业者公开讨论7月8日生效后的系统操作困难，证明新流程正在影响实际进口协作。"
+        },
+        {
+          "title": "CPSC：进口消费品合规证书强制电子申报实施",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Implements-Mandatory-eFiling-for-Certificates-of-Compliance-Targeting-Dangerous-Foreign-Imports",
+          "source_type": "official",
+          "published_at": "2026-07-08",
+          "effective_at": "2026-07-08",
+          "checked_at": "2026-07-17T06:18:00+08:00",
+          "roles": ["fact_basis"],
+          "supports": "CPSC宣布多数受监管进口消费品须在进入美国商业流通前完成合规证书电子申报。"
+        }
+      ],
+      "value_score": 92,
+      "confidence_label": "high"
+    }
+  ],
+  "watchlist": [
+    {
+      "title": "墨西哥海关代理机构全国放开运行",
+      "reason": "SAT称该机制自7月1日全国实施，可能影响进口操作协同；当前缺少与特定卖家仓配异常直接对应的强卖家信号，暂不列核心。",
+      "url": "https://www.gob.mx/sat/prensa/implementacion-de-la-figura-de-agencias-aduanales-avance-en-modernizacion-de-los-procesos-aduaneros-429704?idiom=es"
+    }
+  ],
+  "generated_at": "2026-07-16T22:18:00Z",
+  "publication": {
+    "target": "yqn_livestream_group",
+    "status": "ready_for_review",
+    "send_allowed": false,
+    "approval_required": true,
+    "proposed_send_at": "2026-07-17T08:45:00+08:00"
+  }
+}

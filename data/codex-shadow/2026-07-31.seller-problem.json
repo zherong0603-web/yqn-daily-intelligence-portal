@@ -1,0 +1,191 @@
+{
+  "date": "2026-07-31",
+  "title": "【待验收】7月31日北美卖家问题晨报",
+  "market_stage": "美国 FBA 入仓识别与预处理仍在拉低库存可用性，墨西哥卖家则同时面对非平台配送追踪与库存履约选择；今天先把条码、交接、库存和跨境承运资料拆开核对。",
+  "signals": [
+    {
+      "market_focus": "us_warehouse",
+      "title": "FBA 错收至陌生 ASIN，入仓条码复核需前置",
+      "seller_problem": "一名 Amazon US 卖家在7月29日反馈，发往 FBA 的商品被收进并不销售的 ASIN，随后变为滞留库存且被退回；多次联系支持仍未解决。",
+      "affected_sellers": "向美国 FBA 仓补货、依赖 FNSKU 或 UPC 识别库存的卖家。",
+      "why_now": "该问题在7月29日被公开更新，错收会让已送达的库存不能正常销售并增加返仓与复核工作。",
+      "business_impact": "若箱唛、单品条码与发货计划没有留存对应关系，异常入仓后难以快速定位受影响批次和补货缺口。",
+      "market_angle": "可做一条“FBA 到仓后 24 小时先核哪三张表”的直播问答。",
+      "sales_question": "你们每批 FBA 到仓后，能否按箱号核对 FNSKU、ASIN 与可售数量？",
+      "yqn_entry": "可结合美国仓收货、贴标换标、库存管理和转运，协助在发仓前建立条码与箱单核对资料；平台判定仍以卖家后台为准。",
+      "evidence": [
+        {
+          "title": "Reddit 卖家：FBA 错收库存至未销售 ASIN",
+          "url": "https://www.reddit.com/r/FulfillmentByAmazon/comments/1v9ybwe/fba_keeps_receiving_my_inventory_into_asins_i/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-29",
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["seller_signal"],
+          "supports": "美国 FBA 卖家7月29日反馈库存被收进陌生 ASIN、变为滞留并退回，正在反复核对标签与支持工单。"
+        },
+        {
+          "title": "Amazon 官方：FBA 库存条码要求",
+          "url": "https://sellercentral.amazon.com/help/hub/reference/G201100910",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon 说明 FBA 使用条码识别和追踪库存，每个送往履约中心的商品均须具备符合要求的识别条码。"
+        }
+      ],
+      "value_score": 89,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_warehouse",
+      "title": "FBA 入仓频遭预处理标记，外包前先锁质检标准",
+      "seller_problem": "一名卖家在7月30日反馈，FBA 入库持续因预处理问题被标记并产生时间与费用压力，正在评估是否把验货、预处理和贴标交由独立服务方执行。",
+      "affected_sellers": "从海外或美国本地向 FBA 仓补货、需要完成预处理和标签合规的卖家。",
+      "why_now": "该卖家于7月30日公开求助，说明入仓前预处理已成为影响补货节奏的实际经营问题。",
+      "business_impact": "预处理错误会使入仓批次被延后或产生额外处理，库存不足时还可能放大断货风险。",
+      "market_angle": "适合用“发 FBA 前的预处理交接单”做直播间下载型内容。",
+      "sales_question": "你们发往 FBA 的每个 SKU，是否有包装、条码、箱规和抽检结果的交接记录？",
+      "yqn_entry": "可在美国仓提供收货、贴标换标、库存管理与出库交接的物流方案沟通，按卖家提供的 FBA 要求执行；不承诺平台必然放行。",
+      "evidence": [
+        {
+          "title": "Reddit 卖家：FBA 入仓预处理问题反复被标记",
+          "url": "https://www.reddit.com/r/FulfillmentByAmazon/comments/1vav30s/anyone_use_a_separate_agent_to_handle_prep_before/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-30",
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["seller_signal"],
+          "supports": "卖家7月30日称入仓货件持续因预处理问题被标记并带来时间和费用压力，正寻找验货、预处理和贴标支持。"
+        },
+        {
+          "title": "Amazon 官方：FBA 预处理与条码服务说明",
+          "url": "https://sellercentral.amazon.com/help/hub/reference/G200621530",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Amazon 的 FBA 说明要求商品具备可扫描条码并符合预处理要求，卖家应在发往履约中心前完成对应准备。"
+        }
+      ],
+      "value_score": 87,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥非平台配送已签收未更新，回款与交接证据要留存",
+      "seller_problem": "一名墨西哥 Mercado Libre 卖家在7月29日反馈，笔记本电池由卖家自行配送且已签收，但平台状态两周未更新，导致多笔货款仍无法结算。",
+      "affected_sellers": "在墨西哥站自行安排部分敏感或限制品配送、依赖签收状态结算的卖家。",
+      "why_now": "卖家7月29日仍有21笔相同状态的销售，配送交接异常已直接影响现金回笼。",
+      "business_impact": "若签收、承运交接和订单号不能一一对应，状态争议时卖家会同时承受货物已交付与资金未结算的压力。",
+      "market_angle": "可做“自配送订单的交接凭证怎么留”实操选题。",
+      "sales_question": "你们的自配送订单能否把运单、签收、订单号和库存扣减记录对应起来？",
+      "yqn_entry": "可围绕墨西哥仓出库、库存管理、交接资料和本地配送方案协助梳理履约链路；平台状态与回款由卖家按平台规则确认。",
+      "evidence": [
+        {
+          "title": "Reddit 卖家：Mercado Libre 已签收订单状态未更新",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1va6krh/despu%C3%A9s_de_2_semanas_mercadolibre_dice_que_mi/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-29",
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥卖家7月29日称自行配送的电池订单7月17日已签收但平台仍显示未交付，已有21笔订单受影响。"
+        },
+        {
+          "title": "Mercado Libre 官方：Mercado Envíos 追踪与放款说明",
+          "url": "https://envios.mercadolibre.com.mx/",
+          "source_type": "platform_announcement",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 说明配送链路含持续追踪，卖家资金可在商品送达后按条件释放，交付状态会影响后续处理。"
+        }
+      ],
+      "value_score": 88,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "mexico_warehouse",
+      "title": "墨西哥卖家借助进口目录补货，库存入仓前先拆资料与货况",
+      "seller_problem": "一名 Mercado Libre 卖家在7月25日分享其美国商品进口后在墨西哥转售的做法，指出选品、利润和跨境资料是其过去最重的操作负担。",
+      "affected_sellers": "从海外补货、在墨西哥本地仓备货并通过 Mercado Libre 销售的中小卖家。",
+      "why_now": "该卖家于7月25日发布，反映近期卖家仍在寻找降低首批进口补货操作复杂度的路径。",
+      "business_impact": "若货物资料、到仓数量和库存归属未在入仓前理顺，后续上架、补货和异常追踪会被放大为履约问题。",
+      "market_angle": "可用“墨西哥首批到仓前要准备哪些物流资料”做咨询型直播话题。",
+      "sales_question": "首批墨西哥库存到仓前，SKU 清单、件数、包装信息和交接资料是否已按批次留档？",
+      "yqn_entry": "可提供墨西哥仓收货、库存管理、贴标换标、出库和本地配送的物流方案沟通，并协助梳理资料交接；不提供税务或通关结果承诺。",
+      "evidence": [
+        {
+          "title": "Reddit 卖家：从美国进口商品到墨西哥 Mercado Libre 转售",
+          "url": "https://www.reddit.com/r/mercadolibremx/comments/1v2qwsg/arm%C3%A9_un_cat%C3%A1logo_para_importar_productos_de_eua_y/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-25",
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["seller_signal"],
+          "supports": "墨西哥卖家7月25日分享从美国进口后在 Mercado Libre 转售，称选品、利润和跨境资料曾是最重的经营负担。"
+        },
+        {
+          "title": "Mercado Libre 官方：Envíos Full 服务条款",
+          "url": "https://www.mercadolibre.com.mx/ayuda/4104",
+          "source_type": "platform_announcement",
+          "published_at": "2026-04-09",
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["fact_basis"],
+          "supports": "Mercado Libre 说明 Full 是卖家可选的库存存放、准备和配送服务，商品需按平台安排交付并遵守服务条款。"
+        }
+      ],
+      "value_score": 82,
+      "confidence_label": "high"
+    },
+    {
+      "market_focus": "us_mexico_bridge",
+      "title": "美墨跨境卡车运力要提前锁定，南北向交接不能只看一端",
+      "seller_problem": "一名跨境货运从业者在7月24日的公开讨论中提醒，墨西哥内陆起运的货物要核验当地承运商以及靠近美国边境的终端；美墨跨境承运商并不在普通货运看板上。",
+      "affected_sellers": "从墨西哥向美国补货、或在美国与墨西哥仓之间安排跨境转运的卖家。",
+      "why_now": "该讨论在最近七天发布，直接点出墨西哥起运与美国边境接驳两端需要同时确认承运资源。",
+      "business_impact": "只确认一侧仓库或单段运输会使边境交接缺少承运衔接，进而影响补货计划和库存可用判断。",
+      "market_angle": "可做“美墨补货前先锁哪两段承运与交接”的直播清单。",
+      "sales_question": "美墨调拨是否已分别确认墨西哥提货、边境交接和美国入仓三段的资料与责任人？",
+      "yqn_entry": "可围绕美国仓、墨西哥仓、跨境运输、库存分仓和本地配送协助梳理物流路径及资料衔接；具体承运与时效以实际货况和资源确认结果为准。",
+      "evidence": [
+        {
+          "title": "Reddit 货运讨论：Mexico capacity 与美国边境终端",
+          "url": "https://www.reddit.com/r/FreightBrokers/comments/1v4ca7v/mexico_capacity/",
+          "source_type": "seller_forum",
+          "published_at": "2026-07-24",
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["seller_signal"],
+          "supports": "7月24日讨论明确建议墨西哥内陆起运要核验当地承运商和靠近美国边境的终端，并指出美墨跨境承运商不在普通货运看板。"
+        },
+        {
+          "title": "DSV 官方：美国与墨西哥跨境运输和仓储",
+          "url": "https://www.dsv.com/en-us/our-solutions/logistics-solutions/optimex",
+          "source_type": "official",
+          "published_at": null,
+          "effective_at": null,
+          "checked_at": "2026-07-31T09:45:02+08:00",
+          "roles": ["fact_basis"],
+          "supports": "DSV 官方说明其服务覆盖美国与墨西哥之间的跨境运输，并在美墨边境提供仓储、库存管理和分销等衔接能力。"
+        }
+      ],
+      "value_score": 90,
+      "confidence_label": "high"
+    }
+  ],
+  "watchlist": [],
+  "generated_at": "2026-07-31T01:45:02.000Z",
+  "publication": {
+    "target": "yqn_livestream_group",
+    "status": "ready_for_review",
+    "send_allowed": false,
+    "approval_required": true,
+    "proposed_send_at": "2026-07-31T08:45:00+08:00"
+  }
+}

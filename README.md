@@ -14,6 +14,8 @@
 
 - 首页：`https://zherong0603-web.github.io/yqn-daily-intelligence-portal/`
 - 历史简报：`https://zherong0603-web.github.io/yqn-daily-intelligence-portal/archive/`
+- 正式晨报运行记录：[`docs/运行记录.md`](docs/运行记录.md)
+- 换电脑使用：[`docs/小白跨电脑使用说明.md`](docs/小白跨电脑使用说明.md)
 - 自动化配置：`https://zherong0603-web.github.io/yqn-daily-intelligence-portal/setup/`
 - 系统说明：`https://zherong0603-web.github.io/yqn-daily-intelligence-portal/about/`
 
@@ -24,14 +26,16 @@
 - 飞书只发入口卡片，不发送完整正文。
 - 飞书失败不会阻断网页部署。
 
-## 钉钉北美情报晨报 V1.4
+## 当前正式钉钉晨报
 
 - 机器人显示名：`YQN 信息小助手`。
-- 每次强制联网搜索美国、墨西哥、美墨联动三组官方来源。
-- 群内固定为 2 条美国、2 条墨西哥、1 条美墨联动，70 分以下不发送。
+- 群内每天恰好 3 条：2 条美国跨境电商/物流，1 条墨西哥。
+- 优先最近 7 天的信号，不足时扩大到 30 天；可使用平台、承运商、政府和主要玩家的第一方公告。
+- 不再为了凑数强制要求美墨联动论坛帖；没有强信号时可扩展到跨境电商市场和玩家变化。
 - 每条都包含生效时间、影响卖家、物流环节、卖家检查、YQN 可承接和官方链接。
-- 现有正式群与 `YQN 直播天团` 是两个独立目标，不相互覆盖，并分别防重复发送。
+- 每个已启用的钉钉群分别防重复发送，没有精确成功日志不算交付完成。
 - 统一业务口径位于 `knowledge/yqn-capabilities.yaml`，完整配置见 `docs/dingtalk/配置说明.md`。
+- 当前正式生成由 Codex 本地自动化完成，执行规则在 `docs/automation/工作日晨报执行规则.md`。旧 V1.4 云端生成与旧 watchdog 保持停用，不再作为正式送达路线。
 
 ## 必须配置
 
