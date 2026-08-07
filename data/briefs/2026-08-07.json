@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-07",
+  "generated_at": "2026-08-07T04:13:54.599Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-07T04:13:52.887Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "O’Reilly Automotive, suppliers sharing tariff refund benefits",
+      "url": "https://www.supplychaindive.com/news/oreilly-automotive-suppliers-sharing-tariff-refund-benefits/827111/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T19:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "China export frontloading fuels Transpacific trade, Matson says",
+      "url": "https://www.supplychaindive.com/news/china-export-frontloading-fuels-transpacific-trade-matson-says/827131/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T16:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Starbucks targets 24-hour inventory replenishment",
+      "url": "https://www.supplychaindive.com/news/starbucks-targets-24-hour-inventory-replenishment/827030/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T14:59:07.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Commerce Department proposes tariffs on more steel, aluminum, copper goods",
+      "url": "https://www.supplychaindive.com/news/commerce-department-proposes-tariffs-on-more-steel-aluminum-copper-goods/827125/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T13:40:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Retailers — eager for cash — sell off rights to potential tariff refunds",
+      "url": "https://www.supplychaindive.com/news/retailers-eager-for-cash-sell-off-rights-to-potential-tariff-refunds/827064/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T13:32:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of Virginia adds CSX rail service to Indianapolis",
+      "url": "https://www.supplychaindive.com/news/port-of-virginia-adds-csx-rail-service-to-indianapolis/826997/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T18:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Gymshark names new chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/gymshark-names-new-chief-supply-chain-officer/826891/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T15:19:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Chipotle pulls some jalapeños over Salmonella concerns",
+      "url": "https://www.supplychaindive.com/news/chipotle-pulls-some-jalapenos-over-salmonella-concerns/827066/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T14:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS rolls out pickup upgrades for small business shippers",
+      "url": "https://www.supplychaindive.com/news/ups-rolls-out-pickup-upgrades-for-small-business-shippers/826965/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T13:58:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple warns memory prices, constraints to keep rising",
+      "url": "https://www.supplychaindive.com/news/apple-warns-memory-prices-constraints-to-keep-rising/826879/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T11:26:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s new AI smart speaker will reportedly sell for between $300 and $400",
+      "url": "https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T22:43:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "ChatGPT brings unlimited text chats to free users",
+      "url": "https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T17:34:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Naïve raises $28.5M to automate the grunt work of setting up and running a company",
+      "url": "https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T17:00:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Gen Z dating apps like Ditto ditch swiping in favor of AI matchmaking",
+      "url": "https://techcrunch.com/2026/08/06/gen-z-dating-apps-like-ditto-ditch-swiping-in-favor-of-ai-matchmaking/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T15:53:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI says Apple’s own security practices undermine its trade secrets case",
+      "url": "https://techcrunch.com/2026/08/06/openai-says-apples-own-security-practices-undermine-its-trade-secrets-case/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T15:10:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amid legal battles, Suno says it will start watermarking songs",
+      "url": "https://techcrunch.com/2026/08/06/amid-legal-battles-suno-says-it-will-start-watermarking-songs/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T13:31:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Ex-Spotify employees raise $10M to bring the AI behind its recommendations to e-commerce",
+      "url": "https://techcrunch.com/2026/08/06/ex-spotify-employees-raise-10m-to-bring-the-ai-behind-its-recommendations-to-e-commerce/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T13:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Exclusive: Mirendil inks $100M+ Google Cloud deal to scale self-improving AI",
+      "url": "https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T13:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google Maps adds agentic features, including food ordering and hotel bookings",
+      "url": "https://techcrunch.com/2026/08/06/google-maps-adds-agentic-features-including-food-ordering-and-hotel-bookings/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T12:30:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "31146728605",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
