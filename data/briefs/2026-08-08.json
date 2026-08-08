@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-08",
+  "generated_at": "2026-08-08T03:12:10.595Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-08T03:12:09.438Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tyson suggests high beef prices face long recovery",
+      "url": "https://www.supplychaindive.com/news/tyson-suggests-high-beef-prices-face-long-recovery/827057/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-07T14:35:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP has paid $100B in IEEPA tariff refunds",
+      "url": "https://www.supplychaindive.com/news/cbp-has-paid-100b-in-ieepa-tariff-refunds/827257/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-07T14:16:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump imposes 15% tariff on polysilicon imports for chips, solar power",
+      "url": "https://www.supplychaindive.com/news/trump-imposes-15-tariff-on-polysilicon-imports-for-chips-solar-power/827302/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-07T04:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "O’Reilly Automotive, suppliers sharing tariff refund benefits",
+      "url": "https://www.supplychaindive.com/news/oreilly-automotive-suppliers-sharing-tariff-refund-benefits/827111/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T19:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "China export frontloading fuels Transpacific trade, Matson says",
+      "url": "https://www.supplychaindive.com/news/china-export-frontloading-fuels-transpacific-trade-matson-says/827131/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T16:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Starbucks targets 24-hour inventory replenishment",
+      "url": "https://www.supplychaindive.com/news/starbucks-targets-24-hour-inventory-replenishment/827030/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T14:59:07.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Commerce Department proposes tariffs on more steel, aluminum, copper goods",
+      "url": "https://www.supplychaindive.com/news/commerce-department-proposes-tariffs-on-more-steel-aluminum-copper-goods/827125/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T13:40:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Retailers — eager for cash — sell off rights to potential tariff refunds",
+      "url": "https://www.supplychaindive.com/news/retailers-eager-for-cash-sell-off-rights-to-potential-tariff-refunds/827064/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-06T13:32:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of Virginia adds CSX rail service to Indianapolis",
+      "url": "https://www.supplychaindive.com/news/port-of-virginia-adds-csx-rail-service-to-indianapolis/826997/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T18:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Gymshark names new chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/gymshark-names-new-chief-supply-chain-officer/826891/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-05T15:19:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI says it slowed Astra model development over security concerns",
+      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-07T22:48:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "After Rippling blew millions on AI in months, it built an employee ROI tool",
+      "url": "https://techcrunch.com/2026/08/07/after-rippling-blew-millions-on-ai-in-months-it-built-an-employee-roi-tool/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-07T21:30:11.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cloudflare launches Kitesurf, a browser built for AI agents",
+      "url": "https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-07T16:16:09.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Airbnb says AI is helping it ship features faster as it tests a new search function",
+      "url": "https://techcrunch.com/2026/08/07/airbnb-says-ai-is-helping-it-ship-features-faster-as-it-tests-a-new-search-function/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-07T14:22:49.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Jill Lepore on the ‘Artificial State’ and why Silicon Valley’s leaders are bad sci-fi readers",
+      "url": "https://techcrunch.com/podcast/jill-lepore-on-the-artificial-state-and-why-silicon-valleys-leaders-are-bad-sci-fi-readers/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-07T14:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "New Mexico court orders Meta to pay additional $567M in child safety case",
+      "url": "https://techcrunch.com/2026/08/07/new-mexico-court-orders-meta-to-pay-additional-567m-in-child-safety-case/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-07T11:40:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s new AI smart speaker will reportedly sell for between $300 and $400",
+      "url": "https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T22:43:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "ChatGPT brings unlimited text chats to free users",
+      "url": "https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T17:34:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Naïve raises $28.5M to automate the grunt work of setting up and running a company",
+      "url": "https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-06T17:00:37.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "31236656239",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
