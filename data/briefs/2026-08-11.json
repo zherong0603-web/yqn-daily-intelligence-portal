@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-11",
+  "generated_at": "2026-08-11T03:22:07.591Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-11T03:22:06.365Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ahold Delhaize winds down plans for 2 automated frozen warehouses",
+      "url": "https://www.supplychaindive.com/news/ahold-delhaize-winds-down-plans-for-2-automated-frozen-warehouses/827086/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx, Amazon pursue expanded use of robotic arms",
+      "url": "https://www.supplychaindive.com/news/fedex-amazon-pursue-expanded-use-of-robotic-arms/827221/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T13:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Michael Kors owner says port congestion spurred inventory delays",
+      "url": "https://www.supplychaindive.com/news/michael-kors-owner-says-port-congestion-spurred-inventory-delays/827347/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T13:37:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Clorox expects $200M inflation hit, supply chain costs a factor",
+      "url": "https://www.supplychaindive.com/news/clorox-expects-200m-inflation-hit-supply-chain-costs-a-factor/827252/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T11:29:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The everyday decisions cargo thieves are counting on",
+      "url": "https://www.supplychaindive.com/spons/the-everyday-decisions-cargo-thieves-are-counting-on/826679/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI reportedly completed a $7 billion employee tender offer",
+      "url": "https://techcrunch.com/2026/08/10/openai-reportedly-completed-a-7-billion-employee-tender-offer/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-11T00:03:18.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "As AI-led attacks multiply, OpenAI launches a new cyber model",
+      "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-10T23:56:15.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Mark Zuckerberg’s AI manifesto is exactly why people don’t like AI",
+      "url": "https://techcrunch.com/2026/08/10/mark-zuckerbergs-ai-manifesto-is-exactly-why-people-dont-like-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-10T20:53:02.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Tech industry is buzzing after a Claude agent hacked into a gym",
+      "url": "https://techcrunch.com/2026/08/10/tech-industry-is-buzzing-after-a-claude-agent-hacked-into-a-gym/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-10T20:04:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta’s new Glimmer AI model offers a hint at Zuckerberg’s personal intelligence vision",
+      "url": "https://techcrunch.com/2026/08/10/metas-new-glimmer-ai-model-offers-a-hint-at-zuckerbergs-personal-intelligence-vision/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-10T16:20:13.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Discovered Materials is playing AI whack-a-mole to hunt cooler chips",
+      "url": "https://techcrunch.com/2026/08/10/discovered-materials-is-playing-ai-whack-a-mole-to-hunt-cooler-chips/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Embattled hedge fund Situational Awareness invests $400M in chip startup Source Foundry",
+      "url": "https://techcrunch.com/2026/08/09/embattled-hedge-fund-situational-awareness-invests-400m-in-chip-startup-source-foundry/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-09T20:35:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic is turning Claude Code’s auto mode on by default",
+      "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-09T19:20:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Historian Jill Lepore says Silicon Valley misreads science fiction and undermines democracy",
+      "url": "https://techcrunch.com/2026/08/09/historian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-09T15:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The AI safety test is becoming a safety risk",
+      "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-09T14:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Planned Amazon data center could become the biggest climate polluter in the US",
+      "url": "https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-08T21:24:02.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI acquires presentation startup NextSlide",
+      "url": "https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-08T19:41:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "CBP Cargo Systems Messaging Service",
+      "title": "Cargo Systems Messaging Service",
+      "url": "https://www.cbp.gov/trade/automated/cargo-systems-messaging-service",
+      "domain": "cbp.gov",
+      "published_at": "2026-08-11T03:22:06.355Z"
+    },
+    {
+      "topic": "xiaohongshu_b2b",
+      "name": "小红书聚光平台公开页",
+      "title": "小红书聚光",
+      "url": "https://ad.xiaohongshu.com/",
+      "domain": "ad.xiaohongshu.com",
+      "published_at": "2026-08-11T03:22:07.589Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "31455158506",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
