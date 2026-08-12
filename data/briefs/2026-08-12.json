@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-12",
+  "generated_at": "2026-08-12T03:41:01.043Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-12T03:40:59.688Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Clorox says ERP transition will provide supply chain gains this year",
+      "url": "https://www.supplychaindive.com/news/clorox-says-erp-transition-will-provide-supply-chain-gains-this-year/827589/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T16:39:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "GE Appliances deepens Texas Instruments sourcing for resilience",
+      "url": "https://www.supplychaindive.com/news/ge-appliances-deepens-texas-instruments-sourcing-for-resilience/827455/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T15:13:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Jalapeños served at Qdoba, Chipotle tied to Salmonella outbreak",
+      "url": "https://www.supplychaindive.com/news/chipotle-qdoba-sweetgreen-salmonella-jalapeno-outbreak/827439/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T14:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nintendo recoups $300M in tariff refunds as memory crunch intensifies",
+      "url": "https://www.supplychaindive.com/news/nintendo-recoups-300m-in-tariff-refunds-as-memory-crunch-intensifies/827380/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart proposes fulfillment warehouse in New York",
+      "url": "https://www.supplychaindive.com/news/walmart-proposes-fulfillment-warehouse-in-new-york/827440/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T13:52:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon combines air, ground operations teams",
+      "url": "https://www.supplychaindive.com/news/amazon-combines-air-ground-operations-teams/827547/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T11:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ahold Delhaize winds down plans for 2 automated frozen warehouses",
+      "url": "https://www.supplychaindive.com/news/ahold-delhaize-winds-down-plans-for-2-automated-frozen-warehouses/827086/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx, Amazon pursue expanded use of robotic arms",
+      "url": "https://www.supplychaindive.com/news/fedex-amazon-pursue-expanded-use-of-robotic-arms/827221/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T13:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Michael Kors owner says port congestion spurred inventory delays",
+      "url": "https://www.supplychaindive.com/news/michael-kors-owner-says-port-congestion-spurred-inventory-delays/827347/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T13:37:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Clorox expects $200M inflation hit, supply chain costs a factor",
+      "url": "https://www.supplychaindive.com/news/clorox-expects-200m-inflation-hit-supply-chain-costs-a-factor/827252/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-10T11:29:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Accel closes oversubscribed $550M India fund within weeks, 19 months after its last",
+      "url": "https://techcrunch.com/2026/08/11/accel-closes-oversubscribed-550m-india-fund-within-weeks-19-months-after-its-last/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-11T21:39:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Werner not deterred by July slowdown",
+      "url": "https://www.freightwaves.com/news/werner-not-deterred-by-july-slowdown",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-11T20:54:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Ex-CBP officer used emoji code to let 477 kilos of Sinaloa Cartel drugs cross",
+      "url": "https://www.freightwaves.com/news/ex-cbp-officer-used-emoji-code-to-let-477-kilos-of-sinaloa-cartel-drugs-cross",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-11T20:13:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI launches ChatGPT desktop app for Linux",
+      "url": "https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-11T19:15:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New harbor commission president backs Long Beach port plans",
+      "url": "https://www.freightwaves.com/news/new-harbor-commission-president-backs-long-beach-port-plans",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-11T18:55:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google’s Gemini app surges to 1 billion users",
+      "url": "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-11T18:49:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking M&A: 3 Reasons Private Equity Struggles With Assets",
+      "url": "https://www.freightwaves.com/news/trucking-ma-3-reasons-private-equity-struggles-with-assets",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-11T18:29:41.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Supply Chain Shock: Why Halloween Candy is Out in Summer!",
+      "url": "https://www.freightwaves.com/news/supply-chain-shock-why-halloween-candy-is-out-in-summer",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-11T18:25:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Market Shift: Why RXO’s Scale Wins Big on Insurance & Ops",
+      "url": "https://www.freightwaves.com/news/freight-market-shift-why-rxos-scale-wins-big-on-insurance-ops",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-11T17:56:44.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "31560807959",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
