@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-13",
+  "generated_at": "2026-08-13T03:52:23.648Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-13T03:52:22.193Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Asia to US East Coast ocean rates rise to new high",
+      "url": "https://www.supplychaindive.com/news/asia-to-us-east-coast-ocean-rates-rise-to-new-high/827604/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T19:22:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart flags fewer supplier standard violations",
+      "url": "https://www.supplychaindive.com/news/walmart-flags-fewer-supplier-standard-violations/827562/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T14:30:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Retailers stocked up for upcoming holiday season",
+      "url": "https://www.supplychaindive.com/news/retailers-stocked-up-for-upcoming-holiday-season/827507/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T13:54:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS transportation costs climb as it adjusts to UPS contract needs",
+      "url": "https://www.supplychaindive.com/news/usps-transportation-costs-climb-as-it-adjusts-to-ups-contract-needs/827582/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T13:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Clorox says ERP transition will provide supply chain gains this year",
+      "url": "https://www.supplychaindive.com/news/clorox-says-erp-transition-will-provide-supply-chain-gains-this-year/827589/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T16:39:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "GE Appliances deepens Texas Instruments sourcing for resilience",
+      "url": "https://www.supplychaindive.com/news/ge-appliances-deepens-texas-instruments-sourcing-for-resilience/827455/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T15:13:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Jalapeños served at Qdoba, Chipotle tied to Salmonella outbreak",
+      "url": "https://www.supplychaindive.com/news/chipotle-qdoba-sweetgreen-salmonella-jalapeno-outbreak/827439/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T14:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nintendo recoups $300M in tariff refunds as memory crunch intensifies",
+      "url": "https://www.supplychaindive.com/news/nintendo-recoups-300m-in-tariff-refunds-as-memory-crunch-intensifies/827380/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart proposes fulfillment warehouse in New York",
+      "url": "https://www.supplychaindive.com/news/walmart-proposes-fulfillment-warehouse-in-new-york/827440/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T13:52:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon combines air, ground operations teams",
+      "url": "https://www.supplychaindive.com/news/amazon-combines-air-ground-operations-teams/827547/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T11:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "K9 stop on Louisiana’s I-12 uncovers 358 kilos of meth in semi-trailer, driver now in ICE custody",
+      "url": "https://www.freightwaves.com/news/k9-stop-on-louisianas-i-12-uncovers-358-kilos-of-meth-in-semi-trailer-driver-now-in-ice-custody",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T22:42:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Some Claude users are mad that Anthropic’s new watermarks will catch them using it at their jobs, classes",
+      "url": "https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-12T22:26:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Mexico tops US trade rankings in June as Laredo handles $36.5B in freight",
+      "url": "https://www.freightwaves.com/news/mexico-tops-us-trade-rankings-in-june-as-laredo-handles-36-5b-in-freight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T21:10:20.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amazon will train on Twitch streamers’ content by default, unless they opt out",
+      "url": "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-12T20:10:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Rail freight stretches lead over 2025",
+      "url": "https://www.freightwaves.com/news/rail-freight-stretches-lead-over-2025",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T20:03:31.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI Freight Roll-Up: Why Fura Bought High-Rise",
+      "url": "https://www.freightwaves.com/news/ai-freight-roll-up-why-fura-bought-high-rise",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T19:52:05.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Rail Index at NEAR DECADE HIGH! | Economy Rebounding?",
+      "url": "https://www.freightwaves.com/news/freight-rail-index-at-near-decade-high-economy-rebounding",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T19:48:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New Trucking Authorities: Are They Sustainable?",
+      "url": "https://www.freightwaves.com/news/new-trucking-authorities-are-they-sustainable",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T19:44:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI Data Center Demand to TRIPLE by 2030 | GXO CEO on Logistics Impact",
+      "url": "https://www.freightwaves.com/news/ai-data-center-demand-to-triple-by-2030-gxo-ceo-on-logistics-impact",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-12T19:39:33.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "31665198071",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
