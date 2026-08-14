@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-14",
+  "generated_at": "2026-08-14T03:48:47.018Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-14T03:48:46.065Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Muted air cargo peak season activity signals weaker H2",
+      "url": "https://www.supplychaindive.com/news/muted-air-cargo-peak-season-activity-signals-weaker-h2/827634/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-13T14:47:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Pentagon signs over $2B in deals securing batteries, critical minerals",
+      "url": "https://www.supplychaindive.com/news/pentagon-signs-over-2b-in-deals-securing-batteries-critical-minerals/827485/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-13T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Where USPS could benefit the most from AI",
+      "url": "https://www.supplychaindive.com/news/where-usps-could-benefit-the-most-from-ai/827694/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-13T11:21:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Asia to US East Coast ocean rates rise to new high",
+      "url": "https://www.supplychaindive.com/news/asia-to-us-east-coast-ocean-rates-rise-to-new-high/827604/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T19:22:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart flags fewer supplier standard violations",
+      "url": "https://www.supplychaindive.com/news/walmart-flags-fewer-supplier-standard-violations/827562/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T14:30:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Retailers stocked up for upcoming holiday season",
+      "url": "https://www.supplychaindive.com/news/retailers-stocked-up-for-upcoming-holiday-season/827507/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T13:54:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS transportation costs climb as it adjusts to UPS contract needs",
+      "url": "https://www.supplychaindive.com/news/usps-transportation-costs-climb-as-it-adjusts-to-ups-contract-needs/827582/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-12T13:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Clorox says ERP transition will provide supply chain gains this year",
+      "url": "https://www.supplychaindive.com/news/clorox-says-erp-transition-will-provide-supply-chain-gains-this-year/827589/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T16:39:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "GE Appliances deepens Texas Instruments sourcing for resilience",
+      "url": "https://www.supplychaindive.com/news/ge-appliances-deepens-texas-instruments-sourcing-for-resilience/827455/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T15:13:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Jalapeños served at Qdoba, Chipotle tied to Salmonella outbreak",
+      "url": "https://www.supplychaindive.com/news/chipotle-qdoba-sweetgreen-salmonella-jalapeno-outbreak/827439/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-11T14:20:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Writer introduces new AI model and upgraded harness to contain token costs",
+      "url": "https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-13T21:13:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Databricks wanted to raise $1B, investors wanted $15B. It settled on $5B at a $190B valuation.",
+      "url": "https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-13T20:14:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "States sue Trump administration over bid to access 17 million CDL records",
+      "url": "https://www.freightwaves.com/news/states-sue-trump-administration-over-bid-to-access-17-million-cdl-records",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-13T19:34:02.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work at 14x the speed",
+      "url": "https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-13T19:22:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "IBM partners with OpenAI to bolster enterprise AI push",
+      "url": "https://techcrunch.com/2026/08/13/ibm-partners-with-openai-to-bolster-enterprise-ai-push/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-13T19:19:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Yang Ming’s first-half rebound sets up a volatile second half",
+      "url": "https://www.freightwaves.com/news/yang-mings-first-half-rebound-sets-up-a-volatile-second-half",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-13T19:06:36.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic set AI agents loose on the same task. They started a turf war.",
+      "url": "https://techcrunch.com/2026/08/13/anthropic-set-ai-agents-loose-on-the-same-task-they-started-a-turf-war/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-13T18:28:14.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Top West Coast port sees second-best July on record",
+      "url": "https://www.freightwaves.com/news/top-west-coast-port-sees-second-best-july-on-record",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-13T18:27:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Volvo Trucks: $60M Saved with OTA Updates [24% Fewer Stops]",
+      "url": "https://www.freightwaves.com/news/volvo-trucks-60m-saved-with-ota-updates-24-fewer-stops",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-13T18:06:38.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "31767897600",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
