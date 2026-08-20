@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-20",
+  "generated_at": "2026-08-20T02:41:31.203Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "VentureBeat names Rob Strechay as its first Lead Analyst, expanding its enterprise AI research push",
+      "url": "https://venturebeat.com/ai/venturebeat-names-rob-strechay-as-its-first-lead-analyst-expanding-its-enterprise-ai-research-push",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-19T14:18:12.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-20T02:41:29.879Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Home Depot rolls out express delivery in 3 hours or less across US",
+      "url": "https://www.supplychaindive.com/news/home-depot-rolls-out-express-delivery-in-3-hours-or-less-across-us/828175/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T16:46:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon to expand drone delivery reach sixfold this year",
+      "url": "https://www.supplychaindive.com/news/amazon-to-expand-drone-delivery-reach-sixfold-this-year/828253/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T15:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump delays 50% tariffs on Canada imports for 3 days",
+      "url": "https://www.supplychaindive.com/news/trump-delays-50-tariffs-on-canada-imports-for-3-days/828213/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T14:29:44.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nearly 60 members of Congress call for aluminum pricing investigation",
+      "url": "https://www.supplychaindive.com/news/nearly-60-members-of-congress-call-for-aluminum-pricing-investigation/828247/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T14:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How Sprouts balances self-distribution and store growth",
+      "url": "https://www.supplychaindive.com/news/how-sprouts-balances-self-distribution-and-store-growth/827972/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T11:27:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon preps 1M-square-foot distribution center in Connecticut",
+      "url": "https://www.supplychaindive.com/news/amazon-preps-1m-square-foot-distribution-center-in-connecticut/828085/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-18T19:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Honeywell Aerospace targets supplier bottlenecks to boost output",
+      "url": "https://www.supplychaindive.com/news/honeywell-aerospace-targets-supplier-bottlenecks-to-boost-output/827975/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-18T14:38:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Experts call FCC’s block on foreign robotics a nearshoring tactic",
+      "url": "https://www.supplychaindive.com/news/experts-call-fccs-block-on-foreign-robotics-a-nearshoring-tactic/827423/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-18T14:31:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Panama Canal continues draft restrictions, ocean carriers up fees",
+      "url": "https://www.supplychaindive.com/news/panama-canal-continues-draft-restrictions-ocean-carriers-up-fees/828039/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-18T14:12:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "3 ways Kimberly-Clark is using technology to boost supply chain efficiency",
+      "url": "https://www.supplychaindive.com/news/3-ways-kimberly-clark-is-using-technology-to-boost-supply-chain-efficiency/828037/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-18T13:55:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Axle Logistics Lands a Five-Year Jersey Patch Deal With Tennessee Basketball",
+      "url": "https://www.freightwaves.com/news/axle-logistics-lands-a-five-year-jersey-patch-deal-with-tennessee-basketball",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-20T02:10:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Stripe didn’t really buy OpenRouter because of the ‘singularity’",
+      "url": "https://techcrunch.com/2026/08/19/stripe-didnt-really-buy-openrouter-because-of-the-singularity/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-19T23:32:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "ACCC executes search warrant at logistics software giant WiseTech in competition probe",
+      "url": "https://www.freightwaves.com/news/accc-executes-search-warrant-at-logistics-software-giant-wisetech-in-competition-probe",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-19T22:29:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI seeks to one-up Anthropic with new customer privacy protections",
+      "url": "https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-19T22:10:46.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cognition CEO denies report that SpaceX tried to acquire the startup",
+      "url": "https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-19T21:51:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "North American Rail Traffic JUMPS 4.9%!",
+      "url": "https://www.freightwaves.com/news/north-american-rail-traffic-jumps-4-9",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-19T20:05:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Beyond Tariffs: Geopolitics & Climate Reroute Global Freight",
+      "url": "https://www.freightwaves.com/news/beyond-tariffs-geopolitics-climate-reroute-global-freight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-19T20:04:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking’s New Reality: Why Regulations Benefit the Industry",
+      "url": "https://www.freightwaves.com/news/truckings-new-reality-why-regulations-benefit-the-industry",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-19T19:55:45.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "32325507458",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
