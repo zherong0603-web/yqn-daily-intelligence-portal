@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-21",
+  "generated_at": "2026-08-21T02:47:57.255Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "VentureBeat names Rob Strechay as its first Lead Analyst, expanding its enterprise AI research push",
+      "url": "https://venturebeat.com/ai/venturebeat-names-rob-strechay-as-its-first-lead-analyst-expanding-its-enterprise-ai-research-push",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-19T14:18:12.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-21T02:47:56.426Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kimberly-Clark tests new fiber for sourcing resiliency, sustainability",
+      "url": "https://www.supplychaindive.com/news/kimberly-clark-tests-new-fiber-for-sourcing-resiliency-sustainability/828287/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T18:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US calls for EU to deliver on trade concessions on sustainability laws",
+      "url": "https://www.supplychaindive.com/news/us-calls-for-eu-to-deliver-on-trade-concessions-on-sustainability-laws/828250/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T15:01:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Culver’s taps Armada to revamp supply chain, targets expansion",
+      "url": "https://www.supplychaindive.com/news/culvers-taps-armada-to-revamp-supply-chain-targets-expansion/828146/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T14:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon, fulfillment tech company AutoStore ink global supply deal",
+      "url": "https://www.supplychaindive.com/news/amazon-fulfillment-tech-company-autostore-ink-global-supply-deal/827978/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T14:08:33.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Caterpillar bags $392M tariff refund as duty costs shrink",
+      "url": "https://www.supplychaindive.com/news/caterpillar-bags-392m-tariff-refund-as-duty-costs-shrink/828170/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T11:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Home Depot rolls out express delivery in 3 hours or less across US",
+      "url": "https://www.supplychaindive.com/news/home-depot-rolls-out-express-delivery-in-3-hours-or-less-across-us/828175/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T16:46:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon to expand drone delivery reach sixfold this year",
+      "url": "https://www.supplychaindive.com/news/amazon-to-expand-drone-delivery-reach-sixfold-this-year/828253/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T15:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump delays 50% tariffs on Canada imports for 3 days",
+      "url": "https://www.supplychaindive.com/news/trump-delays-50-tariffs-on-canada-imports-for-3-days/828213/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T14:29:44.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nearly 60 members of Congress call for aluminum pricing investigation",
+      "url": "https://www.supplychaindive.com/news/nearly-60-members-of-congress-call-for-aluminum-pricing-investigation/828247/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T14:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How Sprouts balances self-distribution and store growth",
+      "url": "https://www.supplychaindive.com/news/how-sprouts-balances-self-distribution-and-store-growth/827972/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-19T11:27:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI data startup Micro1 reaches $500M gross run rate amid AI training boom",
+      "url": "https://techcrunch.com/2026/08/20/ai-data-startup-micro1-reaches-500m-gross-run-rate-amid-ai-training-boom/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-21T00:13:44.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI is gaining on Anthropic with business users, new data indicates",
+      "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-20T22:36:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "ChatGPT can now send texts for you with new Apple Messages plug-in",
+      "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-20T22:09:51.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OK, can we actually cool data centers with our pee?",
+      "url": "https://techcrunch.com/2026/08/20/ok-can-we-actually-cool-data-centers-with-our-pee/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-20T20:53:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Einride targets 1,500 trucks by 2028 with Tesla and DAF deals",
+      "url": "https://www.freightwaves.com/news/einride-daf-driverless-freight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-20T20:46:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Diesel still ripping higher than the rest of the barrel; here’s why",
+      "url": "https://www.freightwaves.com/news/diesel-still-ripping-higher-than-the-rest-of-the-barrel-heres-why",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-20T19:39:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Americold’s Secret to Surviving Power Outages",
+      "url": "https://www.freightwaves.com/news/americolds-secret-to-surviving-power-outages",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-20T19:21:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google gives publishers a new way to fight AI-driven traffic losses",
+      "url": "https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-20T19:18:21.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "32441079864",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
