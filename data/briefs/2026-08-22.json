@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-22",
+  "generated_at": "2026-08-22T02:38:45.812Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "VentureBeat names Rob Strechay as its first Lead Analyst, expanding its enterprise AI research push",
+      "url": "https://venturebeat.com/ai/venturebeat-names-rob-strechay-as-its-first-lead-analyst-expanding-its-enterprise-ai-research-push",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-19T14:18:12.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-22T02:38:44.827Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Panama Canal to trim daily shipping slots due to El Niño",
+      "url": "https://www.supplychaindive.com/news/panama-canal-to-trim-daily-shipping-slots-due-to-el-nino/828505/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-21T21:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US to temporarily relieve ground beef tariffs in bid to lower prices",
+      "url": "https://www.supplychaindive.com/news/us-beef-prices-tariff-relief-trump/828510/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-21T16:27:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Best Buy achieves zero waste goal at supply chain facilities",
+      "url": "https://www.supplychaindive.com/news/best-buy-achieves-zero-waste-goal-at-supply-chain-facilities/828412/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-21T14:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of Los Angeles preps for cargo bump as shippers navigate global risks",
+      "url": "https://www.supplychaindive.com/news/port-of-los-angeles-preps-for-cargo-bump-as-shippers-navigate-global-risks/828376/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-21T14:39:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart expands 30-minutes-or-less delivery as speed woos shoppers",
+      "url": "https://www.supplychaindive.com/news/walmart-expands-30-minutes-or-less-delivery-as-speed-woos-shoppers/828404/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-21T13:44:56.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Birkenstock production network capacity expansion on track to meet 2027 target",
+      "url": "https://www.supplychaindive.com/news/birkenstock-production-network-capacity-expansion-on-track-to-meet-2027-tar/828290/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-21T11:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kimberly-Clark tests new fiber for sourcing resiliency, sustainability",
+      "url": "https://www.supplychaindive.com/news/kimberly-clark-tests-new-fiber-for-sourcing-resiliency-sustainability/828287/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T18:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US calls for EU to deliver on trade concessions on sustainability laws",
+      "url": "https://www.supplychaindive.com/news/us-calls-for-eu-to-deliver-on-trade-concessions-on-sustainability-laws/828250/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T15:01:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Culver’s taps Armada to revamp supply chain, targets expansion",
+      "url": "https://www.supplychaindive.com/news/culvers-taps-armada-to-revamp-supply-chain-targets-expansion/828146/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T14:11:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon, fulfillment tech company AutoStore ink global supply deal",
+      "url": "https://www.supplychaindive.com/news/amazon-fulfillment-tech-company-autostore-ink-global-supply-deal/827978/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-20T14:08:33.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s Opus 4.6 is a smut-machine",
+      "url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-21T23:07:25.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia partners with data center developer Cloverleaf",
+      "url": "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-21T22:37:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The list grows: 2 more cases proceeding on broker liability",
+      "url": "https://www.freightwaves.com/news/the-list-grows-2-more-cases-proceeding-on-broker-liability",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-21T20:32:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Intermodal Savings Surge: Up to 49% ROI for Shippers",
+      "url": "https://www.freightwaves.com/news/intermodal-savings-surge-up-to-49-roi-for-shippers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-21T19:54:25.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia just showed that the harness, not the AI model, is now the real hero",
+      "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-21T19:43:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FBI hunts ‘No Name Given Kamal’ as transnational crime probe reveals trucking links",
+      "url": "https://www.freightwaves.com/news/fbi-hunts-no-name-given-kamal-as-transnational-crime-probe-reveals-trucking-links",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-21T19:33:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Google Maps Just Launched Truck-Aware Routing That Knows About Low Bridges and Weight Limits. Here Is What It Means, and What It Does Not.",
+      "url": "https://www.freightwaves.com/news/google-maps-just-launched-truck-aware-routing-that-knows-about-low-bridges-and-weight-limits-here-is-what-it-means-and-what-it-does-not",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-21T18:34:32.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Chris Spear departing as head of American Trucking Associations",
+      "url": "https://www.freightwaves.com/news/chris-spear-departing-as-head-of-american-trucking-associations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-21T17:09:21.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "32546787985",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
