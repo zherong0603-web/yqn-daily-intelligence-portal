@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-25",
+  "generated_at": "2026-08-25T02:43:12.142Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-25T02:43:10.523Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump vows 50% tariffs on Canada cars, trucks, auto parts, steel",
+      "url": "https://www.supplychaindive.com/news/trump-vows-50-tariffs-on-canada-cars-trucks-auto-parts-steel/828611/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T16:11:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Target highlights in-stock gains as turnaround plan advances",
+      "url": "https://www.supplychaindive.com/news/target-highlights-in-stock-gains-as-turnaround-plan-advances/828525/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T14:40:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "ADM plans $100M oilseed crush expansion at 4 US plants",
+      "url": "https://www.supplychaindive.com/news/adm-plans-100m-oilseed-crush-expansion-at-4-us-plants/828437/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T11:24:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The future of freight audit isn’t finding more errors, it’s preventing them",
+      "url": "https://www.supplychaindive.com/spons/the-future-of-freight-audit-isnt-finding-more-errors-its-preventing-them/827632/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Solving organized retail theft starts with better supply chain data integrity",
+      "url": "https://www.supplychaindive.com/spons/solving-organized-retail-theft-starts-with-better-supply-chain-data-integri/827522/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump’s 50% tariff on many Canada imports in effect as talks stall",
+      "url": "https://www.supplychaindive.com/news/trumps-50-tariff-on-many-canada-imports-in-effect-as-talks-stall/828549/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-22T14:23:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Situational Awareness, star AI hedge fund that nearly imploded, now being probed by the SEC",
+      "url": "https://techcrunch.com/2026/08/24/situational-awareness-star-ai-hedge-fund-that-nearly-imploded-now-being-probed-by-the-sec/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-25T00:23:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Feds: USPS carriers stole nearly $24M in checks, shipped them through FedEx",
+      "url": "https://www.freightwaves.com/news/feds-usps-carriers-stole-nearly-24m-in-checks-shipped-them-through-fedex",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T23:11:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Trump bought SpaceX shares two weeks after blockbuster IPO",
+      "url": "https://techcrunch.com/2026/08/24/trump-bought-spacex-shares-two-weeks-after-blockbuster-ipo/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-24T21:24:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Legendary logistics executive Klaus-Michael Kühne dead at 89",
+      "url": "https://www.freightwaves.com/news/legendary-logistics-executive-klaus-michael-kuhne-dead-at-89",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T20:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking Downturn: Why 85% of New Carriers Didn’t Survive",
+      "url": "https://www.freightwaves.com/news/trucking-downturn-why-85-of-new-carriers-didnt-survive",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T20:02:28.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amjad Masad, CEO and co-founder of Replit, joins the Disrupt Stage at TechCrunch Disrupt 2026 ",
+      "url": "https://techcrunch.com/2026/08/24/amjad-masad-ceo-and-co-founder-of-replit-joins-the-disrupt-stage-at-techcrunch-disrupt-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-24T19:54:19.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Private Fleets: The Hidden $100B Capacity Solution for Brokers",
+      "url": "https://www.freightwaves.com/news/private-fleets-the-hidden-100b-capacity-solution-for-brokers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T19:53:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon Drone Delivery Expansion: What Changes Now",
+      "url": "https://www.freightwaves.com/news/amazon-drone-delivery-expansion-what-changes-now",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T19:43:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Diesel Prices Surge, Spot Rates Plunge: Why Trucking Costs Are Disconnected",
+      "url": "https://www.freightwaves.com/news/diesel-prices-surge-spot-rates-plunge-why-trucking-costs-are-disconnected",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T19:39:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI in Warehousing: How AutoScheduler Drives Supply Chain Efficiency",
+      "url": "https://www.freightwaves.com/news/ai-in-warehousing-how-autoscheduler-drives-supply-chain-efficiency",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T19:36:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New plan for NYC’s BQE involves temporary roads: Mamdani",
+      "url": "https://www.freightwaves.com/news/new-plan-for-nycs-bqe-involves-temporary-roads-mamdani",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T18:26:35.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Uber Freight: US-Mexico capacity crunch could ‘get worse before it gets better’",
+      "url": "https://www.freightwaves.com/news/uber-freight-us-mexico-capacity-crunch-could-get-worse-before-it-gets-better",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T18:26:32.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Panama Canal new capacity cuts put US ports on notice",
+      "url": "https://www.freightwaves.com/news/panama-canal-new-capacity-cuts-put-us-ports-on-notice",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-24T18:22:22.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "32802432710",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
