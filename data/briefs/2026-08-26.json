@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-26",
+  "generated_at": "2026-08-26T02:50:37.108Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-26T02:50:36.124Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS announces 6% rate increase for 2026 peak season",
+      "url": "https://www.supplychaindive.com/news/usps-announces-6-rate-increase-for-2026-peak-season/828763/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T20:31:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "BJ’s Wholesale Club to cut SKUs by 20%",
+      "url": "https://www.supplychaindive.com/news/bjs-wholesale-club-to-cut-skus-by-20/828618/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T17:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Crowley launches Central America-Port Houston ocean service",
+      "url": "https://www.supplychaindive.com/news/crowley-launches-central-america-port-houston-ocean-service/828622/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T14:51:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Where Walmart’s packaging ended up on 2025 sustainability targets",
+      "url": "https://www.supplychaindive.com/news/where-walmarts-packaging-ended-up-on-2025-sustainability-targets/827364/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T14:51:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx’s healthcare leader outlines next steps in sector growth plan",
+      "url": "https://www.supplychaindive.com/news/fedexs-healthcare-leader-outlines-next-steps-in-sector-growth-plan/828613/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T13:59:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Canada to install retaliatory tariffs of up to 50% on US imports",
+      "url": "https://www.supplychaindive.com/news/canada-to-install-retaliatory-tariffs-of-up-to-50-on-us-imports/828728/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T13:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Deere expects ‘step-up’ in tariff costs in 2027",
+      "url": "https://www.supplychaindive.com/news/deere-expects-step-up-in-tariff-costs-in-2027/828624/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T11:19:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump vows 50% tariffs on Canada cars, trucks, auto parts, steel",
+      "url": "https://www.supplychaindive.com/news/trump-vows-50-tariffs-on-canada-cars-trucks-auto-parts-steel/828611/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T16:11:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Target highlights in-stock gains as turnaround plan advances",
+      "url": "https://www.supplychaindive.com/news/target-highlights-in-stock-gains-as-turnaround-plan-advances/828525/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T14:40:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "ADM plans $100M oilseed crush expansion at 4 US plants",
+      "url": "https://www.supplychaindive.com/news/adm-plans-100m-oilseed-crush-expansion-at-4-us-plants/828437/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-24T11:24:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Robotics startup Generalist reaches $3B valuation, sources say",
+      "url": "https://techcrunch.com/2026/08/25/robotics-startup-generalist-reaches-3b-valuation-sources-say/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-26T00:40:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI loses a top data center exec, as stream of high-profile departures continues",
+      "url": "https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-26T00:06:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Abandoned vans lead deputies to $123K in Brooks shoes from BNSF boxcar theft",
+      "url": "https://www.freightwaves.com/news/abandoned-vans-lead-deputies-to-123k-in-brooks-shoes-from-bnsf-boxcar-theft",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-25T21:49:31.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Dolly Parton dies at 80, two months after opening Tennessee truck stop ",
+      "url": "https://www.freightwaves.com/news/dolly-parton-dies-at-80-two-months-after-opening-tennessee-truck-stop",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-25T21:07:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "U.S. Postal Service plans 6% peak season surcharge for parcels",
+      "url": "https://www.freightwaves.com/news/u-s-postal-service-plans-6-peak-season-surcharge-for-parcels",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-25T20:41:53.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "A newcomer to Roadcheck driver violations top 5: speaking English",
+      "url": "https://www.freightwaves.com/news/a-newcomer-to-roadcheck-driver-violations-top-5-speaking-english",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-25T20:35:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Mexican trucking group urges US to clarify B-1 visa revocations ",
+      "url": "https://www.freightwaves.com/news/mexican-trucking-group-urges-us-to-clarify-b-1-visa-revocations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-25T20:15:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Stability AI, maker of image generator Stable Diffusion, raises $76 million in fresh funding",
+      "url": "https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-25T19:03:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New return: Another container line is back in the Red Sea",
+      "url": "https://www.freightwaves.com/news/new-return-another-container-line-is-back-in-the-red-sea",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-25T18:46:05.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "32924198160",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
