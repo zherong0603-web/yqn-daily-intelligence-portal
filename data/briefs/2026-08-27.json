@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-27",
+  "generated_at": "2026-08-27T11:58:34.608Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Orchestration is the new challenge for CX in the age of AI agents",
+      "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-26T14:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-27T11:58:33.021Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Advance Auto Parts rebids carrier contracts, expects to save tens of millions",
+      "url": "https://www.supplychaindive.com/news/advance-auto-parts-rebids-carrier-contracts-expects-to-save-tens-of-millio/828742/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T17:34:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "H&M, Inditex and PVH’s garment manufacturer called out for alleged union-squashing",
+      "url": "https://www.supplychaindive.com/news/hm-inditex-and-pvhs-garment-manufacturer-called-out-for-alleged-union-sq/827660/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T14:21:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How big box retailers are using tariff refunds",
+      "url": "https://www.supplychaindive.com/news/how-big-box-retailers-are-using-tariff-refunds/828717/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T13:53:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS announces 6% rate increase for 2026 peak season",
+      "url": "https://www.supplychaindive.com/news/usps-announces-6-rate-increase-for-2026-peak-season/828763/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T20:31:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "BJ’s Wholesale Club to cut SKUs by 20%",
+      "url": "https://www.supplychaindive.com/news/bjs-wholesale-club-to-cut-skus-by-20/828618/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T17:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Crowley launches Central America-Port Houston ocean service",
+      "url": "https://www.supplychaindive.com/news/crowley-launches-central-america-port-houston-ocean-service/828622/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T14:51:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Where Walmart’s packaging ended up on 2025 sustainability targets",
+      "url": "https://www.supplychaindive.com/news/where-walmarts-packaging-ended-up-on-2025-sustainability-targets/827364/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T14:51:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx’s healthcare leader outlines next steps in sector growth plan",
+      "url": "https://www.supplychaindive.com/news/fedexs-healthcare-leader-outlines-next-steps-in-sector-growth-plan/828613/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T13:59:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Canada to install retaliatory tariffs of up to 50% on US imports",
+      "url": "https://www.supplychaindive.com/news/canada-to-install-retaliatory-tariffs-of-up-to-50-on-us-imports/828728/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T13:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Deere expects ‘step-up’ in tariff costs in 2027",
+      "url": "https://www.supplychaindive.com/news/deere-expects-step-up-in-tariff-costs-in-2027/828624/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T11:19:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI to start showing ads on ChatGPT’s free and Go tiers in India",
+      "url": "https://techcrunch.com/2026/08/27/openai-to-start-showing-ads-on-chatgpts-free-and-go-tiers-in-india/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-27T11:35:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "DeepFabric lands Kenco as It scales supply chain agents",
+      "url": "https://www.freightwaves.com/news/deepfabric-kenco-supply-chain-agents",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-27T11:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia closes in on Hugging Face acquisition",
+      "url": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-27T06:32:51.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Viral AI startup Instinct has raised $350M at a $2.5B valuation",
+      "url": "https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-27T00:24:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amazon just tripled its order of Nvidia chips over ‘surging demand’",
+      "url": "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-26T23:47:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Diesel Prices: It’s a Refining Crisis, Not Crude",
+      "url": "https://www.freightwaves.com/news/diesel-prices-its-a-refining-crisis-not-crude",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-26T22:42:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Autonomous Trucks Are Here: Einride’s 27% Revenue Jump",
+      "url": "https://www.freightwaves.com/news/autonomous-trucks-are-here-einrides-27-revenue-jump",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-26T22:40:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Reefer Rejections Stay Hot as Intermodal Wins 33%",
+      "url": "https://www.freightwaves.com/news/reefer-rejections-stay-hot-as-intermodal-wins-33",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-26T22:37:20.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "33069691039",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
