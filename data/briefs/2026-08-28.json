@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-28",
+  "generated_at": "2026-08-28T13:20:00.077Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
+      "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-27T14:01:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "When agents act on their own, governance has to live in the data layer",
+      "url": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-27T12:01:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Orchestration is the new challenge for CX in the age of AI agents",
+      "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-26T14:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-28T13:19:59.330Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How a New York City bill could shake up Amazon, FedEx delivery operations",
+      "url": "https://www.supplychaindive.com/news/how-a-new-york-city-bill-could-shake-up-amazon-fedex-delivery-operations/828860/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T17:13:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US, Canada trade war poses sourcing risks for agriculture, consumer goods",
+      "url": "https://www.supplychaindive.com/news/us-canada-trade-war-poses-sourcing-risks-for-agriculture-consumer-goods/828967/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T16:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS preps higher holiday surcharges for 2026",
+      "url": "https://www.supplychaindive.com/news/ups-preps-higher-holiday-surcharges-for-2026/828936/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T15:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Packaging sector braces for US-Canada trade war impacts",
+      "url": "https://www.supplychaindive.com/news/packaging-sector-braces-for-us-canada-trade-war-impacts/828938/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T14:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Corona, Modelo maker names supply chain lead for beer division",
+      "url": "https://www.supplychaindive.com/news/corona-modelo-maker-names-supply-chain-lead-for-beer-division/828844/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T14:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lenovo ramps up regional manufacturing amid chip shortage, tariff risks",
+      "url": "https://www.supplychaindive.com/news/lenovo-ramps-up-regional-manufacturing-amid-chip-shortage-tariff-risks/828773/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T11:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Advance Auto Parts rebids carrier contracts, expects to save tens of millions",
+      "url": "https://www.supplychaindive.com/news/advance-auto-parts-rebids-carrier-contracts-expects-to-save-tens-of-millio/828742/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T17:34:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "H&M, Inditex and PVH’s garment manufacturer called out for alleged union-squashing",
+      "url": "https://www.supplychaindive.com/news/hm-inditex-and-pvhs-garment-manufacturer-called-out-for-alleged-union-sq/827660/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T14:21:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How big box retailers are using tariff refunds",
+      "url": "https://www.supplychaindive.com/news/how-big-box-retailers-are-using-tariff-refunds/828717/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T13:53:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS announces 6% rate increase for 2026 peak season",
+      "url": "https://www.supplychaindive.com/news/usps-announces-6-rate-increase-for-2026-peak-season/828763/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-25T20:31:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic gets its first court win over the Pentagon’s supply chain risk label",
+      "url": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-28T12:46:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Motive Restricted Highway’s Data Access Over a Payment Demand",
+      "url": "https://www.freightwaves.com/news/motive-restricted-highways-data-access-over-a-payment-demand",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-28T12:35:04.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta executive leaves for OpenAI as the social media giant faces growing scrutiny in India",
+      "url": "https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-28T12:21:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic and OpenAI are joining the AI stage at TechCrunch Disrupt 2026 ",
+      "url": "https://techcrunch.com/2026/08/27/anthropic-and-openai-are-joining-the-ai-stage-at-techcrunch-disrupt-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-27T23:16:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FMCSA, New York ready to rumble over non-domiciled CDL rules",
+      "url": "https://www.freightwaves.com/news/fmcsa-new-york-ready-to-rumble-over-non-domiciled-cdl-rules",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-27T20:09:04.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Barret Zoph, the Thinking Machines co-founder ousted before joining OpenAI, is now at Google",
+      "url": "https://techcrunch.com/2026/08/27/barret-zoph-the-thinking-machines-co-founder-who-defected-to-openai-is-now-at-google/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-27T19:52:52.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "33174881150",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
