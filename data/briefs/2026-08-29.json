@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-29",
+  "generated_at": "2026-08-29T08:16:44.415Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
+      "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-27T14:01:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "When agents act on their own, governance has to live in the data layer",
+      "url": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-27T12:01:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "VentureBeat AI",
+      "title": "Orchestration is the new challenge for CX in the age of AI agents",
+      "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
+      "domain": "venturebeat.com",
+      "published_at": "2026-08-26T14:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-08-29T08:16:43.690Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Jim Beam maker chooses next chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/jim-beam-maker-chooses-next-chief-supply-chain-officer/828859/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-28T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart to build $1.3B fulfillment center in Georgia",
+      "url": "https://www.supplychaindive.com/news/walmart-to-build-13b-fulfillment-center-in-georgia/828955/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-28T13:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Boston Scientific’s ordering, shipping disrupted in cyberattack",
+      "url": "https://www.supplychaindive.com/news/boston-scientifics-ordering-shipping-disrupted-in-cyberattack/828933/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-28T11:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How a New York City bill could shake up Amazon, FedEx delivery operations",
+      "url": "https://www.supplychaindive.com/news/how-a-new-york-city-bill-could-shake-up-amazon-fedex-delivery-operations/828860/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T17:13:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US, Canada trade war poses sourcing risks for agriculture, consumer goods",
+      "url": "https://www.supplychaindive.com/news/us-canada-trade-war-poses-sourcing-risks-for-agriculture-consumer-goods/828967/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T16:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS preps higher holiday surcharges for 2026",
+      "url": "https://www.supplychaindive.com/news/ups-preps-higher-holiday-surcharges-for-2026/828936/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T15:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Packaging sector braces for US-Canada trade war impacts",
+      "url": "https://www.supplychaindive.com/news/packaging-sector-braces-for-us-canada-trade-war-impacts/828938/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T14:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Corona, Modelo maker names supply chain lead for beer division",
+      "url": "https://www.supplychaindive.com/news/corona-modelo-maker-names-supply-chain-lead-for-beer-division/828844/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T14:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lenovo ramps up regional manufacturing amid chip shortage, tariff risks",
+      "url": "https://www.supplychaindive.com/news/lenovo-ramps-up-regional-manufacturing-amid-chip-shortage-tariff-risks/828773/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-27T11:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Advance Auto Parts rebids carrier contracts, expects to save tens of millions",
+      "url": "https://www.supplychaindive.com/news/advance-auto-parts-rebids-carrier-contracts-expects-to-save-tens-of-millio/828742/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-26T17:34:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Canada Post to launch weekend parcel delivery by year’s end",
+      "url": "https://www.freightwaves.com/news/canada-post-to-launch-weekend-parcel-delivery-by-years-end",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-28T21:05:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Neocloud Lambda secures $1B in debt to buy more chips",
+      "url": "https://techcrunch.com/2026/08/28/neocloud-lambda-secures-1b-in-debt-to-buy-more-chips/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-28T20:24:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Motive and Highway Restore ELD Data Access After Integration Dispute",
+      "url": "https://www.freightwaves.com/news/motive-and-highway-restore-eld-data-access-after-integration-dispute",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-28T20:12:58.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "An Anthropic researcher just gave us a peek at self-improving AI",
+      "url": "https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-28T19:30:38.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Open-weight AI companies are the Valley’s hottest acquisition targets",
+      "url": "https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-28T18:19:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Port of Los Angeles locks in ONE terminal for 30 more years",
+      "url": "https://www.freightwaves.com/news/port-of-los-angeles-locks-in-one-terminal-for-30-more-years",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-28T18:18:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "33242757016",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
