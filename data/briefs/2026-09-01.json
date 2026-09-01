@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-01",
+  "generated_at": "2026-09-01T06:43:54.558Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-01T06:43:53.802Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Dollar General deploys AI across distribution centers, stores",
+      "url": "https://www.supplychaindive.com/news/dollar-general-deploys-ai-across-distribution-centers-stores/828966/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T14:27:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Heritage Grocers appoints logistics executive",
+      "url": "https://www.supplychaindive.com/news/heritage-grocers-appoints-logistics-executive/829073/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T14:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Williams-Sonoma to spread tariff refunds to vendors, employees",
+      "url": "https://www.supplychaindive.com/news/williams-sonoma-to-spread-tariff-refunds-to-vendors-employees/829090/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T13:53:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Intel report shows gap between robotics expectations and readiness",
+      "url": "https://www.supplychaindive.com/news/intel-report-shows-gap-between-robotics-expectations-and-readiness/828823/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T13:50:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nvidia says supply shortages are limiting AI revenue growth",
+      "url": "https://www.supplychaindive.com/news/nvidia-says-supply-shortages-are-limiting-ai-revenue-growth/829115/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T11:24:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Network flexibility: The key to maintaining service in volatile markets",
+      "url": "https://www.supplychaindive.com/spons/network-flexibility-the-key-to-maintaining-service-in-volatile-markets/828670/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple shares ‘shocking evidence’ against former employee accused of stealing company data for OpenAI",
+      "url": "https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T00:13:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "UPS reorganization prioritizes global logistics over parcel delivery",
+      "url": "https://www.freightwaves.com/news/ups-reorganization-prioritizes-global-logistics-over-parcel-delivery",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T22:30:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$10.75 million in meth found inside leek shipment at Texas border bridge",
+      "url": "https://www.freightwaves.com/news/10-75-million-in-meth-found-inside-leek-shipment-at-texas-border-bridge",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T21:25:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The Pentagon now has its own version of ChatGPT and Grok",
+      "url": "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-31T20:13:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "North America must ‘join forces’ to compete as global trade fragments, expert says ",
+      "url": "https://www.freightwaves.com/news/north-america-must-join-forces-to-compete-as-global-trade-fragments-expert-says",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T19:47:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Instagram puts new limits on undisclosed AI profiles",
+      "url": "https://techcrunch.com/2026/08/31/instagram-puts-new-limits-on-undisclosed-ai-profiles/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-31T19:16:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "California police investigate $70K beer cargo theft after fraudulent pickups",
+      "url": "https://www.freightwaves.com/news/california-police-investigate-70k-beer-cargo-theft-after-fraudulent-pickups",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T18:53:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Out of its depth: Why 52 feet could equal millions of dollars for this U.S. port",
+      "url": "https://www.freightwaves.com/news/out-of-its-depth-why-52-feet-could-equal-millions-of-dollars-for-this-u-s-port",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T18:45:21.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Harvard Law dropout raises $6M for Blue Voice to build a ‘Harvey for police officers’",
+      "url": "https://techcrunch.com/2026/08/31/harvard-law-dropout-raises-6m-for-blue-voice-to-build-a-harvey-for-police-officers/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-08-31T18:35:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "US-Mexico Border Freight Surges 1000% at Laredo Bridge | Nearshoring Impact",
+      "url": "https://www.freightwaves.com/news/us-mexico-border-freight-surges-1000-at-laredo-bridge-nearshoring-impact",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T18:23:16.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Brokers: Why Your Carrier Vetting Process MUST Change Now",
+      "url": "https://www.freightwaves.com/news/freight-brokers-why-your-carrier-vetting-process-must-change-now",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T18:22:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Rail Freight Forecast: Coal Volumes Set for SHOCKING Q4 Uptick?",
+      "url": "https://www.freightwaves.com/news/rail-freight-forecast-coal-volumes-set-for-shocking-q4-uptick",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T18:19:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$5.3 million a new record for Panama Canal transit",
+      "url": "https://www.freightwaves.com/news/5-3-million-a-new-record-for-panama-canal-transit",
+      "domain": "freightwaves.com",
+      "published_at": "2026-08-31T16:19:19.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "33478837923",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
