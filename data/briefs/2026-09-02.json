@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-02",
+  "generated_at": "2026-09-02T06:22:25.309Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-02T06:22:24.408Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Manufacturing growth slows in August as economic concerns loom: ISM",
+      "url": "https://www.supplychaindive.com/news/manufacturing-growth-slows-in-august-as-economic-concerns-loom-ism/829327/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-01T17:39:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cotopaxi repays workers at Taiwan mills for predatory recruitment fees",
+      "url": "https://www.supplychaindive.com/news/cotopaxi-repays-workers-at-taiwan-mills-for-predatory-recruitment-fees/829192/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-01T15:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS launches new global operating model, revamps exec roles",
+      "url": "https://www.supplychaindive.com/news/ups-launches-new-global-operating-model-revamps-exec-roles/829296/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-01T14:39:14.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Sapporo USA to close craft brewing facilities following sale",
+      "url": "https://www.supplychaindive.com/news/sapporo-usa-to-close-craft-brewing-facilities-following-sale/828932/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-01T14:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Boscov’s revamps e-commerce fulfillment operations",
+      "url": "https://www.supplychaindive.com/news/boscovs-revamps-e-commerce-fulfillment-operations/829164/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-01T12:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Dollar General deploys AI across distribution centers, stores",
+      "url": "https://www.supplychaindive.com/news/dollar-general-deploys-ai-across-distribution-centers-stores/828966/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T14:27:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Heritage Grocers appoints logistics executive",
+      "url": "https://www.supplychaindive.com/news/heritage-grocers-appoints-logistics-executive/829073/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T14:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Williams-Sonoma to spread tariff refunds to vendors, employees",
+      "url": "https://www.supplychaindive.com/news/williams-sonoma-to-spread-tariff-refunds-to-vendors-employees/829090/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T13:53:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Intel report shows gap between robotics expectations and readiness",
+      "url": "https://www.supplychaindive.com/news/intel-report-shows-gap-between-robotics-expectations-and-readiness/828823/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T13:50:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nvidia says supply shortages are limiting AI revenue growth",
+      "url": "https://www.supplychaindive.com/news/nvidia-says-supply-shortages-are-limiting-ai-revenue-growth/829115/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-08-31T11:24:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Seasonal ag truckers from Mexico face same English-language rules, DOL says",
+      "url": "https://www.freightwaves.com/news/seasonal-ag-truckers-from-mexico-face-same-english-language-rules-dol-says",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-01T23:23:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AfterQuery reportedly becomes Y Combinator’s fastest-ever unicorn, now valued at $3.2B",
+      "url": "https://techcrunch.com/2026/09/01/afterquery-reportedly-becomes-y-combinators-fastest-ever-unicorn-now-valued-at-3-2b/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T22:08:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s Astra model is on the way — and very good at breaking into computer systems",
+      "url": "https://techcrunch.com/2026/09/01/open-ais-astra-model-is-on-the-way-and-very-good-at-breaking-into-computer-systems/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T21:06:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google’s Android update tackles motion sickness, accessibility, and more",
+      "url": "https://techcrunch.com/2026/09/01/googles-android-update-tackles-motion-sickness-accessibility-and-more/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T20:53:05.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s new Fable release is cheaper, less restrictive",
+      "url": "https://techcrunch.com/2026/09/01/anthropics-new-fable-release-is-cheaper-less-restrictive/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T19:39:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Bankrupt Yellow Corp. settles remaining pension claims for $526M",
+      "url": "https://www.freightwaves.com/news/bankrupt-yellow-corp-settles-remaining-pension-claims-for-526m",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-01T19:18:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Florida AG calls semi-truck a ‘rolling dungeon’ after 4 children confined for 6 years",
+      "url": "https://www.freightwaves.com/news/florida-ag-calls-semi-truck-a-rolling-dungeon-after-4-children-confined-for-6-years",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-01T18:14:26.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google’s answer to Canva is an AI tool where you prompt instead of design",
+      "url": "https://techcrunch.com/2026/09/01/googles-answer-to-canva-is-an-ai-tool-where-you-prompt-instead-of-design/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T17:35:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "ChatGPT Health adds Epic integration for clinicians to import patient data",
+      "url": "https://techcrunch.com/2026/09/01/chatgpt-health-adds-epic-integration-for-clinicians-to-import-patient-data/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-01T17:00:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "33598517381",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
