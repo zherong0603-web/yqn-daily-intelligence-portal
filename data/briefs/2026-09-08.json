@@ -1,0 +1,155 @@
+{
+  "date": "2026-09-08",
+  "generated_at": "2026-09-08T06:30:03.154Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-08T06:30:01.357Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "‘Utter devastation’ from Amazon cargo jet crash, NTSB chief says",
+      "url": "https://www.freightwaves.com/news/utter-devastation-from-amazon-cargo-jet-crash-ntsb-chief-says",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-07T22:25:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Opaque recurrence, and other AI terms that you should probably know",
+      "url": "https://techcrunch.com/2026/09/07/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-07T19:24:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Police recover trailers after $155K Guinness heist, but 880 barrels remain missing",
+      "url": "https://www.freightwaves.com/news/police-recover-trailers-after-155k-guinness-heist-but-880-barrels-remain-missing",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-07T18:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Feds: Truckers hauled hundreds of kilos of cartel cocaine on US-Canada freight lanes",
+      "url": "https://www.freightwaves.com/news/feds-truckers-hauled-hundreds-of-kilos-of-cartel-cocaine-on-us-canada-freight-lanes",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-07T16:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "2 Miami runways still closed after deadly Amazon cargo jet accident",
+      "url": "https://www.freightwaves.com/news/2-miami-runways-still-closed-after-deadly-amazon-cargo-jet-accident",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-07T15:19:51.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CargoNet tracks $31.8M in Labor Day thefts as criminals breach trusted freight accounts",
+      "url": "https://www.freightwaves.com/news/cargonet-tracks-31-8m-in-labor-day-thefts-as-criminals-breach-trusted-freight-accounts",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-07T10:39:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Authors push back as publishers and agents make claims on Anthropic settlement",
+      "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-06T20:47:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Travis Kalanick’s Atoms might be getting into the robotaxi business",
+      "url": "https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-06T16:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Borderlands Mexico: Trucker protest raises stakes in Mexico-US B-1 visa dispute ",
+      "url": "https://www.freightwaves.com/news/borderlands-mexico-trucker-protest-raises-stakes-in-mexico-us-b-1-visa-dispute",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-06T11:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+      "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-05T22:49:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Hikers rescued after using Google Gemini for planning",
+      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-05T19:35:24.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure",
+      "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-05T18:05:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$277K Guinness heist: Thieves hit same UK depot twice in 2 hours",
+      "url": "https://www.freightwaves.com/news/277k-guinness-heist-thieves-hit-same-uk-depot-twice-in-2-hours",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-05T11:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "CBP Cargo Systems Messaging Service",
+      "title": "Cargo Systems Messaging Service",
+      "url": "https://www.cbp.gov/trade/automated/cargo-systems-messaging-service",
+      "domain": "cbp.gov",
+      "published_at": "2026-09-08T06:30:01.424Z"
+    },
+    {
+      "topic": "xiaohongshu_b2b",
+      "name": "小红书聚光平台公开页",
+      "title": "小红书聚光",
+      "url": "https://ad.xiaohongshu.com/",
+      "domain": "ad.xiaohongshu.com",
+      "published_at": "2026-09-08T06:30:03.151Z"
+    },
+    {
+      "topic": "xiaohongshu_b2b",
+      "name": "小红书商业动态公开页",
+      "title": "你访问的页面不见了",
+      "url": "https://www.xiaohongshu.com/enterprise",
+      "domain": "xiaohongshu.com",
+      "published_at": "2026-09-08T06:30:02.055Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "34194888570",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
