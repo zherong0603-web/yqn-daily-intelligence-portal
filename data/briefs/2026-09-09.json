@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-09",
+  "generated_at": "2026-09-09T06:36:41.210Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-09T06:36:40.672Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "MIA sees limited air cargo disruption after Amazon crash",
+      "url": "https://www.supplychaindive.com/news/mia-sees-limited-air-cargo-disruption-after-amazon-crash/829825/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T18:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "La-Z-Boy plans $23M Missouri manufacturing expansion, distribution center",
+      "url": "https://www.supplychaindive.com/news/la-z-boy-plans-23m-missouri-manufacturing-expansion-distribution-center/829366/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T16:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Feces in the food supply: What’s next after summer of Cyclospora",
+      "url": "https://www.supplychaindive.com/news/feces-in-the-food-supply-whats-next-after-summer-of-cyclospora/829546/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T14:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP wants stakeholder input on supply chain visibility push",
+      "url": "https://www.supplychaindive.com/news/cbp-wants-stakeholder-input-on-supply-chain-visibility-push/829687/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T14:22:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tractor Supply’s Petsense selects Instacart for same-day delivery",
+      "url": "https://www.supplychaindive.com/news/tractor-supplys-petsense-selects-instacart-for-same-day-delivery/829462/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T14:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Sportsman’s Warehouse says SKU cuts, inventory timing tweaks pay off",
+      "url": "https://www.supplychaindive.com/news/sportsmans-warehouse-says-sku-cuts-inventory-timing-tweaks-pay-off/829582/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T11:38:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon freighter in crash was transporting contact lenses",
+      "url": "https://www.freightwaves.com/news/amazon-freighter-in-crash-was-transporting-contact-lenses",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-09T04:38:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "At tech/AI confab, C.H. Robinson tackles insurance and liability",
+      "url": "https://www.freightwaves.com/news/at-tech-ai-confab-c-h-robinson-tackles-insurance-and-liability",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T22:07:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Hackers are stealing Claude tokens from subscribers",
+      "url": "https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-08T21:10:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cognition hits $48B valuation, signaling investors believe AI coding is far from a winner-take-all market",
+      "url": "https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-08T21:04:06.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Fuel Surcharge Gaps: What Carriers Miss on Every Load",
+      "url": "https://www.freightwaves.com/news/fuel-surcharge-gaps-what-carriers-miss-on-every-load",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T19:35:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Autonomous Trucking in 28 States: What Changes Next?",
+      "url": "https://www.freightwaves.com/news/autonomous-trucking-in-28-states-what-changes-next",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T19:34:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Cabless Trucks Are Coming Faster Than Carriers Think",
+      "url": "https://www.freightwaves.com/news/cabless-trucks-are-coming-faster-than-carriers-think",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T19:33:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Shipping Volatility: Are Freight Markets Balancing?",
+      "url": "https://www.freightwaves.com/news/shipping-volatility-are-freight-markets-balancing",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T19:31:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$604M CH Robinson Verdict Still Isn’t Final Yet",
+      "url": "https://www.freightwaves.com/news/604m-ch-robinson-verdict-still-isnt-final-yet",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T19:29:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta debuts its Muse AI agent. Will consumers trust it?",
+      "url": "https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-08T19:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Drinking water or warships? Panama Canal reverses ship restrictions",
+      "url": "https://www.freightwaves.com/news/drinking-water-or-warships-panama-canal-reverses-ship-restrictions",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-08T17:58:04.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI fought dirty on career-making math problem, says NYU mathematician",
+      "url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-08T17:32:15.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google Cloud races to catch up in the AI deployment wars with Accenture deal",
+      "url": "https://techcrunch.com/2026/09/08/google-cloud-races-to-catch-up-in-the-ai-deployment-wars-with-accenture-deal/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-08T16:20:31.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "34319823411",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
