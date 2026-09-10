@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-10",
+  "generated_at": "2026-09-10T06:36:11.473Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-10T06:36:10.894Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean freight rates cool despite continued price elevation",
+      "url": "https://www.supplychaindive.com/news/ocean-freight-rates-cool-despite-continued-price-elevation/829800/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T20:04:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon projects reduced reliance on USPS, UPS for delivery: report",
+      "url": "https://www.supplychaindive.com/news/amazon-projects-reduced-reliance-on-usps-ups-for-delivery-report/829820/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T14:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Boston Scientific begins to restore shipping after cyberattack",
+      "url": "https://www.supplychaindive.com/news/boston-scientific-begins-to-restore-shipping-after-cyberattack/829775/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T14:28:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump escalates Canada trade war with new tariffs, import bans",
+      "url": "https://www.supplychaindive.com/news/trump-escalates-canada-trade-war-with-new-tariffs-import-bans/829876/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T11:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Miami airport sees limited air cargo disruption after Amazon crash",
+      "url": "https://www.supplychaindive.com/news/miami-airport-sees-limited-air-cargo-disruption-after-amazon-crash/829825/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T18:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "La-Z-Boy plans $23M Missouri manufacturing expansion, distribution center",
+      "url": "https://www.supplychaindive.com/news/la-z-boy-plans-23m-missouri-manufacturing-expansion-distribution-center/829366/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T16:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Feces in the food supply: What’s next after summer of Cyclospora",
+      "url": "https://www.supplychaindive.com/news/feces-in-the-food-supply-whats-next-after-summer-of-cyclospora/829546/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T14:26:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP wants stakeholder input on supply chain visibility push",
+      "url": "https://www.supplychaindive.com/news/cbp-wants-stakeholder-input-on-supply-chain-visibility-push/829687/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T14:22:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tractor Supply’s Petsense selects Instacart for same-day delivery",
+      "url": "https://www.supplychaindive.com/news/tractor-supplys-petsense-selects-instacart-for-same-day-delivery/829462/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T14:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Sportsman’s Warehouse says SKU cuts, inventory timing tweaks pay off",
+      "url": "https://www.supplychaindive.com/news/sportsmans-warehouse-says-sku-cuts-inventory-timing-tweaks-pay-off/829582/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T11:38:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI research startup Listen Labs scrubbed a $1.5B funding round for Salesforce talks",
+      "url": "https://techcrunch.com/2026/09/09/ai-research-startup-listen-labs-scrubbed-a-1-5b-funding-round-for-salesforce-talks/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T00:00:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI adds a prominent AI doomer to its board of directors",
+      "url": "https://techcrunch.com/2026/09/09/openai-adds-a-prominent-ai-doomer-to-its-board-of-directors/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-09T22:25:22.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Massachusetts hits data centers with new clean power rules",
+      "url": "https://techcrunch.com/2026/09/09/massachusetts-hits-data-centers-with-new-clean-power-rules/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-09T21:43:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FMCSA suspends USDOT deactivations for missed biennial updates during MOTUS rollout",
+      "url": "https://www.freightwaves.com/news/fmcsa-suspends-usdot-deactivations-for-missed-biennial-updates-during-motus-rollout",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-09T20:36:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Police find $3.8M in cocaine in Indiana truck’s sleeper after ‘mystery’ Memphis pickup",
+      "url": "https://www.freightwaves.com/news/police-find-3-8m-in-cocaine-in-indiana-trucks-sleeper-after-mystery-memphis-pickup",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-09T20:33:35.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple Watch’s new AI features are normalizing the idea that technology is always listening",
+      "url": "https://techcrunch.com/2026/09/09/apple-watchs-new-ai-features-are-normalizing-the-idea-that-technology-is-always-listening/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-09T20:24:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Summer wanes but railfreight stays hot",
+      "url": "https://www.freightwaves.com/news/summer-wanes-but-railfreight-stays-hot",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-09T20:24:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Everything Apple announced at its fall iPhone event, from the foldable iPhone Duo to an always-listening Apple Watch",
+      "url": "https://techcrunch.com/2026/09/09/everything-apple-announced-at-its-fall-iphone-event-from-the-foldable-iphone-duo-to-an-always-listening-apple-watch/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-09T20:03:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Colonial Terminals opens new Savannah breakbulk hub",
+      "url": "https://www.freightwaves.com/news/colonial-terminals-opens-new-savannah-breakbulk-hub",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-09T19:25:49.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "34445913997",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
