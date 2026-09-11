@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-11",
+  "generated_at": "2026-09-11T06:35:46.169Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-11T06:35:45.533Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Dell faces widening supply shortages as high AI demand persists",
+      "url": "https://www.supplychaindive.com/news/dell-faces-widening-supply-shortages-as-high-ai-demand-persists/830083/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T19:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Why Hyundai is raising its local sourcing goal in North America",
+      "url": "https://www.supplychaindive.com/news/why-hyundai-is-raising-its-local-sourcing-goal-in-north-america/829845/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T15:07:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "No industry is spared from costly US tariff regime",
+      "url": "https://www.supplychaindive.com/news/no-industry-is-spared-from-costly-us-tariff-regime/829893/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T14:28:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "2026 holiday delivery fees: Comparing USPS, FedEx, UPS and Amazon",
+      "url": "https://www.supplychaindive.com/news/2026-holiday-delivery-fees-comparing-usps-fedex-ups-and-amazon/829910/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T13:48:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean freight rates cool despite continued price elevation",
+      "url": "https://www.supplychaindive.com/news/ocean-freight-rates-cool-despite-continued-price-elevation/829800/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T20:04:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon projects reduced reliance on USPS, UPS for delivery: report",
+      "url": "https://www.supplychaindive.com/news/amazon-projects-reduced-reliance-on-usps-ups-for-delivery-report/829820/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T14:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Boston Scientific begins to restore shipping after cyberattack",
+      "url": "https://www.supplychaindive.com/news/boston-scientific-begins-to-restore-shipping-after-cyberattack/829775/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T14:28:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump escalates Canada trade war with new tariffs, import bans",
+      "url": "https://www.supplychaindive.com/news/trump-escalates-canada-trade-war-with-new-tariffs-import-bans/829876/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-09T11:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Miami airport sees limited air cargo disruption after Amazon crash",
+      "url": "https://www.supplychaindive.com/news/miami-airport-sees-limited-air-cargo-disruption-after-amazon-crash/829825/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T18:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "La-Z-Boy plans $23M Missouri manufacturing expansion, distribution center",
+      "url": "https://www.supplychaindive.com/news/la-z-boy-plans-23m-missouri-manufacturing-expansion-distribution-center/829366/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-08T16:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Descartes reports another record-breaking quarter",
+      "url": "https://www.freightwaves.com/news/descartes-reports-another-record-breaking-quarter",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-10T23:05:16.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Jensen Huang explains why Nvidia will grow an astounding 70% next year",
+      "url": "https://techcrunch.com/2026/09/10/jensen-huang-explains-why-nvidia-will-grow-an-astounding-70-next-year/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T21:51:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Mark Wahlberg is coming to TechCrunch Disrupt 2026, and he wants to talk about your work, not his",
+      "url": "https://techcrunch.com/2026/09/10/mark-wahlberg-is-coming-to-techcrunch-disrupt-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T21:35:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI puts Pro subscriptions on hold due to Astra demand",
+      "url": "https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T20:59:51.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic details distillation campaigns from Alibaba, Moonshot AI, and DeepSeek",
+      "url": "https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T20:57:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta’s AI agent Muse is now the No. 2 app in the US",
+      "url": "https://techcrunch.com/2026/09/10/metas-ai-agent-muse-is-now-the-no-2-app-in-the-us/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T19:50:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "El Niño Winter Forecast: Freight Risks Fleets Can’t Ignore",
+      "url": "https://www.freightwaves.com/news/el-nino-winter-forecast-freight-risks-fleets-cant-ignore",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-10T18:02:10.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Tender Rejections at 13.5%: Tight Market or Fade?",
+      "url": "https://www.freightwaves.com/news/tender-rejections-at-13-5-tight-market-or-fade",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-10T18:01:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Margin Collapse: 9.7 to 0.6 in One Quarter",
+      "url": "https://www.freightwaves.com/news/margin-collapse-9-7-to-0-6-in-one-quarter",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-10T18:00:38.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "34570576869",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
