@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-13",
+  "generated_at": "2026-09-13T06:43:35.152Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-13T06:43:34.305Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP: Shippers could lose import privileges if customs info is wrong",
+      "url": "https://www.supplychaindive.com/news/cbp-shippers-could-lose-import-privileges-if-customs-info-is-wrong/830113/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-11T20:50:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of New York, New Jersey to launch $39M ZEV voucher program",
+      "url": "https://www.supplychaindive.com/news/port-of-new-york-new-jersey-to-launch-39m-zev-voucher-program/829968/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-11T14:13:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lands’ End continues backlog recovery from WMS hiccup",
+      "url": "https://www.supplychaindive.com/news/lands-end-continues-backlog-recovery-from-wms-hiccup/829953/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-11T13:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx launches Shopify app to combat surprise import charges",
+      "url": "https://www.supplychaindive.com/news/fedex-launches-shopify-app-to-combat-surprise-import-charges/830019/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-11T12:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Air cargo rates ease, shippers buy short-term capacity",
+      "url": "https://www.supplychaindive.com/news/air-cargo-rates-ease-shippers-buy-short-term-capacity/830076/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-11T11:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Dell faces widening supply shortages as high AI demand persists",
+      "url": "https://www.supplychaindive.com/news/dell-faces-widening-supply-shortages-as-high-ai-demand-persists/830083/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T19:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Why Hyundai is raising its local sourcing goal in North America",
+      "url": "https://www.supplychaindive.com/news/why-hyundai-is-raising-its-local-sourcing-goal-in-north-america/829845/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T15:07:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "No industry is spared from costly US tariff regime",
+      "url": "https://www.supplychaindive.com/news/no-industry-is-spared-from-costly-us-tariff-regime/829893/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T14:28:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "2026 holiday delivery fees: Comparing USPS, FedEx, UPS and Amazon",
+      "url": "https://www.supplychaindive.com/news/2026-holiday-delivery-fees-comparing-usps-fedex-ups-and-amazon/829910/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-10T13:48:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Imports and inventories stabilize in 2026, but for how long",
+      "url": "https://www.freightwaves.com/news/imports-and-inventories-stabilize-in-2026-but-for-how-long",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-13T00:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s Sam Altman says it would be ‘ill-advised’ to go public in 2026",
+      "url": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-12T20:19:16.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic CEO outlines plan to slow AI development",
+      "url": "https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-12T19:34:44.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
+      "url": "https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T22:58:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Y Combinator’s Garry Tan wants US open-weight AI labs to ‘distill’ frontier models, too",
+      "url": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T20:59:47.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s feud with mathematicians is only escalating",
+      "url": "https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T20:57:36.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "One week left to book your exhibit table at TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/09/11/one-week-left-to-book-your-exhibit-table-at-techcrunch-disrupt-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T20:33:18.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Final, final, final call for TechCrunch Disrupt 2026 Side Events",
+      "url": "https://techcrunch.com/2026/09/11/final-final-final-call-for-techcrunch-disrupt-2026-side-events/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T20:30:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "California, FMCSA argue non-domiciled CDL halt in court",
+      "url": "https://www.freightwaves.com/news/california-fmcsa-argue-non-domiciled-cdl-halt-in-court",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-11T20:17:19.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Kimi-maker Moonshot AI targets $2B in annual revenue",
+      "url": "https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T19:35:54.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "34743439422",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
