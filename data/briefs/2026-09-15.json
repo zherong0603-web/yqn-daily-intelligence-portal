@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-15",
+  "generated_at": "2026-09-15T06:37:41.010Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-15T06:37:39.470Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean peak season endures, defying forecast of early end",
+      "url": "https://www.supplychaindive.com/news/ocean-peak-season-endures-defying-forecast-of-early-end/830170/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T15:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Google helps deploy 25 electric trucks in Texas as part of alliance",
+      "url": "https://www.supplychaindive.com/news/google-helps-deploy-25-electric-trucks-in-texas-as-part-of-alliance/830251/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T14:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shein opens automated distribution center Indiana",
+      "url": "https://www.supplychaindive.com/news/shein-opens-automated-distribution-center-indiana/830190/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T14:32:06.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Your packaging inventory forecasts are already out of date",
+      "url": "https://www.supplychaindive.com/spons/your-packaging-inventory-forecasts-are-already-out-of-date/829750/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Your supply chain has a visibility problem. Your executives have a decision problem.",
+      "url": "https://www.supplychaindive.com/spons/your-supply-chain-has-a-visibility-problem-your-executives-have-a-decision-1/829873/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Monitor, recommend, execute: How AI creates a more responsive supply chain",
+      "url": "https://www.supplychaindive.com/spons/monitor-recommend-execute-how-ai-creates-a-more-responsive-supply-chain/830003/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Jensen Huang took a call from Trump, and showed off something else, too",
+      "url": "https://techcrunch.com/2026/09/14/jensen-huang-took-a-call-from-trump-and-showed-off-something-else-too/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T01:50:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FedEx Freight expands CTO’s role to cover commercial strategy following CCO ouster",
+      "url": "https://www.freightwaves.com/news/fedex-freight-expands-ctos-role-to-cover-commercial-strategy-following-cco-ouster",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-14T22:18:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
+      "url": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T21:51:02.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI buys smartphone camera maker Glass Imaging for $300 million, report says",
+      "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T20:44:14.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Cass: TL rates jump 11% in August, freight shipments turn positive",
+      "url": "https://www.freightwaves.com/news/cass-tl-rates-jump-11-in-august-freight-shipments-turn-positive",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-14T17:17:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Northern Air Cargo names permanent CEO",
+      "url": "https://www.freightwaves.com/news/northern-air-cargo-names-permanent-ceo",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-14T17:16:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "With iOS 27, I’m actually using Siri again",
+      "url": "https://techcrunch.com/2026/09/14/with-ios-27-im-actually-using-siri-again/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T17:10:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Fashion app Daydream uses Apple Intelligence to help you shop the outfits in your camera roll",
+      "url": "https://techcrunch.com/2026/09/14/fashion-discovery-app-daydream-uses-apple-intelligence-to-help-you-shop-the-outfits-saved-in-your-camera-roll/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T17:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Almost 1 million TEUs in new record for this U.S. container gateway",
+      "url": "https://www.freightwaves.com/news/almost-1-million-teus-in-new-record-for-this-u-s-container-gateway",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-14T16:28:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft’s new AI ‘code of conduct’ tells models not to hack systems or trick humans",
+      "url": "https://techcrunch.com/2026/09/14/microsofts-new-ai-code-of-conduct-tells-models-not-to-hack-systems-or-trick-humans/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T16:27:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Only at TechCrunch Disrupt 2026: What happens when OpenAI ships your roadmap?",
+      "url": "https://techcrunch.com/2026/09/14/only-at-techcrunch-disrupt-2026-what-happens-when-openai-ships-your-roadmap/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T15:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Small Fleet Financing: Why Buying Trucks Stops Making Sense",
+      "url": "https://www.freightwaves.com/news/small-fleet-financing-why-buying-trucks-stops-making-sense",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-14T14:47:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Superhuman acquires YC-backed notetaker Fathom as productivity platforms push for agentic work",
+      "url": "https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-14T14:45:44.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "34937756880",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
