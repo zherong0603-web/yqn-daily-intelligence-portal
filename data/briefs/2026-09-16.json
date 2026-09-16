@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-16",
+  "generated_at": "2026-09-16T06:38:40.079Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-16T06:38:39.125Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Burlington advances on-site solar strategy across distribution network",
+      "url": "https://www.supplychaindive.com/news/burlington-advances-on-site-solar-strategy-across-distribution-network/829942/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T15:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Express rolls out heavyweight air cargo service",
+      "url": "https://www.supplychaindive.com/news/dhl-express-rolls-out-heavyweight-air-cargo-service/830311/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T14:16:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tesla preps $1.4M Texas distribution center",
+      "url": "https://www.supplychaindive.com/news/tesla-preps-14m-texas-distribution-center/830082/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T13:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "McCain Foods taps PepsiCo supply chain exec to head operations",
+      "url": "https://www.supplychaindive.com/news/mccain-foods-taps-pepsico-supply-chain-exec-to-head-operations/829776/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T13:10:16.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "HPE combats memory constraints with supplier help, better forecasting",
+      "url": "https://www.supplychaindive.com/news/hpe-combats-memory-constraints-with-supplier-help-better-forecasting/830199/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T11:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean peak season endures, defying forecast of early end",
+      "url": "https://www.supplychaindive.com/news/ocean-peak-season-endures-defying-forecast-of-early-end/830170/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T15:07:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Google helps roll out 25 electric trucks in Texas",
+      "url": "https://www.supplychaindive.com/news/google-helps-roll-out-25-electric-trucks-in-texas/830251/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T14:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shein opens automated distribution center in Indiana",
+      "url": "https://www.supplychaindive.com/news/shein-opens-automated-distribution-center-in-indiana/830190/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T14:32:06.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Your packaging inventory forecasts are already out of date",
+      "url": "https://www.supplychaindive.com/spons/your-packaging-inventory-forecasts-are-already-out-of-date/829750/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Your supply chain has a visibility problem. Your executives have a decision problem.",
+      "url": "https://www.supplychaindive.com/spons/your-supply-chain-has-a-visibility-problem-your-executives-have-a-decision-1/829873/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-14T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says",
+      "url": "https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T00:20:39.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The AI data center boom is colliding with cities scarred by big industry ",
+      "url": "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T21:47:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FMCSA names CDL schools swept into nationwide emergency shutdown",
+      "url": "https://www.freightwaves.com/news/fmcsa-names-cdl-schools-swept-into-nationwide-emergency-shutdown",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-15T20:13:51.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+      "url": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T20:12:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "url": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T19:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Shipium Rethinks Freight Audit as Forensics, Not Archaeology",
+      "url": "https://www.freightwaves.com/news/shipium-rethinks-freight-audit-as-forensics-not-archaeology",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-15T18:40:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
+      "url": "https://techcrunch.com/2026/09/15/us-data-centers-could-consume-more-natural-gas-than-germany-and-japan-combined-by-2035/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T18:29:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Hapag-Lloyd CEO cites resilient demand, but sees shipping market exposed to Middle East disruption",
+      "url": "https://www.freightwaves.com/news/hapag-lloyd-ceo-cites-resilient-demand-but-sees-shipping-market-exposed-to-middle-east-disruption",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-15T18:04:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AI agents now have a place to snitch",
+      "url": "https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T17:42:59.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "35064623379",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
