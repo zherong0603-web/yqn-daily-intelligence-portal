@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-17",
+  "generated_at": "2026-09-17T06:36:25.612Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-17T06:36:23.145Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS network revamp challenges on-time delivery from rural areas",
+      "url": "https://www.supplychaindive.com/news/usps-network-revamp-challenges-on-time-delivery-from-rural-areas/830507/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T17:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Munchkin taps 20-year industry veteran as first chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/munchkin-taps-20-year-industry-veteran-as-first-chief-supply-chain-officer/830446/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T15:16:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Macy’s rolls out AI inventory replenishment tool",
+      "url": "https://www.supplychaindive.com/news/macys-rolls-out-ai-inventory-replenishment-tool/830441/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T14:35:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Manufacturing slows from four-year high as prices rise: NY Fed survey",
+      "url": "https://www.supplychaindive.com/news/manufacturing-slows-from-four-year-high-as-prices-rise-ny-fed-survey/830511/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T14:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Good Culture names COO to scale supply chain",
+      "url": "https://www.supplychaindive.com/news/good-culture-names-coo-to-scale-supply-chain/830360/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T12:18:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Burlington advances on-site solar strategy across distribution network",
+      "url": "https://www.supplychaindive.com/news/burlington-advances-on-site-solar-strategy-across-distribution-network/829942/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T15:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "DHL Express rolls out heavyweight air cargo service",
+      "url": "https://www.supplychaindive.com/news/dhl-express-rolls-out-heavyweight-air-cargo-service/830311/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T14:16:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "OnTrac aims to turn available capacity into lower delivery prices",
+      "url": "https://www.supplychaindive.com/news/ontrac-aims-to-turn-available-capacity-into-lower-delivery-prices/830393/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T13:59:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tesla preps $1.4M Texas distribution center",
+      "url": "https://www.supplychaindive.com/news/tesla-preps-14m-texas-distribution-center/830082/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T13:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "McCain Foods taps PepsiCo supply chain exec to head operations",
+      "url": "https://www.supplychaindive.com/news/mccain-foods-taps-pepsico-supply-chain-exec-to-head-operations/829776/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-15T13:10:16.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Iceland-based Treble raises $18 million for its voice simulation platform",
+      "url": "https://techcrunch.com/2026/09/16/iceland-based-treble-raises-18-million-for-its-voice-simulation-platform/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T05:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Your startup’s next teammate might be an AI agent: Gusto, Insight Partners, and Leland explain what that changes at TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/09/16/your-startups-next-teammate-might-be-an-ai-agent-gusto-insight-partners-and-leland-explain-what-that-changes-at-techcrunch-disrupt-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T03:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Snap tries to make the case again for its $2,200 smart glasses",
+      "url": "https://techcrunch.com/2026/09/16/snap-tries-to-make-the-case-again-for-its-2200-smart-glasses/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T00:58:49.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Al Gore says the real AI risk isn’t data centers",
+      "url": "https://techcrunch.com/2026/09/16/al-gore-has-a-surprisingly-calm-take-on-the-ai-data-center-backlash/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T23:43:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Mexico arrests alleged cartel logistics operator tied to Seattle-Tacoma drug network ",
+      "url": "https://www.freightwaves.com/news/mexico-arrests-alleged-cartel-logistics-operator-tied-to-seattle-tacoma-drug-network",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-16T22:35:31.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic and OpenAI want to embed safety evaluators. Will they really be independent?",
+      "url": "https://techcrunch.com/2026/09/16/anthropic-and-openai-want-to-embed-safety-evaluators-will-they-really-be-independent/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T21:07:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Driver shortage changes the playbook for private fleet safety ",
+      "url": "https://www.freightwaves.com/news/driver-shortage-changes-the-playbook-for-private-fleet-safety",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-16T20:32:52.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "After accusations of selling ‘perv glasses,’ Meta prepares to sell a pair without a camera",
+      "url": "https://techcrunch.com/2026/09/16/after-accusations-of-selling-perv-glasses-meta-prepares-to-sell-a-pair-without-a-camera/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T20:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Diesel Prices Just Broke Records. Worse Ahead?",
+      "url": "https://www.freightwaves.com/news/diesel-prices-just-broke-records-worse-ahead",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-16T19:36:35.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "35190544761",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
