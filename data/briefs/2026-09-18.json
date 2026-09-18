@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-18",
+  "generated_at": "2026-09-18T06:33:25.015Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-18T06:33:24.127Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP to expand IEEPA tariff processing in October",
+      "url": "https://www.supplychaindive.com/news/cbp-to-expand-ieepa-tariff-processing-in-october/830618/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-17T17:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "SC Ports, Norfolk Southern’s intermodal service grows Southeast reach",
+      "url": "https://www.supplychaindive.com/news/sc-ports-norfolk-southerns-intermodal-service-grows-southeast-reach/830582/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-17T14:11:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "San Pedro Ports seek zero-emission truck usage boost via new incentive program",
+      "url": "https://www.supplychaindive.com/news/san-pedro-ports-seek-zero-emission-truck-usage-boost-via-new-incentive-prog/830536/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-17T13:40:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fed hikes main interest rate by quarter point, citing stubborn inflation",
+      "url": "https://www.supplychaindive.com/news/fed-hikes-main-interest-rate-by-quarter-point-citing-stubborn-inflation/830635/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-17T12:05:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UNFI consolidates Midwest facilities to leverage automation",
+      "url": "https://www.supplychaindive.com/news/unfi-consolidates-midwest-facilities-to-leverage-automation/830616/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-17T11:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS network revamp challenges on-time delivery from rural areas",
+      "url": "https://www.supplychaindive.com/news/usps-network-revamp-challenges-on-time-delivery-from-rural-areas/830507/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T17:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Munchkin taps 20-year industry veteran as first chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/munchkin-taps-20-year-industry-veteran-as-first-chief-supply-chain-officer/830446/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T15:16:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Macy’s rolls out AI inventory replenishment tool",
+      "url": "https://www.supplychaindive.com/news/macys-rolls-out-ai-inventory-replenishment-tool/830441/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T14:35:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Manufacturing slows from 4-year high as prices rise",
+      "url": "https://www.supplychaindive.com/news/manufacturing-slows-from-4-year-high-as-prices-rise/830511/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T14:33:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Good Culture names COO to scale supply chain",
+      "url": "https://www.supplychaindive.com/news/good-culture-names-coo-to-scale-supply-chain/830360/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-16T12:18:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Daimler Truck brings NextGenH2 to IAA as hydrogen pact forms",
+      "url": "https://www.freightwaves.com/news/daimler-nextgenh2-hydrogen-ecosystem-iaa",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-18T03:47:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Crusoe raises $3.9B to build massive data centers and small modular ‘AI factories’",
+      "url": "https://techcrunch.com/2026/09/17/crusoe-raises-3-9b-to-build-massive-data-centers-and-small-modular-ai-factories/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T23:25:52.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google DeepMind launches institute to widen the AGI debate",
+      "url": "https://techcrunch.com/2026/09/17/google-deepmind-launches-institute-to-widen-the-agi-debate/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T23:21:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Estes bets $56M on cross-border, offshore freight expansion",
+      "url": "https://www.freightwaves.com/news/estes-bets-56m-on-cross-border-offshore-freight-expansion",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-17T23:16:47.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "PrismML hopes its tiny LLM will change how we all use AI",
+      "url": "https://techcrunch.com/2026/09/17/prismml-hopes-its-tiny-llm-could-change-how-we-all-use-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T22:34:09.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The FAA’s plan to fix air traffic? $875M worth of AI",
+      "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T22:14:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The fix for rogue AI agents could be more AI",
+      "url": "https://techcrunch.com/2026/09/17/the-fix-for-rogue-ai-agents-could-be-more-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T20:34:47.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI caught its models leaving notes to successors to hide bad behavior",
+      "url": "https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-17T20:34:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "SONAR Launches SCI Custom Insights — Free Webinar Demo October 1",
+      "url": "https://www.freightwaves.com/news/sonar-launches-sci-custom-insights-free-webinar-demo-october-1",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-17T20:21:43.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "35315360501",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
