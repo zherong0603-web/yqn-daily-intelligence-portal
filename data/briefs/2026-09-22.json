@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-22",
+  "generated_at": "2026-09-22T06:44:01.545Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-22T06:44:00.727Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UP, NS merger: STB denies shippers’ calls for dismissal",
+      "url": "https://www.supplychaindive.com/news/up-ns-merger-stb-denies-shippers-calls-for-dismissal/830906/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T21:59:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx preps 5.9% rate hike, surcharge increases for 2027",
+      "url": "https://www.supplychaindive.com/news/fedex-preps-59-rate-hike-surcharge-increases-for-2027/830903/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T19:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FBI, Coast Guard probe suspected cyberattacks on ships entering US waters",
+      "url": "https://www.supplychaindive.com/news/fbi-coast-guard-probe-suspected-cyberattacks-on-ships-entering-us-waters/830774/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T14:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mondelēz names new chief procurement officer as cocoa market stabilizes",
+      "url": "https://www.supplychaindive.com/news/mondelez-names-new-chief-procurement-officer-as-cocoa-market-stabilizes/830791/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T13:24:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "International taps automotive sourcing veteran to lead procurement",
+      "url": "https://www.supplychaindive.com/news/international-taps-automotive-sourcing-veteran-to-lead-procurement/830799/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T11:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The hidden cost of operating two shipping systems",
+      "url": "https://www.supplychaindive.com/spons/the-hidden-cost-of-operating-two-shipping-systems/830822/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "When demand won’t sit still: Building a more flexible warehouse network",
+      "url": "https://www.supplychaindive.com/spons/when-demand-wont-sit-still-building-a-more-flexible-warehouse-network/830243/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "When budget cuts fail: The stranded costs and complexity hiding in your supply chain",
+      "url": "https://www.supplychaindive.com/spons/when-budget-cuts-fail-the-stranded-costs-and-complexity-hiding-in-your-sup/830621/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The man who built Apple’s stores doesn’t buy Silicon Valley’s bet on AI shopping",
+      "url": "https://techcrunch.com/2026/09/21/the-man-who-built-apples-stores-doesnt-buy-silicon-valleys-bet-on-ai-shopping/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-21T23:44:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "PrePass, Kodiak tie driverless trucks to weigh stations",
+      "url": "https://www.freightwaves.com/news/prepass-kodiak-driverless-truck-weigh-station-bypass",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T20:29:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI forms math advisory group as its AI resolves more than 100 open problems",
+      "url": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-21T20:15:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Diesel Supply Down 8%: What Trucking Faces Next",
+      "url": "https://www.freightwaves.com/news/diesel-supply-down-8-what-trucking-faces-next",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T19:41:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Yard Automation Is Here — What’s Blocking Adoption?",
+      "url": "https://www.freightwaves.com/news/yard-automation-is-here-whats-blocking-adoption",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T19:40:54.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Site Selection Shift: Cost Is Out, Resilience Is In",
+      "url": "https://www.freightwaves.com/news/site-selection-shift-cost-is-out-resilience-is-in",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T19:40:13.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Diesel vs Spot Rates: Why Carriers Are Better Off Than Last Year",
+      "url": "https://www.freightwaves.com/news/diesel-vs-spot-rates-why-carriers-are-better-off-than-last-year",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T19:39:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Discover what’s next: 5 days left to save up to $200 on your TechCrunch Disrupt 2026 ticket",
+      "url": "https://techcrunch.com/2026/09/21/discover-whats-next-5-days-left-to-save-up-to-200-on-techcrunch-disrupt-2026/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-21T19:25:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "How 750 Trucks Handle Packers Game-Day Freight",
+      "url": "https://www.freightwaves.com/news/how-750-trucks-handle-packers-game-day-freight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T19:24:28.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta’s Muse is outpacing ChatGPT’s early mobile launch",
+      "url": "https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-21T19:19:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "U.S. emissions rollback on Boeing 777 freighter helps air logistics",
+      "url": "https://www.freightwaves.com/news/u-s-emissions-rollback-on-boeing-777-freighter-helps-air-logistics",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-21T18:05:04.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "35696140751",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
