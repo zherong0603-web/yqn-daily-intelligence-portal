@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-23",
+  "generated_at": "2026-09-23T06:35:38.735Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-23T06:35:36.696Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Electronics manufacturers fret over extreme heat disruptions",
+      "url": "https://www.supplychaindive.com/news/electronics-manufacturers-fret-over-extreme-heat-disruptions/830938/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T19:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "P.F. Chang’s renews tech partnership to sharpen inventory management, purchasing",
+      "url": "https://www.supplychaindive.com/news/pf-changs-renews-tech-partnership-to-sharpen-inventory-management-purch/830929/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T13:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Wegmans invests $110M in its supply chain",
+      "url": "https://www.supplychaindive.com/news/wegmans-invests-110m-in-its-supply-chain/830887/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T13:33:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Coca-Cola to spend $10B on US manufacturing by 2030",
+      "url": "https://www.supplychaindive.com/news/coca-cola-to-spend-10b-on-us-manufacturing-by-2030/830535/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T11:27:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UP, NS merger: STB denies shippers’ calls for dismissal",
+      "url": "https://www.supplychaindive.com/news/up-ns-merger-stb-denies-shippers-calls-for-dismissal/830906/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T21:59:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx preps 5.9% rate hike, surcharge increases for 2027",
+      "url": "https://www.supplychaindive.com/news/fedex-preps-59-rate-hike-surcharge-increases-for-2027/830903/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T19:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FBI, Coast Guard probe suspected cyberattacks on ships entering US waters",
+      "url": "https://www.supplychaindive.com/news/fbi-coast-guard-probe-suspected-cyberattacks-on-ships-entering-us-waters/830774/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T14:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Mondelēz names new chief procurement officer as cocoa market stabilizes",
+      "url": "https://www.supplychaindive.com/news/mondelez-names-new-chief-procurement-officer-as-cocoa-market-stabilizes/830791/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T13:24:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "International taps automotive sourcing veteran to lead procurement",
+      "url": "https://www.supplychaindive.com/news/international-taps-automotive-sourcing-veteran-to-lead-procurement/830799/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T11:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The hidden cost of operating two shipping systems",
+      "url": "https://www.supplychaindive.com/spons/the-hidden-cost-of-operating-two-shipping-systems/830822/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "‘We’re already fighting yesterday’s battle’: Greece’s prime minister gets candid about AI",
+      "url": "https://techcrunch.com/2026/09/22/were-already-fighting-yesterdays-battle-greeces-prime-minister-gets-candid-about-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-23T04:59:08.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "TechCrunch Founder Summit’s agenda revealed: Unlock fundraising, hiring, and AI insights in Boston on November 4",
+      "url": "https://techcrunch.com/2026/09/22/techcrunch-founder-summits-agenda-revealed-unlock-fundraising-hiring-and-ai-insights-in-boston-on-november-4/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-22T23:21:49.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Snorkel AI triples valuation to $3.5B as demand for AI training data booms",
+      "url": "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-22T21:56:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Qualcomm launches two new smartphone chips with emphasis on AI",
+      "url": "https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-22T20:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta admits Muse’s likeness to OpenClaw isn’t a coincidence",
+      "url": "https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-22T19:09:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The Fed Just Raised Rates Again: Here’s What It Means for Freight",
+      "url": "https://www.freightwaves.com/news/the-fed-just-raised-rates-again-heres-what-it-means-for-freight",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-22T18:59:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New report: Just a third of container shipping on-time ",
+      "url": "https://www.freightwaves.com/news/new-report-just-a-third-of-container-shipping-on-time",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-22T18:23:09.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI launches GPT-6 Sol and Luna, boasting lower cost and fewer mistakes",
+      "url": "https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-22T18:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Tabi Connect, Kleinschmidt partner to automate freight quoting",
+      "url": "https://www.freightwaves.com/news/tabi-connect-kleinschmidt-partner-to-automate-freight-quoting",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-22T17:41:05.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "35827443428",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
