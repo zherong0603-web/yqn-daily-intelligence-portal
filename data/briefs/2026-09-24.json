@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-24",
+  "generated_at": "2026-09-24T06:41:17.162Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-24T06:41:14.520Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shippers’ coalition advances Class 8 electric battery truck adoption",
+      "url": "https://www.supplychaindive.com/news/shippers-coalition-advances-class-8-electric-battery-truck-adoption/831160/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T19:54:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Old Dominion announces 4.9% general rate increase",
+      "url": "https://www.supplychaindive.com/news/old-dominion-announces-49-general-rate-increase/830901/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon debuts direct rail service for Los Angeles-to-East Coast shipments",
+      "url": "https://www.supplychaindive.com/news/amazon-debuts-direct-rail-service-for-los-angeles-to-east-coast-shipments/830836/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T13:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Plastics get pulled into tariff turmoil",
+      "url": "https://www.supplychaindive.com/news/plastics-get-pulled-into-tariff-turmoil/830768/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T13:35:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean Spray names chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/ocean-spray-names-chief-supply-chain-officer/830937/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T11:18:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Electronics manufacturers fret over extreme heat disruptions",
+      "url": "https://www.supplychaindive.com/news/electronics-manufacturers-fret-over-extreme-heat-disruptions/830938/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T19:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "P.F. Chang’s renews tech partnership to sharpen inventory management, purchasing",
+      "url": "https://www.supplychaindive.com/news/pf-changs-renews-tech-partnership-to-sharpen-inventory-management-purch/830929/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T13:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Wegmans invests $110M in its supply chain",
+      "url": "https://www.supplychaindive.com/news/wegmans-invests-110m-in-its-supply-chain/830887/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T13:33:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Coca-Cola to spend $10B on US manufacturing by 2030",
+      "url": "https://www.supplychaindive.com/news/coca-cola-to-spend-10b-on-us-manufacturing-by-2030/830535/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-22T11:27:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UP, NS merger: STB denies shippers’ calls for dismissal",
+      "url": "https://www.supplychaindive.com/news/up-ns-merger-stb-denies-shippers-calls-for-dismissal/830906/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-21T21:59:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Export ban talk sinks diesel, boosts gasoline as White House eyes options",
+      "url": "https://www.freightwaves.com/news/export-ban-talk-sinks-diesel-boosts-gasoline-as-white-house-eyes-options",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T05:12:53.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Everything new coming to Meta’s AI agent Muse",
+      "url": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-24T01:13:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta made a Tamagotchi-like wearable for its Muse AI agent",
+      "url": "https://techcrunch.com/2026/09/23/meta-made-a-tamagotchi-like-wearable-for-its-muse-ai-agent/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-24T00:46:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta introduces camera-free AI glasses",
+      "url": "https://techcrunch.com/2026/09/23/meta-introduces-camera-free-ai-glasses/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-23T23:39:44.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic says its biology lab has already found something big",
+      "url": "https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-23T22:17:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Short-Haul Freight Is Winning as Long-Haul Slips",
+      "url": "https://www.freightwaves.com/news/short-haul-freight-is-winning-as-long-haul-slips",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-23T20:37:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI Saves Trucking Company $53,000 Annually",
+      "url": "https://www.freightwaves.com/news/ai-saves-trucking-company-53000-annually",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-23T20:36:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "STB Board Member Calls Major Railroad Merger Plan “Shallow”",
+      "url": "https://www.freightwaves.com/news/stb-board-member-calls-major-railroad-merger-plan-shallow",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-23T20:35:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Tesla wins lead role in 2,500-truck electric Class 8 order",
+      "url": "https://www.freightwaves.com/news/tesla-semi-zet-scale-2500-truck-order",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-23T20:07:51.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "35965665835",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
