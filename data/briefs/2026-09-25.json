@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-25",
+  "generated_at": "2026-09-25T06:32:58.626Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-25T06:32:57.796Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Companies channel IEEPA tariff refunds into their coffers, Atlanta Fed says",
+      "url": "https://www.supplychaindive.com/news/companies-channel-ieepa-tariff-refunds-into-their-coffers-atlanta-fed-says/831169/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T16:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US, China to extend trade war truce by 2 months",
+      "url": "https://www.supplychaindive.com/news/us-china-to-extend-trade-war-truce-by-2-months/831251/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T14:55:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon: AI supply chain agents among seller upgrades",
+      "url": "https://www.supplychaindive.com/news/amazon-ai-supply-chain-agents-among-seller-upgrades/831164/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T13:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lowe’s debuts drone delivery pilot with Wing, DoorDash",
+      "url": "https://www.supplychaindive.com/news/lowes-debuts-drone-delivery-pilot-with-wing-doordash/831162/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T12:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Want a smart tariff strategy? Lawyer tells CFOs to go back to basics",
+      "url": "https://www.supplychaindive.com/news/want-a-smart-tariff-strategy-lawyer-tells-cfos-to-go-back-to-basics/831204/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T11:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shippers’ coalition advances Class 8 electric battery truck adoption",
+      "url": "https://www.supplychaindive.com/news/shippers-coalition-advances-class-8-electric-battery-truck-adoption/831160/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T19:54:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Old Dominion announces 4.9% general rate increase",
+      "url": "https://www.supplychaindive.com/news/old-dominion-announces-49-general-rate-increase/830901/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T13:58:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon debuts direct rail service for Los Angeles-to-East Coast shipments",
+      "url": "https://www.supplychaindive.com/news/amazon-debuts-direct-rail-service-for-los-angeles-to-east-coast-shipments/830836/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T13:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Plastics get pulled into tariff turmoil",
+      "url": "https://www.supplychaindive.com/news/plastics-get-pulled-into-tariff-turmoil/830768/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T13:35:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ocean Spray names chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/ocean-spray-names-chief-supply-chain-officer/830937/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-23T11:18:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Lightspeed targets $250M for new India fund, focusing on early-stage AI",
+      "url": "https://techcrunch.com/2026/09/24/lightspeed-targets-250m-for-new-india-fund-focusing-on-early-stage-ai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-25T05:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Small Brokerages Should Be Nervous Now",
+      "url": "https://www.freightwaves.com/news/small-brokerages-should-be-nervous-now",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T19:32:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Why Green Bay IS a Top 10 Logistics City",
+      "url": "https://www.freightwaves.com/news/why-green-bay-is-a-top-10-logistics-city",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T19:31:06.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Tech Isn’t Dead – It’s Getting Picked Apart More Than Ever",
+      "url": "https://www.freightwaves.com/news/freight-tech-isnt-dead-its-getting-picked-apart-more-than-ever",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T19:28:41.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "What Schneider’s CEO Sees Next for Trucking",
+      "url": "https://www.freightwaves.com/news/what-schneiders-ceo-sees-next-for-trucking",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T19:26:17.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Bring your co-founder, partner, or colleague and get 50% off a second TechCrunch Disrupt 2026 pass",
+      "url": "https://techcrunch.com/2026/09/24/bring-your-co-founder-partner-or-colleague-and-get-50-off-a-second-techcrunch-disrupt-2026-pass/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-24T19:15:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "PrismML brings its tiny LLMs to Qualcomm-powered smart glasses",
+      "url": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-24T19:00:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon rolls out safety tech, pay bump for delivery providers",
+      "url": "https://www.freightwaves.com/news/amazon-rolls-out-safety-tech-pay-bump-for-delivery-providers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T18:24:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Quoting at the speed of the market",
+      "url": "https://www.freightwaves.com/news/quoting-at-the-speed-of-the-market",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-24T18:12:13.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "36103324639",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
