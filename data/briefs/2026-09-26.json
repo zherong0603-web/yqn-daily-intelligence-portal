@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-26",
+  "generated_at": "2026-09-26T06:35:01.960Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-26T06:35:01.083Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS warns of Indianapolis, Louisville delays due to facility upgrades",
+      "url": "https://www.supplychaindive.com/news/usps-warns-of-indianapolis-louisville-delays-due-to-facility-upgrades/831390/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T18:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "6 food manufacturers talk supply chain tactics",
+      "url": "https://www.supplychaindive.com/news/6-food-manufacturers-talk-supply-chain-tactics/831214/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T14:48:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lego to spend $400M to add warehouse space at Mexico plant",
+      "url": "https://www.supplychaindive.com/news/lego-to-spend-400m-to-add-warehouse-space-at-mexico-plant/831302/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T14:29:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Carrier diversity key to holiday success in a high cost environment",
+      "url": "https://www.supplychaindive.com/news/carrier-diversity-key-to-holiday-success-in-a-high-cost-environment/831027/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T14:22:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shippers are exploring port-to-inland transit to de-risk supply chains",
+      "url": "https://www.supplychaindive.com/news/shippers-are-exploring-port-to-inland-transit-to-de-risk-supply-chains/831261/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T11:21:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Companies channel IEEPA tariff refunds into their coffers, Atlanta Fed says",
+      "url": "https://www.supplychaindive.com/news/companies-channel-ieepa-tariff-refunds-into-their-coffers-atlanta-fed-says/831169/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T16:47:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US, China to extend trade war truce by 2 months",
+      "url": "https://www.supplychaindive.com/news/us-china-to-extend-trade-war-truce-by-2-months/831251/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T14:55:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon: AI supply chain agents among seller upgrades",
+      "url": "https://www.supplychaindive.com/news/amazon-ai-supply-chain-agents-among-seller-upgrades/831164/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T13:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lowe’s debuts drone delivery pilot with Wing, DoorDash",
+      "url": "https://www.supplychaindive.com/news/lowes-debuts-drone-delivery-pilot-with-wing-doordash/831162/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T12:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Want a smart tariff strategy? Lawyer tells CFOs to go back to basics",
+      "url": "https://www.supplychaindive.com/news/want-a-smart-tariff-strategy-lawyer-tells-cfos-to-go-back-to-basics/831204/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-24T11:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New lawsuit approach: accusing C.H. Robinson, TQL of RICO violations",
+      "url": "https://www.freightwaves.com/news/new-lawsuit-approach-accusing-c-h-robinson-tql-of-rico-violations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-26T05:11:13.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "At Meta Connect, the company’s smart glasses were everywhere",
+      "url": "https://techcrunch.com/2026/09/25/at-meta-connect-the-companys-smart-glasses-were-everywhere/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-26T01:08:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Crusoe abandons $1.25B plan to use Boom turbines at AI data centers",
+      "url": "https://techcrunch.com/2026/09/25/crusoe-abandons-1-25b-plan-to-use-boom-turbines-at-ai-data-centers/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-25T23:11:10.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Unsecured OpenAI agents posted 53 user images on the internet without the lab’s knowledge",
+      "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-25T22:20:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Interrupted authority and written vetting rules at center of New Mexico crash lawsuit",
+      "url": "https://www.freightwaves.com/news/interrupted-authority-and-written-vetting-rules-at-center-of-new-mexico-crash-lawsuit",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-25T22:06:15.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta opens early access program for new Muse features",
+      "url": "https://techcrunch.com/2026/09/25/meta-opens-early-access-program-for-new-muse-features/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-25T20:34:53.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Could Washington Ban Diesel Exports? What Truckers Need to Know",
+      "url": "https://www.freightwaves.com/news/could-washington-ban-diesel-exports-what-truckers-need-to-know",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-25T19:46:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic to pay Akamai $11.6 billion over seven years in cloud deal",
+      "url": "https://techcrunch.com/2026/09/25/anthropic-to-pay-akamai-11-6-billion-over-seven-years-in-cloud-deal/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-25T19:13:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Samsara connects fleet data with ChatGPT, Claude and other AI tools",
+      "url": "https://www.freightwaves.com/news/samsara-connects-fleet-data-with-chatgpt-claude-and-other-ai-tools",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-25T19:10:38.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "36224165248",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
