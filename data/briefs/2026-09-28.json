@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-28",
+  "generated_at": "2026-09-28T07:31:26.497Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-28T07:31:25.390Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS warns of Indianapolis, Louisville delays due to facility upgrades",
+      "url": "https://www.supplychaindive.com/news/usps-warns-of-indianapolis-louisville-delays-due-to-facility-upgrades/831390/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T18:56:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "6 food manufacturers talk supply chain tactics",
+      "url": "https://www.supplychaindive.com/news/6-food-manufacturers-talk-supply-chain-tactics/831214/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T14:48:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lego to spend $400M to add warehouse space at Mexico plant",
+      "url": "https://www.supplychaindive.com/news/lego-to-spend-400m-to-add-warehouse-space-at-mexico-plant/831302/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T14:29:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Carrier diversity key to holiday success in a high cost environment",
+      "url": "https://www.supplychaindive.com/news/carrier-diversity-key-to-holiday-success-in-a-high-cost-environment/831027/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T14:22:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shippers are exploring port-to-inland transit to de-risk supply chains",
+      "url": "https://www.supplychaindive.com/news/shippers-are-exploring-port-to-inland-transit-to-de-risk-supply-chains/831261/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-25T11:21:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s CEO is about to have dinner with President Trump",
+      "url": "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-27T20:34:28.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Can Muse overcome Meta’s trust issues?",
+      "url": "https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-27T19:57:30.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Aurora plans 30,000 driverless trucks as carriers weigh cost",
+      "url": "https://www.freightwaves.com/news/aurora-30000-driverless-trucks-2030-plan",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-27T19:27:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s Dario Amodei gets the SNL treatment",
+      "url": "https://techcrunch.com/2026/09/27/anthropics-dario-amodei-gets-the-snl-treatment/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-27T16:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon offers one inbound shipment to reach eight countries",
+      "url": "https://www.freightwaves.com/news/amazon-global-warehousing-distribution-eight-countries",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-27T14:28:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Feds charge semi-truck business owner in $105M investment fraud scheme",
+      "url": "https://www.freightwaves.com/news/feds-charge-semi-truck-business-owner-in-105m-investment-fraud-scheme",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-27T13:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Borderlands Mexico: Customs proposal raises concerns over border delays, cargo seizures",
+      "url": "https://www.freightwaves.com/news/borderlands-mexico-customs-proposal-raises-concerns-over-border-delays-cargo-seizures",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-27T11:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Per diem: one approach is stable, other is higher",
+      "url": "https://www.freightwaves.com/news/per-diem-one-approach-is-stable-other-is-higher",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-27T09:47:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google tests buying from Walmart-owned Flipkart through Gemini and AI Mode in India",
+      "url": "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-27T01:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trans-Pacific rates soar, Mediterranean sinks, and demand doesn’t explain either",
+      "url": "https://www.freightwaves.com/news/trans-pacific-rates-soar-mediterranean-sinks-and-demand-doesnt-explain-either",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-27T00:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Insurers claim AI is already increasing healthcare costs",
+      "url": "https://techcrunch.com/2026/09/26/insurers-claim-ai-is-already-increasing-healthcare-costs/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-26T21:02:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "I created an interactive digital avatar of myself — and you can talk to it",
+      "url": "https://techcrunch.com/2026/09/26/i-created-an-interactive-digital-avatar-of-myself-and-you-can-talk-to-it/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-26T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Clarios takes its battery subscription to European fleets",
+      "url": "https://www.freightwaves.com/news/clarios-battery-manager-europe-fleets",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-26T12:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New lawsuit approach: accusing C.H. Robinson, TQL of RICO violations",
+      "url": "https://www.freightwaves.com/news/new-lawsuit-approach-accusing-c-h-robinson-tql-of-rico-violations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-26T05:11:13.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "36392065662",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
