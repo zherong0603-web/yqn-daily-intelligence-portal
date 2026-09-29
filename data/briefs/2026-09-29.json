@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-29",
+  "generated_at": "2026-09-29T07:27:38.120Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-29T07:27:37.106Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trade groups urge USTR to extend pause on China-linked ship fees",
+      "url": "https://www.supplychaindive.com/news/trade-groups-urge-ustr-to-extend-pause-on-china-linked-ship-fees/831387/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T14:42:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The intelligence advantage: Moving beyond benchmarking to network-wide insights",
+      "url": "https://www.supplychaindive.com/spons/the-intelligence-advantage-moving-beyond-benchmarking-to-network-wide-insi/830975/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How supply chains can achieve resiliency with quantum optimization",
+      "url": "https://www.supplychaindive.com/spons/how-supply-chains-can-achieve-resiliency-with-quantum-optimization/831267/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Peak season has to plan around weather. Here’s how.",
+      "url": "https://www.supplychaindive.com/spons/peak-season-has-to-plan-around-weather-heres-how/830856/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s prospectus details losses, growth, and, yes, a warning that its AI could end humanity",
+      "url": "https://techcrunch.com/2026/09/28/anthropics-prospectus-details-losses-growth-and-yes-a-warning-that-its-ai-could-end-humanity/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-29T05:13:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Peak XV ups Surge seed investment ceiling to $5M, unveils 18-startup cohort",
+      "url": "https://techcrunch.com/2026/09/28/peak-xv-goes-bigger-at-seed-with-new-surge-cohort-as-series-a-bar-rises/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-29T00:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trimble upgrades 4 Carrier TMSs to work with AI agents",
+      "url": "https://www.freightwaves.com/news/trimble-carrier-tms-modernization-ai-agents",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-28T23:52:20.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI reportedly ditches model over safety concerns",
+      "url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T23:39:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trimble keeps freight business sale on the table while unveiling new AI tools ",
+      "url": "https://www.freightwaves.com/news/trimble-keeps-freight-business-sale-on-the-table-while-unveiling-new-ai-tools",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-28T22:01:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI’s buzz in trucking is justified: Trimble panel ",
+      "url": "https://www.freightwaves.com/news/ais-buzz-in-trucking-is-justified-trimble-panel",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-28T21:40:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Source: Inference provider Modal Labs closing in on $750M round at $15.75B valuation",
+      "url": "https://techcrunch.com/2026/09/28/source-inference-provider-modal-labs-closing-in-on-750m-round-at-15-75b-valuation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T21:29:18.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AMD will acquire Fei-Fei Li’s World Labs for $8.2 billion",
+      "url": "https://techcrunch.com/2026/09/28/amd-will-acquire-fei-fei-lis-world-labs-for-8-2-billion/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T20:39:33.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "A Conversation With EAIGLE’s Leadership on Cargo Theft, Data Ownership and What a Smart Gate Actually Knows",
+      "url": "https://www.freightwaves.com/news/a-conversation-with-eaigles-leadership-on-cargo-theft-data-ownership-and-what-a-smart-gate-actually-knows",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-28T20:06:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Shopify opens checkout to browser-based AI agents",
+      "url": "https://techcrunch.com/2026/09/28/shopify-opens-checkout-to-browser-based-ai-agents/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T19:33:57.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The AI boom took over Climate Week and not everyone is happy about it",
+      "url": "https://techcrunch.com/2026/09/28/the-ai-boom-took-over-climate-week-and-not-everyone-is-happy-about-it/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T19:21:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Distress Report: Logistics, manufacturing cuts put 1,850 jobs on chopping block",
+      "url": "https://www.freightwaves.com/news/freight-distress-report-logistics-manufacturing-cuts-put-1850-jobs-on-chopping-block",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-28T18:53:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia launches new platform for reining in rogue AI agents",
+      "url": "https://techcrunch.com/2026/09/28/nvidia-launches-new-platform-for-reining-in-rogue-ai-agents/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T18:31:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "U.S. terminates website that sold $126M in phony postage labels",
+      "url": "https://www.freightwaves.com/news/u-s-terminates-website-that-sold-126m-in-phony-postage-labels",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-28T18:06:54.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic releases Sonnet 5.5, which it calls a significantly cheaper, faster work partner",
+      "url": "https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-28T18:00:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "36536711191",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
