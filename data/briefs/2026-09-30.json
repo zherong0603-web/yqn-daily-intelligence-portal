@@ -1,0 +1,179 @@
+{
+  "date": "2026-09-30",
+  "generated_at": "2026-09-30T07:18:42.909Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-09-30T07:18:41.770Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ross plans 1.75M-square-foot distribution center in California",
+      "url": "https://www.supplychaindive.com/news/ross-plans-175m-square-foot-distribution-center-in-california/831523/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-29T17:48:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Electrolux appoints chief procurement officer",
+      "url": "https://www.supplychaindive.com/news/electrolux-appoints-chief-procurement-officer/831536/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-29T14:00:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "3 CPGs discuss automation, sourcing and logistics risks",
+      "url": "https://www.supplychaindive.com/news/3-cpgs-discuss-automation-sourcing-and-logistics-risks/831400/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-29T13:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nordstrom eyes weekend delivery, faster shipping",
+      "url": "https://www.supplychaindive.com/news/nordstrom-eyes-weekend-delivery-faster-shipping/831511/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-29T13:48:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon, US Steel, Pirelli and others make facility investments",
+      "url": "https://www.supplychaindive.com/news/amazon-us-steel-pirelli-and-others-make-facility-investments/831499/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-29T11:22:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trade groups urge USTR to extend pause on China-linked ship fees",
+      "url": "https://www.supplychaindive.com/news/trade-groups-urge-ustr-to-extend-pause-on-china-linked-ship-fees/831387/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T14:42:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Shipment fluctuations vary across LTL carriers in mid-Q3 updates",
+      "url": "https://www.supplychaindive.com/news/shipment-fluctuations-vary-across-ltl-carriers-in-mid-q3-updates/831309/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T12:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US-China trade board carves path for tariff relief on $60B of goods",
+      "url": "https://www.supplychaindive.com/news/us-china-trade-board-carves-path-for-tariff-relief-on-60b-of-goods/831479/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T12:17:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The intelligence advantage: Moving beyond benchmarking to network-wide insights",
+      "url": "https://www.supplychaindive.com/spons/the-intelligence-advantage-moving-beyond-benchmarking-to-network-wide-insi/830975/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How supply chains can achieve resiliency with quantum optimization",
+      "url": "https://www.supplychaindive.com/spons/how-supply-chains-can-achieve-resiliency-with-quantum-optimization/831267/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "More oil out of the Gulf translating to lower prices",
+      "url": "https://www.freightwaves.com/news/more-oil-out-of-the-gulf-translating-to-lower-prices",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-30T02:57:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "America.gov gets really weird when you ask it about Minecraft, but it’s not a glitch",
+      "url": "https://techcrunch.com/2026/09/29/america-gov-gets-really-weird-when-you-ask-it-about-minecraft-but-its-not-a-glitch/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-29T23:30:55.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Descartes launches AI agent for global trade data research",
+      "url": "https://www.freightwaves.com/news/descartes-launches-ai-agent-for-global-trade-data-research",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-29T22:59:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The internet is convinced Elon Musk’s xAI trolled OpenAI’s ‘Dots’ launch",
+      "url": "https://techcrunch.com/2026/09/29/the-internet-is-convinced-elon-musks-xai-trolled-openais-dots-launch/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-29T22:20:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Flexport launches MCP Server for AI agents to book freight",
+      "url": "https://www.freightwaves.com/news/flexport-mcp-server-ai-agents-freight-booking",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-29T22:19:22.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI’s latest features take direct aim at the app store model",
+      "url": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-29T20:15:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Michigan semi stop uncovers 368 pounds of suspected heroin, 174 handguns",
+      "url": "https://www.freightwaves.com/news/michigan-semi-stop-uncovers-368-pounds-of-suspected-heroin-174-handguns",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-29T20:15:21.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI reportedly in talks to raise $30B round at $1.4T valuation",
+      "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-29T19:52:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trump to visit Texas plant to tout manufacturing agenda ",
+      "url": "https://www.freightwaves.com/news/trump-to-visit-texas-plant-to-tout-manufacturing-agenda",
+      "domain": "freightwaves.com",
+      "published_at": "2026-09-29T19:03:53.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "36682924762",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
