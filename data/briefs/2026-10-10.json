@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-10",
+  "generated_at": "2026-10-10T07:41:56.622Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-10T07:41:54.389Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Golden Week slowdown may not be enough to ease Transpacific ocean rates",
+      "url": "https://www.supplychaindive.com/news/golden-week-slowdown-may-not-be-enough-to-ease-transpacific-ocean-rates/832512/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-09T15:48:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "AI-driven cargo bump sparks Transpacific air freight service",
+      "url": "https://www.supplychaindive.com/news/ai-driven-cargo-bump-sparks-transpacific-air-freight-service/832399/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-09T15:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "These ‘4 pillars’ are critical for successful automation",
+      "url": "https://www.supplychaindive.com/news/these-4-pillars-are-critical-for-successful-automation/831500/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-09T13:59:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Federal court clears way for class-action suit against IEEPA tariffs",
+      "url": "https://www.supplychaindive.com/news/federal-court-clears-way-for-class-action-suit-against-ieepa-tariffs/832600/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-09T11:59:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Molson Coors taps chief supply chain officer for Americas",
+      "url": "https://www.supplychaindive.com/news/molson-coors-taps-chief-supply-chain-officer-for-americas/832441/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-08T19:19:33.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump unveils plans to build $15B steel mill in Iowa",
+      "url": "https://www.supplychaindive.com/news/trump-unveils-plans-to-build-15b-steel-mill-in-iowa/831654/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-08T14:51:04.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP starts paying out IEEPA tariff refunds for finally liquidated entries",
+      "url": "https://www.supplychaindive.com/news/cbp-starts-paying-out-ieepa-tariff-refunds-for-finally-liquidated-entries/832411/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-08T14:42:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nippon Express aims to boost US transport reliability with 5-day service",
+      "url": "https://www.supplychaindive.com/news/nippon-express-aims-to-boost-us-transport-reliability-with-5-day-service/832372/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-08T14:32:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Amazon launches 2 new China-to-US air freight options",
+      "url": "https://www.supplychaindive.com/news/amazon-launches-2-new-china-to-us-air-freight-options/832364/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-08T13:36:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Air freight shippers weary of long-term fixed contracts",
+      "url": "https://www.supplychaindive.com/news/air-freight-shippers-weary-of-long-term-fixed-contracts/832286/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-07T18:31:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic can’t reliably control its AI agents. It’s cutting off its internal evals from the live internet instead",
+      "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-10T00:18:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch",
+      "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-09T21:41:29.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "An Anthropic AI model sent a false homicide tip to Philadelphia police",
+      "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-09T19:36:56.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Texas trucking firm sued over age limits on drivers",
+      "url": "https://www.freightwaves.com/news/texas-trucking-firm-sued-over-age-limits-on-drivers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-09T18:58:31.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking Rates Spike: Contracts at 52-Week High",
+      "url": "https://www.freightwaves.com/news/trucking-rates-spike-contracts-at-52-week-high",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-09T18:26:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Logistics AI: Getting a Return on Your Investment",
+      "url": "https://www.freightwaves.com/news/logistics-ai-getting-a-return-on-your-investment",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-09T18:25:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "$185M Breakup Fee? Inside the CH Robinson-RXO Merger",
+      "url": "https://www.freightwaves.com/news/185m-breakup-fee-inside-the-ch-robinson-rxo-merger",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-09T18:24:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amazon and others are done keeping data center deals secret. Is it enough to build trust?",
+      "url": "https://techcrunch.com/video/amazon-and-others-are-done-keeping-data-center-deals-secret-is-it-enough-to-build-trust/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-09T16:56:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amazon drops data center NDAs, and AI agents want your credit card",
+      "url": "https://techcrunch.com/podcast/amazon-drops-data-center-ndas-and-ai-agents-want-your-credit-card/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-09T16:53:02.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "38035290028",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
