@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-13",
+  "generated_at": "2026-10-13T08:21:56.618Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-13T08:21:55.477Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart opens ‘next gen’ California facility to boost West Coast fulfillment",
+      "url": "https://www.supplychaindive.com/news/walmart-opens-next-gen-california-facility-to-boost-west-coast-fulfillmen/832631/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T14:32:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "BD strikes supply chain pact with Trump administration",
+      "url": "https://www.supplychaindive.com/news/bd-strikes-supply-chain-pact-with-trump-administration/832653/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T13:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "A smarter path to distribution growth",
+      "url": "https://www.supplychaindive.com/spons/a-smarter-path-to-distribution-growth/832211/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "2026’s most overrated and underrated supply chain priorities",
+      "url": "https://www.supplychaindive.com/spons/2026s-most-overrated-and-underrated-supply-chain-priorities/832074/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "5 steps to a resilient supply chain",
+      "url": "https://www.supplychaindive.com/spons/5-steps-to-a-resilient-supply-chain/831849/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Mexico trucker shortages, visa restrictions squeeze cross-border capacity",
+      "url": "https://www.freightwaves.com/news/mexico-trucker-shortages-visa-restrictions-squeeze-cross-border-capacity",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T19:07:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "State loan to aid Louisiana port’s new rail connection",
+      "url": "https://www.freightwaves.com/news/state-loan-to-aid-louisiana-ports-new-rail-connection",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T18:17:36.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta releases its first frontier model, Muse Wonder",
+      "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T17:56:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "WindBorne wins a hefty US Air Force contract for its balloon data",
+      "url": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T17:19:14.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Honeyjar offers AI tools to improve PR and comms at every company",
+      "url": "https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T15:45:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "1 million boxes set new Los Angeles port record",
+      "url": "https://www.freightwaves.com/news/1-million-boxes-set-new-los-angeles-port-record",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T15:44:44.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft president says UK is best placed to drive AI regulation",
+      "url": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T15:31:19.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "This AI startup says it can generate permit-ready blueprints in minutes",
+      "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T15:27:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Fraud Awareness Day returns as strategic cargo theft reshapes trucking",
+      "url": "https://www.freightwaves.com/news/freight-fraud-awareness-day-returns-as-strategic-cargo-theft-reshapes-trucking",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T14:41:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The Hidden Business Risk Inside Fleet Compliance",
+      "url": "https://www.freightwaves.com/news/the-hidden-business-risk-inside-fleet-compliance",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T14:17:52.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "TechCrunch Disrupt 2026 starts tomorrow: Your final chance to secure up to $100 ticket savings",
+      "url": "https://techcrunch.com/2026/10/12/techcrunch-disrupt-2026-starts-tomorrow-your-final-chance-to-secure-up-to-100-ticket-savings/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T14:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "OOCL revenue up 45.1% on trans-Pacific surge",
+      "url": "https://www.freightwaves.com/news/oocl-revenue-up-45-1-on-trans-pacific-surge",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T13:31:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Former Plaud exec raises $26M for AI app that listens to you in the background",
+      "url": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-12T12:47:59.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Penske request for en banc hearing gets pushback from victim’s estate",
+      "url": "https://www.freightwaves.com/news/penske-request-for-en-banc-hearing-gets-pushback-from-victims-estate",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-12T11:00:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "38368711008",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
