@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-14",
+  "generated_at": "2026-10-14T06:39:07.344Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-14T06:38:57.032Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Bed Bath & Beyond parent company taps AI to unify forecasting, replenishment",
+      "url": "https://www.supplychaindive.com/news/bed-bath-beyond-parent-company-taps-ai-to-unify-forecasting-replenishmen/832759/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T16:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Panama Canal challenges drive shippers to Port of Los Angeles",
+      "url": "https://www.supplychaindive.com/news/panama-canal-challenges-drive-shippers-to-port-of-los-angeles/832748/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T14:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "NYC offers $5M to move deliveries away from peak hours",
+      "url": "https://www.supplychaindive.com/news/nyc-offers-5m-to-move-deliveries-away-from-peak-hours/832758/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T13:49:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart to expand Wing drone delivery to Denver, Seattle",
+      "url": "https://www.supplychaindive.com/news/walmart-to-expand-wing-drone-delivery-to-denver-seattle/832654/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T13:30:16.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Taylor Farms halts central Mexico sourcing after Cyclospora outbreak",
+      "url": "https://www.supplychaindive.com/news/taylor-farms-halts-central-mexico-sourcing-after-cyclospora-outbreak/832766/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T10:57:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart opens ‘next gen’ California facility to boost West Coast fulfillment",
+      "url": "https://www.supplychaindive.com/news/walmart-opens-next-gen-california-facility-to-boost-west-coast-fulfillmen/832631/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T14:32:40.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "BD strikes supply chain pact with Trump administration",
+      "url": "https://www.supplychaindive.com/news/bd-strikes-supply-chain-pact-with-trump-administration/832653/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T13:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Levi’s to use part of $80M tariff refund for supply chain",
+      "url": "https://www.supplychaindive.com/news/levis-to-use-part-of-80m-tariff-refund-for-supply-chain/832562/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T11:39:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "5 steps to a resilient supply chain",
+      "url": "https://www.supplychaindive.com/spons/5-steps-to-a-resilient-supply-chain/831849/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "2026’s most overrated and underrated supply chain priorities",
+      "url": "https://www.supplychaindive.com/spons/2026s-most-overrated-and-underrated-supply-chain-priorities/832074/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-12T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Science Corporation implants its vision-restoring chip in its first Stargardt disease patient",
+      "url": "https://techcrunch.com/2026/10/13/science-corporation-implants-its-vision-restoring-chip-in-its-first-stargardt-disease-patient/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-13T23:13:31.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cerebras CEO says we’re nearing a future where everyone has a personal AI assistant at home",
+      "url": "https://techcrunch.com/2026/10/13/cerebras-ceo-says-were-nearing-a-future-where-everyone-has-a-personal-ai-assistant-at-home/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-13T23:05:34.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Industrial Next wants factory robots to switch tasks in minutes, not weeks",
+      "url": "https://techcrunch.com/2026/10/13/industrial-next-wants-factory-robots-to-switch-tasks-in-minutes-not-weeks/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-13T23:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cerebras CEO pushes back on AI doomsday warnings",
+      "url": "https://techcrunch.com/2026/10/13/cerebras-ceo-pushes-back-on-ai-doomsday-warnings/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-13T22:36:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Judge orders OpenAI to turn over hiring records in Apple trade secrets case",
+      "url": "https://techcrunch.com/2026/10/13/judge-orders-openai-to-turn-over-hiring-records-in-apple-trade-secrets-case/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-13T20:36:44.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Samsara makes AI agent platform generally available, reports 7x adoption growth",
+      "url": "https://www.freightwaves.com/news/samsara-makes-ai-agent-platform-generally-available-reports-7x-adoption-growth",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-13T19:30:38.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Despite new record, Port of LA chief warns of tariff-driven planning risk",
+      "url": "https://www.freightwaves.com/news/despite-new-record-port-of-la-chief-warns-of-tariff-driven-planning-risk",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-13T19:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "25,000 Drivers Lost: US-Mexico Border Crisis Explained",
+      "url": "https://www.freightwaves.com/news/25000-drivers-lost-us-mexico-border-crisis-explained",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-13T18:42:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Canada Tariffs Are Changing Freight Strategy Fast",
+      "url": "https://www.freightwaves.com/news/canada-tariffs-are-changing-freight-strategy-fast",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-13T18:41:13.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "38523401432",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
