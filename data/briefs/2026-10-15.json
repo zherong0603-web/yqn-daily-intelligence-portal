@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-15",
+  "generated_at": "2026-10-15T06:21:38.547Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-15T06:21:37.528Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS’ Happy Returns comes to TikTok Shop",
+      "url": "https://www.supplychaindive.com/news/ups-happy-returns-comes-to-tiktok-shop/832990/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T15:40:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Best Buy pilots battery-powered vehicles at California distribution sites",
+      "url": "https://www.supplychaindive.com/news/best-buy-pilots-battery-powered-vehicles-at-california-distribution-sites/832802/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T14:32:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CBP eyes earlier filing deadlines for low-cost imports, postal changes",
+      "url": "https://www.supplychaindive.com/news/cbp-eyes-earlier-filing-deadlines-for-low-cost-imports-postal-changes/832877/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T13:49:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Why Yum! Brands is deepening supplier relationships",
+      "url": "https://www.supplychaindive.com/news/why-yum-brands-is-deepening-supplier-relationships/832944/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T13:19:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Has Washington’s approach to manufacturing incentives really changed?",
+      "url": "https://www.supplychaindive.com/news/has-washingtons-approach-to-manufacturing-incentives-really-changed/832121/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T11:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Bed Bath & Beyond parent company taps AI to unify forecasting, replenishment",
+      "url": "https://www.supplychaindive.com/news/bed-bath-beyond-parent-company-taps-ai-to-unify-forecasting-replenishmen/832759/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T16:41:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Panama Canal challenges drive shippers to Port of Los Angeles",
+      "url": "https://www.supplychaindive.com/news/panama-canal-challenges-drive-shippers-to-port-of-los-angeles/832748/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T14:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "NYC offers $5M to move deliveries away from peak hours",
+      "url": "https://www.supplychaindive.com/news/nyc-offers-5m-to-move-deliveries-away-from-peak-hours/832758/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T13:49:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart to expand Wing drone delivery to Denver, Seattle",
+      "url": "https://www.supplychaindive.com/news/walmart-to-expand-wing-drone-delivery-to-denver-seattle/832654/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T13:30:16.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Taylor Farms halts central Mexico sourcing after Cyclospora outbreak",
+      "url": "https://www.supplychaindive.com/news/taylor-farms-halts-central-mexico-sourcing-after-cyclospora-outbreak/832766/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-13T10:57:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Figma announces new features to define how agents work on its platform",
+      "url": "https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-15T04:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Ricursive Intelligence is betting on AI-designed chips to help solve the compute crisis",
+      "url": "https://techcrunch.com/2026/10/14/ricursive-intelligence-is-betting-on-ai-designed-chips-to-help-solve-the-compute-crisis/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-15T01:01:32.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Gudea leverages AI to help organizations prevent social media crises before they erupt",
+      "url": "https://techcrunch.com/2026/10/14/gudea-leverages-ai-to-help-organizations-prevent-social-media-crises-before-they-erupt/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-15T00:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Flock CEO says its microphones detect ‘just gunshots’ — its website says different",
+      "url": "https://techcrunch.com/2026/10/14/flock-ceo-says-its-microphones-detect-just-gunshots-its-website-says-different/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-14T21:30:33.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "English language rule’s comments bring criticism from Sikh organization",
+      "url": "https://www.freightwaves.com/news/english-language-rules-comments-bring-criticism-from-sikh-organization",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-14T20:13:47.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Waabi signs Warrior Logistics for Dallas-Houston freight",
+      "url": "https://www.freightwaves.com/news/waabi-warrior-logistics-autonomous-freight-dallas-houston",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-14T19:25:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Intermodal: Freight’s MUST-HAVE in Volatile Markets",
+      "url": "https://www.freightwaves.com/news/intermodal-freights-must-have-in-volatile-markets",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-14T19:00:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Why Rail Is Booming: Intermodal & Carload Growth Explained",
+      "url": "https://www.freightwaves.com/news/why-rail-is-booming-intermodal-carload-growth-explained",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-14T18:59:14.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Democratizing Trucking Tech: What Small Fleets NEED to Know",
+      "url": "https://www.freightwaves.com/news/democratizing-trucking-tech-what-small-fleets-need-to-know",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-14T18:58:14.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "38691902161",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
