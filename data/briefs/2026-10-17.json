@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-17",
+  "generated_at": "2026-10-17T06:04:54.112Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-17T06:04:43.874Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "From library to logistics: Cathy Morrow Roberson shares career insights",
+      "url": "https://www.supplychaindive.com/news/from-library-to-logistics-cathy-morrow-roberson-shares-career-insights/833023/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-16T14:34:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FMC proposes fees on Spanish-flagged vessels, import restrictions",
+      "url": "https://www.supplychaindive.com/news/fmc-proposes-fees-on-spanish-flagged-vessels-import-restrictions/833122/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-16T14:13:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx, UPS delivery prices set for record-high Q4: TD Cowen/AFS",
+      "url": "https://www.supplychaindive.com/news/fedex-ups-delivery-prices-set-for-record-high-q4-td-cowenafs/832992/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-16T13:31:02.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "5 trends defining consumer electronics supply chains",
+      "url": "https://www.supplychaindive.com/news/5-trends-defining-consumer-electronics-supply-chains/832717/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-15T16:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Unilever puts business results first in factory digital twin rollout",
+      "url": "https://www.supplychaindive.com/news/unilever-puts-business-results-first-in-factory-digital-twin-rollout/833011/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-15T15:14:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How UNFI tackles higher fuel prices",
+      "url": "https://www.supplychaindive.com/news/how-unfi-tackles-higher-fuel-prices/832977/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-15T14:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "California diesel prices remain above $8 per gallon as truckers call for relief",
+      "url": "https://www.supplychaindive.com/news/california-diesel-prices-remain-above-8-per-gallon-as-truckers-call-for-re/833092/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-15T13:45:10.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "GlobalFoundries building $21B New York fabs under US-Japan trade deal",
+      "url": "https://www.supplychaindive.com/news/globalfoundries-building-21b-new-york-fabs-under-us-japan-trade-deal/832995/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-15T11:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS’ Happy Returns comes to TikTok Shop",
+      "url": "https://www.supplychaindive.com/news/ups-happy-returns-comes-to-tiktok-shop/832990/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T15:40:17.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Best Buy pilots battery-powered vehicles at California distribution sites",
+      "url": "https://www.supplychaindive.com/news/best-buy-pilots-battery-powered-vehicles-at-california-distribution-sites/832802/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-14T14:32:12.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "BREAKING: Texas judge upholds nuclear verdict against C.H. Robinson",
+      "url": "https://www.freightwaves.com/news/breaking-texas-judge-upholds-nuclear-verdict-against-c-h-robinson",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-17T00:15:48.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Replit is no longer working with Anthropic, CEO says",
+      "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-16T21:22:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Evos raises $9M to build AI operators for industrial businesses",
+      "url": "https://www.freightwaves.com/news/evos-raises-9m-to-build-ai-operators-for-industrial-businesses",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-16T19:55:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Tesla staffs up Nevada Semi plant as fleet orders stack up",
+      "url": "https://www.freightwaves.com/news/tesla-semi-nevada-hiring",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-16T19:52:19.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Veteran trucker launches free parking, fuel-price platform for drivers",
+      "url": "https://www.freightwaves.com/news/veteran-trucker-launches-free-parking-fuel-price-platform-for-drivers",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-16T19:50:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Louisiana attorney, staged accident scammer, finally sentenced",
+      "url": "https://www.freightwaves.com/news/louisiana-attorney-staged-accident-scammer-finally-sentenced",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-16T19:26:51.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "India becomes the latest country to report rogue AI agent activity",
+      "url": "https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-16T17:52:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "25 charged after drug ring used unsuspecting truckers to haul cocaine from California to Florida",
+      "url": "https://www.freightwaves.com/news/25-charged-after-drug-ring-used-unsuspecting-truckers-to-haul-cocaine-from-california-to-florida",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-16T17:43:14.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "ATRI gets a new head: TeamOne’s Siplon",
+      "url": "https://www.freightwaves.com/news/atri-gets-a-new-head-teamones-siplon",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-16T17:10:32.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "39008546016",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
