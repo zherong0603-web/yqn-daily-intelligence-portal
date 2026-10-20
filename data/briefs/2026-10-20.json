@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-20",
+  "generated_at": "2026-10-20T06:30:34.543Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-20T06:30:33.602Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cutter & Buck eyes fulfillment boost with second automated distribution center",
+      "url": "https://www.supplychaindive.com/news/cutter-buck-eyes-fulfillment-boost-with-second-automated-distribution-cen/833237/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T14:59:49.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Few major apparel brands pay garment workers a living wage: report",
+      "url": "https://www.supplychaindive.com/news/few-major-apparel-brands-pay-garment-workers-a-living-wage-report/833275/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T14:02:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart approves 8 more parcel carriers for seller-fulfilled shipping",
+      "url": "https://www.supplychaindive.com/news/walmart-approves-8-more-parcel-carriers-for-seller-fulfilled-shipping/833259/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T14:01:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Port of Savannah to build 3.5M TEU container terminal",
+      "url": "https://www.supplychaindive.com/news/port-of-savannah-to-build-35m-teu-container-terminal/833246/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T13:55:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Unlocking the autonomous supply chain: Why execution data has to feed the plan",
+      "url": "https://www.supplychaindive.com/spons/unlocking-the-autonomous-supply-chain-why-execution-data-has-to-feed-the-p/833263/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Supply chain visibility tells you what happened. Can you see what it cost?",
+      "url": "https://www.supplychaindive.com/spons/supply-chain-visibility-tells-you-what-happened-can-you-see-what-it-cost/832819/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "The biggest risk in agentic commerce isn’t easy to see. It’s invisibility.",
+      "url": "https://www.supplychaindive.com/spons/the-biggest-risk-in-agentic-commerce-isnt-easy-to-see-its-invisibility/832344/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-19T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Mamdani says feds have abdicated on AI, urges New Yorkers to push back",
+      "url": "https://techcrunch.com/2026/10/19/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-20T01:27:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nscale and Anthropic are reportedly in talks for yet another $45B compute deal",
+      "url": "https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-19T23:39:38.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Embedded AI evaluators won’t be an easy solution, Hugging Face’s policy chief says",
+      "url": "https://techcrunch.com/2026/10/19/embedded-ai-evaluators-wont-be-an-easy-solution-hugging-faces-policy-chief-says/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-19T22:49:27.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight Fraud Gets More Strategic Heading Into Peak Season",
+      "url": "https://www.freightwaves.com/news/freight-fraud-gets-more-strategic-heading-into-peak-season",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-19T22:31:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Failed CDL exams, $3,000 payments and Bluetooth cheating scheme lead to federal charges",
+      "url": "https://www.freightwaves.com/news/failed-cdl-exams-3000-payments-and-bluetooth-cheating-scheme-lead-to-federal-charges",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-19T22:14:33.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft says AI agents are like insider threats as ‘frontier models can’t be trusted’",
+      "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-19T22:04:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "What Happens to Tribal Knowledge When Dispatchers Retire?",
+      "url": "https://www.freightwaves.com/news/what-happens-to-tribal-knowledge-when-dispatchers-retire",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-19T21:28:54.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool",
+      "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-19T20:09:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Volvo folds powertrain repairs into its service contract",
+      "url": "https://www.freightwaves.com/news/volvo-silver-service-contract-powertrain",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-19T19:52:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "New Mexico jury awards $47M in tanker truck crash lawsuit",
+      "url": "https://www.freightwaves.com/news/new-mexico-jury-awards-47m-in-tanker-truck-crash-lawsuit",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-19T19:42:56.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-19T19:28:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CBP seizes $30.4M in meth hidden in commercial salt load at Laredo World Trade Bridge",
+      "url": "https://www.freightwaves.com/news/cbp-seizes-30-4m-in-meth-hidden-in-commercial-salt-load-at-laredo-world-trade-bridge",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-19T19:11:57.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "39380720868",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
