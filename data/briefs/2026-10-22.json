@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-22",
+  "generated_at": "2026-10-22T06:32:16.646Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-22T06:32:15.497Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple expands US supplier network for iPhone materials, components",
+      "url": "https://www.supplychaindive.com/news/apple-expands-us-supplier-network-for-iphone-materials-components/833496/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-21T15:05:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Primo Brands opens first new factory post merger",
+      "url": "https://www.supplychaindive.com/news/primo-brands-opens-first-new-factory-post-merger/833375/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-21T11:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Napa Auto Parts revs up fulfillment efficiency with automation",
+      "url": "https://www.supplychaindive.com/news/napa-auto-parts-revs-up-fulfillment-efficiency-with-automation/833383/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T19:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump’s 50% Canada tariffs challenged in court",
+      "url": "https://www.supplychaindive.com/news/trumps-50-canada-tariffs-challenged-in-court/833495/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T18:18:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US semiconductor supply chain relies on vulnerable, hidden inputs",
+      "url": "https://www.supplychaindive.com/news/us-semiconductor-supply-chain-relies-on-vulnerable-hidden-inputs/833485/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T16:55:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Texas sues Nestlé’s Gerber over alleged heavy metals in baby food",
+      "url": "https://www.supplychaindive.com/news/texas-sues-nestles-gerber-over-alleged-heavy-metals-in-baby-food/833374/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T14:48:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Chocolate maker signs $6.6M sale-leaseback deal for warehouse site",
+      "url": "https://www.supplychaindive.com/news/chocolate-maker-signs-66m-sale-leaseback-deal-for-warehouse-site/833344/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T14:39:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How Whataburger’s CSCO diversified suppliers to curb inflation — and fought fires along the way",
+      "url": "https://www.supplychaindive.com/news/how-whataburgers-csco-diversified-suppliers-to-curb-inflation-and-fought/833435/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T14:16:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Bluffworks targets lower fulfillment costs after provider switch",
+      "url": "https://www.supplychaindive.com/news/bluffworks-targets-lower-fulfillment-costs-after-provider-switch/833337/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T13:57:02.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Modelo, Pacifico maker stabilizes beer inventory following undersupply",
+      "url": "https://www.supplychaindive.com/news/modelo-pacifico-maker-stabilizes-beer-inventory-following-undersupply/833292/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T11:03:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Tesla Semi enters volume production as 2027 rollout approaches ",
+      "url": "https://www.freightwaves.com/news/tesla-semi-enters-volume-production-as-2027-rollout-approaches",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-22T00:16:11.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CEO’s letter boasts of lots of arrows pointing up at Triumph Financial",
+      "url": "https://www.freightwaves.com/news/ceos-letter-boasts-of-lots-of-arrows-pointing-up-at-triumph-financial",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-21T23:29:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "The Data Your Truck Sends Home Is Becoming Your New Credit Score, And Your Insurance Rate Too",
+      "url": "https://www.freightwaves.com/news/the-data-your-truck-sends-home-is-becoming-your-new-credit-score-and-your-insurance-rate-too",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-21T23:11:33.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Blackstone’s Jas Khaira says fears over AI-buildout debt are overblown",
+      "url": "https://techcrunch.com/2026/10/21/blackstones-jas-khaira-says-fears-over-ai-buildout-debt-are-overblown/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-21T22:51:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "First look: Knight-Swift’s Q3 beats expectations",
+      "url": "https://www.freightwaves.com/news/first-look-knight-swifts-q3-beats-expectations",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-21T21:39:32.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Rail Traffic SURGE: Why Intermodal Volume is Climbing",
+      "url": "https://www.freightwaves.com/news/rail-traffic-surge-why-intermodal-volume-is-climbing",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-21T21:17:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "TechCrunch Founder Summit 2026: Everything you need to know ",
+      "url": "https://techcrunch.com/2026/10/21/techcrunch-founder-summit-2026-everything-you-need-to-know/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-21T21:16:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Vertical Aerospace eVTOL: The Future of Urgent Air Cargo",
+      "url": "https://www.freightwaves.com/news/vertical-aerospace-evtol-the-future-of-urgent-air-cargo",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-21T21:15:43.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta says Muse has over 10M users, with shopping a top activity",
+      "url": "https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-21T21:14:19.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "39734506526",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
