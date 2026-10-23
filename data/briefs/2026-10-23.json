@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-23",
+  "generated_at": "2026-10-23T06:26:24.727Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-23T06:26:24.334Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Ikea accused of harmful wood sourcing in Europe’s forests",
+      "url": "https://www.supplychaindive.com/news/ikea-accused-of-harmful-wood-sourcing-in-europes-forests/833625/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-22T17:56:03.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nestlé to close Ohio factory by end of 2027",
+      "url": "https://www.supplychaindive.com/news/nestle-to-close-ohio-factory-by-end-of-2027/833587/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-22T14:21:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Stord expands network with AMS Fulfillment purchase",
+      "url": "https://www.supplychaindive.com/news/stord-expands-network-with-ams-fulfillment-purchase/833617/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-22T14:00:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Hydro Flask maker aims tariff refunds at inventory, packaging",
+      "url": "https://www.supplychaindive.com/news/hydro-flask-maker-aims-tariff-refunds-at-inventory-packaging/833631/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-22T12:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple expands US supplier network for iPhone materials, components",
+      "url": "https://www.supplychaindive.com/news/apple-expands-us-supplier-network-for-iphone-materials-components/833496/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-21T15:05:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Extended peak season drives high dwell times at San Pedro Bay ports",
+      "url": "https://www.supplychaindive.com/news/extended-peak-season-drives-high-dwell-times-at-san-pedro-bay-ports/833584/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-21T14:17:43.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Primo Brands opens first new factory post merger",
+      "url": "https://www.supplychaindive.com/news/primo-brands-opens-first-new-factory-post-merger/833375/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-21T11:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Napa Auto Parts revs up fulfillment efficiency with automation",
+      "url": "https://www.supplychaindive.com/news/napa-auto-parts-revs-up-fulfillment-efficiency-with-automation/833383/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T19:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump’s 50% Canada tariffs challenged in court",
+      "url": "https://www.supplychaindive.com/news/trumps-50-canada-tariffs-challenged-in-court/833495/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T18:18:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "US semiconductor supply chain relies on vulnerable, hidden inputs",
+      "url": "https://www.supplychaindive.com/news/us-semiconductor-supply-chain-relies-on-vulnerable-hidden-inputs/833485/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-20T16:55:46.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony.ai and Nvidia",
+      "url": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-23T04:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Left alone with nothing to do, AI agents started playing",
+      "url": "https://techcrunch.com/2026/10/22/left-alone-with-nothing-to-do-ai-agents-started-playing/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-23T00:45:37.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
+      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-22T22:08:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Ryder fleet facing possible growth need as EPA ‘27 nears",
+      "url": "https://www.freightwaves.com/news/ryder-fleet-facing-possible-growth-need-as-epa-27-nears",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-22T21:47:50.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Daimler Truck sues former fleet manager over alleged $3.8M embezzlement",
+      "url": "https://www.freightwaves.com/news/daimler-truck-sues-former-fleet-manager-over-alleged-3-8m-embezzlement",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-22T20:59:41.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-22T19:07:09.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "F3 preview: AI, autonomous trucking and freight technology take center stage",
+      "url": "https://www.freightwaves.com/news/f3-preview-ai-autonomous-trucking-and-freight-technology-take-center-stage",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-22T19:02:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Feds charge driver in alleged $12M cargo theft scheme built on hijacked carrier identities",
+      "url": "https://www.freightwaves.com/news/feds-charge-driver-in-alleged-12m-cargo-theft-scheme-built-on-hijacked-carrier-identities",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-22T19:01:12.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Canva releases its first image generation model",
+      "url": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-22T19:00:00.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "39911441472",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
