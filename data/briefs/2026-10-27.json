@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-27",
+  "generated_at": "2026-10-27T06:46:38.007Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-27T06:46:37.632Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USTR weighs extending pause on China-linked vessel fees to January",
+      "url": "https://www.supplychaindive.com/news/ustr-weighs-extending-pause-on-china-linked-vessel-fees-to-january/872763/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T20:48:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS to debut weekly fuel fee in 2027, matching FedEx, UPS practices",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T19:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Inside FedEx’s Network 2.0 overhaul",
+      "url": "https://www.supplychaindive.com/news/inside-fedexs-network-20-overhaul/833618/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T15:20:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS plans 5.9% rate increase on Dec. 21",
+      "url": "https://www.supplychaindive.com/news/ups-plans-59-rate-increase-on-dec-21/872751/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T15:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CSX sees rail conversion opportunities from battered trucking market",
+      "url": "https://www.supplychaindive.com/news/csx-sees-rail-conversion-opportunities-from-battered-trucking-market/833858/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T14:40:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "PepsiCo shutters Tennessee bottling plant amid soda slump",
+      "url": "https://www.supplychaindive.com/news/pepsico-shutters-tennessee-bottling-plant-amid-soda-slump/833586/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T11:27:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Promises vs. reality: Closing the AI adoption gap in transportation",
+      "url": "https://www.supplychaindive.com/spons/promises-vs-reality-closing-the-ai-adoption-gap-in-transportation/833070/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T09:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "How shoppers define delivery success – and what they’ll do if you fall short",
+      "url": "https://www.supplychaindive.com/spons/how-shoppers-define-delivery-success-and-what-theyll-do-if-you-fall-shor/833675/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T09:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "How OpenAI turned its coding tools into dots, an always-on personal assistant",
+      "url": "https://techcrunch.com/2026/10/26/how-openai-turned-its-coding-tools-into-dots-an-always-on-personal-assistant/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-27T02:00:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cohere says Alibaba’s Qwen model tried to send a file to Beijing",
+      "url": "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-27T01:12:21.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FMCSA’s Elison addresses Motus again, still no date on full repair",
+      "url": "https://www.freightwaves.com/news/fmcsas-elison-addresses-motus-again-still-no-date-on-full-repair",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-26T22:58:08.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Mexican truckers launch national strike over highway security, rising costs",
+      "url": "https://www.freightwaves.com/news/mexican-truckers-launch-national-strike-over-highway-security-rising-costs",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-26T17:17:15.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "U.S. Postal Service prepared for peak season surge",
+      "url": "https://www.freightwaves.com/news/u-s-postal-service-prepared-for-peak-season-surge",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-26T17:09:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked",
+      "url": "https://techcrunch.com/2026/10/26/anthropics-ipo-filing-reveals-its-strategy-for-keeping-enterprise-customers-hooked/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-26T16:49:42.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "SpaceX locks in $40B GPU financing deal with Apollo",
+      "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-26T16:46:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Japan Airlines hires B747 cargo carriers to meet high-tech demand",
+      "url": "https://www.freightwaves.com/news/japan-airlines-hires-b747-cargo-carriers-to-meet-high-tech-demand",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-26T16:28:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Trucking Needs More Than a Choice Between Diesel and EV Trucks",
+      "url": "https://www.freightwaves.com/news/trucking-needs-more-than-a-choice-between-diesel-and-ev-trucks",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-26T15:30:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI air freight drives Kuehne+Nagel profit increase",
+      "url": "https://www.freightwaves.com/news/ai-air-freight-drives-kuehnenagel-profit-increase",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-26T15:26:44.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic officially files for its public debut",
+      "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-26T14:35:22.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "40463074262",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
