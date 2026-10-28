@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-28",
+  "generated_at": "2026-10-28T07:18:38.500Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-28T07:18:38.259Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger taps RFID, computer vision data to boost inventory management",
+      "url": "https://www.supplychaindive.com/news/kroger-taps-rfid-computer-vision-data-to-boost-inventory-management/872819/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T17:49:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS gears up for peak season with less Amazon volume in tow",
+      "url": "https://www.supplychaindive.com/news/ups-gears-up-for-peak-season-with-less-amazon-volume-in-tow/872845/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T16:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cycling apparel company unites planning, sourcing on single platform",
+      "url": "https://www.supplychaindive.com/news/cycling-apparel-company-unites-planning-sourcing-on-single-platform/833732/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T13:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Audi investing $4B to build its first US plant in Georgia",
+      "url": "https://www.supplychaindive.com/news/audi-investing-4b-to-build-its-first-us-plant-in-georgia/872866/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T11:31:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Supply Chain AI Has an Execution Problem",
+      "url": "https://www.supplychaindive.com/spons/supply-chain-ai-has-an-execution-problem/872776/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T03:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USTR weighs extending pause on China-linked vessel fees to January",
+      "url": "https://www.supplychaindive.com/news/ustr-weighs-extending-pause-on-china-linked-vessel-fees-to-january/872763/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T20:48:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS to debut weekly fuel fee in 2027, matching FedEx, UPS practices",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T19:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Inside FedEx’s Network 2.0 overhaul",
+      "url": "https://www.supplychaindive.com/news/inside-fedexs-network-20-overhaul/833618/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T15:20:25.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS plans 5.9% rate increase on Dec. 21",
+      "url": "https://www.supplychaindive.com/news/ups-plans-59-rate-increase-on-dec-21/872751/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T15:10:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "CSX sees rail conversion opportunities from battered trucking market",
+      "url": "https://www.supplychaindive.com/news/csx-sees-rail-conversion-opportunities-from-battered-trucking-market/833858/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T14:40:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "WEX, Euclid AI target 90% reduction in trucking transaction costs",
+      "url": "https://www.freightwaves.com/news/wex-euclid-ai-target-90-reduction-in-trucking-transaction-costs",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-28T04:27:10.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Insurance claims adjustments tank Landstar’s otherwise strong Q3",
+      "url": "https://www.freightwaves.com/news/insurance-claims-adjustments-tank-landstars-otherwise-strong-q3",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-28T03:22:42.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Port Houston container volumes jump 11% as imports surge in September",
+      "url": "https://www.freightwaves.com/news/port-houston-container-volumes-jump-11-as-imports-surge-in-september",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-28T03:17:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "VCs will make billions on Anthropic’s IPO, but Amazon is set to make much (much) more",
+      "url": "https://techcrunch.com/2026/10/27/vcs-will-make-billions-on-anthropics-ipo-but-amazon-is-set-to-make-much-much-more/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-28T01:15:28.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Werner Enterprises sees cost headwinds lingering into Q1",
+      "url": "https://www.freightwaves.com/news/werner-enterprises-sees-cost-headwinds-lingering-into-q1",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-28T00:10:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
+      "url": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-27T23:34:27.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "The data center boom has an upside: innovation for the US grid",
+      "url": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-27T22:55:41.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Bank of America kindly asks that you don’t share your banking password with your AI assistant",
+      "url": "https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-27T21:44:34.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Who’s really in charge at Anthropic after the IPO?",
+      "url": "https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-27T21:38:28.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "40649182875",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
