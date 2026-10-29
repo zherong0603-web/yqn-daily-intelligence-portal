@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-29",
+  "generated_at": "2026-10-29T07:37:37.728Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-29T07:37:37.347Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tesla begins humanoid production in California",
+      "url": "https://www.supplychaindive.com/news/tesla-begins-optimus-humanoid-production-california-shipments-2027/872992/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T14:41:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nvidia forges supplier agreements to expand capacity for AI",
+      "url": "https://www.supplychaindive.com/news/nvidia-forges-supplier-agreements-to-expand-capacity-for-ai/872780/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T14:20:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "WD-40 credits supply chain for $7M in cost savings",
+      "url": "https://www.supplychaindive.com/news/wd-40-credits-supply-chain-for-7m-in-cost-savings/872902/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T11:22:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger taps RFID, computer vision data to boost inventory management",
+      "url": "https://www.supplychaindive.com/news/kroger-taps-rfid-computer-vision-data-to-boost-inventory-management/872819/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T17:49:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS gears up for peak season with less Amazon volume in tow",
+      "url": "https://www.supplychaindive.com/news/ups-gears-up-for-peak-season-with-less-amazon-volume-in-tow/872845/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T16:06:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Cycling apparel company unites planning, sourcing on single platform",
+      "url": "https://www.supplychaindive.com/news/cycling-apparel-company-unites-planning-sourcing-on-single-platform/833732/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T13:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Audi investing $4B to build its first US plant in Georgia",
+      "url": "https://www.supplychaindive.com/news/audi-investing-4b-to-build-its-first-us-plant-in-georgia/872866/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T11:31:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Supply Chain AI Has an Execution Problem",
+      "url": "https://www.supplychaindive.com/spons/supply-chain-ai-has-an-execution-problem/872776/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T03:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USTR weighs extending pause on China-linked vessel fees to January",
+      "url": "https://www.supplychaindive.com/news/ustr-weighs-extending-pause-on-china-linked-vessel-fees-to-january/872763/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T20:48:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USPS to debut weekly fuel fee in 2027, matching FedEx, UPS practices",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-26T19:12:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI in Logistics: The End of Bad Truckload Routes?",
+      "url": "https://www.freightwaves.com/news/ai-in-logistics-the-end-of-bad-truckload-routes",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T03:45:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "AI ROI: Why 90% Satisfaction Still Means Leaders Want MORE!",
+      "url": "https://www.freightwaves.com/news/ai-roi-why-90-satisfaction-still-means-leaders-want-more",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T03:41:55.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Scan Global Logistics to acquire Oregon-based OIA Global",
+      "url": "https://www.freightwaves.com/news/scan-global-logistics-to-acquire-oregon-based-oia-global",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T00:07:26.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-28T21:58:32.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Aurora adds 500-truck Charger MOU toward 30,000-truck goal",
+      "url": "https://www.freightwaves.com/news/aurora-charger-logistics-500-driverless-trucks-mou",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-28T21:50:06.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Google expands AI Search ads globally as core ad growth slows",
+      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-28T21:48:37.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "C.H Robinson and Landstar stock prices slammed; insurance a factor",
+      "url": "https://www.freightwaves.com/news/c-h-robinson-and-landstar-stock-prices-slammed-insurance-costs-a-factor",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-28T21:40:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-28T21:34:30.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-28T21:25:30.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "40836602251",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
