@@ -2,7 +2,7 @@ version = 1
 id = "yqn-09-20"
 kind = "cron"
 name = "跨境早知道 V2 16:20 兜底检查"
-prompt = "进入 <REPO_PATH>，先检查当天 dingtalk-crossborder-v2-send.yml 是否已有精确 [crossborder-v2:send] 成功标记。已成功则结束；无成功且无 [crossborder-v2:attempt] 时，完整读取 docs/automation/跨境早知道V2执行规则.md 与 docs/automation/工作日晨报执行规则.md，构建并受保护调取 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD；由脚本读取本机执行器授权，缺失或空白时必须停止。已有 attempt 但无 success 时严禁自动重试，只记录精确失败环节。结果追加到 <AUTOMATION_MEMORY_PATH>。不读取、展示或记录任何密钥、robotCode 或 userId。"
+prompt = "进入 <REPO_PATH>，先检查当天 dingtalk-crossborder-v2-send.yml 是否已有精确 [crossborder-v2:send] 成功标记。已成功则结束；无成功且无 [crossborder-v2:attempt] 时，完整读取 docs/automation/跨境早知道V2执行规则.md 与 docs/automation/工作日晨报执行规则.md，构建并受保护调取 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live；由脚本读取本机执行器授权并只发送 SHA-256 proof，缺失或空白时必须停止。已有 attempt 但无 success 时严禁自动重试，只记录精确失败环节。结果追加到 <AUTOMATION_MEMORY_PATH>。不读取、展示或记录任何密钥、robotCode 或 userId。"
 status = "PAUSED"
 rrule = "RRULE:FREQ=DAILY;BYHOUR=16;BYMINUTE=20;BYSECOND=0"
 model = "gpt-6.1-terra"

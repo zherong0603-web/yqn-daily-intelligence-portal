@@ -2,7 +2,7 @@ version = 1
 id = "yqn-3"
 kind = "cron"
 name = "跨境早知道 V2（每日16:00生成+私聊交付）"
-prompt = "进入 <REPO_PATH>，完整读取并严格执行 docs/automation/跨境早知道V2执行规则.md 与 docs/automation/工作日晨报执行规则.md。自动化 memory 为 <AUTOMATION_MEMORY_PATH>。用户已授权每日北京时间16:00生成3条跨境情报、A/B黄金3秒和90–120秒HeyGen纯文本口播稿，并推送至本人钉钉单聊供审阅。正式调度只能运行 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD，由脚本读取本机执行器授权；缺失或空白时必须停止。GitHub Actions 必须通过钉钉 oToMessages/readStatus 核验收件人和发送状态后才能记成功，API 200 不算送达。已有 attempt 无 success 时禁止自动重试。不读取、展示或记录任何密钥、robotCode 或 userId。成功或已送达时结束当前运行；私聊通道缺配置时只阻塞发送分支并保留精确失败环节。"
+prompt = "进入 <REPO_PATH>，完整读取并严格执行 docs/automation/跨境早知道V2执行规则.md 与 docs/automation/工作日晨报执行规则.md。自动化 memory 为 <AUTOMATION_MEMORY_PATH>。用户已授权每日北京时间16:00生成3条跨境情报、A/B黄金3秒和90–120秒HeyGen纯文本口播稿，并推送至本人钉钉单聊供审阅。正式调度只能运行 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live，由脚本读取本机执行器授权并只发送 SHA-256 proof；缺失或空白时必须停止。GitHub Actions 必须通过钉钉 oToMessages/readStatus 核验收件人和发送状态后才能记成功，API 200 不算送达。已有 attempt 无 success 时禁止自动重试。不读取、展示或记录任何密钥、robotCode 或 userId。成功或已送达时结束当前运行；私聊通道缺配置时只阻塞发送分支并保留精确失败环节。"
 status = "ACTIVE"
 rrule = "RRULE:FREQ=DAILY;BYHOUR=16;BYMINUTE=0;BYSECOND=0"
 model = "gpt-6.1-terra"

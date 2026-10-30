@@ -8,6 +8,7 @@ import {
   renderSellerProblemMarkdown,
   validateCrossborderV2Brief,
   validateSellerProblemBrief,
+  verifyCrossborderV2Sources,
 } from "./buildSellerProblemBrief.js";
 import { signDingTalkUrl } from "./utils/signDingTalk.js";
 
@@ -25,6 +26,8 @@ interface WorkflowRun {
 
 interface WorkflowJob {
   id: number;
+  status?: string;
+  conclusion?: string | null;
 }
 
 interface DingTalkAccessTokenResponse {
@@ -168,7 +171,15 @@ export async function priorSendStateInGithub(
     ) continue;
     const jobs = await githubJson<{ jobs?: WorkflowJob[] }>(`/repos/${repository}/actions/runs/${run.id}/jobs?per_page=20`, token);
     for (const job of jobs.jobs || []) {
-      const logs = await githubText(`/repos/${repository}/actions/jobs/${job.id}/logs`, token);
+      if (job.status && job.status !== "completed") continue;
+      if (job.conclusion === "skipped") continue;
+      let logs: string;
+      try {
+        logs = await githubText(`/repos/${repository}/actions/jobs/${job.id}/logs`, token);
+      } catch (error) {
+        if (error instanceof Error && error.message.includes("HTTP 404")) continue;
+        throw error;
+      }
       if (logs.includes(successMarkerForCheck(date, targetLabel))) return "sent";
       if (logs.includes(attemptMarkerForCheck(date, targetLabel))) ambiguous = true;
     }
@@ -340,10 +351,9 @@ export async function verifyDingTalkPersonalDelivery(options: {
     if (sendFailed) {
       throw new Error(`Crossborder V2 delivery failed (sendStatus=${last.sendStatus}, readStatus=${last.readStatus})`);
     }
-    const sendSucceeded = ["SUCCESS", "SENT", "DELIVERED", "READ"].includes(last.sendStatus);
     const recipientDelivered = last.recipientConfirmed
       && ["READ", "UNREAD", "SUCCESS", "DELIVERED"].includes(last.readStatus);
-    if (sendSucceeded || recipientDelivered) {
+    if (recipientDelivered) {
       return { sendStatus: last.sendStatus, readStatus: last.readStatus };
     }
     if (attempt < attempts - 1) await sleep(delayMs);
@@ -377,6 +387,13 @@ async function sendCrossborderV2Brief(input: unknown): Promise<void> {
   }
   const markdown = renderCrossborderV2Markdown(brief);
   const title = `跨境早知道 V2｜${brief.date}`;
+  const sourceChecks = await verifyCrossborderV2Sources(brief);
+  const failedSourceChecks = sourceChecks.filter((check) => !check.ok);
+  if (failedSourceChecks.length > 0) {
+    console.warn(`[crossborder-v2:source-check] auto-verified=${sourceChecks.length - failedSourceChecks.length}/${sourceChecks.length}; manual verification remains required for ${failedSourceChecks.map((check) => check.url).join(", ")}`);
+  } else {
+    console.log(`[crossborder-v2:source-check] auto-verified=${sourceChecks.length}/${sourceChecks.length}`);
+  }
 
   if (phase === "preflight") {
     const priorState = await priorSendStateInGithub(

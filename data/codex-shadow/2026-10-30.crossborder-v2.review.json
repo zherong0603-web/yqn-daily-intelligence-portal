@@ -5,10 +5,11 @@
   "target": "dingtalk_private_chat",
   "signal_count": 3,
   "us_first": true,
+  "region_priority_valid": true,
   "estimated_seconds": {
-    "a": 94,
-    "b": 93.6
+    "a": 108.6,
+    "b": 108.2
   },
   "automated_blockers": [],
-  "checked_at": "2026-10-30T06:29:40.718Z"
+  "checked_at": "2026-10-30T06:59:43.744Z"
 }

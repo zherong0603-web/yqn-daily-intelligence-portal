@@ -61,6 +61,21 @@ describe("DingTalk private-chat delivery", () => {
     })).rejects.toThrow(/delivery unconfirmed/);
   });
 
+  it("does not treat a bare sendStatus=SUCCESS as actual delivery", async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ sendStatus: "SUCCESS", messageReadInfoList: [] }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(verifyDingTalkPersonalDelivery({
+      accessToken: "token-1",
+      robotCode: "robot-1",
+      userId: "user-1",
+      processQueryKey: "query-1",
+      attempts: 1,
+      sleep: async () => {},
+    })).rejects.toThrow(/delivery unconfirmed/);
+  });
+
   it("recognizes the private-chat success prefix from workflow logs as a duplicate", async () => {
     process.env.GITHUB_TOKEN = "test-token";
     process.env.GITHUB_REPOSITORY = "owner/repo";
@@ -86,6 +101,36 @@ describe("DingTalk private-chat delivery", () => {
       crossborderV2SuccessPrefix,
       crossborderV2AttemptMarker,
     )).resolves.toBe("sent");
+
+    delete process.env.GITHUB_TOKEN;
+    delete process.env.GITHUB_REPOSITORY;
+    delete process.env.GITHUB_RUN_ID;
+  });
+
+  it("skips dry-run jobs without attempting to fetch their unavailable logs", async () => {
+    process.env.GITHUB_TOKEN = "test-token";
+    process.env.GITHUB_REPOSITORY = "owner/repo";
+    process.env.GITHUB_RUN_ID = "700";
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({
+        workflow_runs: [
+          { id: 700, status: "in_progress", conclusion: null, created_at: "2026-10-30T08:00:00Z" },
+          { id: 699, status: "completed", conclusion: "success", created_at: "2026-10-30T08:00:00Z" },
+        ],
+      }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({
+        jobs: [{ id: 88, status: "completed", conclusion: "skipped" }],
+      }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(priorSendStateInGithub(
+      "2026-10-30",
+      "dingtalk-private",
+      "dingtalk-crossborder-v2-send.yml",
+      crossborderV2SuccessPrefix,
+      crossborderV2AttemptMarker,
+    )).resolves.toBe("none");
+    expect(fetchMock).toHaveBeenCalledTimes(2);
 
     delete process.env.GITHUB_TOKEN;
     delete process.env.GITHUB_REPOSITORY;

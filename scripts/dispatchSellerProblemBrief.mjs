@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -54,14 +54,16 @@ export function dispatchSellerProblemBrief({
   log = console.log,
 } = {}) {
   const executorId = resolveExecutorId(env, executorIdFile);
-  log("[seller-brief:executor] authorization input loaded");
 
   const date = arg(argv, "--date") || dateInShanghai(now);
-  const dryRun = arg(argv, "--dry-run") === "true";
+  const liveRequested = argv.includes("--live") || argv.includes("--send");
+  const dryRun = !liveRequested;
   const workflowFile = arg(argv, "--workflow") || "dingtalk-seller-problem-send.yml";
   const schema = arg(argv, "--schema") || "v1";
+  const logPrefix = schema === "v2" ? "crossborder-v2" : "seller-brief";
   if (!/^[a-z0-9-]+\.ya?ml$/.test(workflowFile)) throw new Error(`Invalid workflow file: ${workflowFile}`);
   if (schema !== "v1" && schema !== "v2") throw new Error(`Invalid schema: ${schema}`);
+  log(`[${logPrefix}:executor] authorization input loaded`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || new Date(`${date}T00:00:00Z`).toISOString().slice(0, 10) !== date) {
     throw new Error(`Invalid brief date: ${date}`);
   }
@@ -85,7 +87,9 @@ export function dispatchSellerProblemBrief({
       expected_date: date,
       dry_run: dryRun ? "true" : "false",
       dispatch_id: dispatchId,
-      executor_id: executorId,
+      ...(schema === "v2"
+        ? { executor_proof: createHash("sha256").update(executorId).digest("hex") }
+        : { executor_id: executorId }),
     },
   };
 
@@ -97,7 +101,7 @@ export function dispatchSellerProblemBrief({
     "--input",
     "-",
   ], { input: JSON.stringify(payload), stdio: ["pipe", "inherit", "inherit"] });
-  log(`[seller-brief:dispatch] date=${date} dispatch_id=${dispatchId} workflow dispatched`);
+  log(`[${logPrefix}:dispatch] date=${date} dispatch_id=${dispatchId} dry_run=${dryRun} workflow dispatched`);
   return { date, dispatchId };
 }
 

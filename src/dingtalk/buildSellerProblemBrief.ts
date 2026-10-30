@@ -1,6 +1,8 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { lookup } from "node:dns/promises";
+import { isIP } from "node:net";
 import { z } from "zod";
 
 const focusSchema = z.enum(["us_warehouse", "mexico_warehouse", "us_mexico_bridge"]);
@@ -17,6 +19,11 @@ const webUrlSchema = z.string().url().refine((value) => {
   const protocol = new URL(value).protocol;
   return protocol === "https:" || protocol === "http:";
 }, "Only HTTP(S) source URLs are allowed");
+
+const secureSourceUrlSchema = z.string().url().refine((value) => {
+  const url = new URL(value);
+  return url.protocol === "https:" && !url.username && !url.password;
+}, "V2 sources must use HTTPS without embedded credentials");
 
 function singleLine(min: number, max: number): z.ZodString {
   return z.string().min(min).max(max).refine((value) => !/[\r\n]/.test(value), "Must be a single line");
@@ -76,7 +83,7 @@ const crossborderV2RegionSchema = z.enum(["us", "mexico", "europe", "other"]);
 
 const crossborderV2EvidenceSchema = z.object({
   title: singleLine(2, 160),
-  url: webUrlSchema,
+  url: secureSourceUrlSchema,
   source_type: z.enum(["official", "platform_announcement", "media", "seller_forum", "internal_approved"]),
   published_at: calendarDateSchema,
   checked_at: z.string().datetime({ offset: true }),
@@ -122,7 +129,7 @@ const crossborderV2BriefSchema = z.object({
   unverified_claims: z.array(z.object({
     claim: singleLine(8, 220),
     source: singleLine(2, 120),
-    source_url: webUrlSchema,
+    source_url: secureSourceUrlSchema,
     why_unverified: singleLine(8, 220),
   })).max(3),
   generated_at: z.string().datetime(),
@@ -139,10 +146,11 @@ export type CrossborderV2Brief = z.infer<typeof crossborderV2BriefSchema>;
 export interface CrossborderV2ValidationReport {
   date: string;
   content_valid: boolean;
-  send_allowed: true;
+  send_allowed: boolean;
   target: "dingtalk_private_chat";
   signal_count: 3;
   us_first: boolean;
+  region_priority_valid: boolean;
   estimated_seconds: {
     a: number;
     b: number;
@@ -446,6 +454,143 @@ export function renderCrossborderV2Scripts(brief: CrossborderV2Brief): { a: stri
   };
 }
 
+function sourceDateVariants(date: string): string[] {
+  const [year, month, day] = date.split("-");
+  const monthName = new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC",
+    month: "long",
+  }).format(new Date(`${date}T12:00:00Z`));
+  return [
+    `${year}-${month}-${day}`,
+    `${year}/${month}/${day}`,
+    `${month}/${day}/${year}`,
+    `${day}/${month}/${year}`,
+    `${day}.${month}.${year}`,
+    `${monthName} ${Number(day)}, ${year}`,
+    `${Number(day)} ${monthName} ${year}`,
+    `${year}年${Number(month)}月${Number(day)}日`,
+  ];
+}
+
+function normalizedDigits(text: string): string {
+  return text.replace(/(?<=\d)[,，](?=\d)/g, "");
+}
+
+export interface CrossborderSourceCheck {
+  url: string;
+  ok: boolean;
+  matched_number: string | null;
+  matched_date: string | null;
+  error?: string;
+}
+
+function isPrivateAddress(address: string): boolean {
+  const normalized = address.toLowerCase();
+  if (normalized === "::1" || normalized === "0:0:0:0:0:0:0:1") return true;
+  if (normalized.startsWith("fc") || normalized.startsWith("fd") || normalized.startsWith("fe80:")) return true;
+  if (normalized.startsWith("::ffff:")) return isPrivateAddress(normalized.slice("::ffff:".length));
+  const octets = normalized.split(".").map(Number);
+  if (octets.length !== 4 || octets.some((value) => !Number.isInteger(value) || value < 0 || value > 255)) return false;
+  const a = octets[0]!;
+  const b = octets[1]!;
+  return a === 0 || a === 10 || a === 127 || a >= 224
+    || (a === 169 && b === 254)
+    || (a === 172 && b >= 16 && b <= 31)
+    || (a === 192 && b === 168)
+    || (a === 100 && b >= 64 && b <= 127)
+    || (a === 198 && (b === 18 || b === 19));
+}
+
+function redactSourceUrl(input: string): string {
+  try {
+    const url = new URL(input);
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return "[invalid-url]";
+  }
+}
+
+async function assertSafePublicSourceUrl(input: string | URL): Promise<URL> {
+  const url = input instanceof URL ? input : new URL(input);
+  if (url.protocol !== "https:" || url.username || url.password) {
+    throw new Error("source URL must be public HTTPS without embedded credentials");
+  }
+  for (const key of url.searchParams.keys()) {
+    if (/(?:token|secret|signature|password|api[_-]?key|credential|auth)/i.test(key)) {
+      throw new Error("source URL contains a sensitive query parameter");
+    }
+  }
+  if (url.port && !["443", ""].includes(url.port)) throw new Error("source URL uses a non-standard port");
+  const host = url.hostname.toLowerCase();
+  if (host === "localhost" || host.endsWith(".local")) throw new Error("source URL targets a local host");
+  if (isIP(host)) {
+    if (isPrivateAddress(host)) throw new Error("source URL targets a private address");
+    return url;
+  }
+  const addresses = await lookup(host, { all: true });
+  if (addresses.length === 0 || addresses.some(({ address }) => isPrivateAddress(address))) {
+    throw new Error("source hostname resolves to a private address");
+  }
+  return url;
+}
+
+async function fetchPublicSource(url: string | URL, fetchImpl: typeof fetch): Promise<{ html: string; finalUrl: URL }> {
+  let current = await assertSafePublicSourceUrl(url);
+  for (let redirect = 0; redirect <= 3; redirect += 1) {
+    const response = await fetchImpl(current, {
+      headers: { "User-Agent": "Mozilla/5.0 YQN-Crossborder-V2/2.0" },
+      redirect: "manual",
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (response.status >= 300 && response.status < 400) {
+      const location = response.headers.get("location");
+      if (!location) throw new Error(`HTTP ${response.status} redirect without location`);
+      current = await assertSafePublicSourceUrl(new URL(location, current));
+      continue;
+    }
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const declaredLength = Number(response.headers.get("content-length") || "0");
+    if (declaredLength > 3_000_000) throw new Error("source response is too large");
+    const html = await response.text();
+    if (html.length > 3_000_000) throw new Error("source response is too large");
+    return { html, finalUrl: current };
+  }
+  throw new Error("source redirected too many times");
+}
+
+export async function verifyCrossborderV2Sources(
+  brief: CrossborderV2Brief,
+  fetchImpl: typeof fetch = fetch,
+): Promise<CrossborderSourceCheck[]> {
+  const checks: CrossborderSourceCheck[] = [];
+  for (const signal of brief.signals) {
+    for (const evidence of signal.evidence) {
+      try {
+        const { html } = await fetchPublicSource(evidence.url, fetchImpl);
+        const visible = normalizedDigits(html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " "));
+        const dateVariants = sourceDateVariants(evidence.published_at);
+        const matchedDate = dateVariants.find((variant) => visible.includes(variant)) || null;
+        const numbers = [...`${evidence.supports} ${signal.numbers.join(" ")}`.matchAll(/\d+(?:[.,]\d+)?/g)]
+          .map((match) => match[0].replace(/[.,]/g, ""))
+          .filter((value) => value.length >= 2);
+        const matchedNumber = numbers.find((value) => normalizedDigits(visible).includes(value)) || null;
+        if (!matchedDate) throw new Error("visible source date does not match published_at");
+        if (!matchedNumber) throw new Error("source page does not contain a claimed number");
+        checks.push({ url: redactSourceUrl(evidence.url), ok: true, matched_number: matchedNumber, matched_date: matchedDate });
+      } catch (error) {
+        checks.push({
+          url: redactSourceUrl(evidence.url),
+          ok: false,
+          matched_number: null,
+          matched_date: null,
+          error: error instanceof Error ? error.message : "source verification failed",
+        });
+      }
+    }
+  }
+  return checks;
+}
+
 export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date().toISOString()): {
   brief?: CrossborderV2Brief;
   report: CrossborderV2ValidationReport;
@@ -456,10 +601,11 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
       report: {
         date: z.object({ date: z.string() }).safeParse(input).data?.date || "unknown",
         content_valid: false,
-        send_allowed: true,
+        send_allowed: false,
         target: "dingtalk_private_chat",
         signal_count: 3,
         us_first: false,
+        region_priority_valid: false,
         estimated_seconds: { a: 0, b: 0 },
         automated_blockers: parsed.error.issues.map((issue) => `schema:${issue.path.join(".")}:${issue.message}`),
         checked_at: checkedAt,
@@ -473,6 +619,17 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   const estimatedB = speechSeconds(scripts.b);
   const blockers: string[] = [];
   const usFirst = brief.signals[0]?.region === "us";
+  const regionRank: Record<z.infer<typeof crossborderV2RegionSchema>, number> = {
+    us: 0,
+    mexico: 1,
+    europe: 2,
+    other: 3,
+  };
+  const regionPriorityValid = usFirst && brief.signals.every((signal, index, signals) => {
+    if (index === 0) return true;
+    return regionRank[signal.region] >= regionRank[signals[index - 1]!.region];
+  });
+  const marketSignalMaxHours = brief.coverage.searched_window_hours;
 
   if (!brief.title.includes(expectedTitleDate(brief.date))) blockers.push("brief:title_date_mismatch");
   if (dateInShanghai(brief.generated_at) !== brief.date) blockers.push("brief:generated_at_date_mismatch");
@@ -481,7 +638,9 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
     blockers.push("brief:proposed_send_at_mismatch");
   }
   if (!usFirst) blockers.push("signals:first_must_be_us");
+  if (!regionPriorityValid) blockers.push("signals:region_priority_invalid");
   if (brief.signals.slice(1).some((signal) => signal.region === "other")) blockers.push("signals:unsupported_other_region_in_core_three");
+  if (new Date(checkedAt).getTime() < new Date(brief.generated_at).getTime()) blockers.push("review:checked_at_before_generated_at");
 
   for (const [index, signal] of brief.signals.entries()) {
     if (signal.unverified) blockers.push(`signal:${index}:unverified_claim_in_core_three`);
@@ -491,6 +650,9 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
       blockers.push(`signal:${index}:money_impact_not_quantified`);
     }
     if (/(待定|暂不确定|TBD)/i.test(signal.effective_at)) blockers.push(`signal:${index}:effective_date_not_specific`);
+    if (!/\d{4}\s*(?:[-/.年]\s*\d{1,2}\s*[-/.月]\s*\d{1,2}|\s*(?:年|[-/.])\s*\d{1,2}\s*(?:月|[-/.])?\s*\d{1,2})/.test(signal.effective_at)) {
+      blockers.push(`signal:${index}:effective_date_unparseable`);
+    }
 
     const roles = new Set(signal.evidence.flatMap((evidence) => evidence.roles));
     if (!roles.has("market_signal") && !roles.has("seller_signal")) blockers.push(`signal:${index}:missing_current_signal`);
@@ -508,8 +670,8 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
         const ageHours = (new Date(brief.generated_at).getTime() - publishedAt) / 3_600_000;
         if (!Number.isFinite(ageHours) || ageHours < -12) {
           blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_from_future`);
-        } else if (ageHours > 72) {
-          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_older_than_72_hours`);
+        } else if (ageHours > marketSignalMaxHours) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_older_than_${marketSignalMaxHours}_hours`);
         }
       }
     }
@@ -530,6 +692,8 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   if (speechSeconds(brief.hooks.a) < 1 || speechSeconds(brief.hooks.a) > 3.2) blockers.push("hooks:a_not_1_to_3_seconds");
   if (speechSeconds(brief.hooks.b) < 1 || speechSeconds(brief.hooks.b) > 3.2) blockers.push("hooks:b_not_1_to_3_seconds");
   if (brief.hooks.a.trim() === brief.hooks.b.trim()) blockers.push("hooks:must_differ");
+  if (/^(今天有新闻|今天看三件事|跨境卖家注意)[。！!]?$/u.test(brief.hooks.a.trim())) blockers.push("hooks:a_too_generic");
+  if (/^(今天有新闻|今天看三件事|跨境卖家注意)[。！!]?$/u.test(brief.hooks.b.trim())) blockers.push("hooks:b_too_generic");
   if (!brief.voiceover_body.startsWith("跨境卖家注意……今天老王带你看三件事。")) {
     blockers.push("voiceover:missing_fixed_body_open");
   }
@@ -543,6 +707,15 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   if (/(镜头|画面|字幕|转场|B-roll)/i.test(scripts.a) || /(镜头|画面|字幕|转场|B-roll)/i.test(scripts.b)) {
     blockers.push("voiceover:contains_camera_direction");
   }
+  for (const phrase of ["流量不等于利润", "某一段降价不代表全链路便宜", "大家要注意成本"]) {
+    if (brief.voiceover_body.includes(phrase)) blockers.push(`voiceover:forbidden_filler:${phrase}`);
+  }
+  brief.signals.forEach((signal, index) => {
+    const distinctiveNumbers = `${signal.numbers.join(" ")} ${signal.money_impact}`.match(/\d{2,}/g) || [];
+    if (distinctiveNumbers.length > 0 && !distinctiveNumbers.some((value) => brief.voiceover_body.includes(value))) {
+      blockers.push(`voiceover:missing_signal_${index}_core_number`);
+    }
+  });
   if (estimatedA < 90 || estimatedA > 120) blockers.push(`voiceover:a_estimated_${estimatedA}_seconds`);
   if (estimatedB < 90 || estimatedB > 120) blockers.push(`voiceover:b_estimated_${estimatedB}_seconds`);
   if (brief.unverified_claims.length > 0 && !brief.risk_notes.some((note) => /未经证实|爆料|未证实/.test(note))) {
@@ -558,6 +731,7 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
       target: "dingtalk_private_chat",
       signal_count: 3,
       us_first: usFirst,
+      region_priority_valid: regionPriorityValid,
       estimated_seconds: { a: estimatedA, b: estimatedB },
       automated_blockers: blockers,
       checked_at: checkedAt,
@@ -616,7 +790,7 @@ export function renderCrossborderV2Markdown(brief: CrossborderV2Brief): string {
   lines.push("## 核实来源与风险说明", "");
   brief.risk_notes.forEach((note) => lines.push(`- ${note}`));
   lines.push("");
-  lines.push(`—— 老王跨境早知道｜${brief.date} 16:00 自动推送，先审事实，再用于配音`);
+  lines.push("—— 老王跨境早知道｜每日 16:00 生成，供审阅；先核事实，再用于配音");
   return lines.join("\n");
 }
 
@@ -632,16 +806,18 @@ async function main(): Promise<void> {
   const input = JSON.parse(await readFile(absoluteFile, "utf8")) as unknown;
   if (typeof input === "object" && input !== null && (input as { format_version?: unknown }).format_version === "v2") {
     const { brief, report } = validateCrossborderV2Brief(input);
-    const stem = absoluteFile.replace(/\.json$/i, "");
+    const outputDir = path.dirname(absoluteFile);
+    const reviewStem = path.join(outputDir, path.basename(absoluteFile).replace(/\.json$/i, ""));
     await mkdir(path.dirname(absoluteFile), { recursive: true });
-    await writeFile(`${stem}.review.json`, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+    await writeFile(`${reviewStem}.review.json`, `${JSON.stringify(report, null, 2)}\n`, "utf8");
     if (!brief || !report.content_valid) {
       throw new Error(`Crossborder V2 validation failed: ${report.automated_blockers.join(", ")}`);
     }
+    const outputStem = path.join(outputDir, brief.date);
     const scripts = renderCrossborderV2Scripts(brief);
-    await writeFile(`${stem}.crossborder-v2.md`, `${renderCrossborderV2Markdown(brief)}\n`, "utf8");
-    await writeFile(`${stem}.heygen-a.txt`, `${scripts.a}\n`, "utf8");
-    await writeFile(`${stem}.heygen-b.txt`, `${scripts.b}\n`, "utf8");
+    await writeFile(`${outputStem}.crossborder-v2.md`, `${renderCrossborderV2Markdown(brief)}\n`, "utf8");
+    await writeFile(`${outputStem}.heygen-a.txt`, `${scripts.a}\n`, "utf8");
+    await writeFile(`${outputStem}.heygen-b.txt`, `${scripts.b}\n`, "utf8");
     console.log(`[crossborder-v2] content_valid=true; date=${brief.date}; estimated_seconds=${report.estimated_seconds.a}/${report.estimated_seconds.b}`);
     return;
   }

@@ -1,4 +1,5 @@
 name: DingTalk Crossborder V2 Private Brief
+run-name: Crossborder V2 ${{ inputs.expected_date }} [${{ inputs.dispatch_id }}]
 
 on:
   workflow_dispatch:
@@ -23,8 +24,8 @@ on:
         description: "Unique dispatch correlation id"
         required: true
         type: string
-      executor_id:
-        description: "Primary executor authorization id"
+      executor_proof:
+        description: "SHA-256 primary executor proof"
         required: true
         type: string
 
@@ -41,17 +42,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     env:
-      DISPATCH_EXECUTOR_ID: ${{ inputs.executor_id }}
-      PRIMARY_EXECUTOR_ID: ${{ vars.YQN_PRIMARY_EXECUTOR_ID }}
+      DISPATCH_EXECUTOR_PROOF: ${{ inputs.executor_proof }}
+      PRIMARY_EXECUTOR_PROOF: ${{ vars.YQN_PRIMARY_EXECUTOR_HASH }}
     steps:
       - name: Authorize primary executor
         shell: bash
         run: |
-          if [[ -z "$DISPATCH_EXECUTOR_ID" || -z "$PRIMARY_EXECUTOR_ID" ]]; then
+          if [[ -z "$DISPATCH_EXECUTOR_PROOF" || -z "$PRIMARY_EXECUTOR_PROOF" ]]; then
             echo "::error::Primary executor authorization is not configured."
             exit 1
           fi
-          if [[ "$DISPATCH_EXECUTOR_ID" != "$PRIMARY_EXECUTOR_ID" ]]; then
+          if [[ "$DISPATCH_EXECUTOR_PROOF" != "$PRIMARY_EXECUTOR_PROOF" ]]; then
             echo "::error::Dispatch is not authorized for the primary executor."
             exit 1
           fi

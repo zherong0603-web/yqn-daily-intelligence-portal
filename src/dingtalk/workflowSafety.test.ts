@@ -40,11 +40,15 @@ describe("workflow retirement and executor safety gates", () => {
 
   it("requires the same executor gate before private-chat delivery and verifies read status", () => {
     const privateBrief = workflow("dingtalk-crossborder-v2-send.yml");
+    const executorInput = section(privateBrief, "      executor_proof:", "\n\npermissions:");
     const authorize = section(privateBrief, "  authorize-executor:", "\n  validate-brief:");
     const send = privateBrief.slice(privateBrief.indexOf("  send-private-brief:"));
 
-    expect(authorize).toContain("PRIMARY_EXECUTOR_ID: ${{ vars.YQN_PRIMARY_EXECUTOR_ID }}");
-    expect(authorize).toContain('[[ "$DISPATCH_EXECUTOR_ID" != "$PRIMARY_EXECUTOR_ID" ]]');
+    expect(executorInput).toContain("required: true");
+    expect(executorInput).not.toContain("default:");
+    expect(privateBrief).not.toContain("      executor_id:");
+    expect(authorize).toContain("PRIMARY_EXECUTOR_PROOF: ${{ vars.YQN_PRIMARY_EXECUTOR_HASH }}");
+    expect(authorize).toContain('[[ "$DISPATCH_EXECUTOR_PROOF" != "$PRIMARY_EXECUTOR_PROOF" ]]');
     expect(send).toContain("- authorize-executor");
     expect(send).toContain("- validate-brief");
     expect(send).toContain("DINGTALK_APP_SECRET: ${{ secrets.DINGTALK_APP_SECRET }}");
@@ -83,7 +87,7 @@ describe("workflow retirement and executor safety gates", () => {
     }
     const rules = repoFile("docs/automation/工作日晨报执行规则.md");
     expect(rules).toContain(".yqn-primary-executor-id");
-    expect(rules).toContain("YQN_PRIMARY_EXECUTOR_ID");
+    expect(rules).toContain("YQN_PRIMARY_EXECUTOR_HASH");
     expect(rules).toContain("禁止改用 `gh workflow run`");
     expect(rules).toContain("oToMessages/readStatus");
     expect(repoFile(".gitignore")).toContain(".yqn-primary-executor-id");

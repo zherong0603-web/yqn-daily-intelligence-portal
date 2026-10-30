@@ -7,11 +7,15 @@
 - 交付：3 条情报简报、A/B 黄金 3 秒、90–120 秒 HeyGen A/B 纯文本口播稿、来源与风险说明。
 - 私聊通道：钉钉企业内部机器人 `/v1.0/robot/oToMessages/batchSend`；发送后必须用 `/v1.0/robot/oToMessages/readStatus` 核验。
 - 构建：`npm run crossborder:v2:build -- --file data/codex-shadow/YYYY-MM-DD.crossborder-v2.json`
+- 产物：`YYYY-MM-DD.crossborder-v2.md`、`YYYY-MM-DD.heygen-a.txt`、`YYYY-MM-DD.heygen-b.txt`
 - 干跑：`npm run crossborder:v2:send -- --file <file>`
-- 调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD`
+- 干跑调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD`
+- 正式调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live`
 - 配置文档：`docs/automation/跨境早知道V2执行规则.md`、`docs/automation/工作日晨报执行规则.md`。
 
 V2 私聊需要 GitHub Actions Secrets：`DINGTALK_APP_KEY`、`DINGTALK_APP_SECRET`、`DINGTALK_ROBOT_CODE`、`DINGTALK_USER_ID`，并启用仓库 Variable `CROSSBORDER_V2_TARGET_ENABLED=true`。未配置时构建和干跑仍可执行，但正式私聊发送必须失败关闭，不能回退成群消息。
+
+V2 调度只向 Actions 传执行器 SHA-256 proof，远端变量为 `YQN_PRIMARY_EXECUTOR_HASH`；不再在 V2 workflow 中回显原始执行器 ID。
 
 以下为旧版 V1.3 说明，保留用于回滚和历史任务。
 

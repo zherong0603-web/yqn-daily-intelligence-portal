@@ -54,4 +54,55 @@ describe("guarded seller brief dispatcher", () => {
     expect(log.mock.calls.flat().join("\n")).not.toContain("mini-local-test-id");
     expect(log).toHaveBeenCalledWith("[seller-brief:executor] authorization input loaded");
   });
+
+  it("defaults to dry-run and requires an explicit --live flag", () => {
+    const directory = temporaryDirectory();
+    const briefFile = path.join(directory, "brief.json");
+    writeFileSync(briefFile, JSON.stringify({ date: "2026-08-05", title: "test" }));
+    const execute = vi.fn();
+
+    dispatchSellerProblemBrief({
+      argv: ["node", "dispatch", "--date", "2026-08-05", "--file", briefFile],
+      env: { YQN_EXECUTOR_ID: "test-id" },
+      now: new Date("2026-08-05T01:00:00.000Z"),
+      cwd: directory,
+      execute,
+      createDispatchId: () => "dispatch-default",
+      log: vi.fn(),
+    });
+    expect(JSON.parse(execute.mock.calls[0][2].input).inputs.dry_run).toBe("true");
+
+    dispatchSellerProblemBrief({
+      argv: ["node", "dispatch", "--date", "2026-08-05", "--file", briefFile, "--live"],
+      env: { YQN_EXECUTOR_ID: "test-id" },
+      now: new Date("2026-08-05T01:00:00.000Z"),
+      cwd: directory,
+      execute,
+      createDispatchId: () => "dispatch-live",
+      log: vi.fn(),
+    });
+    expect(JSON.parse(execute.mock.calls[1][2].input).inputs.dry_run).toBe("false");
+  });
+
+  it("sends only a SHA-256 executor proof for V2 dispatch", () => {
+    const directory = temporaryDirectory();
+    const briefFile = path.join(directory, "brief.json");
+    writeFileSync(briefFile, JSON.stringify({ date: "2026-08-05", title: "test", format_version: "v2" }));
+    const execute = vi.fn();
+
+    dispatchSellerProblemBrief({
+      argv: ["node", "dispatch", "--date", "2026-08-05", "--file", briefFile, "--schema", "v2", "--workflow", "dingtalk-crossborder-v2-send.yml"],
+      env: { YQN_EXECUTOR_ID: "secret-ish-executor-id" },
+      now: new Date("2026-08-05T01:00:00.000Z"),
+      cwd: directory,
+      execute,
+      createDispatchId: () => "dispatch-v2",
+      log: vi.fn(),
+    });
+
+    const payload = JSON.parse(execute.mock.calls[0][2].input);
+    expect(payload.inputs.executor_id).toBeUndefined();
+    expect(payload.inputs.executor_proof).toMatch(/^[a-f0-9]{64}$/);
+    expect(JSON.stringify(payload)).not.toContain("secret-ish-executor-id");
+  });
 });
