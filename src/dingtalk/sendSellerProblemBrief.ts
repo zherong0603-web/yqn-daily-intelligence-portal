@@ -310,6 +310,9 @@ export async function queryDingTalkPersonalDelivery(options: {
       signal: AbortSignal.timeout(networkTimeoutMs),
     },
   ), "DingTalk private delivery status query");
+  if (body.code && String(body.code).trim() !== "0") {
+    throw new Error(`DingTalk delivery status rejected: ${body.code}${body.message ? ` ${body.message}` : ""}`);
+  }
   const recipient = body.messageReadInfoList?.find((item) => item.userId === options.userId);
   return {
     sendStatus: String(body.sendStatus || "UNKNOWN").toUpperCase(),
@@ -333,8 +336,14 @@ export async function verifyDingTalkPersonalDelivery(options: {
   let last = { sendStatus: "UNKNOWN", readStatus: "UNKNOWN", recipientConfirmed: false };
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     last = await queryDingTalkPersonalDelivery(options);
+    const sendFailed = ["FAILED", "FAIL", "REJECTED", "INVALID", "BLOCKED"].includes(last.sendStatus);
+    if (sendFailed) {
+      throw new Error(`Crossborder V2 delivery failed (sendStatus=${last.sendStatus}, readStatus=${last.readStatus})`);
+    }
     const sendSucceeded = ["SUCCESS", "SENT", "DELIVERED", "READ"].includes(last.sendStatus);
-    if (sendSucceeded || last.recipientConfirmed) {
+    const recipientDelivered = last.recipientConfirmed
+      && ["READ", "UNREAD", "SUCCESS", "DELIVERED"].includes(last.readStatus);
+    if (sendSucceeded || recipientDelivered) {
       return { sendStatus: last.sendStatus, readStatus: last.readStatus };
     }
     if (attempt < attempts - 1) await sleep(delayMs);
