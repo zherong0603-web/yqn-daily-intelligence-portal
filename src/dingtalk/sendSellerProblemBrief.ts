@@ -3,7 +3,10 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readEnv } from "../utils/env.js";
 import {
+  CrossborderV2Brief,
+  renderCrossborderV2Markdown,
   renderSellerProblemMarkdown,
+  validateCrossborderV2Brief,
   validateSellerProblemBrief,
 } from "./buildSellerProblemBrief.js";
 import { signDingTalkUrl } from "./utils/signDingTalk.js";
@@ -24,11 +27,40 @@ interface WorkflowJob {
   id: number;
 }
 
+interface DingTalkAccessTokenResponse {
+  accessToken?: string;
+  errorCode?: string;
+  errorMessage?: string;
+}
+
+interface DingTalkBatchSendResponse {
+  processQueryKey?: string;
+  invalidStaffIdList?: string[];
+  flowControlledStaffIdList?: string[];
+  code?: string;
+  message?: string;
+}
+
+interface DingTalkReadStatusResponse {
+  sendStatus?: string;
+  messageReadInfoList?: Array<{
+    name?: string;
+    userId?: string;
+    readStatus?: string;
+    readTimestamp?: number;
+  }>;
+  code?: string;
+  message?: string;
+}
+
 const workflowFile = "dingtalk-seller-problem-send.yml";
 const defaultTargetLabel = "yqn-livestream-group";
 const targetLabelPattern = /^[a-z0-9][a-z0-9-]{0,62}$/;
 const maxMarkdownBytes = 18_000;
+const maxPersonalMarkdownChars = 5_000;
 const networkTimeoutMs = 20_000;
+const crossborderV2WorkflowFile = "dingtalk-crossborder-v2-send.yml";
+const crossborderV2TargetLabel = "dingtalk-private";
 
 function readArg(name: string): string | undefined {
   const index = process.argv.indexOf(name);
@@ -89,6 +121,18 @@ export function formalAttemptMarker(date: string, targetLabel = defaultTargetLab
   return `[seller-brief:attempt] date=${date} ${targetLabel} formal webhook attempt authorized`;
 }
 
+export function crossborderV2SuccessMarker(date: string, sendStatus: string, readStatus: string, targetLabel = crossborderV2TargetLabel): string {
+  return `${crossborderV2SuccessPrefix(date, targetLabel)} sendStatus=${sendStatus} readStatus=${readStatus}`;
+}
+
+export function crossborderV2SuccessPrefix(date: string, targetLabel = crossborderV2TargetLabel): string {
+  return `[crossborder-v2:send] date=${date} ${targetLabel} personal delivery confirmed`;
+}
+
+export function crossborderV2AttemptMarker(date: string, targetLabel = crossborderV2TargetLabel): string {
+  return `[crossborder-v2:attempt] date=${date} ${targetLabel} DingTalk personal-chat send authorized`;
+}
+
 export type PriorSendState = "none" | "sent" | "ambiguous";
 
 export function assertGithubFormalContext(): void {
@@ -103,13 +147,16 @@ export function assertGithubFormalContext(): void {
 export async function priorSendStateInGithub(
   date: string,
   targetLabel = resolveTargetLabel(),
+  workflowFileForCheck = workflowFile,
+  successMarkerForCheck = successMarker,
+  attemptMarkerForCheck = formalAttemptMarker,
 ): Promise<PriorSendState> {
   assertGithubFormalContext();
   const token = readEnv("GITHUB_TOKEN")!;
   const repository = readEnv("GITHUB_REPOSITORY")!;
   const currentRunId = Number(readEnv("GITHUB_RUN_ID"));
   const runs = await githubJson<{ workflow_runs?: WorkflowRun[] }>(
-    `/repos/${repository}/actions/workflows/${workflowFile}/runs?per_page=100`,
+    `/repos/${repository}/actions/workflows/${workflowFileForCheck}/runs?per_page=100`,
     token,
   );
   let ambiguous = false;
@@ -122,8 +169,8 @@ export async function priorSendStateInGithub(
     const jobs = await githubJson<{ jobs?: WorkflowJob[] }>(`/repos/${repository}/actions/runs/${run.id}/jobs?per_page=20`, token);
     for (const job of jobs.jobs || []) {
       const logs = await githubText(`/repos/${repository}/actions/jobs/${job.id}/logs`, token);
-      if (logs.includes(successMarker(date, targetLabel))) return "sent";
-      if (logs.includes(formalAttemptMarker(date, targetLabel))) ambiguous = true;
+      if (logs.includes(successMarkerForCheck(date, targetLabel))) return "sent";
+      if (logs.includes(attemptMarkerForCheck(date, targetLabel))) ambiguous = true;
     }
   }
   return ambiguous ? "ambiguous" : "none";
@@ -181,8 +228,183 @@ export async function postMarkdown(
   }
 }
 
+async function readJson<T>(response: Response, label: string): Promise<T> {
+  const text = await response.text();
+  if (!response.ok) throw new Error(`${label} failed with HTTP ${response.status}`);
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    throw new Error(`${label} returned invalid JSON`);
+  }
+}
+
+export async function getDingTalkAccessToken(appKey: string, appSecret: string): Promise<string> {
+  if (!appKey || !appSecret) throw new Error("SETUP_ERROR: DingTalk appKey/appSecret are required");
+  const body = await readJson<DingTalkAccessTokenResponse>(await fetch(
+    "https://api.dingtalk.com/v1.0/oauth2/accessToken",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ appKey, appSecret }),
+      signal: AbortSignal.timeout(networkTimeoutMs),
+    },
+  ), "DingTalk access token request");
+  if (!body.accessToken) {
+    throw new Error(`DingTalk access token rejected: ${body.errorCode || body.errorMessage || "missing token"}`);
+  }
+  return body.accessToken;
+}
+
+export async function sendDingTalkPersonalMarkdown(options: {
+  accessToken: string;
+  robotCode: string;
+  userId: string;
+  title: string;
+  markdown: string;
+}): Promise<string> {
+  if (!options.robotCode || !options.userId) throw new Error("SETUP_ERROR: DingTalk robotCode/userId are required");
+  if (options.markdown.length > maxPersonalMarkdownChars) {
+    throw new Error(`Crossborder V2 blocked: private markdown is ${options.markdown.length} chars (limit ${maxPersonalMarkdownChars})`);
+  }
+  const body = await readJson<DingTalkBatchSendResponse>(await fetch(
+    "https://api.dingtalk.com/v1.0/robot/oToMessages/batchSend",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-acs-dingtalk-access-token": options.accessToken,
+      },
+      body: JSON.stringify({
+        robotCode: options.robotCode,
+        userIds: [options.userId],
+        msgKey: "sampleMarkdown",
+        msgParam: JSON.stringify({ title: options.title, text: options.markdown }),
+      }),
+      signal: AbortSignal.timeout(networkTimeoutMs),
+    },
+  ), "DingTalk private message send");
+  if (!body.processQueryKey) {
+    throw new Error(`DingTalk private message rejected: ${body.code || body.message || "missing processQueryKey"}`);
+  }
+  if (body.invalidStaffIdList?.includes(options.userId) || body.flowControlledStaffIdList?.includes(options.userId)) {
+    throw new Error("DingTalk private message rejected or throttled for the configured user");
+  }
+  return body.processQueryKey;
+}
+
+export async function queryDingTalkPersonalDelivery(options: {
+  accessToken: string;
+  robotCode: string;
+  processQueryKey: string;
+  userId: string;
+}): Promise<{ sendStatus: string; readStatus: string; recipientConfirmed: boolean }> {
+  const query = new URLSearchParams({
+    robotCode: options.robotCode,
+    processQueryKey: options.processQueryKey,
+  });
+  const body = await readJson<DingTalkReadStatusResponse>(await fetch(
+    `https://api.dingtalk.com/v1.0/robot/oToMessages/readStatus?${query.toString()}`,
+    {
+      method: "GET",
+      headers: { "x-acs-dingtalk-access-token": options.accessToken },
+      signal: AbortSignal.timeout(networkTimeoutMs),
+    },
+  ), "DingTalk private delivery status query");
+  const recipient = body.messageReadInfoList?.find((item) => item.userId === options.userId);
+  return {
+    sendStatus: String(body.sendStatus || "UNKNOWN").toUpperCase(),
+    readStatus: String(recipient?.readStatus || "UNKNOWN").toUpperCase(),
+    recipientConfirmed: Boolean(recipient?.userId === options.userId),
+  };
+}
+
+export async function verifyDingTalkPersonalDelivery(options: {
+  accessToken: string;
+  robotCode: string;
+  processQueryKey: string;
+  userId: string;
+  attempts?: number;
+  delayMs?: number;
+  sleep?: (ms: number) => Promise<void>;
+}): Promise<{ sendStatus: string; readStatus: string }> {
+  const attempts = options.attempts ?? 12;
+  const delayMs = options.delayMs ?? 5_000;
+  const sleep = options.sleep ?? ((ms: number) => new Promise((resolve) => setTimeout(resolve, ms)));
+  let last = { sendStatus: "UNKNOWN", readStatus: "UNKNOWN", recipientConfirmed: false };
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    last = await queryDingTalkPersonalDelivery(options);
+    const sendSucceeded = ["SUCCESS", "SENT", "DELIVERED", "READ"].includes(last.sendStatus);
+    if (sendSucceeded || last.recipientConfirmed) {
+      return { sendStatus: last.sendStatus, readStatus: last.readStatus };
+    }
+    if (attempt < attempts - 1) await sleep(delayMs);
+  }
+  throw new Error(`Crossborder V2 delivery unconfirmed after ${attempts} status checks (sendStatus=${last.sendStatus}, readStatus=${last.readStatus})`);
+}
+
+async function sendCrossborderV2Brief(input: unknown): Promise<void> {
+  const { brief, report } = validateCrossborderV2Brief(input);
+  if (!brief || !report.content_valid) throw new Error(`Crossborder V2 blocked: ${report.automated_blockers.join(", ")}`);
+  const expectedDate = readEnv("BRIEF_DATE") || brief.date;
+  if (brief.date !== expectedDate) throw new Error(`Crossborder V2 date mismatch: expected ${expectedDate}, got ${brief.date}`);
+  const approved = parseBoolean(readEnv("CROSSBORDER_V2_SEND_APPROVED"));
+  if (!approved) {
+    console.log(`[crossborder-v2:send] date=${brief.date} dry run validated; personal message not sent`);
+    return;
+  }
+  assertFormalSendDate(expectedDate);
+  assertGithubFormalContext();
+
+  const targetEnabled = readEnv("CROSSBORDER_V2_TARGET_ENABLED");
+  if (!parseBoolean(targetEnabled)) throw new Error("SETUP_ERROR: CROSSBORDER_V2_TARGET_ENABLED must be true");
+  const phase = readEnv("CROSSBORDER_V2_SEND_PHASE") || "send";
+  if (phase !== "preflight" && phase !== "send") throw new Error(`SETUP_ERROR: unsupported send phase ${phase}`);
+  const appKey = readEnv("DINGTALK_APP_KEY");
+  const appSecret = readEnv("DINGTALK_APP_SECRET");
+  const robotCode = readEnv("DINGTALK_ROBOT_CODE");
+  const userId = readEnv("DINGTALK_USER_ID");
+  if (!appKey || !appSecret || !robotCode || !userId) {
+    throw new Error("SETUP_ERROR: DINGTALK_APP_KEY, DINGTALK_APP_SECRET, DINGTALK_ROBOT_CODE and DINGTALK_USER_ID are required for private chat");
+  }
+  const markdown = renderCrossborderV2Markdown(brief);
+  const title = `跨境早知道 V2｜${brief.date}`;
+
+  if (phase === "preflight") {
+    const priorState = await priorSendStateInGithub(
+      brief.date,
+      crossborderV2TargetLabel,
+      crossborderV2WorkflowFile,
+      crossborderV2SuccessPrefix,
+      crossborderV2AttemptMarker,
+    );
+    if (priorState === "sent") {
+      await setGithubOutput("send_required", "false");
+      console.log(`[crossborder-v2:preflight] date=${brief.date} duplicate delivery skipped`);
+      return;
+    }
+    if (priorState === "ambiguous") {
+      throw new Error("Crossborder V2 blocked: a prior private-chat attempt has no confirmed delivery; verify DingTalk before retrying");
+    }
+    await setGithubOutput("send_required", "true");
+    console.log(`[crossborder-v2:preflight] date=${brief.date} private-chat preflight passed; chars=${markdown.length}`);
+    return;
+  }
+
+  if (!parseBoolean(readEnv("CROSSBORDER_V2_ATTEMPT_MARKED"))) {
+    throw new Error("SETUP_ERROR: durable private-chat attempt marker is missing");
+  }
+  const accessToken = await getDingTalkAccessToken(appKey, appSecret);
+  const processQueryKey = await sendDingTalkPersonalMarkdown({ accessToken, robotCode, userId, title, markdown });
+  const delivery = await verifyDingTalkPersonalDelivery({ accessToken, robotCode, userId, processQueryKey });
+  console.log(crossborderV2SuccessMarker(brief.date, delivery.sendStatus, delivery.readStatus));
+}
+
 export async function sendSellerProblemBrief(): Promise<void> {
   const input = await readInput();
+  if (typeof input === "object" && input !== null && (input as { format_version?: unknown }).format_version === "v2") {
+    await sendCrossborderV2Brief(input);
+    return;
+  }
   const { brief, report } = validateSellerProblemBrief(input);
   if (!brief || !report.content_valid) {
     throw new Error(`Seller brief blocked: ${report.automated_blockers.join(", ")}`);

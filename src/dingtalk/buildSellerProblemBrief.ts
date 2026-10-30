@@ -72,6 +72,85 @@ export const sellerProblemBriefSchema = z.object({
 
 export type SellerProblemBrief = z.infer<typeof sellerProblemBriefSchema>;
 
+const crossborderV2RegionSchema = z.enum(["us", "mexico", "europe", "other"]);
+
+const crossborderV2EvidenceSchema = z.object({
+  title: singleLine(2, 160),
+  url: webUrlSchema,
+  source_type: z.enum(["official", "platform_announcement", "media", "seller_forum", "internal_approved"]),
+  published_at: calendarDateSchema,
+  checked_at: z.string().datetime({ offset: true }),
+  roles: z.array(evidenceRoleSchema).min(1).max(2),
+  supports: singleLine(8, 280),
+});
+
+const crossborderV2SignalSchema = z.object({
+  region: crossborderV2RegionSchema,
+  title: singleLine(4, 100),
+  what_happened: singleLine(16, 300),
+  numbers: z.array(singleLine(2, 140)).min(1).max(5),
+  effective_at: singleLine(3, 120),
+  affected_sellers: singleLine(8, 180),
+  money_impact: singleLine(10, 260),
+  calculation: z.object({
+    basis: singleLine(6, 180),
+    formula: singleLine(6, 220),
+    result: singleLine(4, 180),
+  }),
+  action: singleLine(8, 180),
+  evidence: z.array(crossborderV2EvidenceSchema).min(1).max(4),
+  confidence_label: z.enum(["high", "medium"]),
+  unverified: z.boolean(),
+});
+
+const crossborderV2BriefSchema = z.object({
+  format_version: z.literal("v2"),
+  date: calendarDateSchema,
+  title: singleLine(8, 120),
+  summary: singleLine(20, 420),
+  coverage: z.object({
+    searched_window_hours: z.union([z.literal(24), z.literal(72)]),
+    notes: singleLine(8, 240),
+  }),
+  signals: z.array(crossborderV2SignalSchema).length(3),
+  hooks: z.object({
+    a: singleLine(4, 60),
+    b: singleLine(4, 60),
+  }),
+  voiceover_body: z.string().min(220).max(760),
+  risk_notes: z.array(singleLine(8, 260)).min(2).max(8),
+  unverified_claims: z.array(z.object({
+    claim: singleLine(8, 220),
+    source: singleLine(2, 120),
+    source_url: webUrlSchema,
+    why_unverified: singleLine(8, 220),
+  })).max(3),
+  generated_at: z.string().datetime(),
+  publication: z.object({
+    target: z.literal("dingtalk_private_chat"),
+    send_allowed: z.literal(true),
+    review_after_delivery: z.literal(true),
+    proposed_send_at: z.string().datetime({ offset: true }),
+  }),
+});
+
+export type CrossborderV2Brief = z.infer<typeof crossborderV2BriefSchema>;
+
+export interface CrossborderV2ValidationReport {
+  date: string;
+  content_valid: boolean;
+  send_allowed: true;
+  target: "dingtalk_private_chat";
+  signal_count: 3;
+  us_first: boolean;
+  estimated_seconds: {
+    a: number;
+    b: number;
+  };
+  automated_blockers: string[];
+  checked_at: string;
+}
+
 export interface SellerProblemValidationReport {
   date: string;
   content_valid: boolean;
@@ -332,6 +411,215 @@ export function renderSellerProblemMarkdown(
   return lines.join("\n");
 }
 
+const crossborderV2RegionLabels: Record<z.infer<typeof crossborderV2RegionSchema>, string> = {
+  us: "🇺🇸 美国",
+  mexico: "🇲🇽 墨西哥",
+  europe: "🇪🇺 欧洲",
+  other: "🌍 其他市场",
+};
+
+function speechSeconds(text: string): number {
+  const han = (text.match(/[\u3400-\u9fff]/g) || []).length;
+  const latinWords = (text.match(/[A-Za-z]+(?:[’'][A-Za-z]+)?/g) || []).length;
+  const numbers = (text.match(/\d+(?:[.,]\d+)?/g) || []).length;
+  const pauses = (text.match(/[，。！？；：,.!?;:]/g) || []).length;
+  return Math.round((han / 4.2 + latinWords * 0.38 + numbers * 0.55 + pauses * 0.08) * 10) / 10;
+}
+
+function hasMarkupOrLink(text: string): boolean {
+  return /https?:\/\/|www\.|\*\*|```|!\[|\]\(|(?:^|\n)\s*#{1,6}\s|(?:^|\n)\s*[-*]\s/.test(text);
+}
+
+function containsMoney(text: string): boolean {
+  return /[$€£¥]|\b(?:USD|EUR|MXN|CNY|RMB)\b|美元|欧元|比索|元/.test(text);
+}
+
+function withoutTrailingPunctuation(text: string): string {
+  return text.replace(/[。；;]+$/u, "");
+}
+
+export function renderCrossborderV2Scripts(brief: CrossborderV2Brief): { a: string; b: string; body: string } {
+  return {
+    a: `两分钟，听懂跨境事！\n${brief.hooks.a}\n${brief.voiceover_body}`,
+    b: `两分钟，听懂跨境事！\n${brief.hooks.b}\n${brief.voiceover_body}`,
+    body: brief.voiceover_body,
+  };
+}
+
+export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date().toISOString()): {
+  brief?: CrossborderV2Brief;
+  report: CrossborderV2ValidationReport;
+} {
+  const parsed = crossborderV2BriefSchema.safeParse(input);
+  if (!parsed.success) {
+    return {
+      report: {
+        date: z.object({ date: z.string() }).safeParse(input).data?.date || "unknown",
+        content_valid: false,
+        send_allowed: true,
+        target: "dingtalk_private_chat",
+        signal_count: 3,
+        us_first: false,
+        estimated_seconds: { a: 0, b: 0 },
+        automated_blockers: parsed.error.issues.map((issue) => `schema:${issue.path.join(".")}:${issue.message}`),
+        checked_at: checkedAt,
+      },
+    };
+  }
+
+  const brief = parsed.data;
+  const scripts = renderCrossborderV2Scripts(brief);
+  const estimatedA = speechSeconds(scripts.a);
+  const estimatedB = speechSeconds(scripts.b);
+  const blockers: string[] = [];
+  const usFirst = brief.signals[0]?.region === "us";
+
+  if (!brief.title.includes(expectedTitleDate(brief.date))) blockers.push("brief:title_date_mismatch");
+  if (dateInShanghai(brief.generated_at) !== brief.date) blockers.push("brief:generated_at_date_mismatch");
+  const expectedSendAt = new Date(`${brief.date}T16:00:00+08:00`).getTime();
+  if (new Date(brief.publication.proposed_send_at).getTime() !== expectedSendAt) {
+    blockers.push("brief:proposed_send_at_mismatch");
+  }
+  if (!usFirst) blockers.push("signals:first_must_be_us");
+  if (brief.signals.slice(1).some((signal) => signal.region === "other")) blockers.push("signals:unsupported_other_region_in_core_three");
+
+  for (const [index, signal] of brief.signals.entries()) {
+    if (signal.unverified) blockers.push(`signal:${index}:unverified_claim_in_core_three`);
+    if (signal.confidence_label !== "high") blockers.push(`signal:${index}:confidence_not_high`);
+    if (!signal.numbers.every((number) => /\d/.test(number))) blockers.push(`signal:${index}:number_without_digit`);
+    if (!containsMoney(signal.money_impact) || !containsMoney(signal.calculation.result)) {
+      blockers.push(`signal:${index}:money_impact_not_quantified`);
+    }
+    if (/(待定|暂不确定|TBD)/i.test(signal.effective_at)) blockers.push(`signal:${index}:effective_date_not_specific`);
+
+    const roles = new Set(signal.evidence.flatMap((evidence) => evidence.roles));
+    if (!roles.has("market_signal") && !roles.has("seller_signal")) blockers.push(`signal:${index}:missing_current_signal`);
+    if (!roles.has("fact_basis")) blockers.push(`signal:${index}:missing_fact_basis`);
+
+    for (const [evidenceIndex, evidence] of signal.evidence.entries()) {
+      if (dateInShanghai(evidence.checked_at) !== brief.date) {
+        blockers.push(`signal:${index}:evidence:${evidenceIndex}:checked_at_date_mismatch`);
+      }
+      if (evidence.roles.includes("fact_basis") && evidence.source_type === "seller_forum") {
+        blockers.push(`signal:${index}:evidence:${evidenceIndex}:fact_basis_source_too_weak`);
+      }
+      if (evidence.roles.includes("market_signal")) {
+        const publishedAt = new Date(`${evidence.published_at}T12:00:00Z`).getTime();
+        const ageHours = (new Date(brief.generated_at).getTime() - publishedAt) / 3_600_000;
+        if (!Number.isFinite(ageHours) || ageHours < -12) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_from_future`);
+        } else if (ageHours > 72) {
+          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_older_than_72_hours`);
+        }
+      }
+    }
+  }
+
+  if (new Set(brief.signals.map((signal) => signal.title.trim().toLowerCase())).size !== brief.signals.length) {
+    blockers.push("signals:duplicate_title");
+  }
+  const seenUrls = new Set<string>();
+  brief.signals.forEach((signal, signalIndex) => {
+    signal.evidence.forEach((evidence, evidenceIndex) => {
+      const normalizedUrl = normalizeEvidenceUrl(evidence.url);
+      if (seenUrls.has(normalizedUrl)) blockers.push(`signal:${signalIndex}:evidence:${evidenceIndex}:duplicate_source_url`);
+      seenUrls.add(normalizedUrl);
+    });
+  });
+
+  if (speechSeconds(brief.hooks.a) < 1 || speechSeconds(brief.hooks.a) > 3.2) blockers.push("hooks:a_not_1_to_3_seconds");
+  if (speechSeconds(brief.hooks.b) < 1 || speechSeconds(brief.hooks.b) > 3.2) blockers.push("hooks:b_not_1_to_3_seconds");
+  if (brief.hooks.a.trim() === brief.hooks.b.trim()) blockers.push("hooks:must_differ");
+  if (!brief.voiceover_body.startsWith("跨境卖家注意……今天老王带你看三件事。")) {
+    blockers.push("voiceover:missing_fixed_body_open");
+  }
+  if (!brief.voiceover_body.endsWith("我是老王，跨境生意，先算利润，再谈爆单。")) {
+    blockers.push("voiceover:missing_fixed_ending");
+  }
+  for (const marker of ["第一", "第二", "第三"]) {
+    if (!brief.voiceover_body.includes(marker)) blockers.push(`voiceover:missing_${marker}`);
+  }
+  if (hasMarkupOrLink(scripts.a) || hasMarkupOrLink(scripts.b)) blockers.push("voiceover:contains_markup_or_link");
+  if (/(镜头|画面|字幕|转场|B-roll)/i.test(scripts.a) || /(镜头|画面|字幕|转场|B-roll)/i.test(scripts.b)) {
+    blockers.push("voiceover:contains_camera_direction");
+  }
+  if (estimatedA < 90 || estimatedA > 120) blockers.push(`voiceover:a_estimated_${estimatedA}_seconds`);
+  if (estimatedB < 90 || estimatedB > 120) blockers.push(`voiceover:b_estimated_${estimatedB}_seconds`);
+  if (brief.unverified_claims.length > 0 && !brief.risk_notes.some((note) => /未经证实|爆料|未证实/.test(note))) {
+    blockers.push("risk:unverified_claims_not_separated");
+  }
+
+  return {
+    brief,
+    report: {
+      date: brief.date,
+      content_valid: blockers.length === 0,
+      send_allowed: true,
+      target: "dingtalk_private_chat",
+      signal_count: 3,
+      us_first: usFirst,
+      estimated_seconds: { a: estimatedA, b: estimatedB },
+      automated_blockers: blockers,
+      checked_at: checkedAt,
+    },
+  };
+}
+
+export function renderCrossborderV2Markdown(brief: CrossborderV2Brief): string {
+  const scripts = renderCrossborderV2Scripts(brief);
+  const lines = [
+    `# 跨境早知道 V2｜${expectedTitleDate(brief.date)}`,
+    "",
+    `**覆盖：**${brief.summary}`,
+    `**搜索窗口：**${brief.coverage.searched_window_hours} 小时｜${brief.coverage.notes}`,
+    "",
+    "## 今日简报",
+    "",
+  ];
+
+  brief.signals.forEach((signal, index) => {
+    lines.push(`### ${index + 1}. ${crossborderV2RegionLabels[signal.region]}｜${signal.title}`);
+    lines.push(`**发生什么：**${signal.what_happened}`);
+    lines.push(`**具体数字：**${signal.numbers.join("；")}`);
+    lines.push(`**生效时间：**${signal.effective_at}`);
+    lines.push(`**影响卖家：**${signal.affected_sellers}`);
+    lines.push(`**钱怎么变：**${signal.money_impact}`);
+    lines.push(`**算账：**${[
+      signal.calculation.basis,
+      signal.calculation.formula,
+      signal.calculation.result,
+    ].map(withoutTrailingPunctuation).join("；")}。`);
+    lines.push(`**可执行动作：**${signal.action}`);
+    lines.push(`**核实来源：**${signal.evidence.map((evidence) => `[${evidence.title}](${evidence.url})`).join("、")}`);
+    lines.push("");
+  });
+
+  lines.push("## A/B 黄金3秒", "");
+  lines.push(`**A版（荒诞商业场景）：**${brief.hooks.a}`);
+  lines.push(`**B版（反常识口播）：**${brief.hooks.b}`);
+  lines.push("");
+  lines.push("## HeyGen A版纯文本口播稿", "");
+  lines.push(scripts.a);
+  lines.push("");
+  lines.push("## HeyGen B版纯文本口播稿", "");
+  lines.push(scripts.b);
+  lines.push("");
+
+  if (brief.unverified_claims.length > 0) {
+    lines.push("## 未证实信息｜不进入主稿", "");
+    for (const claim of brief.unverified_claims) {
+      lines.push(`- [${claim.source}](${claim.source_url})：${claim.claim}；未证实原因：${claim.why_unverified}`);
+    }
+    lines.push("");
+  }
+
+  lines.push("## 核实来源与风险说明", "");
+  brief.risk_notes.forEach((note) => lines.push(`- ${note}`));
+  lines.push("");
+  lines.push(`—— 老王跨境早知道｜${brief.date} 16:00 自动推送，先审事实，再用于配音`);
+  return lines.join("\n");
+}
+
 function readArg(name: string): string | undefined {
   const index = process.argv.indexOf(name);
   return index >= 0 ? process.argv[index + 1] : undefined;
@@ -342,6 +630,21 @@ async function main(): Promise<void> {
   if (!file) throw new Error("Usage: npm run codex:seller-brief:build -- --file <brief.json>");
   const absoluteFile = path.resolve(file);
   const input = JSON.parse(await readFile(absoluteFile, "utf8")) as unknown;
+  if (typeof input === "object" && input !== null && (input as { format_version?: unknown }).format_version === "v2") {
+    const { brief, report } = validateCrossborderV2Brief(input);
+    const stem = absoluteFile.replace(/\.json$/i, "");
+    await mkdir(path.dirname(absoluteFile), { recursive: true });
+    await writeFile(`${stem}.review.json`, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+    if (!brief || !report.content_valid) {
+      throw new Error(`Crossborder V2 validation failed: ${report.automated_blockers.join(", ")}`);
+    }
+    const scripts = renderCrossborderV2Scripts(brief);
+    await writeFile(`${stem}.crossborder-v2.md`, `${renderCrossborderV2Markdown(brief)}\n`, "utf8");
+    await writeFile(`${stem}.heygen-a.txt`, `${scripts.a}\n`, "utf8");
+    await writeFile(`${stem}.heygen-b.txt`, `${scripts.b}\n`, "utf8");
+    console.log(`[crossborder-v2] content_valid=true; date=${brief.date}; estimated_seconds=${report.estimated_seconds.a}/${report.estimated_seconds.b}`);
+    return;
+  }
   const { brief, report } = validateSellerProblemBrief(input);
   const stem = absoluteFile.replace(/\.json$/i, "");
   await mkdir(path.dirname(absoluteFile), { recursive: true });

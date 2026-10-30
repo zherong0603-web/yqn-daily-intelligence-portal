@@ -58,12 +58,19 @@ export function dispatchSellerProblemBrief({
 
   const date = arg(argv, "--date") || dateInShanghai(now);
   const dryRun = arg(argv, "--dry-run") === "true";
+  const workflowFile = arg(argv, "--workflow") || "dingtalk-seller-problem-send.yml";
+  const schema = arg(argv, "--schema") || "v1";
+  if (!/^[a-z0-9-]+\.ya?ml$/.test(workflowFile)) throw new Error(`Invalid workflow file: ${workflowFile}`);
+  if (schema !== "v1" && schema !== "v2") throw new Error(`Invalid schema: ${schema}`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || new Date(`${date}T00:00:00Z`).toISOString().slice(0, 10) !== date) {
     throw new Error(`Invalid brief date: ${date}`);
   }
   const today = dateInShanghai(now);
   if (!dryRun && date !== today) throw new Error(`Formal dispatch date must be today (${today}), got ${date}`);
-  const file = path.resolve(cwd, arg(argv, "--file") || `data/codex-shadow/${date}.seller-problem.json`);
+  const defaultFile = schema === "v2"
+    ? `data/codex-shadow/${date}.crossborder-v2.json`
+    : `data/codex-shadow/${date}.seller-problem.json`;
+  const file = path.resolve(cwd, arg(argv, "--file") || defaultFile);
   const brief = JSON.parse(readFileSync(file, "utf8"));
   if (brief.date !== date) throw new Error(`Brief date mismatch: expected ${date}, got ${brief.date}`);
   const briefB64 = Buffer.from(JSON.stringify(brief), "utf8").toString("base64");
@@ -84,7 +91,7 @@ export function dispatchSellerProblemBrief({
 
   execute("gh", [
     "api",
-    "repos/zherong0603-web/yqn-daily-intelligence-portal/actions/workflows/dingtalk-seller-problem-send.yml/dispatches",
+    `repos/zherong0603-web/yqn-daily-intelligence-portal/actions/workflows/${workflowFile}/dispatches`,
     "--method",
     "POST",
     "--input",

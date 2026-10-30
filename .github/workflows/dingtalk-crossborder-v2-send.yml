@@ -1,0 +1,125 @@
+name: DingTalk Crossborder V2 Private Brief
+
+on:
+  workflow_dispatch:
+    inputs:
+      brief_b64:
+        description: "Base64 encoded validated Crossborder V2 brief"
+        required: true
+        type: string
+      expected_date:
+        description: "Asia/Shanghai brief date"
+        required: true
+        type: string
+      dry_run:
+        description: "Validate only"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      dispatch_id:
+        description: "Unique dispatch correlation id"
+        required: true
+        type: string
+      executor_id:
+        description: "Primary executor authorization id"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: dingtalk-crossborder-v2-${{ inputs.expected_date }}
+  cancel-in-progress: false
+
+jobs:
+  authorize-executor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      DISPATCH_EXECUTOR_ID: ${{ inputs.executor_id }}
+      PRIMARY_EXECUTOR_ID: ${{ vars.YQN_PRIMARY_EXECUTOR_ID }}
+    steps:
+      - name: Authorize primary executor
+        shell: bash
+        run: |
+          if [[ -z "$DISPATCH_EXECUTOR_ID" || -z "$PRIMARY_EXECUTOR_ID" ]]; then
+            echo "::error::Primary executor authorization is not configured."
+            exit 1
+          fi
+          if [[ "$DISPATCH_EXECUTOR_ID" != "$PRIMARY_EXECUTOR_ID" ]]; then
+            echo "::error::Dispatch is not authorized for the primary executor."
+            exit 1
+          fi
+          echo "[crossborder-v2:executor] authorized"
+
+  validate-brief:
+    needs: authorize-executor
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Asia/Shanghai
+      SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
+      BRIEF_DATE: ${{ inputs.expected_date }}
+      CROSSBORDER_V2_SEND_APPROVED: "false"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - name: Setup Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run guardrail tests
+        run: npm test
+      - name: Validate Crossborder V2 brief
+        run: npm run crossborder:v2:send
+
+  send-private-brief:
+    needs:
+      - authorize-executor
+      - validate-brief
+    if: inputs.dry_run == 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      TZ: Asia/Shanghai
+      SELLER_BRIEF_JSON_B64: ${{ inputs.brief_b64 }}
+      BRIEF_DATE: ${{ inputs.expected_date }}
+      CROSSBORDER_V2_SEND_APPROVED: "true"
+      CROSSBORDER_V2_TARGET_ENABLED: ${{ vars.CROSSBORDER_V2_TARGET_ENABLED || 'false' }}
+      DINGTALK_APP_KEY: ${{ secrets.DINGTALK_APP_KEY }}
+      DINGTALK_APP_SECRET: ${{ secrets.DINGTALK_APP_SECRET }}
+      DINGTALK_ROBOT_CODE: ${{ secrets.DINGTALK_ROBOT_CODE }}
+      DINGTALK_USER_ID: ${{ secrets.DINGTALK_USER_ID }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - name: Setup Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Preflight private-chat delivery
+        id: private-preflight
+        env:
+          CROSSBORDER_V2_SEND_PHASE: preflight
+        run: npm run crossborder:v2:send
+      - name: Mark durable private-chat attempt
+        if: steps.private-preflight.outputs.send_required == 'true'
+        run: echo "[crossborder-v2:attempt] date=${BRIEF_DATE} dingtalk-private DingTalk personal-chat send authorized"
+      - name: Send to DingTalk private chat and verify status
+        if: steps.private-preflight.outputs.send_required == 'true'
+        env:
+          CROSSBORDER_V2_SEND_PHASE: send
+          CROSSBORDER_V2_ATTEMPT_MARKED: "true"
+        run: npm run crossborder:v2:send

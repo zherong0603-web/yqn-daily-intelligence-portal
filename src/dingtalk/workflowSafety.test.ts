@@ -38,6 +38,21 @@ describe("workflow retirement and executor safety gates", () => {
     }
   });
 
+  it("requires the same executor gate before private-chat delivery and verifies read status", () => {
+    const privateBrief = workflow("dingtalk-crossborder-v2-send.yml");
+    const authorize = section(privateBrief, "  authorize-executor:", "\n  validate-brief:");
+    const send = privateBrief.slice(privateBrief.indexOf("  send-private-brief:"));
+
+    expect(authorize).toContain("PRIMARY_EXECUTOR_ID: ${{ vars.YQN_PRIMARY_EXECUTOR_ID }}");
+    expect(authorize).toContain('[[ "$DISPATCH_EXECUTOR_ID" != "$PRIMARY_EXECUTOR_ID" ]]');
+    expect(send).toContain("- authorize-executor");
+    expect(send).toContain("- validate-brief");
+    expect(send).toContain("DINGTALK_APP_SECRET: ${{ secrets.DINGTALK_APP_SECRET }}");
+    expect(send).toContain("CROSSBORDER_V2_SEND_PHASE: preflight");
+    expect(send).toContain("CROSSBORDER_V2_ATTEMPT_MARKED: \"true\"");
+    expect(send).not.toContain("DINGTALK_YQN_LIVE_GROUP_WEBHOOK_URL");
+  });
+
   it("keeps both legacy V1.4 workflows retired unless their gates are explicitly true", () => {
     expect(workflow("dingtalk-morning-brief.yml")).toContain(
       "if: ${{ vars.YQN_LEGACY_V14_ENABLED == 'true' }}",
@@ -63,13 +78,14 @@ describe("workflow retirement and executor safety gates", () => {
   it("routes both automation templates through the guarded dispatcher", () => {
     for (const template of ["automation/yqn-2.template.toml", "automation/yqn-09-20.template.toml"]) {
       const content = repoFile(template);
-      expect(content).toContain("正式调度只能运行 npm run codex:seller-brief:dispatch");
+      expect(content).toContain("npm run crossborder:v2:dispatch");
       expect(content).toContain("缺失或空白时必须停止");
     }
     const rules = repoFile("docs/automation/工作日晨报执行规则.md");
     expect(rules).toContain(".yqn-primary-executor-id");
     expect(rules).toContain("YQN_PRIMARY_EXECUTOR_ID");
     expect(rules).toContain("禁止改用 `gh workflow run`");
+    expect(rules).toContain("oToMessages/readStatus");
     expect(repoFile(".gitignore")).toContain(".yqn-primary-executor-id");
   });
 });

@@ -1,4 +1,19 @@
-# YQN 跨境电商 5 分钟晨报 V1.3
+# YQN 跨境电商 5 分钟晨报 V1.3 + 跨境早知道 V2
+
+## 跨境早知道 V2（当前每日主线）
+
+- 调度：每天北京时间 16:00，由 Codex 自动化 `yqn-3` 生成并受保护调度。
+- 内容：美国优先，其次墨西哥、欧洲；先搜 24 小时，不足再扩到 72 小时。
+- 交付：3 条情报简报、A/B 黄金 3 秒、90–120 秒 HeyGen A/B 纯文本口播稿、来源与风险说明。
+- 私聊通道：钉钉企业内部机器人 `/v1.0/robot/oToMessages/batchSend`；发送后必须用 `/v1.0/robot/oToMessages/readStatus` 核验。
+- 构建：`npm run crossborder:v2:build -- --file data/codex-shadow/YYYY-MM-DD.crossborder-v2.json`
+- 干跑：`npm run crossborder:v2:send -- --file <file>`
+- 调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD`
+- 配置文档：`docs/automation/跨境早知道V2执行规则.md`、`docs/automation/工作日晨报执行规则.md`。
+
+V2 私聊需要 GitHub Actions Secrets：`DINGTALK_APP_KEY`、`DINGTALK_APP_SECRET`、`DINGTALK_ROBOT_CODE`、`DINGTALK_USER_ID`，并启用仓库 Variable `CROSSBORDER_V2_TARGET_ENABLED=true`。未配置时构建和干跑仍可执行，但正式私聊发送必须失败关闭，不能回退成群消息。
+
+以下为旧版 V1.3 说明，保留用于回滚和历史任务。
 
 定位：面向 YQN 团队的钉钉测试群晨报，覆盖行业、市场、客户、平台和履约变化。
 

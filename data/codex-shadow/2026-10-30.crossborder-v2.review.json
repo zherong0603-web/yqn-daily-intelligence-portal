@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-30",
+  "content_valid": true,
+  "send_allowed": true,
+  "target": "dingtalk_private_chat",
+  "signal_count": 3,
+  "us_first": true,
+  "estimated_seconds": {
+    "a": 93.6,
+    "b": 93.6
+  },
+  "automated_blockers": [],
+  "checked_at": "2026-10-30T06:22:54.272Z"
+}
