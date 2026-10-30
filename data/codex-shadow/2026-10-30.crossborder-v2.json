@@ -38,7 +38,12 @@
             "market_signal",
             "fact_basis"
           ],
-          "supports": "报道列出美西周涨3%至8368美元/FEU、美东周涨9%至10565美元/FEU，并披露港口守望员授权罢工及影响码头货量。"
+          "supports": "报道列出美西周涨3%至8368美元/FEU、美东周涨9%至10565美元/FEU，并披露港口守望员授权罢工及影响码头货量。",
+          "markers": [
+            "Asia-U.S. West Coast rates increased 3% to $8,368 per FEU",
+            "East Coast rates jumped 9% to $10,565",
+            "Thursday, October 29, 2026"
+          ]
         },
         {
           "title": "CommoPlast：Freightos Baltic 美东运价创2026年高点",
@@ -49,7 +54,12 @@
           "roles": [
             "fact_basis"
           ],
-          "supports": "独立转引10月28日Freightos Baltic数据，确认美东10565美元/FEU、美西8368美元/FEU及对应涨幅。"
+          "supports": "独立转引10月28日Freightos Baltic数据，确认美东10565美元/FEU、美西8368美元/FEU及对应涨幅。",
+          "markers": [
+            "Asia–US East Coast spot rates jumped 9% to a 2026 high of $10,565/FEU",
+            "West Coast prices rose 3% to $8,368/FEU",
+            "29 Oct 2026"
+          ]
         }
       ],
       "confidence_label": "high",
@@ -85,7 +95,13 @@
             "market_signal",
             "fact_basis"
           ],
-          "supports": "页面日期为2026年10月28日，披露复购用户补贴自2026年10月30日00:00墨西哥时间生效，并载明卖家成交价8%、每件最高40比索的SFP服务费规则。"
+          "supports": "页面日期为2026年10月28日，披露复购用户补贴自2026年10月30日00:00墨西哥时间生效，并载明卖家成交价8%、每件最高40比索的SFP服务费规则。",
+          "markers": [
+            "28/10/2026",
+            "A partir del 30/10/2026 00:00:00 (Hora de México)",
+            "MXN 40 POR ARTÍCULO",
+            "8 % del precio de venta"
+          ]
         }
       ],
       "confidence_label": "high",
@@ -115,12 +131,17 @@
           "title": "Forwarder News：欧盟2欧元海关处理费11月1日启动",
           "url": "https://www.forwardernews.com/news/2026-10-29-eu-2-customs-handling-fee",
           "source_type": "media",
-          "published_at": "2026-10-29",
+          "published_at": "2026-10-30",
           "checked_at": "2026-10-30T14:33:00+08:00",
           "roles": [
             "market_signal"
           ],
-          "supports": "报道确认2欧元按申报项收取、11月1日适用，并与150欧元以内3欧元临时关税叠加，列明典型混合包裹的5欧元构成。"
+          "supports": "报道确认2欧元按申报项收取、11月1日适用，并与150欧元以内3欧元临时关税叠加，列明典型混合包裹的5欧元构成。",
+          "markers": [
+            "EU €2 customs handling fee starts 1 November",
+            "€3 flat duty per line in force since July",
+            "Oct 30, 2026"
+          ]
         },
         {
           "title": "欧盟增值税一站式服务：EUR 3关税与EUR 2海关处理费说明",
@@ -131,7 +152,11 @@
           "roles": [
             "fact_basis"
           ],
-          "supports": "欧盟委员会页面列明EUR 3临时关税与EUR 2海关处理费，并说明处理费自2026年11月起适用。"
+          "supports": "欧盟委员会页面列明EUR 3临时关税与EUR 2海关处理费，并说明处理费自2026年11月起适用。",
+          "markers": [
+            "VAT treatment of the EUR 3 customs duty and of the EUR 2 Customs Union handling fee",
+            "6 October 2026"
+          ]
         }
       ],
       "confidence_label": "high",

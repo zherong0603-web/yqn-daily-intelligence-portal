@@ -3,7 +3,11 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { z } from "zod";
+
+const execFileAsync = promisify(execFile);
 
 const focusSchema = z.enum(["us_warehouse", "mexico_warehouse", "us_mexico_bridge"]);
 const evidenceRoleSchema = z.enum(["seller_signal", "market_signal", "fact_basis"]);
@@ -22,8 +26,9 @@ const webUrlSchema = z.string().url().refine((value) => {
 
 const secureSourceUrlSchema = z.string().url().refine((value) => {
   const url = new URL(value);
-  return url.protocol === "https:" && !url.username && !url.password;
-}, "V2 sources must use HTTPS without embedded credentials");
+  if (url.protocol !== "https:" || url.username || url.password) return false;
+  return ![...url.searchParams.keys()].some((key) => /(?:token|secret|signature|password|api[_-]?key|credential|auth)/i.test(key));
+}, "V2 sources must use HTTPS without embedded credentials or sensitive query parameters");
 
 function singleLine(min: number, max: number): z.ZodString {
   return z.string().min(min).max(max).refine((value) => !/[\r\n]/.test(value), "Must be a single line");
@@ -89,6 +94,7 @@ const crossborderV2EvidenceSchema = z.object({
   checked_at: z.string().datetime({ offset: true }),
   roles: z.array(evidenceRoleSchema).min(1).max(2),
   supports: singleLine(8, 280),
+  markers: z.array(singleLine(2, 180)).min(1).max(6),
 });
 
 const crossborderV2SignalSchema = z.object({
@@ -476,11 +482,35 @@ function normalizedDigits(text: string): string {
   return text.replace(/(?<=\d)[,，](?=\d)/g, "");
 }
 
+function decodeHtmlEntities(input: string): string {
+  return input
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#(\d+);/g, (_matched, code: string) => String.fromCodePoint(Number.parseInt(code, 10)))
+    .replace(/&#x([0-9a-f]+);/gi, (_matched, code: string) => String.fromCodePoint(Number.parseInt(code, 16)));
+}
+
+function normalizeProofText(input: string): string {
+  return decodeHtmlEntities(input)
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[\u2010-\u2015\u2212]/g, "-")
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201c\u201d]/g, '"')
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export interface CrossborderSourceCheck {
   url: string;
   ok: boolean;
   matched_number: string | null;
   matched_date: string | null;
+  matched_markers: string[];
   error?: string;
 }
 
@@ -537,11 +567,44 @@ async function assertSafePublicSourceUrl(input: string | URL): Promise<URL> {
 async function fetchPublicSource(url: string | URL, fetchImpl: typeof fetch): Promise<{ html: string; finalUrl: URL }> {
   let current = await assertSafePublicSourceUrl(url);
   for (let redirect = 0; redirect <= 3; redirect += 1) {
-    const response = await fetchImpl(current, {
-      headers: { "User-Agent": "Mozilla/5.0 YQN-Crossborder-V2/2.0" },
-      redirect: "manual",
-      signal: AbortSignal.timeout(20_000),
-    });
+    let response: Response;
+    try {
+      response = await fetchImpl(current, {
+        headers: { "User-Agent": "Mozilla/5.0 YQN-Crossborder-V2/2.0" },
+        redirect: "manual",
+        signal: AbortSignal.timeout(20_000),
+      });
+    } catch (error) {
+      if (fetchImpl !== fetch) throw error;
+      const pythonFetch = String.raw`
+import ipaddress, socket, sys, urllib.parse, urllib.request
+u = urllib.parse.urlparse(sys.argv[1])
+if u.scheme != 'https' or u.username or u.password:
+    raise SystemExit('unsafe URL')
+host = u.hostname
+if not host:
+    raise SystemExit('missing host')
+for item in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM):
+    ip = ipaddress.ip_address(item[4][0])
+    if ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_multicast or ip.is_reserved:
+        raise SystemExit('private address')
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+req = urllib.request.Request(sys.argv[1], headers={'User-Agent': 'Mozilla/5.0 YQN-Crossborder-V2/2.0'})
+with urllib.request.build_opener(NoRedirect).open(req, timeout=25) as resp:
+    data = resp.read(3000001)
+if len(data) > 3000000:
+    raise SystemExit('response too large')
+sys.stdout.buffer.write(data)
+`;
+      const { stdout } = await execFileAsync("python3", ["-c", pythonFetch, current.href], {
+        encoding: "utf8",
+        maxBuffer: 3_200_000,
+        timeout: 30_000,
+      });
+      return { html: stdout, finalUrl: current };
+    }
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get("location");
       if (!location) throw new Error(`HTTP ${response.status} redirect without location`);
@@ -565,24 +628,62 @@ export async function verifyCrossborderV2Sources(
   const checks: CrossborderSourceCheck[] = [];
   for (const signal of brief.signals) {
     for (const evidence of signal.evidence) {
+      let matchedMarkers: string[] = [];
       try {
         const { html } = await fetchPublicSource(evidence.url, fetchImpl);
-        const visible = normalizedDigits(html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " "));
+        const visible = decodeHtmlEntities(html)
+          .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ");
         const dateVariants = sourceDateVariants(evidence.published_at);
         const matchedDate = dateVariants.find((variant) => visible.includes(variant)) || null;
-        const numbers = [...`${evidence.supports} ${signal.numbers.join(" ")}`.matchAll(/\d+(?:[.,]\d+)?/g)]
+        const numericText = [
+          ...signal.numbers.filter((item) => !/(?:\d{4}[-/.年]\d{1,2}|月|日|时间)/.test(item)),
+          signal.money_impact,
+        ].join(" ")
+          .replace(/\d{4}[-/.年]\d{1,2}(?:[-/.月]\d{1,2})?(?:日|号)?(?:\s*\d{1,2}:\d{2})?/g, " ")
+          .replace(/\d{1,2}月\d{1,2}日/g, " ")
+          .replace(/\d{1,2}月/g, " ")
+          .replace(/\d{1,2}日/g, " ");
+        const allNumbers = [...numericText.matchAll(/\d+(?:[.,]\d+)?/g)]
           .map((match) => match[0].replace(/[.,]/g, ""))
-          .filter((value) => value.length >= 2);
-        const matchedNumber = numbers.find((value) => normalizedDigits(visible).includes(value)) || null;
+          .filter((value) => !/^0+$/.test(value));
+        const nonYearNumbers = allNumbers.filter((value) => {
+          if (!/^\d{4}$/.test(value)) return true;
+          const year = Number(value);
+          return year < 1900 || year > 2099;
+        });
+        const numbers = nonYearNumbers.sort((a, b) => b.length - a.length);
+        const numericVisible = normalizedDigits(visible);
+        const matchedNumber = numbers.find((value) => numericVisible.includes(value)) || null;
+        const normalizedVisible = normalizeProofText(visible);
+        matchedMarkers = evidence.markers.filter((marker) => normalizedVisible.includes(normalizeProofText(marker)));
         if (!matchedDate) throw new Error("visible source date does not match published_at");
-        if (!matchedNumber) throw new Error("source page does not contain a claimed number");
-        checks.push({ url: redactSourceUrl(evidence.url), ok: true, matched_number: matchedNumber, matched_date: matchedDate });
+        if (matchedMarkers.length !== evidence.markers.length) {
+          checks.push({
+            url: redactSourceUrl(evidence.url),
+            ok: false,
+            matched_number: matchedNumber,
+            matched_date: matchedDate,
+            matched_markers: matchedMarkers,
+            error: `source page is missing ${evidence.markers.length - matchedMarkers.length} required evidence marker(s)`,
+          });
+          continue;
+        }
+        checks.push({
+          url: redactSourceUrl(evidence.url),
+          ok: true,
+          matched_number: matchedNumber,
+          matched_date: matchedDate,
+          matched_markers: matchedMarkers,
+        });
       } catch (error) {
         checks.push({
           url: redactSourceUrl(evidence.url),
           ok: false,
           matched_number: null,
           matched_date: null,
+          matched_markers: matchedMarkers,
           error: error instanceof Error ? error.message : "source verification failed",
         });
       }
@@ -727,7 +828,7 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
     report: {
       date: brief.date,
       content_valid: blockers.length === 0,
-      send_allowed: true,
+      send_allowed: blockers.length === 0,
       target: "dingtalk_private_chat",
       signal_count: 3,
       us_first: usFirst,

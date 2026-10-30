@@ -8,6 +8,7 @@
 - 私聊通道：钉钉企业内部机器人 `/v1.0/robot/oToMessages/batchSend`；发送后必须用 `/v1.0/robot/oToMessages/readStatus` 核验。
 - 构建：`npm run crossborder:v2:build -- --file data/codex-shadow/YYYY-MM-DD.crossborder-v2.json`
 - 产物：`YYYY-MM-DD.crossborder-v2.md`、`YYYY-MM-DD.heygen-a.txt`、`YYYY-MM-DD.heygen-b.txt`
+- 来源检查：`npm run crossborder:v2:source-check -- --file <file>`；正式发送前强制执行严格模式。
 - 干跑：`npm run crossborder:v2:send -- --file <file>`
 - 干跑调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD`
 - 正式调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live`

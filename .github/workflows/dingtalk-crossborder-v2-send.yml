@@ -79,6 +79,10 @@ jobs:
         run: npm ci
       - name: Run guardrail tests
         run: npm test
+      - name: Check source accessibility (diagnostic)
+        env:
+          CROSSBORDER_V2_SOURCE_CHECK_STRICT: "false"
+        run: npm run crossborder:v2:source-check
       - name: Validate Crossborder V2 brief
         run: npm run crossborder:v2:send
 
@@ -95,6 +99,7 @@ jobs:
       BRIEF_DATE: ${{ inputs.expected_date }}
       CROSSBORDER_V2_SEND_APPROVED: "true"
       CROSSBORDER_V2_TARGET_ENABLED: ${{ vars.CROSSBORDER_V2_TARGET_ENABLED || 'false' }}
+      CROSSBORDER_V2_SOURCE_CHECK_STRICT: "true"
       DINGTALK_APP_KEY: ${{ secrets.DINGTALK_APP_KEY }}
       DINGTALK_APP_SECRET: ${{ secrets.DINGTALK_APP_SECRET }}
       DINGTALK_ROBOT_CODE: ${{ secrets.DINGTALK_ROBOT_CODE }}
@@ -110,6 +115,10 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Require all source checks to pass
+        env:
+          CROSSBORDER_V2_SOURCE_CHECK_STRICT: "true"
+        run: npm run crossborder:v2:source-check
       - name: Preflight private-chat delivery
         id: private-preflight
         env:

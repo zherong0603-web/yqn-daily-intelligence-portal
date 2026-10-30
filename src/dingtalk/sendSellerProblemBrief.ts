@@ -390,6 +390,9 @@ async function sendCrossborderV2Brief(input: unknown): Promise<void> {
   const sourceChecks = await verifyCrossborderV2Sources(brief);
   const failedSourceChecks = sourceChecks.filter((check) => !check.ok);
   if (failedSourceChecks.length > 0) {
+    if (readEnv("CROSSBORDER_V2_SOURCE_CHECK_STRICT") === "true") {
+      throw new Error(`Crossborder V2 blocked: ${failedSourceChecks.length} source checks failed`);
+    }
     console.warn(`[crossborder-v2:source-check] auto-verified=${sourceChecks.length - failedSourceChecks.length}/${sourceChecks.length}; manual verification remains required for ${failedSourceChecks.map((check) => check.url).join(", ")}`);
   } else {
     console.log(`[crossborder-v2:source-check] auto-verified=${sourceChecks.length}/${sourceChecks.length}`);

@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-30",
+  "checked_at": "2026-10-30T07:22:41.244Z",
+  "all_ok": true,
+  "checked_count": 5,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.freightwaves.com/news/why-container-rates-are-climbing-despite-cooling-demand",
+      "ok": true,
+      "matched_number": "10565",
+      "matched_date": "October 29, 2026",
+      "matched_markers": [
+        "Asia-U.S. West Coast rates increased 3% to $8,368 per FEU",
+        "East Coast rates jumped 9% to $10,565",
+        "Thursday, October 29, 2026"
+      ]
+    },
+    {
+      "url": "https://www.commoplast.com/news/details/20305/",
+      "ok": true,
+      "matched_number": "10565",
+      "matched_date": "29 October 2026",
+      "matched_markers": [
+        "Asia–US East Coast spot rates jumped 9% to a 2026 high of $10,565/FEU",
+        "West Coast prices rose 3% to $8,368/FEU",
+        "29 Oct 2026"
+      ]
+    },
+    {
+      "url": "https://seller-mx.tiktok.com/university/essay",
+      "ok": true,
+      "matched_number": "40",
+      "matched_date": "28/10/2026",
+      "matched_markers": [
+        "28/10/2026",
+        "A partir del 30/10/2026 00:00:00 (Hora de México)",
+        "MXN 40 POR ARTÍCULO",
+        "8 % del precio de venta"
+      ]
+    },
+    {
+      "url": "https://www.forwardernews.com/news/2026-10-29-eu-2-customs-handling-fee",
+      "ok": true,
+      "matched_number": "60",
+      "matched_date": "October 30, 2026",
+      "matched_markers": [
+        "EU €2 customs handling fee starts 1 November",
+        "€3 flat duty per line in force since July",
+        "Oct 30, 2026"
+      ]
+    },
+    {
+      "url": "https://vat-one-stop-shop.ec.europa.eu/guides_en",
+      "ok": true,
+      "matched_number": "5",
+      "matched_date": "6 October 2026",
+      "matched_markers": [
+        "VAT treatment of the EUR 3 customs duty and of the EUR 2 Customs Union handling fee",
+        "6 October 2026"
+      ]
+    }
+  ]
+}
