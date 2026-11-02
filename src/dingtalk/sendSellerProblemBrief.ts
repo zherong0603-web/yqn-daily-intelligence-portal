@@ -351,8 +351,9 @@ export async function verifyDingTalkPersonalDelivery(options: {
     if (sendFailed) {
       throw new Error(`Crossborder V2 delivery failed (sendStatus=${last.sendStatus}, readStatus=${last.readStatus})`);
     }
-    const recipientDelivered = last.recipientConfirmed
-      && ["READ", "UNREAD", "SUCCESS", "DELIVERED"].includes(last.readStatus);
+    const recipientDelivered = last.sendStatus === "SUCCESS"
+      && last.recipientConfirmed
+      && ["READ", "UNREAD"].includes(last.readStatus);
     if (recipientDelivered) {
       return { sendStatus: last.sendStatus, readStatus: last.readStatus };
     }

@@ -61,6 +61,44 @@ describe("DingTalk private-chat delivery", () => {
     })).rejects.toThrow(/delivery unconfirmed/);
   });
 
+  it("accepts only READ or UNREAD for a confirmed recipient", async () => {
+    for (const readStatus of ["SUCCESS", "DELIVERED"]) {
+      const fetchMock = vi.fn()
+        .mockResolvedValueOnce(new Response(JSON.stringify({
+          sendStatus: "SUCCESS",
+          messageReadInfoList: [{ userId: "user-1", readStatus }],
+        }), { status: 200 }));
+      vi.stubGlobal("fetch", fetchMock);
+
+      await expect(verifyDingTalkPersonalDelivery({
+        accessToken: "token-1",
+        robotCode: "robot-1",
+        userId: "user-1",
+        processQueryKey: "query-1",
+        attempts: 1,
+        sleep: async () => {},
+      })).rejects.toThrow(/delivery unconfirmed/);
+    }
+  });
+
+  it("does not treat a confirmed recipient as delivered when sendStatus is not SUCCESS", async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({
+        sendStatus: "UNKNOWN",
+        messageReadInfoList: [{ userId: "user-1", readStatus: "UNREAD" }],
+      }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(verifyDingTalkPersonalDelivery({
+      accessToken: "token-1",
+      robotCode: "robot-1",
+      userId: "user-1",
+      processQueryKey: "query-1",
+      attempts: 1,
+      sleep: async () => {},
+    })).rejects.toThrow(/delivery unconfirmed/);
+  });
+
   it("does not treat a bare sendStatus=SUCCESS as actual delivery", async () => {
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(new Response(JSON.stringify({ sendStatus: "SUCCESS", messageReadInfoList: [] }), { status: 200 }));
