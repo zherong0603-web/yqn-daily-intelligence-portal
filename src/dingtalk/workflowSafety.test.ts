@@ -92,7 +92,9 @@ describe("workflow retirement and executor safety gates", () => {
     expect(rules).toContain("crossborder-v2:dws-delivered");
     expect(rules).toContain("已有 `ATTEMPTED`");
     expect(rules).not.toContain("DINGTALK_USER_ID");
-    expect(repoFile(".gitignore")).toContain(".crossborder-v2-dws-state.json");
+    const sender = repoFile("scripts/sendCrossborderV2Dws.mjs");
+    expect(sender).toContain('logs", "automation", ".crossborder-v2-dws-state.json');
+    expect(repoFile(".gitignore")).toContain("logs/");
 
     const pkg = JSON.parse(repoFile("package.json"));
     expect(pkg.scripts["crossborder:v2:dispatch"]).toBe("node scripts/sendCrossborderV2Dws.mjs");

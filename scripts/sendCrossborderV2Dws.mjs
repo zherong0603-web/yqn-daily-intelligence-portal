@@ -193,7 +193,18 @@ export function sendCrossborderV2Dws({
   } catch {
     throw new Error("Crossborder V2 DWS message verification returned non-JSON output");
   }
-  if (!collectStrings(messageRecord).some((value) => value.includes("跨境早知道 V2"))) {
+  const messageTexts = [];
+  const collectMessageTexts = (value) => {
+    if (Array.isArray(value)) {
+      for (const item of value) collectMessageTexts(item);
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    if (typeof value.text === "string") messageTexts.push(value.text);
+    for (const item of Object.values(value)) collectMessageTexts(item);
+  };
+  collectMessageTexts(messageRecord);
+  if (!messageTexts.some((value) => value.includes("跨境早知道 V2"))) {
     throw new Error("Crossborder V2 DWS delivery unconfirmed in recipient conversation");
   }
   state.dates[options.date] = {

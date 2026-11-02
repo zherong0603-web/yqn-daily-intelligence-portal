@@ -1,6 +1,6 @@
 version = 1
 id = "yqn-3"
-kind = "cron"
+kind = "heartbeat"
 name = "跨境早知道 V2（每日16:00生成+私聊交付）"
 prompt = "进入 <REPO_PATH>，完整读取并严格执行 docs/automation/跨境早知道V2执行规则.md 与 docs/automation/工作日晨报执行规则.md。自动化 memory 为 <AUTOMATION_MEMORY_PATH>。用户已授权每日北京时间16:00生成3条跨境情报、A/B黄金3秒和90–120秒HeyGen纯文本口播稿，并推送至固定钉钉单聊供审阅。所有每日更新复用当前会话和窗口，禁止新建 tab。先完成构建和严格来源检查，再干跑并正式运行 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live。该入口只接受 --date 和 --live，使用本机已授权的钉钉 Workspace CLI，以个人身份发送；必须通过每日幂等键、DELIVERED/READ/UNREAD 和会话消息记录双重核验。已有 ATTEMPTED 无验证送达时禁止自动重试，已有 DELIVERED 时跳过。不读取、展示或记录任何密钥、token、robotCode 或 userId。"
 status = "ACTIVE"
@@ -8,3 +8,4 @@ rrule = "RRULE:FREQ=DAILY;BYHOUR=16;BYMINUTE=0;BYSECOND=0"
 model = "gpt-6.1-terra"
 reasoning_effort = "high"
 execution_environment = "local"
+target_thread_id = "<TARGET_THREAD_ID>"
