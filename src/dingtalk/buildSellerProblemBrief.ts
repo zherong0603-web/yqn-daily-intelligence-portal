@@ -97,6 +97,49 @@ const crossborderV2EvidenceSchema = z.object({
   markers: z.array(singleLine(2, 180)).min(1).max(6),
 });
 
+const crossborderV2CandidateScoreSchema = z.object({
+  relevance: z.number().int().min(0).max(35),
+  money_impact: z.number().int().min(0).max(30),
+  concrete_evidence: z.number().int().min(0).max(15),
+  hook_potential: z.number().int().min(0).max(10),
+  timeliness: z.number().int().min(0).max(10),
+  total: z.number().int().min(0).max(100),
+}).superRefine((score, context) => {
+  const calculated = score.relevance + score.money_impact + score.concrete_evidence + score.hook_potential + score.timeliness;
+  if (score.total !== calculated) {
+    context.addIssue({ code: "custom", path: ["total"], message: `Score total must equal ${calculated}` });
+  }
+});
+
+const crossborderV2EditorialCandidateSchema = z.object({
+  title: singleLine(4, 100),
+  region: crossborderV2RegionSchema,
+  published_at: calendarDateSchema,
+  source_url: secureSourceUrlSchema,
+  score: crossborderV2CandidateScoreSchema,
+  decision: z.enum(["selected", "rejected"]),
+  reason: singleLine(12, 240),
+});
+
+const crossborderV2ContentEditorReviewSchema = z.object({
+  status: z.literal("approved"),
+  hook_conflict: z.literal(true),
+  first_10_seconds_clear: z.literal(true),
+  single_theme: z.literal(true),
+  no_unrelated_news: z.literal(true),
+  no_number_dump: z.literal(true),
+  assumptions_labeled: z.literal(true),
+  specific_takeaway: z.literal(true),
+  notes: z.array(singleLine(8, 220)).min(1).max(5),
+});
+
+const crossborderV2EditorialSchema = z.object({
+  theme: singleLine(8, 100),
+  candidate_count_researched: z.number().int().min(10).max(15),
+  candidates: z.array(crossborderV2EditorialCandidateSchema).length(5),
+  editor_review: crossborderV2ContentEditorReviewSchema,
+});
+
 const crossborderV2SignalSchema = z.object({
   region: crossborderV2RegionSchema,
   title: singleLine(4, 100),
@@ -125,7 +168,8 @@ const crossborderV2BriefSchema = z.object({
     searched_window_hours: z.union([z.literal(24), z.literal(72)]),
     notes: singleLine(8, 240),
   }),
-  signals: z.array(crossborderV2SignalSchema).length(3),
+  editorial: crossborderV2EditorialSchema,
+  signals: z.array(crossborderV2SignalSchema).min(1).max(3),
   hooks: z.object({
     a: singleLine(4, 60),
     b: singleLine(4, 60),
@@ -154,7 +198,7 @@ export interface CrossborderV2ValidationReport {
   content_valid: boolean;
   send_allowed: boolean;
   target: "dingtalk_private_chat";
-  signal_count: 3;
+  signal_count: number;
   us_first: boolean;
   region_priority_valid: boolean;
   estimated_seconds: {
@@ -426,10 +470,10 @@ export function renderSellerProblemMarkdown(
 }
 
 const crossborderV2RegionLabels: Record<z.infer<typeof crossborderV2RegionSchema>, string> = {
-  us: "🇺🇸 美国",
-  mexico: "🇲🇽 墨西哥",
-  europe: "🇪🇺 欧洲",
-  other: "🌍 其他市场",
+  us: "美国",
+  mexico: "墨西哥",
+  europe: "欧洲",
+  other: "其他市场",
 };
 
 function speechSeconds(text: string): number {
@@ -454,8 +498,8 @@ function withoutTrailingPunctuation(text: string): string {
 
 export function renderCrossborderV2Scripts(brief: CrossborderV2Brief): { a: string; b: string; body: string } {
   return {
-    a: `两分钟，听懂跨境事！\n${brief.hooks.a}\n${brief.voiceover_body}`,
-    b: `两分钟，听懂跨境事！\n${brief.hooks.b}\n${brief.voiceover_body}`,
+    a: `${brief.hooks.a}\n两分钟，听懂跨境事！\n${brief.voiceover_body}`,
+    b: `${brief.hooks.b}\n两分钟，听懂跨境事！\n${brief.voiceover_body}`,
     body: brief.voiceover_body,
   };
 }
@@ -704,7 +748,7 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
         content_valid: false,
         send_allowed: false,
         target: "dingtalk_private_chat",
-        signal_count: 3,
+        signal_count: Array.isArray((input as { signals?: unknown })?.signals) ? (input as { signals: unknown[] }).signals.length : 0,
         us_first: false,
         region_priority_valid: false,
         estimated_seconds: { a: 0, b: 0 },
@@ -720,16 +764,17 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   const estimatedB = speechSeconds(scripts.b);
   const blockers: string[] = [];
   const usFirst = brief.signals[0]?.region === "us";
+  const hasUsSignal = brief.signals.some((signal) => signal.region === "us");
   const regionRank: Record<z.infer<typeof crossborderV2RegionSchema>, number> = {
     us: 0,
     mexico: 1,
     europe: 2,
     other: 3,
   };
-  const regionPriorityValid = usFirst && brief.signals.every((signal, index, signals) => {
+  const regionPriorityValid = brief.signals.every((signal, index, signals) => {
     if (index === 0) return true;
     return regionRank[signal.region] >= regionRank[signals[index - 1]!.region];
-  });
+  }) && (!hasUsSignal || usFirst);
   const marketSignalMaxHours = brief.coverage.searched_window_hours;
 
   if (!brief.title.includes(expectedTitleDate(brief.date))) blockers.push("brief:title_date_mismatch");
@@ -738,10 +783,31 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   if (new Date(brief.publication.proposed_send_at).getTime() !== expectedSendAt) {
     blockers.push("brief:proposed_send_at_mismatch");
   }
-  if (!usFirst) blockers.push("signals:first_must_be_us");
+  if (hasUsSignal && !usFirst) blockers.push("signals:first_must_be_us");
   if (!regionPriorityValid) blockers.push("signals:region_priority_invalid");
-  if (brief.signals.slice(1).some((signal) => signal.region === "other")) blockers.push("signals:unsupported_other_region_in_core_three");
+  if (brief.signals.some((signal) => signal.region === "other")) blockers.push("signals:unsupported_other_region");
+  if (!hasUsSignal && !brief.risk_notes.some((note) => /美国.*(?:无|没有|不足).*(?:合格|75分|信号)/u.test(note))) {
+    blockers.push("signals:no_us_reason_missing");
+  }
   if (new Date(checkedAt).getTime() < new Date(brief.generated_at).getTime()) blockers.push("review:checked_at_before_generated_at");
+
+  const editorial = brief.editorial;
+  const selectedCandidates = editorial.candidates.filter((candidate) => candidate.decision === "selected");
+  if (selectedCandidates.length !== brief.signals.length) {
+    blockers.push("editorial:selected_candidate_count_mismatch");
+  }
+  const minimumSelectedScore = Math.min(...selectedCandidates.map((candidate) => candidate.score.total), 101);
+  if (minimumSelectedScore < 75) blockers.push("editorial:selected_candidate_below_75");
+  const signalTitles = new Set(brief.signals.map((signal) => signal.title.trim().toLowerCase()));
+  for (const candidate of selectedCandidates) {
+    if (!signalTitles.has(candidate.title.trim().toLowerCase())) blockers.push("editorial:selected_candidate_missing_signal");
+  }
+  if (editorial.candidates.some((candidate) => candidate.decision === "rejected" && !candidate.reason.trim())) {
+    blockers.push("editorial:rejected_candidate_reason_missing");
+  }
+  if (editorial.candidates.filter((candidate) => candidate.decision === "selected").some((candidate) => candidate.reason.trim().length === 0)) {
+    blockers.push("editorial:selected_candidate_reason_missing");
+  }
 
   for (const [index, signal] of brief.signals.entries()) {
     if (signal.unverified) blockers.push(`signal:${index}:unverified_claim_in_core_three`);
@@ -772,7 +838,12 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
         if (!Number.isFinite(ageHours) || ageHours < -12) {
           blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_from_future`);
         } else if (ageHours > marketSignalMaxHours) {
-          blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_older_than_${marketSignalMaxHours}_hours`);
+          const [, month, day] = brief.date.split("-").map(Number);
+          const effectiveToday = signal.effective_at.includes(brief.date)
+            || signal.effective_at.includes(`${month}月${day}日`);
+          if (!effectiveToday) {
+            blockers.push(`signal:${index}:evidence:${evidenceIndex}:market_signal_older_than_${marketSignalMaxHours}_hours`);
+          }
         }
       }
     }
@@ -795,13 +866,17 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   if (brief.hooks.a.trim() === brief.hooks.b.trim()) blockers.push("hooks:must_differ");
   if (/^(今天有新闻|今天看三件事|跨境卖家注意)[。！!]?$/u.test(brief.hooks.a.trim())) blockers.push("hooks:a_too_generic");
   if (/^(今天有新闻|今天看三件事|跨境卖家注意)[。！!]?$/u.test(brief.hooks.b.trim())) blockers.push("hooks:b_too_generic");
-  if (!brief.voiceover_body.startsWith("跨境卖家注意……今天老王带你看三件事。")) {
+  const bodyCount = brief.signals.length;
+  const expectedBodyOpen = bodyCount === 1
+    ? "跨境卖家注意……今天老王只讲一件事。"
+    : `跨境卖家注意……今天老王带你看${bodyCount === 2 ? "两" : "三"}件事。`;
+  if (!brief.voiceover_body.startsWith(expectedBodyOpen)) {
     blockers.push("voiceover:missing_fixed_body_open");
   }
   if (!brief.voiceover_body.endsWith("我是老王，跨境生意，先算利润，再谈爆单。")) {
     blockers.push("voiceover:missing_fixed_ending");
   }
-  for (const marker of ["第一", "第二", "第三"]) {
+  for (const marker of ["第一", "第二", "第三"].slice(0, bodyCount)) {
     if (!brief.voiceover_body.includes(marker)) blockers.push(`voiceover:missing_${marker}`);
   }
   if (hasMarkupOrLink(scripts.a) || hasMarkupOrLink(scripts.b)) blockers.push("voiceover:contains_markup_or_link");
@@ -830,7 +905,7 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
       content_valid: blockers.length === 0,
       send_allowed: blockers.length === 0,
       target: "dingtalk_private_chat",
-      signal_count: 3,
+      signal_count: brief.signals.length,
       us_first: usFirst,
       region_priority_valid: regionPriorityValid,
       estimated_seconds: { a: estimatedA, b: estimatedB },
@@ -843,40 +918,47 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
 export function renderCrossborderV2Markdown(brief: CrossborderV2Brief): string {
   const scripts = renderCrossborderV2Scripts(brief);
   const lines = [
-    `# 跨境早知道 V2｜${expectedTitleDate(brief.date)}`,
+    `# 跨境早知道 V4｜${expectedTitleDate(brief.date)}`,
     "",
-    `**覆盖：**${brief.summary}`,
-    `**搜索窗口：**${brief.coverage.searched_window_hours} 小时｜${brief.coverage.notes}`,
+    brief.summary,
+    `搜索窗口：${brief.coverage.searched_window_hours} 小时。${brief.coverage.notes}`,
     "",
-    "## 今日简报",
+    "## 候选筛选",
     "",
+    `主题：${brief.editorial.theme}`,
+    "",
+    "| 地区 | 候选新闻 | 发布日期 | 评分 | 决策 | 理由 |",
+    "| --- | --- | --- | ---: | --- | --- |",
   ];
-
+  for (const candidate of brief.editorial.candidates) {
+    lines.push(`| ${crossborderV2RegionLabels[candidate.region]} | ${candidate.title} | ${candidate.published_at} | ${candidate.score.total} | ${candidate.decision === "selected" ? "入选" : "淘汰"} | ${candidate.reason} |`);
+  }
+  lines.push("");
+  lines.push("## 今日主稿", "");
   brief.signals.forEach((signal, index) => {
     lines.push(`### ${index + 1}. ${crossborderV2RegionLabels[signal.region]}｜${signal.title}`);
-    lines.push(`**发生什么：**${signal.what_happened}`);
-    lines.push(`**具体数字：**${signal.numbers.join("；")}`);
-    lines.push(`**生效时间：**${signal.effective_at}`);
-    lines.push(`**影响卖家：**${signal.affected_sellers}`);
-    lines.push(`**钱怎么变：**${signal.money_impact}`);
-    lines.push(`**算账：**${[
+    lines.push(`发生什么：${signal.what_happened}`);
+    lines.push(`具体数字：${signal.numbers.join("；")}`);
+    lines.push(`生效时间：${signal.effective_at}`);
+    lines.push(`影响卖家：${signal.affected_sellers}`);
+    lines.push(`钱怎么变：${signal.money_impact}`);
+    lines.push(`算账：${[
       signal.calculation.basis,
       signal.calculation.formula,
       signal.calculation.result,
     ].map(withoutTrailingPunctuation).join("；")}。`);
-    lines.push(`**可执行动作：**${signal.action}`);
-    lines.push(`**核实来源：**${signal.evidence.map((evidence) => `[${evidence.title}](${evidence.url})`).join("、")}`);
+    lines.push(`可执行动作：${signal.action}`);
+    lines.push(`核实来源：${signal.evidence.map((evidence) => `[${evidence.title}](${evidence.url})`).join("、")}`);
     lines.push("");
   });
 
   lines.push("## A/B 黄金3秒", "");
-  lines.push(`**A版（荒诞商业场景）：**${brief.hooks.a}`);
-  lines.push(`**B版（反常识口播）：**${brief.hooks.b}`);
+  lines.push(`A版：${brief.hooks.a}`);
+  lines.push(`B版：${brief.hooks.b}`);
   lines.push("");
-  lines.push("## HeyGen A版纯文本口播稿", "");
-  lines.push(scripts.a);
+  lines.push("## HeyGen 纯文本口播稿", "");
+  lines.push("以下为采用B钩子的完整录制稿，A/B正文本身完全一致。");
   lines.push("");
-  lines.push("## HeyGen B版纯文本口播稿", "");
   lines.push(scripts.b);
   lines.push("");
 
@@ -891,7 +973,7 @@ export function renderCrossborderV2Markdown(brief: CrossborderV2Brief): string {
   lines.push("## 核实来源与风险说明", "");
   brief.risk_notes.forEach((note) => lines.push(`- ${note}`));
   lines.push("");
-  lines.push("—— 老王跨境早知道｜每日 16:00 生成，供审阅；先核事实，再用于配音");
+  lines.push("老王跨境早知道｜每日 16:00 生成，供审阅。");
   return lines.join("\n");
 }
 
@@ -917,6 +999,7 @@ async function main(): Promise<void> {
     const outputStem = path.join(outputDir, brief.date);
     const scripts = renderCrossborderV2Scripts(brief);
     await writeFile(`${outputStem}.crossborder-v2.md`, `${renderCrossborderV2Markdown(brief)}\n`, "utf8");
+    await writeFile(`${outputStem}.heygen.txt`, `${scripts.b}\n`, "utf8");
     await writeFile(`${outputStem}.heygen-a.txt`, `${scripts.a}\n`, "utf8");
     await writeFile(`${outputStem}.heygen-b.txt`, `${scripts.b}\n`, "utf8");
     console.log(`[crossborder-v2] content_valid=true; date=${brief.date}; estimated_seconds=${report.estimated_seconds.a}/${report.estimated_seconds.b}`);

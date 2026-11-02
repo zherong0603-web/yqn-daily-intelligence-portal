@@ -1,198 +1,168 @@
 {
   "format_version": "v2",
   "date": "2026-11-02",
-  "title": "跨境早知道 V2｜11月2日",
-  "summary": "72小时窗口覆盖美线运价分化、墨西哥钢材反倾销利润率修订及欧盟2欧元处理费落地；三项均直接改变卖家报价、保证金或清关现金流。",
+  "title": "跨境早知道 V4｜11月2日",
+  "summary": "今天只选一条：Amazon美国站商业责任险规则正式生效，低销量安全类目和中国大陆卖家的新保单路径同时收紧。",
   "coverage": {
     "searched_window_hours": 72,
-    "notes": "24小时内有美国运价信号；墨西哥与欧盟补足至72小时。美国美元点位由10月28日Freightos指数更新提供、11月2日行业报道再次引用；联邦公报标准发布日期为11月2日，正文签署日为10月28日。"
+    "notes": "24小时内比较运价、旺季附加费、退货和合规信号，并把窗口扩至72小时；本期选择11月2日正式生效、对美国Amazon卖家影响最直接的保险规则。"
+  },
+  "editorial": {
+    "theme": "美国站合规成本：责任险门槛为什么突然落到小卖家身上",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "Amazon美国站责任险门槛扩大至低销量安全类目",
+        "region": "us",
+        "published_at": "2026-10-19",
+        "source_url": "https://www.heycross.com/article/zGWq172N5WBaJ",
+        "score": {
+          "relevance": 35,
+          "money_impact": 30,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 6,
+          "total": 95
+        },
+        "decision": "selected",
+        "reason": "直接影响Amazon美国站卖家，覆盖低销量安全类目，并给出100万美元保额、1万美元免赔额上限和中国大陆卖家新保单路径。"
+      },
+      {
+        "title": "美线运价指数同周出现涨跌分化",
+        "region": "us",
+        "published_at": "2026-11-02",
+        "source_url": "https://www.hellenicshippingnews.com/asia-us-container-rates-mixed-as-capacity-tightens-import-demand-slows-tanker-rates-mostly-higher/",
+        "score": {
+          "relevance": 34,
+          "money_impact": 25,
+          "concrete_evidence": 15,
+          "hook_potential": 10,
+          "timeliness": 10,
+          "total": 94
+        },
+        "decision": "rejected",
+        "reason": "价值高，但与本期美国平台合规主题不一致，可作为独立运价单集。"
+      },
+      {
+        "title": "欧盟2欧元清关处理费正式执行",
+        "region": "europe",
+        "published_at": "2026-10-30",
+        "source_url": "https://www.gov.pl/web/kas/nowa-unijna-oplata-manipulacyjna-zwiazana-z-obsluga-zgloszen-celnych-przesylek-w-sprzedazy-na-odleglosc",
+        "score": {
+          "relevance": 30,
+          "money_impact": 26,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 89
+        },
+        "decision": "rejected",
+        "reason": "适用于欧洲直邮卖家，地域优先级低于本期美国合规事件，留作欧洲单集。"
+      },
+      {
+        "title": "FedEx旺季住宅派送附加费进入阶梯上调窗口",
+        "region": "us",
+        "published_at": "2026-10-23",
+        "source_url": "https://www.fedex.com/en-us/shipping/rate-changes/demand-surcharges.html",
+        "score": {
+          "relevance": 31,
+          "money_impact": 24,
+          "concrete_evidence": 14,
+          "hook_potential": 7,
+          "timeliness": 8,
+          "total": 84
+        },
+        "decision": "rejected",
+        "reason": "与履约成本高度相关，但公告更新超出72小时窗口，本期不与平台保险规则混讲。"
+      },
+      {
+        "title": "Amazon欧洲站延长旺季退货至2027年1月31日",
+        "region": "europe",
+        "published_at": "2026-10-30",
+        "source_url": "https://sellercentral.amazon.com.be/seller-forums/discussions/t/aa0f0f69-7cba-4230-897f-62f609b83847",
+        "score": {
+          "relevance": 28,
+          "money_impact": 24,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "会推迟退款冲击，但属于欧洲卖家主题；本期优先美国Amazon合规，留作欧洲旺季现金流单集。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "只保留美国Amazon站合规与责任险这一条因果链。",
+        "开场直接给出零销量与100万美元保额的反差。",
+        "保费没有公开统一数值，稿中只计算有明确上限的免赔额。"
+      ]
+    }
   },
   "signals": [
     {
       "region": "us",
-      "title": "美线运价分化，美东柜一周涨9%",
-      "what_happened": "11月2日行业周报显示，美线各指数方向分化：Freightos周报美西涨3%、美东涨9%，Drewry分别降6%和5%；下周空白航行增至6班。卖家不能用单一均值判断订舱成本。",
+      "title": "Amazon美国站责任险门槛扩大至低销量安全类目",
+      "what_happened": "Amazon美国站从2026年11月2日起扩大商业责任险要求。儿童用品、化妆品、可摄入产品和锂电池等安全敏感类目，不再受月销售额1万美元门槛限制，新老链接都要满足至少100万美元责任险要求；需要投保的中国大陆注册卖家，新提交保单必须通过亚马逊保险加速器。",
       "numbers": [
-        "Freightos美西8368美元/FEU，周涨3%",
-        "Freightos美东10565美元/FEU，周涨9%",
-        "11月2日美西区间7515至8365美元/FEU、美东9600至11500美元/FEU",
-        "下周空白航行6班，前一周5班"
+        "责任险至少100万美元/次事故及累计",
+        "免赔额上限10000美元",
+        "原月销售额门槛10000美元",
+        "生效日2026-11-02"
       ],
-      "effective_at": "2026-11-02适用于本周运价观察；实际货代报价以订舱当日为准",
-      "affected_sellers": "使用亚洲至美国海运、尤其美东线并叠加美国内陆派送的跨境卖家和进口商。",
-      "money_impact": "按Freightos美东价及9%周涨幅反推，上周约9693美元/FEU；每柜多约872美元，10柜多约8720美元，30柜多约26160美元。",
+      "effective_at": "2026-11-02",
+      "affected_sellers": "Amazon美国站销售儿童用品、化妆品、可摄入产品、锂电池等安全敏感类目的卖家；其中需要投保的中国大陆注册卖家适用AIA新保单路径。",
+      "money_impact": "100万美元是保障额度，不是实际保费。规则把免赔额上限设为1万美元；假设一笔5万美元的承保损失使用1万美元免赔额，该笔损失的免赔额部分约1万美元，其余4万美元由保险按条款处理。统一保费未公布。",
       "calculation": {
-        "basis": "以Freightos美东周价10565美元/FEU和9%周涨幅做反推，不把不同指数的区间直接混算。",
-        "formula": "10565÷1.09≈9693美元；10565-9693≈872美元/FEU；872×10=8720美元；872×30=26160美元。",
-        "result": "每FEU周增约872美元，10FEU约8720美元，30FEU约26160美元。"
+        "basis": "用一条5万美元的承保损失演示最大免赔额，不含实际保费、税费和保单除外责任。",
+        "formula": "50000美元承保损失－10000美元免赔额＝40000美元；该笔承保损失的免赔额部分约10000美元，其余由保险按条款处理。",
+        "result": "示例中该笔损失的免赔额部分约1万美元；保单除外责任和其他费用另计；实际保费未知，100万美元不是预缴金额。"
       },
-      "action": "美东柜按10565美元高位而非区间低位锁现金流；分批订舱，并提前确认BAF、PSS和目的港内陆费。",
+      "action": "核对安全敏感ASIN、现有保单覆盖范围、Amazon.com Services LLC附加被保险人、1万美元免赔额和续保渠道；中国大陆卖家给保险加速器留足审核时间。",
       "evidence": [
         {
-          "title": "Hellenic Shipping News：11月2日美线运价周报",
-          "url": "https://www.hellenicshippingnews.com/asia-us-container-rates-mixed-as-capacity-tightens-import-demand-slows-tanker-rates-mostly-higher/",
+          "title": "HeyCross：Amazon美国站责任险新规2026年11月2日生效",
+          "url": "https://www.heycross.com/article/zGWq172N5WBaJ",
           "source_type": "media",
-          "published_at": "2026-11-02",
-          "checked_at": "2026-11-02T11:22:14+08:00",
+          "published_at": "2026-10-19",
+          "checked_at": "2026-11-02T16:30:53+08:00",
           "roles": [
             "market_signal"
           ],
-          "supports": "页面以02/11/2026标明发布日，给出美西7515至8365美元、美东9600至11500美元区间，并说明Freightos周涨3%和9%、Drewry周降6%和5%。",
+          "supports": "页面以2026-10-19标明发布日，说明规则11月2日生效、低销量安全类目也须投保，以及中国大陆卖家新保单须走AIA。",
           "markers": [
-            "02/11/2026",
-            "Rates to the West Coast are between $7,515-8,365/FEU",
-            "Rates to the East Coast are between $9,600-11,500/FEU",
-            "Weekly rates from online shipping marketplace and platform provider Freightos rose by 3% to the West Coast and by 9% to the East Coast."
+            "2026-10-19",
+            "Amazon US Commercial Liability Insurance New Rule Takes Effect November 2, 2026",
+            "$1 million per occurrence and in aggregate",
+            "even with zero sales",
+            "Amazon Insurance Accelerator (AIA)"
           ]
         },
         {
-          "title": "Freightos：10月28日运价周报",
-          "url": "https://www.freightos.com/freight-resources/union-approves-la-long-beach-port-strike-container-rates-still-under-pressure-october-28-2026-update/",
+          "title": "Amazon官方：美国市场商业责任险新要求",
+          "url": "https://sell.amazon.co.kr/update/amazon-new-updates/us-liability-insurance-2026",
           "source_type": "official",
-          "published_at": "2026-10-28",
-          "checked_at": "2026-11-02T11:22:14+08:00",
+          "published_at": "2026-09-18",
+          "checked_at": "2026-11-02T16:30:53+08:00",
           "roles": [
             "fact_basis"
           ],
-          "supports": "指数提供方页面可见发布日，并明确美西周涨3%至8368美元/FEU、美东周涨9%至10565美元/FEU。",
+          "supports": "官方页面显示2026/09/18发布，明确11月2日起安全敏感类目不论销售额都须维持每次事故及累计100万美元以上责任险，免赔额不得超过1万美元。",
           "markers": [
-            "Published: October 28, 2026",
-            "increasing 3% to $8,368/FEU to the West Coast",
-            "9% to a new high for the year of $10,565/FEU to the East Coast"
-          ]
-        }
-      ],
-      "confidence_label": "high",
-      "unverified": false
-    },
-    {
-      "region": "mexico",
-      "title": "墨西哥耐腐蚀钢反倾销利润率修订",
-      "what_happened": "美国联邦公报11月2日发布墨西哥耐腐蚀钢修订反倾销利润率：Galvasid为14.54%，其他墨西哥生产商和出口商为14.29%；适用日追溯至10月29日，CBP将另行下发保证金指令。",
-      "numbers": [
-        "Galvasid修订利润率14.54%",
-        "其他墨西哥生产商和出口商14.29%",
-        "适用日2026-10-29，公告发布日2026-11-02",
-        "案件号A-201-863"
-      ],
-      "effective_at": "2026-10-29（公告于2026-11-02发布）",
-      "affected_sellers": "进口墨西哥耐腐蚀钢产品的美国进口商，以及相关墨西哥生产商和出口商。",
-      "money_impact": "按10万美元海关价值、14.29%利润率估算，单票约14290美元保证金压力；10票约142900美元，实际cash deposit rate以CBP指令为准。",
-      "calculation": {
-        "basis": "以修订的All Others利润率对10万美元海关价值做压力测试；利润率不等于最终CBP cash deposit rate。",
-        "formula": "100000×14.29%=14290美元；14290×10=142900美元。",
-        "result": "单票约14290美元，10票约142900美元；最终保证金需按生产者、补贴抵扣和CBP指令复核。"
-      },
-      "action": "核对HTS范围、生产商、申报价值和CBP回执；把14.29%利润率与最终cash deposit rate分开记账。",
-      "evidence": [
-        {
-          "title": "美国联邦公报API：墨西哥耐腐蚀钢公告",
-          "url": "https://www.federalregister.gov/api/v1/documents/2026-22351.json",
-          "source_type": "official",
-          "published_at": "2026-11-02",
-          "checked_at": "2026-11-02T11:43:30+08:00",
-          "roles": [
-            "market_signal"
-          ],
-          "supports": "官方API记录明确标准发布日期为2026年11月2日、案号A-201-863，并标注10月29日为适用日。",
-          "markers": [
-            "\"publication_date\":\"2026-11-02\"",
-            "\"docket_ids\":[\"A-201-863\"]",
-            "\"dates\":\"Applicable October 29, 2026.\""
-          ]
-        },
-        {
-          "title": "美国联邦公报全文：墨西哥耐腐蚀钢反倾销令修订",
-          "url": "https://www.federalregister.gov/documents/full_text/html/2026/11/02/2026-22351.html",
-          "source_type": "official",
-          "published_at": "2026-10-28",
-          "checked_at": "2026-11-02T11:43:30+08:00",
-          "roles": [
-            "fact_basis"
-          ],
-          "supports": "公告正文显示10月28日签署、案号A-201-863、两档修订利润率及CBP将下发保证金指令；签署日与作者审计一致。",
-          "markers": [
-            "Dated: October 28, 2026",
-            "[A-201-863]",
-            "Applicable October 29, 2026",
-            "Galvasid S.A. De C.V 14.54 All Others 14.29",
-            "Commerce will issue revised cash deposit instructions to U.S. Customs and Border Protection"
-          ]
-        }
-      ],
-      "confidence_label": "high",
-      "unverified": false
-    },
-    {
-      "region": "europe",
-      "title": "欧盟2欧元处理费落地，3欧元关税边界收紧",
-      "what_happened": "欧盟自2026年11月1日起，对非欧盟B2C远距离销售进口按每条清关申报项收2欧元处理费，不限货值。3欧元临时关税是另一项，按法规适用于2026年7月1日至2028年6月30日、单票货值不超过150欧元且走IOSS进口VAT豁免路径或邮政包裹的货物；其他路径继续适用普通关税。",
-      "numbers": [
-        "EUR2处理费/清关申报项，自2026-11-01起收取",
-        "EUR3临时关税按件计，2026-07-01至2028-06-30",
-        "10000条申报项对应20000欧元处理费",
-        "若每条各对应1件符合EUR3条件的商品，再计30000欧元，主费用共50000欧元"
-      ],
-      "effective_at": "EUR2自2026-11-01；EUR3自2026-07-01至2028-06-30",
-      "affected_sellers": "向欧盟消费者直邮、低客单、多SKU，或同一订单涉及多条申报项的非欧盟跨境卖家。",
-      "money_impact": "10000条申报项产生2万欧元处理费；若每条各对应1件符合EUR3条件的商品，再计3万欧元，两项主费用5万欧元。EUR2处理费进入VAT税基，VAT金额另算。",
-      "calculation": {
-        "basis": "假设10000条清关申报项；每条各对应1件、且该件符合单票不超过150欧元、IOSS进口VAT豁免或邮政包裹的EUR3条件；未把VAT并入主费用。",
-        "formula": "10000×EUR2=20000欧元；另以10000件符合条件商品计，10000×EUR3=30000欧元；两项主费用合计50000欧元。",
-        "result": "2万欧元处理费加3万欧元临时关税，共5万欧元；两费计费单位不同。"
-      },
-      "action": "按申报项、申报路径和VAT分栏报价；先用成员国的IOSS、特殊安排或标准程序口径确认EUR3和EUR2处理费是否适用及由谁缴。",
-      "evidence": [
-        {
-          "title": "波兰财政部：欧盟2欧元处理费11月1日起执行",
-          "url": "https://www.gov.pl/web/kas/nowa-unijna-oplata-manipulacyjna-zwiazana-z-obsluga-zgloszen-celnych-przesylek-w-sprzedazy-na-odleglosc",
-          "source_type": "official",
-          "published_at": "2026-10-30",
-          "checked_at": "2026-11-02T11:43:30+08:00",
-          "roles": [
-            "market_signal",
-            "fact_basis"
-          ],
-          "supports": "官方页面以30.10.2026标明发布日，明确2欧元按每条清关申报项收取、自2026年11月1日适用且不限货值。",
-          "markers": [
-            "30.10.2026",
-            "2 EUR",
-            "1 listopada 2026 r.",
-            "bez względu na wartość"
-          ]
-        },
-        {
-          "title": "欧盟委员会：3欧元临时关税实施指引",
-          "url": "https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en",
-          "source_type": "official",
-          "published_at": "2026-06-08",
-          "checked_at": "2026-11-02T11:43:30+08:00",
-          "roles": [
-            "fact_basis"
-          ],
-          "supports": "官方页面明确3欧元按件、适用于150欧元以内货物，自2026年7月1日起至2028年7月1日前，并链接2026/382号法规的完整适用范围。",
-          "markers": [
-            "8 June 2026",
-            "From 1 July 2026",
-            "temporary €3 customs duty per item",
-            "will apply until 1 July 2028",
-            "Council Regulation (EU) 2026/382"
-          ]
-        },
-        {
-          "title": "欧盟增值税一站式服务：EUR3关税与EUR2处理费VAT说明",
-          "url": "https://vat-one-stop-shop.ec.europa.eu/guides_en",
-          "source_type": "official",
-          "published_at": "2026-10-06",
-          "checked_at": "2026-11-02T11:43:30+08:00",
-          "roles": [
-            "fact_basis"
-          ],
-          "supports": "欧盟增值税说明将EUR3关税和EUR2处理费的VAT处理分开；EUR2进入VAT税基，IOSS销售时收取与进口时的处理路径不同。",
-          "markers": [
-            "VAT treatment of the EUR 3 customs duty and of the EUR 2 Customs Union handling fee",
-            "Revised version 06 October 2026",
-            "6 October 2026"
+            "2026/09/18",
+            "2026년 11월 2일",
+            "100만USD",
+            "10,000USD",
+            "10,000USD를 초과할 수 없습니다"
           ]
         }
       ],
@@ -201,19 +171,19 @@
     }
   ],
   "hooks": {
-    "a": "柜未到港，872美元先扣。",
-    "b": "美线降价？美东先涨9%。"
+    "a": "百万美元险，卡住安全类新品。",
+    "b": "零销量也要百万美元险？"
   },
-  "voiceover_body": "跨境卖家注意……今天老王带你看三件事。\n第一，美线运价分化。Freightos美西40尺柜报8368美元、周涨3%；美东报10565美元、周涨9%。美东每柜比上周多约872美元，十柜多8720美元；Drewry却报美西降6%、美东降5%。下周空白航行由5班增至6班，做美东线的进口商先按高位准备现金流。\n第二，墨西哥耐腐蚀钢修订反倾销利润率。Galvasid为14.54%，其他生产商和出口商为14.29%，2026年10月29日适用。按10万美元货值，单票约14290美元保证金压力，十票约142900美元；但利润率不等于CBP最终保证金率，还要核对产品范围、生产商和补贴抵扣。\n第三，欧盟2欧元处理费自2026年11月1日起，按每条清关申报项收取，不限货值。另有3欧元临时关税，自2026年7月1日至2028年6月30日，适用于150欧元以内且走IOSS进口VAT豁免路径或邮政包裹的货物；其他路径仍按普通关税。若这一万条各对应一件且都满足3欧元条件，再按商品件数计3万，主费用5万欧元。2欧元处理费要计入VAT税基；IOSS与非IOSS的申报和缴款路径不同，需分别核算。\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。\n第一，Amazon美国站从2026年11月2日起扩大责任险要求。原来单月销售额超过1万美元，要在30天内投保，保额至少100万美元。\n新增规则是：儿童用品、化妆品、可摄入产品和锂电池等安全敏感类目，不管卖了多少，哪怕是零，也要有100万美元责任险；新老链接都算。\n需要投保的中国大陆卖家，11月2日起新提交的保单必须走Amazon Insurance Accelerator，也就是亚马逊保险加速器；此前已提交的合规保单能用到到期，续保再切换。\n100万美元是保障额度，不是保费。Amazon要求免赔额不超过1万美元。假设一笔5万美元的承保损失，该笔损失的免赔额部分约1万美元，其余4万美元由保险按条款处理。\n现在核对安全敏感ASIN、现有保单是否覆盖这些产品、Amazon是否列为附加被保险人，以及续保渠道。\n这条规则针对Amazon美国站商品。没有命中安全类目的卖家，原本按月销售额1万美元触发的投保要求仍然有效。\n我是老王，跨境生意，先算利润，再谈爆单。",
   "risk_notes": [
-    "美线存在Freightos、Drewry等不同指数口径；872美元/柜仅按10月28日Freightos美东周价和周涨幅反推，11月2日行业报道再次引用，实际订舱价需核BAF、PSS和内陆费。",
-    "14.29%是联邦公报修订的反倾销利润率，不是已确认的最终cash deposit rate；CBP后续指令、补贴抵扣、产品范围和申报价值都会改变实际保证金。次源Eilan曾把案号误写成A-201-864，稿件采用官方A-201-863。",
-    "EUR2按清关申报项收取，EUR3按符合条件的商品件数计，计费单位不同；一条申报项可能含多件商品。EUR3按2026/382号法规适用于IOSS进口VAT豁免或邮政包裹路径，其他路径继续按普通关税；5万欧元示例不含VAT。",
-    "EUR2处理费属于VAT计税基础：IOSS下进口环节免税，但若在销售时向消费者收取，应进入IOSS VAT税基；特殊安排和标准程序在进口时计税。具体申报与缴款仍需按成员国和实际清关路径核定。",
-    "联邦公报标准发布日为2026-11-02，正文签署日为2026-10-28；JSON按证据类型记录两者，不把检索日期当作发布日期。"
+    "100万美元是每次事故及累计保障额度，不是保费或预缴款；不同卖家、品类、历史索赔和免赔额下的保费没有统一公开数值。",
+    "本稿用5万美元承保损失演示1万美元免赔额，1万美元只代表该笔承保损失的免赔额部分；实际赔付仍受保单条款、除外责任、其他费用和理赔审核限制。",
+    "安全敏感类目清单可能继续增加，且保险合规与商品测试认证是两套要求；卖家应直接核对官方类目页，不能只等平台邮件。",
+    "需要投保的中国大陆注册卖家，其新提交保单原则上必须通过AIA；Amazon可能按书面同意处理个案例外，普通卖家不应默认豁免。11月2日前已提交且被接受的合规第三方保单可用至到期，续保需切换。",
+    "美国没有进入安全敏感类目、但单月Amazon.com销售额超过1万美元的卖家，原有30天内投保要求仍然有效。"
   ],
   "unverified_claims": [],
-  "generated_at": "2026-11-02T03:22:21Z",
+  "generated_at": "2026-11-02T08:30:53Z",
   "publication": {
     "target": "dingtalk_private_chat",
     "send_allowed": true,

@@ -1,91 +1,34 @@
 {
   "date": "2026-11-02",
-  "checked_at": "2026-11-02T03:49:20.379Z",
+  "checked_at": "2026-11-02T08:39:04.079Z",
   "all_ok": true,
-  "checked_count": 7,
+  "checked_count": 2,
   "failed_count": 0,
   "checks": [
     {
-      "url": "https://www.hellenicshippingnews.com/asia-us-container-rates-mixed-as-capacity-tightens-import-demand-slows-tanker-rates-mostly-higher/",
+      "url": "https://www.heycross.com/article/zGWq172N5WBaJ",
       "ok": true,
-      "matched_number": "10",
-      "matched_date": "2026-11-02",
+      "matched_number": "10000",
+      "matched_date": "2026-10-19",
       "matched_markers": [
-        "02/11/2026",
-        "Rates to the West Coast are between $7,515-8,365/FEU",
-        "Rates to the East Coast are between $9,600-11,500/FEU",
-        "Weekly rates from online shipping marketplace and platform provider Freightos rose by 3% to the West Coast and by 9% to the East Coast."
+        "2026-10-19",
+        "Amazon US Commercial Liability Insurance New Rule Takes Effect November 2, 2026",
+        "$1 million per occurrence and in aggregate",
+        "even with zero sales",
+        "Amazon Insurance Accelerator (AIA)"
       ]
     },
     {
-      "url": "https://www.freightos.com/freight-resources/union-approves-la-long-beach-port-strike-container-rates-still-under-pressure-october-28-2026-update/",
+      "url": "https://sell.amazon.co.kr/update/amazon-new-updates/us-liability-insurance-2026",
       "ok": true,
-      "matched_number": "10565",
-      "matched_date": "October 28, 2026",
+      "matched_number": "10000",
+      "matched_date": "2026/09/18",
       "matched_markers": [
-        "Published: October 28, 2026",
-        "increasing 3% to $8,368/FEU to the West Coast",
-        "9% to a new high for the year of $10,565/FEU to the East Coast"
-      ]
-    },
-    {
-      "url": "https://www.federalregister.gov/api/v1/documents/2026-22351.json",
-      "ok": true,
-      "matched_number": "201",
-      "matched_date": "2026-11-02",
-      "matched_markers": [
-        "\"publication_date\":\"2026-11-02\"",
-        "\"docket_ids\":[\"A-201-863\"]",
-        "\"dates\":\"Applicable October 29, 2026.\""
-      ]
-    },
-    {
-      "url": "https://www.federalregister.gov/documents/full_text/html/2026/11/02/2026-22351.html",
-      "ok": true,
-      "matched_number": "201",
-      "matched_date": "October 28, 2026",
-      "matched_markers": [
-        "Dated: October 28, 2026",
-        "[A-201-863]",
-        "Applicable October 29, 2026",
-        "Galvasid S.A. De C.V 14.54 All Others 14.29",
-        "Commerce will issue revised cash deposit instructions to U.S. Customs and Border Protection"
-      ]
-    },
-    {
-      "url": "https://www.gov.pl/web/kas/nowa-unijna-oplata-manipulacyjna-zwiazana-z-obsluga-zgloszen-celnych-przesylek-w-sprzedazy-na-odleglosc",
-      "ok": true,
-      "matched_number": "1",
-      "matched_date": "30.10.2026",
-      "matched_markers": [
-        "30.10.2026",
-        "2 EUR",
-        "1 listopada 2026 r.",
-        "bez względu na wartość"
-      ]
-    },
-    {
-      "url": "https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en",
-      "ok": true,
-      "matched_number": "1",
-      "matched_date": "8 June 2026",
-      "matched_markers": [
-        "8 June 2026",
-        "From 1 July 2026",
-        "temporary €3 customs duty per item",
-        "will apply until 1 July 2028",
-        "Council Regulation (EU) 2026/382"
-      ]
-    },
-    {
-      "url": "https://vat-one-stop-shop.ec.europa.eu/guides_en",
-      "ok": true,
-      "matched_number": "1",
-      "matched_date": "6 October 2026",
-      "matched_markers": [
-        "VAT treatment of the EUR 3 customs duty and of the EUR 2 Customs Union handling fee",
-        "Revised version 06 October 2026",
-        "6 October 2026"
+        "2026/09/18",
+        "2026년 11월 2일",
+        "100만USD",
+        "10,000USD",
+        "10,000USD를 초과할 수 없습니다"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-version: 2
+version: 4
 timezone: Asia/Shanghai
 schedule: "16:00"
 priority:
@@ -23,8 +23,14 @@ source_priority:
   - index_provider_or_reputable_media
   - seller_forum_only_as_lead_not_fact_basis
 output_requirements:
-  core_stories: 3
-  first_story_market: us
+  candidate_pool_min: 10
+  candidate_pool_max: 15
+  displayed_candidates: 5
+  core_stories_min: 1
+  core_stories_max: 3
+  selected_story_score_min: 75
+  single_theme_required: true
+  first_story_market_if_us_selected: us
   every_story_requires: [what_happened, numbers, effective_at, affected_sellers, money_impact, calculation, action, evidence]
   voiceover_seconds: [90, 120]
   a_b_hooks_seconds: [1, 3]
