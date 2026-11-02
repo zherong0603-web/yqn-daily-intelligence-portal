@@ -204,7 +204,7 @@ export function sendCrossborderV2Dws({
     for (const item of Object.values(value)) collectMessageTexts(item);
   };
   collectMessageTexts(messageRecord);
-  if (!messageTexts.some((value) => value.includes("跨境早知道 V2"))) {
+  if (!messageTexts.some((value) => value.includes("跨境早知道 V4"))) {
     throw new Error("Crossborder V2 DWS delivery unconfirmed in recipient conversation");
   }
   state.dates[options.date] = {

@@ -17,7 +17,7 @@ function fixture() {
   const dataDir = path.join(directory, "data", "codex-shadow");
   mkdirSync(dataDir, { recursive: true });
   writeFileSync(path.join(dataDir, `${date}.crossborder-v2.json`), JSON.stringify({ format_version: "v2", date }));
-  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.md`), "# 跨境早知道 V2｜11月2日\n\n正文");
+  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.md`), "# 跨境早知道 V4｜11月2日\n\n正文");
   writeFileSync(path.join(dataDir, `${date}.crossborder-v2.review.json`), JSON.stringify({ date, content_valid: true, automated_blockers: [] }));
   writeFileSync(path.join(dataDir, `${date}.source-checks.json`), JSON.stringify({ date, all_ok: true, failed_count: 0 }));
   return { directory, date };
@@ -69,7 +69,7 @@ describe("Crossborder V2 DWS delivery", () => {
     const execute = vi.fn((command, args) => {
       if (command === "dws" && args[0] === "auth") return JSON.stringify({ authenticated: true, token_valid: true });
       if (command === "dws" && args.includes("+messages-send")) return JSON.stringify({ deliveryStatus: "DELIVERED" });
-      if (command === "dws" && args.includes("+chat-messages")) return JSON.stringify({ messages: [{ text: "跨境早知道 V2｜11月2日" }] });
+      if (command === "dws" && args.includes("+chat-messages")) return JSON.stringify({ messages: [{ text: "跨境早知道 V4｜11月2日" }] });
       return "";
     });
     const result = sendCrossborderV2Dws({
@@ -137,7 +137,7 @@ describe("Crossborder V2 DWS delivery", () => {
     const execute = vi.fn((command, args) => {
       if (command === "dws" && args[0] === "auth") return JSON.stringify({ authenticated: true, token_valid: true });
       if (command === "dws" && args.includes("+messages-send")) return JSON.stringify({ deliveryStatus: "DELIVERED" });
-      if (command === "dws" && args.includes("+chat-messages")) return JSON.stringify({ note: "跨境早知道 V2｜11月2日", messages: [{ text: "其他消息" }] });
+      if (command === "dws" && args.includes("+chat-messages")) return JSON.stringify({ note: "跨境早知道 V4｜11月2日", messages: [{ text: "其他消息" }] });
       return "";
     });
     expect(() => sendCrossborderV2Dws({
