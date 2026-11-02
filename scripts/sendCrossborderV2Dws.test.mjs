@@ -1,0 +1,117 @@
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import {
+  parseCrossborderV2DwsArgs,
+  readDwsDeliveryStatus,
+  sendCrossborderV2Dws,
+} from "./sendCrossborderV2Dws.mjs";
+
+const temporaryDirectories = [];
+
+function fixture() {
+  const directory = mkdtempSync(path.join(tmpdir(), "yqn-dws-test-"));
+  temporaryDirectories.push(directory);
+  const date = "2026-11-02";
+  const dataDir = path.join(directory, "data", "codex-shadow");
+  mkdirSync(dataDir, { recursive: true });
+  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.json`), JSON.stringify({ format_version: "v2", date }));
+  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.md`), "# 跨境早知道 V2｜11月2日\n\n正文");
+  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.review.json`), JSON.stringify({ date, content_valid: true, automated_blockers: [] }));
+  writeFileSync(path.join(dataDir, `${date}.source-checks.json`), JSON.stringify({ date, all_ok: true, failed_count: 0 }));
+  return { directory, date };
+}
+
+afterEach(() => {
+  for (const directory of temporaryDirectories.splice(0)) rmSync(directory, { recursive: true, force: true });
+});
+
+describe("Crossborder V2 DWS delivery", () => {
+  it("accepts only the fixed date and live arguments", () => {
+    expect(parseCrossborderV2DwsArgs(["node", "send", "--date", "2026-11-02"])).toEqual({ date: "2026-11-02", live: false });
+    expect(parseCrossborderV2DwsArgs(["node", "send", "--date", "2026-11-02", "--live"])).toEqual({ date: "2026-11-02", live: true });
+    expect(() => parseCrossborderV2DwsArgs(["node", "send", "--date", "2026-11-02", "--to", "someone"])).toThrow(/Unsupported/);
+    expect(() => parseCrossborderV2DwsArgs(["node", "send", "--date", "2026-11-02", "--send"])).toThrow(/Unsupported/);
+  });
+
+  it("accepts only confirmed delivery statuses", () => {
+    expect(readDwsDeliveryStatus(JSON.stringify({ deliveryStatus: "DELIVERED" }))).toEqual({ ok: true, status: "DELIVERED" });
+    expect(readDwsDeliveryStatus(JSON.stringify({ readStatus: "READ" }))).toEqual({ ok: true, status: "READ" });
+    expect(readDwsDeliveryStatus(JSON.stringify({ status: "UNKNOWN" }))).toEqual({ ok: false, status: "UNKNOWN" });
+    expect(() => readDwsDeliveryStatus("sent")).toThrow(/non-JSON/);
+  });
+
+  it("validates without sending in dry-run mode", () => {
+    const { directory, date } = fixture();
+    const execute = vi.fn((command) => {
+      if (command === "dws") return JSON.stringify({ authenticated: true, token_valid: true });
+      return "";
+    });
+    const log = vi.fn();
+    sendCrossborderV2Dws({
+      argv: ["node", "send", "--date", date],
+      cwd: directory,
+      env: { DWS_LANG: "zh" },
+      now: new Date("2026-11-02T08:00:00Z"),
+      execute,
+      log,
+    });
+    expect(execute).toHaveBeenCalledTimes(3);
+    expect(execute.mock.calls[0][0]).toBe("npm");
+    expect(execute.mock.calls[1][0]).toBe("npm");
+    expect(execute.mock.calls[2][1]).toEqual(["auth", "status", "-f", "json"]);
+    expect(log).toHaveBeenCalledWith("[crossborder-v2:dws] date=2026-11-02 dry run validated; message not sent");
+  });
+
+  it("records attempt before sending and records delivered only after confirmation", () => {
+    const { directory, date } = fixture();
+    const execute = vi.fn((command, args) => {
+      if (command === "dws" && args[0] === "auth") return JSON.stringify({ authenticated: true, token_valid: true });
+      if (command === "dws" && args.includes("+messages-send")) return JSON.stringify({ deliveryStatus: "DELIVERED" });
+      if (command === "dws" && args.includes("+chat-messages")) return JSON.stringify({ messages: [{ text: "跨境早知道 V2｜11月2日" }] });
+      return "";
+    });
+    const result = sendCrossborderV2Dws({
+      argv: ["node", "send", "--date", date, "--live"],
+      cwd: directory,
+      env: { DWS_LANG: "zh" },
+      now: new Date("2026-11-02T08:00:00Z"),
+      execute,
+      log: vi.fn(),
+    });
+    expect(result).toEqual({ status: "DELIVERED", duplicate: false });
+    expect(execute).toHaveBeenCalledTimes(5);
+    const sendCall = execute.mock.calls[3];
+    expect(sendCall[0]).toBe("dws");
+    expect(sendCall[1]).toEqual(expect.arrayContaining([
+      "+messages-send",
+      "--identity", "user",
+      "--user-query", "符晔荻",
+      "--wait-delivery",
+      "--ai-tag=false",
+      "-y",
+    ]));
+    expect(JSON.stringify(sendCall)).not.toMatch(/\b\d{10,}\b/);
+  });
+
+  it("blocks automatic retry after an unverified attempt", () => {
+    const { directory, date } = fixture();
+    const stateFile = path.join(directory, "logs", "automation", ".crossborder-v2-dws-state.json");
+    mkdirSync(path.dirname(stateFile), { recursive: true });
+    writeFileSync(stateFile, JSON.stringify({ dates: { [date]: { status: "ATTEMPTED" } } }));
+    const execute = vi.fn((command) => {
+      if (command === "dws") return JSON.stringify({ authenticated: true, token_valid: true });
+      return "";
+    });
+    expect(() => sendCrossborderV2Dws({
+      argv: ["node", "send", "--date", date, "--live"],
+      cwd: directory,
+      env: { DWS_LANG: "zh" },
+      now: new Date("2026-11-02T08:00:00Z"),
+      execute,
+      log: vi.fn(),
+    })).toThrow(/prior attempt has no verified delivery/);
+    expect(execute).toHaveBeenCalledTimes(3);
+  });
+});

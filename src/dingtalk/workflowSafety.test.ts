@@ -79,17 +79,22 @@ describe("workflow retirement and executor safety gates", () => {
     );
   });
 
-  it("routes both automation templates through the guarded dispatcher", () => {
+  it("routes daily delivery through the authenticated DingTalk Workspace CLI", () => {
     for (const template of ["automation/yqn-2.template.toml", "automation/yqn-09-20.template.toml"]) {
       const content = repoFile(template);
       expect(content).toContain("npm run crossborder:v2:dispatch");
-      expect(content).toContain("缺失或空白时必须停止");
+      expect(content).toContain("ATTEMPTED");
+      expect(content).not.toMatch(/\b\d{10,}\b/);
     }
     const rules = repoFile("docs/automation/工作日晨报执行规则.md");
-    expect(rules).toContain(".yqn-primary-executor-id");
-    expect(rules).toContain("YQN_PRIMARY_EXECUTOR_HASH");
-    expect(rules).toContain("禁止改用 `gh workflow run`");
-    expect(rules).toContain("oToMessages/readStatus");
-    expect(repoFile(".gitignore")).toContain(".yqn-primary-executor-id");
+    expect(rules).toContain("dws auth status");
+    expect(rules).toContain("--wait-delivery");
+    expect(rules).toContain("crossborder-v2:dws-delivered");
+    expect(rules).toContain("已有 `ATTEMPTED`");
+    expect(rules).not.toContain("DINGTALK_USER_ID");
+    expect(repoFile(".gitignore")).toContain(".crossborder-v2-dws-state.json");
+
+    const pkg = JSON.parse(repoFile("package.json"));
+    expect(pkg.scripts["crossborder:v2:dispatch"]).toBe("node scripts/sendCrossborderV2Dws.mjs");
   });
 });

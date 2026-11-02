@@ -5,7 +5,7 @@
 - 调度：每天北京时间 16:00，由 Codex 自动化 `yqn-3` 生成并受保护调度。
 - 内容：美国优先，其次墨西哥、欧洲；先搜 24 小时，不足再扩到 72 小时。
 - 交付：3 条情报简报、A/B 黄金 3 秒、90–120 秒 HeyGen A/B 纯文本口播稿、来源与风险说明。
-- 私聊通道：钉钉企业内部机器人 `/v1.0/robot/oToMessages/batchSend`；发送后必须用 `/v1.0/robot/oToMessages/readStatus` 核验。
+- 私聊通道：本机已授权的钉钉 Workspace CLI，以个人身份向固定单聊发送；发送后核验 `DELIVERED/READ/UNREAD` 和会话消息记录。
 - 构建：`npm run crossborder:v2:build -- --file data/codex-shadow/YYYY-MM-DD.crossborder-v2.json`
 - 产物：`YYYY-MM-DD.crossborder-v2.md`、`YYYY-MM-DD.heygen-a.txt`、`YYYY-MM-DD.heygen-b.txt`
 - 来源检查：`npm run crossborder:v2:source-check -- --file <file>`；正式发送前强制执行严格模式。
@@ -14,9 +14,7 @@
 - 正式调度：`npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live`
 - 配置文档：`docs/automation/跨境早知道V2执行规则.md`、`docs/automation/工作日晨报执行规则.md`。
 
-V2 私聊需要 GitHub Actions Secrets：`DINGTALK_APP_KEY`、`DINGTALK_APP_SECRET`、`DINGTALK_ROBOT_CODE`、`DINGTALK_USER_ID`，并启用仓库 Variable `CROSSBORDER_V2_TARGET_ENABLED=true`。未配置时构建和干跑仍可执行，但正式私聊发送必须失败关闭，不能回退成群消息。
-
-V2 调度只向 Actions 传执行器 SHA-256 proof，远端变量为 `YQN_PRIMARY_EXECUTOR_HASH`；不再在 V2 workflow 中回显原始执行器 ID。
+V2 私聊使用本机 `dws auth login` 的个人 OAuth 授权，不依赖 AppSecret、robotCode 或 userId。首次登录执行扫码，CLI 会安全保存可自动刷新的凭证。正式发送使用每日固定幂等键，得到 `DELIVERED/READ/UNREAD` 后在目标会话消息记录中复核当日简报。`ATTEMPTED` 未确认时禁止自动重试。
 
 以下为旧版 V1.3 说明，保留用于回滚和历史任务。
 
