@@ -1,4 +1,4 @@
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -84,14 +84,42 @@ describe("guarded seller brief dispatcher", () => {
     expect(JSON.parse(execute.mock.calls[1][2].input).inputs.dry_run).toBe("false");
   });
 
+  it("rejects V2 aliases and override flags", () => {
+    const directory = temporaryDirectory();
+    const briefFile = path.join(directory, "2026-08-05.crossborder-v2.json");
+    writeFileSync(briefFile, JSON.stringify({ date: "2026-08-05", title: "test", format_version: "v2" }));
+    const base = {
+      env: { YQN_EXECUTOR_ID: "test-id" },
+      now: new Date("2026-08-05T01:00:00.000Z"),
+      cwd: directory,
+      execute: vi.fn(),
+      createDispatchId: () => "dispatch-rejected",
+      log: vi.fn(),
+    };
+
+    for (const extra of [
+      ["--send"],
+      ["--workflow", "other.yml"],
+      ["--schema", "v1"],
+      ["--file", briefFile],
+      ["--dry-run", "true"],
+    ]) {
+      expect(() => dispatchSellerProblemBrief({
+        ...base,
+        argv: ["node", "dispatch", "--strict-v2", "--date", "2026-08-05", ...extra],
+      })).toThrow(/Unsupported Crossborder V2 dispatch argument/);
+    }
+  });
+
   it("sends only a SHA-256 executor proof for V2 dispatch", () => {
     const directory = temporaryDirectory();
-    const briefFile = path.join(directory, "brief.json");
-    writeFileSync(briefFile, JSON.stringify({ date: "2026-08-05", title: "test", format_version: "v2" }));
+    const briefDirectory = path.join(directory, "data", "codex-shadow");
+    mkdirSync(briefDirectory, { recursive: true });
+    writeFileSync(path.join(briefDirectory, "2026-08-05.crossborder-v2.json"), JSON.stringify({ date: "2026-08-05", title: "test", format_version: "v2" }));
     const execute = vi.fn();
 
     dispatchSellerProblemBrief({
-      argv: ["node", "dispatch", "--date", "2026-08-05", "--file", briefFile, "--schema", "v2", "--workflow", "dingtalk-crossborder-v2-send.yml"],
+      argv: ["node", "dispatch", "--strict-v2", "--date", "2026-08-05"],
       env: { YQN_EXECUTOR_ID: "secret-ish-executor-id" },
       now: new Date("2026-08-05T01:00:00.000Z"),
       cwd: directory,

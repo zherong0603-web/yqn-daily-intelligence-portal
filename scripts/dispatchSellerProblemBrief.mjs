@@ -55,11 +55,39 @@ export function dispatchSellerProblemBrief({
 } = {}) {
   const executorId = resolveExecutorId(env, executorIdFile);
 
+  const strictV2 = argv.includes("--strict-v2");
+  if (strictV2) {
+    const strictArgs = argv.slice(2);
+    if (strictArgs.filter((value) => value === "--strict-v2").length !== 1) {
+      throw new Error("Strict Crossborder V2 dispatch requires exactly one --strict-v2 flag");
+    }
+    if (strictArgs.filter((value) => value === "--date").length !== 1) {
+      throw new Error("Strict Crossborder V2 dispatch requires exactly one --date argument");
+    }
+    if (strictArgs.filter((value) => value === "--live").length > 1) {
+      throw new Error("Strict Crossborder V2 dispatch accepts --live at most once");
+    }
+    for (let index = 0; index < strictArgs.length; index += 1) {
+      const value = strictArgs[index];
+      if (value === "--strict-v2" || value === "--live") continue;
+      if (value === "--date") {
+        const dateValue = strictArgs[index + 1];
+        if (!dateValue || dateValue.startsWith("--")) {
+          throw new Error("Strict Crossborder V2 dispatch requires a date value");
+        }
+        index += 1;
+        continue;
+      }
+      throw new Error(`Unsupported Crossborder V2 dispatch argument: ${value}`);
+    }
+  }
   const date = arg(argv, "--date") || dateInShanghai(now);
-  const liveRequested = argv.includes("--live") || argv.includes("--send");
+  const liveRequested = argv.includes("--live") || (!strictV2 && argv.includes("--send"));
   const dryRun = !liveRequested;
-  const workflowFile = arg(argv, "--workflow") || "dingtalk-seller-problem-send.yml";
-  const schema = arg(argv, "--schema") || "v1";
+  const workflowFile = strictV2
+    ? "dingtalk-crossborder-v2-send.yml"
+    : arg(argv, "--workflow") || "dingtalk-seller-problem-send.yml";
+  const schema = strictV2 ? "v2" : arg(argv, "--schema") || "v1";
   const logPrefix = schema === "v2" ? "crossborder-v2" : "seller-brief";
   if (!/^[a-z0-9-]+\.ya?ml$/.test(workflowFile)) throw new Error(`Invalid workflow file: ${workflowFile}`);
   if (schema !== "v1" && schema !== "v2") throw new Error(`Invalid schema: ${schema}`);
