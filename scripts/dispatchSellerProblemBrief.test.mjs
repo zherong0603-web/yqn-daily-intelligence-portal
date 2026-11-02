@@ -111,6 +111,30 @@ describe("guarded seller brief dispatcher", () => {
     }
   });
 
+  it("rejects V2 through the generic dispatcher route", () => {
+    const directory = temporaryDirectory();
+    const briefFile = path.join(directory, "brief.json");
+    writeFileSync(briefFile, JSON.stringify({ date: "2026-08-05", title: "test", format_version: "v2" }));
+    const base = {
+      env: { YQN_EXECUTOR_ID: "test-id" },
+      now: new Date("2026-08-05T01:00:00.000Z"),
+      cwd: directory,
+      execute: vi.fn(),
+      createDispatchId: () => "dispatch-rejected",
+      log: vi.fn(),
+    };
+
+    for (const args of [
+      ["--date", "2026-08-05", "--file", briefFile, "--schema", "v2", "--live"],
+      ["--date", "2026-08-05", "--file", briefFile, "--workflow", "dingtalk-crossborder-v2-send.yml", "--live"],
+    ]) {
+      expect(() => dispatchSellerProblemBrief({
+        ...base,
+        argv: ["node", "dispatch", ...args],
+      })).toThrow(/fixed npm run crossborder:v2:dispatch/);
+    }
+  });
+
   it("sends only a SHA-256 executor proof for V2 dispatch", () => {
     const directory = temporaryDirectory();
     const briefDirectory = path.join(directory, "data", "codex-shadow");

@@ -88,6 +88,9 @@ export function dispatchSellerProblemBrief({
     ? "dingtalk-crossborder-v2-send.yml"
     : arg(argv, "--workflow") || "dingtalk-seller-problem-send.yml";
   const schema = strictV2 ? "v2" : arg(argv, "--schema") || "v1";
+  if (!strictV2 && (schema === "v2" || workflowFile === "dingtalk-crossborder-v2-send.yml")) {
+    throw new Error("Crossborder V2 must use the fixed npm run crossborder:v2:dispatch entrypoint");
+  }
   const logPrefix = schema === "v2" ? "crossborder-v2" : "seller-brief";
   if (!/^[a-z0-9-]+\.ya?ml$/.test(workflowFile)) throw new Error(`Invalid workflow file: ${workflowFile}`);
   if (schema !== "v1" && schema !== "v2") throw new Error(`Invalid schema: ${schema}`);

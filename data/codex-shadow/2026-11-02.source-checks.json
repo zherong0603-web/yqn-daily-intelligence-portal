@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "checked_at": "2026-11-02T03:44:34.303Z",
+  "checked_at": "2026-11-02T03:49:20.379Z",
   "all_ok": true,
   "checked_count": 7,
   "failed_count": 0,
@@ -55,7 +55,7 @@
     {
       "url": "https://www.gov.pl/web/kas/nowa-unijna-oplata-manipulacyjna-zwiazana-z-obsluga-zgloszen-celnych-przesylek-w-sprzedazy-na-odleglosc",
       "ok": true,
-      "matched_number": "3",
+      "matched_number": "1",
       "matched_date": "30.10.2026",
       "matched_markers": [
         "30.10.2026",
@@ -67,7 +67,7 @@
     {
       "url": "https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en",
       "ok": true,
-      "matched_number": "3",
+      "matched_number": "1",
       "matched_date": "8 June 2026",
       "matched_markers": [
         "8 June 2026",
@@ -80,7 +80,7 @@
     {
       "url": "https://vat-one-stop-shop.ec.europa.eu/guides_en",
       "ok": true,
-      "matched_number": "3",
+      "matched_number": "1",
       "matched_date": "6 October 2026",
       "matched_markers": [
         "VAT treatment of the EUR 3 customs duty and of the EUR 2 Customs Union handling fee",
