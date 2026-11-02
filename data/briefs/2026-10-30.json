@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T07:41:29.749Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-10-30T07:41:29.426Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger accelerates direct sourcing efforts for better cost control, visibility",
+      "url": "https://www.supplychaindive.com/news/kroger-accelerates-direct-sourcing-efforts-for-better-cost-control-visibil/872931/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T16:44:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx drawing parcel-focused shippers to its air freight services",
+      "url": "https://www.supplychaindive.com/news/fedex-drawing-parcel-focused-shippers-to-its-air-freight-services/873182/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T15:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "OPI, Nioxin owner appoints chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/opi-nioxin-owner-appoints-chief-supply-chain-officer/872796/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T14:26:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fed holds main interest rate steady despite accelerating inflation",
+      "url": "https://www.supplychaindive.com/news/fed-holds-main-interest-rate-steady-despite-accelerating-inflation/873147/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T14:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump opts for trade talks over tariffs for robotics, industrial machinery",
+      "url": "https://www.supplychaindive.com/news/trump-opts-for-trade-talks-over-tariffs-for-robotics-industrial-machinery/873166/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T12:14:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tesla begins humanoid production in California",
+      "url": "https://www.supplychaindive.com/news/tesla-begins-optimus-humanoid-production-california-shipments-2027/872992/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T14:41:23.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Nvidia forges supplier agreements to expand capacity for AI",
+      "url": "https://www.supplychaindive.com/news/nvidia-forges-supplier-agreements-to-expand-capacity-for-ai/872780/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T14:20:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Coty pursues less air freight, more ocean and rail transport",
+      "url": "https://www.supplychaindive.com/news/coty-pursues-less-air-freight-more-ocean-and-rail-transport/873024/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T14:02:41.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "WD-40 credits supply chain for $7M in cost savings",
+      "url": "https://www.supplychaindive.com/news/wd-40-credits-supply-chain-for-7m-in-cost-savings/872902/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-28T11:22:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger taps RFID, computer vision data to boost inventory management",
+      "url": "https://www.supplychaindive.com/news/kroger-taps-rfid-computer-vision-data-to-boost-inventory-management/872819/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-27T17:49:36.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "You don’t need to believe in a god to get a religious exemption from using AI at work",
+      "url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-30T01:20:48.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "FedEx Freight sees volumes stabilize, eyes Q4 margin improvement",
+      "url": "https://www.freightwaves.com/news/fedex-freight-sees-volumes-stabilize-eyes-q4-margin-improvement",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-30T00:44:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "AWS will be a $1T business, Jassy says — but first, it will spend big",
+      "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-29T23:42:22.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Amazon battles freight inflation as shipping costs jump 11% in Q3 ",
+      "url": "https://www.freightwaves.com/news/amazon-battles-freight-inflation-as-shipping-costs-jump-11-in-q3",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T23:26:52.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "First look: TFI Truckload sparkles, but OR at LTL slips",
+      "url": "https://www.freightwaves.com/news/first-look-tfi-truckload-sparkles-but-or-at-ltl-slips",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T21:38:24.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "First look: Covenant Logistics’ Q3 freight revenue surges 68%",
+      "url": "https://www.freightwaves.com/news/first-look-covenant-logistics-q3-freight-revenue-surges-68",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T21:15:36.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "How transportation leaders are turning AI and connected data into a competitive edge",
+      "url": "https://www.freightwaves.com/news/how-transportation-leaders-are-turning-ai-and-connected-data-into-a-competitive-edge",
+      "domain": "freightwaves.com",
+      "published_at": "2026-10-29T20:39:40.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-29T20:08:31.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Rivian expands joint venture with VW to include AI assistant",
+      "url": "https://techcrunch.com/2026/10/29/rivian-expands-joint-venture-with-vw-to-include-ai-assistant/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-29T20:05:47.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "41021589015",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}

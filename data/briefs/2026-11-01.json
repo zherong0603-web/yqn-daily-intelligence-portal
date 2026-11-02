@@ -1,0 +1,179 @@
+{
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T08:03:15.068Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-11-01T08:03:14.003Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "USDA to fund 8 fertilizer manufacturing projects totaling more than $1.3B",
+      "url": "https://www.supplychaindive.com/news/usda-fund-8-fertilizer-manufacturing-projects-totaling-1-billion/873311/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-30T14:52:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UPS aims to double RFID-labeled volume from customer locations",
+      "url": "https://www.supplychaindive.com/news/ups-aims-to-double-rfid-labeled-volume-from-customer-locations/872946/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-30T14:45:39.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Walmart plans $400M Texas distribution center",
+      "url": "https://www.supplychaindive.com/news/walmart-plans-400m-texas-distribution-center/873218/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-30T14:17:45.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Kroger accelerates direct sourcing efforts for better cost control, visibility",
+      "url": "https://www.supplychaindive.com/news/kroger-accelerates-direct-sourcing-efforts-for-better-cost-control-visibil/872931/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T16:44:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "FedEx drawing parcel-focused shippers to its air freight services",
+      "url": "https://www.supplychaindive.com/news/fedex-drawing-parcel-focused-shippers-to-its-air-freight-services/873182/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T15:36:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "OPI, Nioxin owner appoints chief supply chain officer",
+      "url": "https://www.supplychaindive.com/news/opi-nioxin-owner-appoints-chief-supply-chain-officer/872796/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T14:26:34.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Fed holds main interest rate steady despite accelerating inflation",
+      "url": "https://www.supplychaindive.com/news/fed-holds-main-interest-rate-steady-despite-accelerating-inflation/873147/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T14:20:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Trump opts for trade talks over tariffs for robotics, industrial machinery",
+      "url": "https://www.supplychaindive.com/news/trump-opts-for-trade-talks-over-tariffs-for-robotics-industrial-machinery/873166/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-10-29T12:14:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Freight cycles are anything but regular",
+      "url": "https://www.freightwaves.com/news/freight-cycles-are-anything-but-regular",
+      "domain": "freightwaves.com",
+      "published_at": "2026-11-01T00:30:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-31T21:41:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "4 days left: How TechCrunch Founder Summit helps you make more useful connections to scale",
+      "url": "https://techcrunch.com/2026/10/31/4-days-left-how-techcrunch-founder-summit-helps-you-make-more-useful-connections-to-scale/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-31T21:36:07.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+      "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-31T21:17:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI reportedly lowers funding target for new round",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-31T16:12:55.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-31T01:20:05.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Ollie, a privacy-focused AI assistant, is shutting down",
+      "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-30T22:56:13.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Intel’s stock crashes, knocking $12B from government’s stake",
+      "url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-30T21:54:34.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says",
+      "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-30T21:52:03.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Last-minute Halloween costumes for tech nerds",
+      "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-30T21:26:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Cracks are emerging in the AI spending boom",
+      "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-10-30T21:17:40.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "41287180974",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
