@@ -16,11 +16,12 @@
     "b": 3.2
   },
   "delivery": {
-    "channel": "dingtalk_private_chat",
+    "channel": "dingtalk_group",
+    "target": "跨境咨询每日内容",
     "status": "DELIVERED",
     "message_readback_verified": true,
-    "delivered_at": "2026-11-03 10:03:03",
-    "idempotency_key": "supplement-fedex-fee-2026-11-03"
+    "delivered_at": "2026-11-03 10:41:30",
+    "idempotency_key": "supplement-fedex-fee-2026-11-03-group"
   },
   "notes": [
     "5.9% is the average increase to FedEx standard list rates for U.S. domestic, export and import package services effective 2027-01-04.",
