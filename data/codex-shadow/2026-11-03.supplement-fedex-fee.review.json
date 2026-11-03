@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-03",
+  "supplement_id": "fedex-fee",
+  "content_valid": true,
+  "fact_audit": "PASS",
+  "content_editor_audit": "PASS",
+  "source": {
+    "url": "https://www.fedex.com/en-us/shipping/rate-changes.html",
+    "visible_updated_at": "2026-11-02",
+    "checked_at": "2026-11-03T10:03:00+08:00"
+  },
+  "selected_score": 88,
+  "estimated_seconds": 100.5,
+  "hook_seconds": {
+    "a": 2.9,
+    "b": 3.2
+  },
+  "delivery": {
+    "channel": "dingtalk_private_chat",
+    "status": "DELIVERED",
+    "message_readback_verified": true,
+    "delivered_at": "2026-11-03 10:03:03",
+    "idempotency_key": "supplement-fedex-fee-2026-11-03"
+  },
+  "notes": [
+    "5.9% is the average increase to FedEx standard list rates for U.S. domestic, export and import package services effective 2027-01-04.",
+    "The USD 25 manual handling fee applies to non-electronic associated trade documents and may coexist with the USD 5 paper air waybill fee for U.S. domestic or export shipments.",
+    "The USD 590 and USD 2,500 figures are linear stress tests, not actual invoices."
+  ]
+}
