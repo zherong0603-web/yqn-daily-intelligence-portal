@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-03",
+  "checked_at": "2026-11-03T08:10:52.575Z",
+  "all_ok": true,
+  "checked_count": 3,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.hellenicshippingnews.com/asia-us-container-rates-mixed-as-capacity-tightens-import-demand-slows-tanker-rates-mostly-higher/",
+      "ok": true,
+      "matched_number": "10",
+      "matched_date": "2026-11-02",
+      "matched_markers": [
+        "02/11/2026",
+        "Rates from supply chain advisors Drewry were lower",
+        "Weekly rates from online shipping marketplace and platform provider Freightos rose by 3% to the West Coast and by 9% to the East Coast.",
+        "six blank sailings have been announced for next week, up from five this week"
+      ]
+    },
+    {
+      "url": "https://www.freightos.com/freight-resources/union-approves-la-long-beach-port-strike-container-rates-still-under-pressure-october-28-2026-update/",
+      "ok": true,
+      "matched_number": "10565",
+      "matched_date": "October 28, 2026",
+      "matched_markers": [
+        "Published: October 28, 2026",
+        "increasing 3% to $8,368/FEU to the West Coast",
+        "9% to a new high for the year of $10,565/FEU to the East Coast"
+      ]
+    },
+    {
+      "url": "https://www.hellenicshippingnews.com/container-report-week-44-2/",
+      "ok": true,
+      "matched_number": "8342",
+      "matched_date": "2026-11-02",
+      "matched_markers": [
+        "02/11/2026",
+        "maintaining the level of $8,342/FEU",
+        "ending at $9,900 from $9,927/FEU"
+      ]
+    }
+  ]
+}

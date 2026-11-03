@@ -1,0 +1,206 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-03",
+  "title": "跨境早知道 V4｜11月3日",
+  "summary": "今天只讲美国线运价：同一周，Freightos与Drewry给出相反方向，卖家需要先分清指数口径和实际订舱报价。",
+  "coverage": {
+    "searched_window_hours": 24,
+    "notes": "检索最近24小时的美线运价、旺季履约、平台政策与清关信号；本期选择多条指数相互矛盾的美国海运信号。"
+  },
+  "editorial": {
+    "theme": "美线运费同周涨跌相反，卖家该信哪一个报价",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "同一周美线运价为何涨跌相反",
+        "region": "us",
+        "published_at": "2026-11-02",
+        "source_url": "https://www.hellenicshippingnews.com/asia-us-container-rates-mixed-as-capacity-tightens-import-demand-slows-tanker-rates-mostly-higher/",
+        "score": {
+          "relevance": 34,
+          "money_impact": 28,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "直接影响美国线卖家，四个指数方向和幅度不同，适合用一条稿讲清哪些数字能用于订舱压力测试。"
+      },
+      {
+        "title": "FedEx 2027年美国包裹牌价与纸单费调整",
+        "region": "us",
+        "published_at": "2026-11-02",
+        "source_url": "https://www.fedex.com/en-us/shipping/rate-changes.html",
+        "score": {
+          "relevance": 33,
+          "money_impact": 27,
+          "concrete_evidence": 15,
+          "hook_potential": 7,
+          "timeliness": 8,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "今天10:41已作为独立补充稿发送，不再在16:00主稿重复。"
+      },
+      {
+        "title": "欧盟2欧元清关处理费正式执行",
+        "region": "europe",
+        "published_at": "2026-10-30",
+        "source_url": "https://www.gov.pl/web/kas/nowa-unijna-oplata-manipulacyjna-zwiazana-z-obsluga-zgloszen-celnych-przesylek-w-sprzedazy-na-odleglosc",
+        "score": {
+          "relevance": 30,
+          "money_impact": 26,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 88
+        },
+        "decision": "rejected",
+        "reason": "市场优先级低于美国，且与美线运价不是一个商业问题。"
+      },
+      {
+        "title": "Amazon欧洲站延长旺季退货至2027年1月31日",
+        "region": "europe",
+        "published_at": "2026-10-30",
+        "source_url": "https://sellercentral.amazon.com.be/seller-forums/discussions/t/aa0f0f69-7cba-4230-897f-62f609b83847",
+        "score": {
+          "relevance": 28,
+          "money_impact": 24,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "影响欧洲退款现金流，留作独立欧洲主题。"
+      },
+      {
+        "title": "USPS旺季临时提价",
+        "region": "us",
+        "published_at": "2026-08-25",
+        "source_url": "https://about.usps.com/newsroom/national-releases/2026/0825-usps-announces-temporary-price-change-for-2026-holiday-shipping-season.htm",
+        "score": {
+          "relevance": 30,
+          "money_impact": 26,
+          "concrete_evidence": 15,
+          "hook_potential": 5,
+          "timeliness": 2,
+          "total": 78
+        },
+        "decision": "rejected",
+        "reason": "仍在执行，但公告时间过旧，不进入今日主稿。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "一期只解释美线指数分歧，不混入平台合规或欧洲包裹费。",
+        "所有推算明确标为指数压力测试，不声称卖家已经扣款。",
+        "行动落在具体港口、船期和附加费报价。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "同一周美线运价为何涨跌相反",
+      "what_happened": "2026年11月2日多份周报显示，美线运价方向并不一致。Freightos美西周涨3%、美东涨9%；Drewry上海至洛杉矶降6%、上海至纽约降5%；FBX美西基本持平、美东小幅回落。",
+      "numbers": [
+        "Freightos美西8368美元/FEU、周涨3%",
+        "Freightos美东10565美元/FEU、周涨9%",
+        "Drewry上海至洛杉矶降6%、至纽约降5%",
+        "FBX美西8342美元基本持平、美东9900美元",
+        "下周空白航行从5班增至6班"
+      ],
+      "effective_at": "2026-11-02适用于本周运价观察；实际报价以订舱当日为准",
+      "affected_sellers": "使用亚洲至美国海运，尤其美东线并叠加美国内陆派送的跨境卖家和进口商。",
+      "money_impact": "按Freightos美东价和周涨9%反推，每FEU较上周约多872美元，10柜约多8720美元；这是指数压力测试，不包含BAF、PSS、内陆费和实际合同差异。",
+      "calculation": {
+        "basis": "只用Freightos美东价10565美元/FEU和9%周涨幅，不把Drewry或FBX的差异混进同一算式。",
+        "formula": "10565÷1.09≈9693美元；10565-9693≈872美元/FEU；872×10=8720美元。",
+        "result": "指数反推每FEU约增872美元，10柜约8720美元；卖家实际账单仍以订舱报价为准。"
+      },
+      "action": "报价锁定具体起运港、目的港、船期和本周附加费；美东线先按10565美元做现金流压力测试，同时比较货代实际可订舱价。",
+      "evidence": [
+        {
+          "title": "Hellenic Shipping News：11月2日美线运价周报",
+          "url": "https://www.hellenicshippingnews.com/asia-us-container-rates-mixed-as-capacity-tightens-import-demand-slows-tanker-rates-mostly-higher/",
+          "source_type": "media",
+          "published_at": "2026-11-02",
+          "checked_at": "2026-11-03T16:05:29+08:00",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "页面日期为02/11/2026，明确给出Freightos、Drewry、Freight Right、SCFI、NYSHEX的分化方向及空白航行由5班增至6班。",
+          "markers": [
+            "02/11/2026",
+            "Rates from supply chain advisors Drewry were lower",
+            "Weekly rates from online shipping marketplace and platform provider Freightos rose by 3% to the West Coast and by 9% to the East Coast.",
+            "six blank sailings have been announced for next week, up from five this week"
+          ]
+        },
+        {
+          "title": "Freightos：10月28日运价周报",
+          "url": "https://www.freightos.com/freight-resources/union-approves-la-long-beach-port-strike-container-rates-still-under-pressure-october-28-2026-update/",
+          "source_type": "official",
+          "published_at": "2026-10-28",
+          "checked_at": "2026-11-03T16:05:29+08:00",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "指数提供方页面明确美西周涨3%至8368美元/FEU、美东周涨9%至10565美元/FEU。",
+          "markers": [
+            "Published: October 28, 2026",
+            "increasing 3% to $8,368/FEU to the West Coast",
+            "9% to a new high for the year of $10,565/FEU to the East Coast"
+          ]
+        },
+        {
+          "title": "Container Report Week 44：FBX最新周度数据",
+          "url": "https://www.hellenicshippingnews.com/container-report-week-44-2/",
+          "source_type": "media",
+          "published_at": "2026-11-02",
+          "checked_at": "2026-11-03T16:05:29+08:00",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "页面日期为02/11/2026，显示FBX美西8342美元基本持平，美东由9927美元降至9900美元。",
+          "markers": [
+            "02/11/2026",
+            "maintaining the level of $8,342/FEU",
+            "ending at $9,900 from $9,927/FEU"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "美东9%，纽约负5%。",
+    "b": "同周美东涨9%，纽约跌5%。"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。\n第一，2026年11月2日，同一周美线出现两张方向相反的报价表。Freightos美西40尺柜8368美元、周涨3%；美东10565美元、周涨9%。Drewry从上海到洛杉矶却降6%，到纽约降5%。\n这两组数字不能直接相减。Freightos统计线上平台和航线报价，Drewry使用另一组航线样本；起运港、目的港、船期和统计周期不同，方向都会变。卖家要确认报价对应整柜还是拼箱，是否包含起运港费、目的港费和内陆派送。\n按Freightos美东价反推，一柜比上周多约872美元，十柜多8720美元；这个只用于现金流压力测试，实际订舱还要核BAF、PSS和内陆费。\n下周空白航行从5班增至6班，部分船公司正在缩减舱位，但部分货代预计需求回落。下单时统一比较同一港口、同一船期的all-in报价，再决定分批订舱和现金预留。询价时让货代把基础海运费、燃油费、旺季附加费和目的港费分开列，写清各自生效日；同一船期逐项对比，才能看出报价到底差在哪。\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "Freightos、Drewry、Freight Right、SCFI、NYSHEX和FBX取样不同，方向和幅度不能横向混算。",
+    "872美元/FEU、8720美元/10FEU均为按Freightos美东周价和9%周涨幅反推的指数压力测试，不等于卖家订舱单已经新增的现金支出。",
+    "实际物流成本还包含BAF、PSS、目的港费、内陆运输和合同折扣；应以具体港口、船期和货代报价为准。",
+    "美国指数方向分歧正在发生，并未形成统一涨价或降价结论；下期价格仍可能反转。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-03T08:05:29Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-03T16:00:00+08:00"
+  }
+}
