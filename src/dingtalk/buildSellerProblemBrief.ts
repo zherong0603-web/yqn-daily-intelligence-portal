@@ -184,7 +184,7 @@ const crossborderV2BriefSchema = z.object({
   })).max(3),
   generated_at: z.string().datetime(),
   publication: z.object({
-    target: z.literal("dingtalk_private_chat"),
+    target: z.union([z.literal("dingtalk_private_chat"), z.literal("dingtalk_group")]),
     send_allowed: z.literal(true),
     review_after_delivery: z.literal(true),
     proposed_send_at: z.string().datetime({ offset: true }),
@@ -197,7 +197,7 @@ export interface CrossborderV2ValidationReport {
   date: string;
   content_valid: boolean;
   send_allowed: boolean;
-  target: "dingtalk_private_chat";
+  target: "dingtalk_private_chat" | "dingtalk_group";
   signal_count: number;
   us_first: boolean;
   region_priority_valid: boolean;
@@ -342,7 +342,6 @@ export function validateSellerProblemBrief(input: unknown, checkedAt = new Date(
   if (new Date(brief.publication.proposed_send_at).getTime() !== expectedSendAt) {
     blockers.push("brief:proposed_send_at_mismatch");
   }
-
   const seenUrls = new Map<string, number>();
   const seenTitles = new Set<string>();
 
@@ -747,7 +746,7 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
         date: z.object({ date: z.string() }).safeParse(input).data?.date || "unknown",
         content_valid: false,
         send_allowed: false,
-        target: "dingtalk_private_chat",
+        target: "dingtalk_group",
         signal_count: Array.isArray((input as { signals?: unknown })?.signals) ? (input as { signals: unknown[] }).signals.length : 0,
         us_first: false,
         region_priority_valid: false,
@@ -782,6 +781,9 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   const expectedSendAt = new Date(`${brief.date}T16:00:00+08:00`).getTime();
   if (new Date(brief.publication.proposed_send_at).getTime() !== expectedSendAt) {
     blockers.push("brief:proposed_send_at_mismatch");
+  }
+  if (brief.date >= "2026-11-03" && brief.publication.target !== "dingtalk_group") {
+    blockers.push("brief:delivery_target_must_be_group");
   }
   if (hasUsSignal && !usFirst) blockers.push("signals:first_must_be_us");
   if (!regionPriorityValid) blockers.push("signals:region_priority_invalid");
@@ -904,7 +906,7 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
       date: brief.date,
       content_valid: blockers.length === 0,
       send_allowed: blockers.length === 0,
-      target: "dingtalk_private_chat",
+      target: brief.publication.target,
       signal_count: brief.signals.length,
       us_first: usFirst,
       region_priority_valid: regionPriorityValid,

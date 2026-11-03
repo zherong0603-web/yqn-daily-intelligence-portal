@@ -2,7 +2,7 @@ version = 1
 id = "yqn-09-20"
 kind = "cron"
 name = "跨境早知道 V2 16:20 兜底检查"
-prompt = "进入 <REPO_PATH>，先检查本机送达状态与目标单聊消息记录。当日已出现 [crossborder-v2:dws-delivered] 时结束；无成功且无 ATTEMPTED 时，完整读取 docs/automation/跨境早知道V4内容规则.md 与 docs/automation/工作日晨报执行规则.md，构建并严格检查后运行 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live；脚本使用本机已授权的钉钉 Workspace CLI、每日幂等键和 --wait-delivery，并核验目标单聊记录。已有 ATTEMPTED 无验证送达时严禁自动重试。结果追加到 <AUTOMATION_MEMORY_PATH>。不读取、展示或记录任何密钥、token、robotCode 或 userId。"
+prompt = "进入 <REPO_PATH>，先检查本机群聊送达状态。当日已出现 [crossborder-v4:dws-group-delivered] 时结束；无成功且无 ATTEMPTED 时，完整读取 docs/automation/跨境早知道V4内容规则.md 与 docs/automation/工作日晨报执行规则.md，构建并严格检查后运行 npm run crossborder:v2:dispatch -- --date YYYY-MM-DD --live；脚本使用本机已授权的钉钉 Workspace CLI，向“跨境咨询每日内容”群发送，使用每日幂等键和 --wait-delivery。已有 ATTEMPTED 无验证送达时严禁自动重试。结果追加到 <AUTOMATION_MEMORY_PATH>。不读取、展示或记录任何密钥、token、robotCode 或 userId。"
 status = "PAUSED"
 rrule = "RRULE:FREQ=DAILY;BYHOUR=16;BYMINUTE=20;BYSECOND=0"
 model = "gpt-6.1-terra"

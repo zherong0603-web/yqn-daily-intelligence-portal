@@ -3,7 +3,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
-const recipientName = "符晔荻";
+const targetGroupName = "跨境咨询每日内容";
 const successValues = new Set(["DELIVERED", "READ", "UNREAD"]);
 const failureValues = new Set(["FAILED", "FAIL", "REJECTED", "INVALID", "BLOCKED"]);
 
@@ -60,6 +60,23 @@ export function readDwsDeliveryStatus(stdout) {
   return { ok: successValues.has(status), status };
 }
 
+export function assertUniqueDwsGroup(stdout, expectedTitle = targetGroupName) {
+  let parsed;
+  try {
+    parsed = JSON.parse(stdout);
+  } catch {
+    throw new Error("Crossborder V4 DWS group lookup returned non-JSON output");
+  }
+  if (parsed?.success !== true || !Array.isArray(parsed?.result?.groups)) {
+    throw new Error("Crossborder V4 DWS group lookup failed");
+  }
+  const matches = parsed.result.groups.filter((group) => group?.title === expectedTitle);
+  if (matches.length !== 1) {
+    throw new Error(`Crossborder V4 DWS requires exactly one group named ${expectedTitle}`);
+  }
+  return true;
+}
+
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
     cwd: options.cwd,
@@ -112,7 +129,7 @@ function validateArtifacts({ cwd, date }) {
   if (source.all_ok !== true || source.date !== date || source.failed_count !== 0) {
     throw new Error("Crossborder V2 source checks are not all green");
   }
-  return { markdown: readFileSync(markdownFile, "utf8"), title: `跨境早知道 V2｜${date}` };
+  return { markdown: readFileSync(markdownFile, "utf8"), title: `跨境早知道 V4｜${date}` };
 }
 
 export function sendCrossborderV2Dws({
@@ -128,7 +145,7 @@ export function sendCrossborderV2Dws({
   if (options.live && options.date !== today) {
     throw new Error(`Crossborder V2 live delivery date must be today (${today}), got ${options.date}`);
   }
-  const stateFile = path.join(cwd, "logs", "automation", ".crossborder-v2-dws-state.json");
+  const stateFile = path.join(cwd, "logs", "automation", ".crossborder-v4-dws-group-state.json");
   const briefFile = path.join(cwd, "data", "codex-shadow", `${options.date}.crossborder-v2.json`);
   execute("npm", ["run", "crossborder:v2:build", "--", "--file", briefFile], { cwd, env });
   execute("npm", ["run", "crossborder:v2:source-check", "--", "--file", briefFile], {
@@ -137,39 +154,43 @@ export function sendCrossborderV2Dws({
   });
   const artifact = validateArtifacts({ cwd, date: options.date });
 
+  const state = loadState(stateFile);
+  const priorStatus = String(state.dates[options.date]?.status || "").toUpperCase();
+  if (options.live && priorStatus === "DELIVERED") {
+    log(`[crossborder-v4:dws-group] date=${options.date} already delivered; duplicate skipped`);
+    return { status: "DELIVERED", duplicate: true };
+  }
+  if (options.live && priorStatus === "ATTEMPTED") {
+    throw new Error("Crossborder V4 DWS blocked: a prior group attempt has no verified delivery");
+  }
+
   const auth = JSON.parse(execute("dws", ["auth", "status", "-f", "json"], { cwd, env }));
   if (auth.authenticated !== true || auth.token_valid !== true) {
-    throw new Error("Crossborder V2 DWS authentication required; run the QR login flow before delivery");
+    throw new Error("Crossborder V4 DWS authentication required; run the QR login flow before delivery");
   }
+  const groupLookup = execute("dws", ["chat", "search", "--query", targetGroupName, "-f", "json"], { cwd, env });
+  assertUniqueDwsGroup(groupLookup);
   if (!options.live) {
-    log(`[crossborder-v2:dws] date=${options.date} dry run validated; message not sent`);
+    log(`[crossborder-v4:dws-group] date=${options.date} dry run validated; message not sent`);
     return { status: "DRY_RUN" };
   }
 
-  const state = loadState(stateFile);
-  const priorStatus = String(state.dates[options.date]?.status || "").toUpperCase();
-  if (priorStatus === "DELIVERED") {
-    log(`[crossborder-v2:dws] date=${options.date} already delivered; duplicate skipped`);
-    return { status: "DELIVERED", duplicate: true };
-  }
-  if (priorStatus === "ATTEMPTED") {
-    throw new Error("Crossborder V2 DWS blocked: a prior attempt has no verified delivery");
-  }
-
+  const idempotencyKey = `crossborder-v4-group-${options.date}`;
   state.dates[options.date] = {
     status: "ATTEMPTED",
     attempted_at: new Date(now).toISOString(),
-    idempotency_key: `crossborder-v2-${options.date}`,
+    idempotency_key: idempotencyKey,
+    target: targetGroupName,
   };
   saveState(stateFile, state);
 
   const output = execute("dws", [
     "chat", "+messages-send",
     "--identity", "user",
-    "--user-query", recipientName,
+    "--chat-query", targetGroupName,
     "--markdown", artifact.markdown,
     "--title", artifact.title,
-    "--idempotency-key", `crossborder-v2-${options.date}`,
+    "--idempotency-key", idempotencyKey,
     "--wait-delivery",
     "--ai-tag=false",
     "-y",
@@ -177,36 +198,7 @@ export function sendCrossborderV2Dws({
   ], { cwd, env });
 
   const delivery = readDwsDeliveryStatus(output);
-  if (!delivery.ok) throw new Error(`Crossborder V2 DWS delivery unconfirmed: ${delivery.status}`);
-  const messageOutput = execute("dws", [
-    "chat", "+chat-messages",
-    "--user-query", recipientName,
-    "--start", `${options.date} 00:00:00`,
-    "--end", `${options.date} 23:59:59`,
-    "--order", "desc",
-    "--limit", "100",
-    "-f", "json",
-  ], { cwd, env });
-  let messageRecord;
-  try {
-    messageRecord = JSON.parse(messageOutput);
-  } catch {
-    throw new Error("Crossborder V2 DWS message verification returned non-JSON output");
-  }
-  const messageTexts = [];
-  const collectMessageTexts = (value) => {
-    if (Array.isArray(value)) {
-      for (const item of value) collectMessageTexts(item);
-      return;
-    }
-    if (!value || typeof value !== "object") return;
-    if (typeof value.text === "string") messageTexts.push(value.text);
-    for (const item of Object.values(value)) collectMessageTexts(item);
-  };
-  collectMessageTexts(messageRecord);
-  if (!messageTexts.some((value) => value.includes("跨境早知道 V4"))) {
-    throw new Error("Crossborder V2 DWS delivery unconfirmed in recipient conversation");
-  }
+  if (!delivery.ok) throw new Error(`Crossborder V4 DWS group delivery unconfirmed: ${delivery.status}`);
   state.dates[options.date] = {
     ...state.dates[options.date],
     status: "DELIVERED",
@@ -216,8 +208,8 @@ export function sendCrossborderV2Dws({
   saveState(stateFile, state);
   const logFile = path.join(cwd, "logs", "automation", "yqn-2.md");
   mkdirSync(path.dirname(logFile), { recursive: true });
-  appendFileSync(logFile, `\n- ${new Date(now).toISOString()}：\`[crossborder-v2:dws-delivered]\` date=${options.date} status=${delivery.status}\n`, "utf8");
-  log(`[crossborder-v2:dws-delivered] date=${options.date} status=${delivery.status}`);
+  appendFileSync(logFile, `\n- ${new Date(now).toISOString()}：\`[crossborder-v4:dws-group-delivered]\` date=${options.date} status=${delivery.status}\n`, "utf8");
+  log(`[crossborder-v4:dws-group-delivered] date=${options.date} status=${delivery.status}`);
   return { status: delivery.status, duplicate: false };
 }
 
