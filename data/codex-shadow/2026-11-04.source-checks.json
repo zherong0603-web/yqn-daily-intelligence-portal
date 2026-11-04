@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-04",
+  "checked_at": "2026-11-04T08:18:07.181Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.freightos.com/freight-resources/asia-us-air-rates-already-nearing-last-years-high-on-peak-season-volumes-november-3-2026-update/",
+      "ok": true,
+      "matched_number": "9900",
+      "matched_date": "November 3, 2026",
+      "matched_markers": [
+        "November 3, 2026",
+        "increasing 9% to $7.76/kg",
+        "up 40% compared to this time last year",
+        "East Coast rates cooled 6% compared to last week",
+        "about $9,900/FEU"
+      ]
+    },
+    {
+      "url": "https://gcaptain.com/strike-threat-at-los-angeles-long-beach-ports-delayed-as-union-and-employers-extend-talks/",
+      "ok": true,
+      "matched_number": "250",
+      "matched_date": "October 30, 2026",
+      "matched_markers": [
+        "October 30, 2026",
+        "5 p.m. Pacific Time on Wednesday, November 4",
+        "approximately 250 maritime watchmen",
+        "85% of cargo moving through the Port of Long Beach and 33% at the Port of Los Angeles"
+      ]
+    }
+  ]
+}
