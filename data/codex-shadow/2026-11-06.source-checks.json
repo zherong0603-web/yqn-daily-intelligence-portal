@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-06",
+  "checked_at": "2026-11-06T08:13:17.811Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://sellingpartners.aboutamazon.com/update-to-us-referral-and-fulfillment-by-amazon-fees-for-2027",
+      "ok": true,
+      "matched_number": null,
+      "matched_date": "November 5, 2026",
+      "matched_markers": [
+        "November 5, 2026",
+        "January 15, 2027",
+        "$0.19 per unit sold",
+        "Effective February 1, 2027",
+        "combine it with monthly storage fees",
+        "flat or lower fees for inventory that turns in under six months"
+      ]
+    }
+  ]
+}
