@@ -1,0 +1,179 @@
+{
+  "date": "2026-11-07",
+  "generated_at": "2026-11-07T07:43:32.294Z",
+  "one_liner": "OpenAI API 尚未配置，今天只发布系统自检型低信号日报。",
+  "executive_summary": "系统已完成公开来源采集，但未检测到 OPENAI_API_KEY，无法进行模型归纳。为避免编造情报，今天只发布配置待完成的低信号日报；配置 GitHub Secret 后可手动补跑当天。",
+  "items": [],
+  "action_checklist": [
+    "在 GitHub Actions Secrets 配置 OPENAI_API_KEY。",
+    "回到 Actions 手动补跑 Daily Briefing Portal，brief_date 填当天日期。",
+    "不要把 API key、webhook 或访问密码发到聊天、README、日志或页面源码里。"
+  ],
+  "sources": [
+    {
+      "topic": "ai",
+      "name": "Anthropic News",
+      "title": "Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "domain": "anthropic.com",
+      "published_at": "2026-11-07T07:43:31.366Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "UP CEO’s rate threat adds wrinkle to Norfolk Southern merger process",
+      "url": "https://www.supplychaindive.com/news/up-ceos-rate-threat-adds-wrinkle-to-norfolk-southern-merger-process/874006/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-06T19:49:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Aurora’s truck production schedule delayed by supply, quality issues",
+      "url": "https://www.supplychaindive.com/news/auroras-truck-production-schedule-delayed-by-supply-quality-issues/873995/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-06T15:54:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Lear to open automated factory as ‘blueprint’ for global network",
+      "url": "https://www.supplychaindive.com/news/lear-to-open-automated-factory-as-blueprint-for-global-network/873888/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-06T14:43:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Apple boosts purchase commitments by $33B amid memory crunch",
+      "url": "https://www.supplychaindive.com/news/apple-boosts-purchase-commitments-by-33b-amid-memory-crunch/873936/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-06T13:51:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Tilray Brands targets $20M in cost savings after craft brewery closures",
+      "url": "https://www.supplychaindive.com/news/tilray-brands-targets-20m-in-cost-savings-after-craft-brewery-closures/873848/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-06T12:15:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Unilever ramps up pricing to offset higher commodity costs",
+      "url": "https://www.supplychaindive.com/news/unilever-ramps-up-pricing-to-offset-higher-commodity-costs/873793/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-05T20:09:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Schneider National says rail partner shift offers network boost",
+      "url": "https://www.supplychaindive.com/news/schneider-national-says-rail-partner-shift-offers-network-boost/873847/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-05T15:08:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Urban Outfitters seeks material cost visibility from expanded technology suite",
+      "url": "https://www.supplychaindive.com/news/urban-outfitters-seeks-material-cost-visibility-from-expanded-technology-su/873642/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-05T15:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "EBay trims Depop shipping rates, bolsters delivery features",
+      "url": "https://www.supplychaindive.com/news/ebay-trims-depop-shipping-rates-bolsters-delivery-features/873710/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-05T14:38:18.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "Supply Chain Dive",
+      "title": "Logitech launches supply chain decarbonization program",
+      "url": "https://www.supplychaindive.com/news/logitech-launches-supply-chain-decarbonization-program/873778/",
+      "domain": "supplychaindive.com",
+      "published_at": "2026-11-05T12:44:00.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Crusoe sells troubled Wyoming data center project to Google",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-11-07T01:40:28.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-11-06T22:53:46.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Why Aviation Automation Still Hasn’t Reached Small Planes",
+      "url": "https://www.freightwaves.com/news/why-aviation-automation-still-hasnt-reached-small-planes",
+      "domain": "freightwaves.com",
+      "published_at": "2026-11-06T20:01:15.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-11-06T18:44:38.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-11-06T18:44:20.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "PS Logistics expands Tennessee flatbed presence with Roane acquisition",
+      "url": "https://www.freightwaves.com/news/ps-logistics-expands-tennessee-flatbed-presence-with-roane-acquisition",
+      "domain": "freightwaves.com",
+      "published_at": "2026-11-06T18:21:58.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "CBP seizes 1,000-plus pounds of meth in produce truck at Texas border",
+      "url": "https://www.freightwaves.com/news/cbp-seizes-1000-plus-pounds-of-meth-in-produce-truck-at-texas-border",
+      "domain": "freightwaves.com",
+      "published_at": "2026-11-06T18:12:59.000Z"
+    },
+    {
+      "topic": "ai",
+      "name": "TechCrunch AI",
+      "title": "How a Blue Wave midterm might reshape the AI industry",
+      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "domain": "techcrunch.com",
+      "published_at": "2026-11-06T18:00:00.000Z"
+    },
+    {
+      "topic": "ecommerce_us_warehouse",
+      "name": "FreightWaves",
+      "title": "Fleetworthy launches RADAR, new AI fleet management technology",
+      "url": "https://www.freightwaves.com/news/fleetworthy-launches-radar-new-ai-fleet-management-technology",
+      "domain": "freightwaves.com",
+      "published_at": "2026-11-06T17:55:09.000Z"
+    }
+  ],
+  "model": "gpt-5-api-key-missing",
+  "run_id": "42352433967",
+  "source_window_hours": 72,
+  "is_low_signal_day": true,
+  "encryption_enabled": false
+}
