@@ -509,6 +509,10 @@ function sourceDateVariants(date: string): string[] {
     timeZone: "UTC",
     month: "long",
   }).format(new Date(`${date}T12:00:00Z`));
+  const shortMonth = new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC",
+    month: "short",
+  }).format(new Date(`${date}T12:00:00Z`));
   return [
     `${year}-${month}-${day}`,
     `${year}/${month}/${day}`,
@@ -517,6 +521,10 @@ function sourceDateVariants(date: string): string[] {
     `${day}.${month}.${year}`,
     `${monthName} ${Number(day)}, ${year}`,
     `${Number(day)} ${monthName} ${year}`,
+    `${shortMonth} ${Number(day)}, ${year}`,
+    `${shortMonth}. ${Number(day)}, ${year}`,
+    `${Number(day)} ${shortMonth} ${year}`,
+    `${day} ${shortMonth} ${year}`,
     `${year}年${Number(month)}月${Number(day)}日`,
   ];
 }
@@ -679,7 +687,10 @@ export async function verifyCrossborderV2Sources(
           .replace(/<[^>]+>/g, " ")
           .replace(/\s+/g, " ");
         const dateVariants = sourceDateVariants(evidence.published_at);
-        const matchedDate = dateVariants.find((variant) => visible.includes(variant)) || null;
+        const matchedDate = dateVariants.find((variant) => {
+          const escaped = variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          return new RegExp(`(?<!\\d)${escaped}(?!\\d)`, "u").test(visible);
+        }) || null;
         const numericText = [
           ...signal.numbers.filter((item) => !/(?:\d{4}[-/.年]\d{1,2}|月|日|时间)/.test(item)),
           signal.money_impact,
@@ -929,12 +940,15 @@ export function renderCrossborderV2Markdown(brief: CrossborderV2Brief): string {
     "",
     `主题：${brief.editorial.theme}`,
     "",
-    "| 地区 | 候选新闻 | 发布日期 | 评分 | 决策 | 理由 |",
-    "| --- | --- | --- | ---: | --- | --- |",
   ];
-  for (const candidate of brief.editorial.candidates) {
-    lines.push(`| ${crossborderV2RegionLabels[candidate.region]} | ${candidate.title} | ${candidate.published_at} | ${candidate.score.total} | ${candidate.decision === "selected" ? "入选" : "淘汰"} | ${candidate.reason} |`);
-  }
+  // DingTalk group messages omit Markdown tables. Keep each candidate in plain paragraphs.
+  brief.editorial.candidates.forEach((candidate, index) => {
+    lines.push(`${index + 1}. ${candidate.title}`);
+    lines.push(`${crossborderV2RegionLabels[candidate.region]}｜${candidate.published_at}｜${candidate.score.total}分｜${candidate.decision === "selected" ? "入选" : "淘汰"}`);
+    lines.push(`理由：${candidate.reason}`);
+    lines.push(`来源：${candidate.source_url}`);
+    lines.push("");
+  });
   lines.push("");
   lines.push("## 今日主稿", "");
   brief.signals.forEach((signal, index) => {

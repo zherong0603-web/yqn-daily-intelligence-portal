@@ -28,6 +28,22 @@ describe("Crossborder V2 brief guardrails", () => {
     expect(rendered).toContain("核实来源与风险说明");
   });
 
+  it("retains all five candidate decisions when the delivery channel drops Markdown tables", () => {
+    const { brief } = validateCrossborderV2Brief(sample);
+    const rendered = renderCrossborderV2Markdown(brief!);
+    const candidateSection = rendered.split("## 候选筛选")[1]!.split("## 今日主稿")[0]!;
+    // Reproduce the observed group-message loss of table rows before checking the content.
+    const delivered = candidateSection.split("\n").filter((line) => !line.trim().startsWith("|")).join("\n");
+    expect(brief!.editorial.candidates).toHaveLength(5);
+    for (const candidate of brief!.editorial.candidates) {
+      expect(delivered).toContain(candidate.title);
+      expect(delivered).toContain(candidate.published_at);
+      expect(delivered).toContain(`${candidate.score.total}分`);
+      expect(delivered).toContain(`${candidate.decision === "selected" ? "入选" : "淘汰"}\n理由：${candidate.reason}`);
+      expect(delivered).toContain(candidate.source_url);
+    }
+  });
+
   it("keeps A and B scripts on the exact same body and plain text", () => {
     const { brief } = validateCrossborderV2Brief(sample);
     const scripts = renderCrossborderV2Scripts(brief!);
@@ -104,6 +120,32 @@ describe("Crossborder V2 brief guardrails", () => {
     expect(() => readFileSync(new URL("../../data/codex-shadow/2026-10-30.crossborder-v2.md", import.meta.url))).not.toThrow();
     expect(() => readFileSync(new URL("../../data/codex-shadow/2026-10-30.heygen-a.txt", import.meta.url))).not.toThrow();
     expect(() => readFileSync(new URL("../../data/codex-shadow/2026-10-30.heygen-b.txt", import.meta.url))).not.toThrow();
+  });
+
+  it.each(["Nov 6, 2026", "Nov. 6, 2026", "06 Nov 2026"])("accepts visible abbreviated dates: %s", async (dateText) => {
+    const { brief } = validateCrossborderV2Brief(sample);
+    const checked = structuredClone(brief!);
+    const evidence = checked.signals[0]!.evidence[0]!;
+    evidence.published_at = "2026-11-06";
+    evidence.markers = ["extend their contract through Nov. 20"];
+    checked.signals[0]!.evidence = [evidence];
+    const fetchMock = vi.fn().mockResolvedValue(new Response(`<p>${dateText}</p><p>${evidence.markers[0]}</p>`));
+    const checks = await verifyCrossborderV2Sources(checked, fetchMock as typeof fetch);
+    expect(checks[0]!.ok).toBe(true);
+    expect(checks[0]!.matched_date).toBe(dateText);
+  });
+
+  it.each(["Nov 5, 2026", "16 Nov 2026", "26 Nov 2026"])("rejects a different visible day (%s) even when metadata has the claimed date", async (dateText) => {
+    const { brief } = validateCrossborderV2Brief(sample);
+    const checked = structuredClone(brief!);
+    const evidence = checked.signals[0]!.evidence[0]!;
+    evidence.published_at = "2026-11-06";
+    evidence.markers = ["extend their contract through Nov. 20"];
+    checked.signals[0]!.evidence = [evidence];
+    const fetchMock = vi.fn().mockResolvedValue(new Response(`<meta content="2026-11-06"><script>"Nov 6, 2026"</script><p>${dateText}</p><p>${evidence.markers[0]}</p>`));
+    const checks = await verifyCrossborderV2Sources(checked, fetchMock as typeof fetch);
+    expect(checks[0]!.ok).toBe(false);
+    expect(checks[0]!.error).toContain("visible source date");
   });
 
   it("does not fetch private or credential-bearing source URLs", async () => {

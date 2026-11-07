@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-07T08:18:08.421Z",
+  "uniqueTitleMatches": 1,
+  "complete": true,
+  "hasMore": false,
+  "messageTime": "2026-11-07 16:17:43",
+  "theme": true,
+  "hookA": true,
+  "hookB": true,
+  "body": true,
+  "paragraphsMatched": 9,
+  "paragraphsTotal": 9,
+  "candidates": [
+    {
+      "title": "美国加强外国进口商身份与报关代理要求",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "洛杉矶和长滩港劳资合同延至11月20日",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Vincent Thomas桥按计划11月7日起封闭约16个月",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shopify公共App配置IP允许名单的期限临近",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Whatnot把部分USPS重量补差转由卖家承担",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    }
+  ],
+  "candidatesMatched": 5,
+  "source": true
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-07",
+  "checked_at": "2026-11-07T08:17:40.630Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-06/html/2026-22735.htm",
+      "ok": true,
+      "matched_number": null,
+      "matched_date": "November 6, 2026",
+      "matched_markers": [
+        "November 6, 2026",
+        "This interim final rule is effective on January 5, 2027",
+        "The entity must be located in the United States",
+        "The entity must be organized under the laws of the United States",
+        "CBP has not implemented that prohibition in this interim final rule",
+        "If the foreign importer of record is not validated through the CTPAT program"
+      ]
+    }
+  ]
+}
