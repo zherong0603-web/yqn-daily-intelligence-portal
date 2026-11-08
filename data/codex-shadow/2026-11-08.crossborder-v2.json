@@ -1,0 +1,179 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-08",
+  "title": "跨境早知道 V4｜11月8日",
+  "summary": "TikTok美国站11月6日更新运费规则，11月12日起对部分被处置店铺的合格物流订单调整预估算法。包裹调轻导致预估下降时仍保持原预估，最终结算另受承运商计费重量及价卡影响。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先检索24小时，强选题不足后扩至72小时，去重比较12条候选。主稿页面可见更新日11/06/2026。仅日级日期不推定精确发布时间；超窗、已恢复及无日期材料留在淘汰记录，不用于主稿。"
+  },
+  "editorial": {
+    "theme": "包裹改轻了，预估运费为什么没降？",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "TikTok美国站调整被处置店铺的预估运费算法",
+        "region": "us",
+        "published_at": "2026-11-06",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=3535967017469702",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 13,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 94
+        },
+        "decision": "selected",
+        "reason": "11月12日起有具体计费处置变化，直接影响部分美国站卖家的运费预估；讲透减重不降预估费及最终结算边界，与此前公平定价原则稿有新信息。"
+      },
+      {
+        "title": "eBay提醒USPS两类服务11月8日调价",
+        "region": "us",
+        "published_at": "2026-11-05",
+        "source_url": "https://community.ebay.com/forum/announcements-57928/topic/usps-is-adjusting-rates-on-november-8-2026-487561/",
+        "score": {
+          "relevance": 32,
+          "money_impact": 27,
+          "concrete_evidence": 10,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 87
+        },
+        "decision": "rejected",
+        "reason": "官方帖11月5日更新，明确11月8日Ground Advantage和Priority Mail调整；没有本次统一涨幅。实际价卡变化与本期违规处置算法不同，单列候补，不混算。"
+      },
+      {
+        "title": "Shopify批量查询和写入须分别开通权限",
+        "region": "us",
+        "published_at": "2026-11-06",
+        "source_url": "https://shopify.dev/changelog/posts/apps-must-enable-bulk-operations-before-use",
+        "score": {
+          "relevance": 30,
+          "money_impact": 25,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 87
+        },
+        "decision": "rejected",
+        "reason": "过去31天未使用某类批量操作会失去该项权限，影响依赖Partner应用的美国及其他市场独立站。已有使用者自动开通；与本期运费算法不同，留作应用运营主题。"
+      },
+      {
+        "title": "Shopify公共应用IP允许名单期限临近",
+        "region": "us",
+        "published_at": "2026-11-05",
+        "source_url": "https://shopify.dev/changelog/posts/ip-allowlists-are-now-required-for-public-apps",
+        "score": {
+          "relevance": 30,
+          "money_impact": 26,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 7,
+          "total": 87
+        },
+        "decision": "rejected",
+        "reason": "11月12日和20日各有不同限制，影响公共应用的批量操作及新安装；自定义和商家自建应用等有豁免。与本期运费无关，不能说整个独立站停业。"
+      },
+      {
+        "title": "WooCommerce说明官方扩展安全补丁交付方式",
+        "region": "us",
+        "published_at": "2026-11-06",
+        "source_url": "https://developer.woocommerce.com/2026/11/06/woo-latest-security/",
+        "score": {
+          "relevance": 30,
+          "money_impact": 23,
+          "concrete_evidence": 13,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "连接官方账户且订阅有效等合格店铺可收到强制安全更新，通常一天内安装；适用全球含美国独立站。需要核对店铺条件，与本期预估运费不同。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "独立事实审计 fact_audit_1105 对最终正文与五条候选PASS，平台原文HTTP200及6/6可见标记已核实。",
+        "事实通过后独立内容主编 us_candidates_1105 复读最终JSON和研究记录PASS，愿意直接录制。",
+        "A/B均聚焦减重与预估费冲突，B明确预估口径；8/6/2美元均为假设且不混同实际扣款。",
+        "旧订单算法、打包称重、ERP数据和后台工单提供具体动作；候选最终评分已统一。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "TikTok美国站调整被处置店铺的预估运费算法",
+      "what_happened": "TikTok美国站11月6日更新规则，11月12日太平洋时间起，可针对运费或重量违规店铺采取预估运费计算处置；相关订单调低重量或尺寸后若预估降低则维持，若预估升高则更新。",
+      "numbers": [
+        "公告更新2026-11-06",
+        "处置规则2026-11-12美国太平洋时间起实施",
+        "假设预估8美元改轻本可估6美元，差2美元仅是预估差额"
+      ],
+      "effective_at": "2026-11-12美国太平洋时间起；仅对被采取对应处置的店铺及合格订单适用",
+      "affected_sellers": "美国TikTok Shop被采取该违规处置的店铺，且为合格TikTok Shipping Standard Delivery、CBT或Express订单；不覆盖所有店铺。",
+      "money_impact": "假设同价卡且其他条件不变，原预估8美元、改轻本可预估6美元，处置订单仍保留8美元预估；2美元为预估差额，不是已发生多扣款。",
+      "calculation": {
+        "basis": "金额为解释算法的自拟假设，不是官方费率或真实店铺案例；同一价卡、其他计费条件不变。",
+        "formula": "假设原预估8美元，改轻后本可预估6美元；处置下预估仍为8美元，预估差额8-6=2美元。",
+        "result": "该假设下预估差额2美元；实际结算按承运商实测计费重量、适用价卡及运输条件核算。"
+      },
+      "action": "检查后台对应违规通知，复核打包后重量尺寸及ERP数据；保留称重和申报材料，对错误判定经卖家后台客服工单申请复核。",
+      "evidence": [
+        {
+          "title": "TikTok Shop美国站：预估运费计算更新",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=3535967017469702",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-06",
+          "checked_at": "2026-11-08T08:05:02.320Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "可见更新日期、11月12日PT、仅违规处置范围、调低预估保持及调高更新、最终承运商计费重量规则。",
+          "markers": [
+            "11/06/2026",
+            "Nov 12th, 2026",
+            "does not apply to all TikTok Shipping sellers",
+            "the estimated shipping fee will remain unchanged",
+            "the estimated shipping fee will be updated accordingly",
+            "actual billable weight"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "包裹改轻，预估费没降？",
+    "b": "12日起，减重未必降预估。"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。美国TikTok Shop出了新规，改轻包裹，预估运费也可能不降。\n第一，11月12日，美国太平洋时间起，平台对存在运费或重量违规、并被采取这项处置的店铺，调整部分平台物流订单的预估算法。后台会发违规通知，先确认自己是否适用。\n它比较买家下单、卖家标记待发货两个时点的信息。调低重量或尺寸，让预估费变低，预估金额保持；调高后费用更高，就跟着更新。\n举个假设：同一价卡、其他条件不变，下单时预估8美元，改轻后本来能估6美元。这类订单仍保留8美元预估。差的2美元，只是预估差额，不能说已经多扣了2美元。\n承运商还会测重量和尺寸。如果实际计费重量更高，最终费用可能继续上调。不能把预估金额当成账单上限，也不能承诺改轻后一定退差价。\n还有一个容易漏的细节：平台撤销这项处置后，之前已经创建的订单，仍按下单时适用的方法结算。\n现在先看后台有没有对应通知。再称一次打包完成的包裹，把纸箱、填充物和赠品都算进去，同时核对商品页和发货系统里的重量、尺寸。发现判定有误，就附上称重和相关资料，走后台客服工单申请复核。\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "这是被判定违规且采取对应处置的店铺规则，合格Standard Delivery、CBT及Express订单适用；不能外推为所有TikTok卖家统一涨价。",
+    "11月6日为页面可见更新日，11月12日为美国太平洋时间执行日期，公告未给具体小时；不替换成北京时间同日零点。",
+    "8美元、6美元、2美元是解释算法的自拟假设，条件为同一价卡且其他因素不变；不代表官方价卡、真实案例或已经多扣2美元。",
+    "预估费与最终结算分开。实际计费重量较高时会按承运商报告和适用费率重算；原文未承诺实际重量降低就一定退款或下调。",
+    "撤销处置后，新订单可恢复标准方法；已有订单仍按其创建时适用的方法结算，不能声称旧订单自动全部恢复。",
+    "官方建议重量包含商品、外包装、填充物、标签、捆绑商品及其他内装物；ERP也须核实对应数据。",
+    "Shopify和WooCommerce为跨市场候选，列美国指美国独立站运营场景，不表示平台规则仅适用于美国。eBay候选记录11月5日可见更新日期，不将10月22日首发日冒充新政策日期。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-08T08:05:02.320Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-08T16:00:00+08:00"
+  }
+}
