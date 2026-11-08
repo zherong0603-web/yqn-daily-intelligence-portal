@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-08T08:12:35.164Z",
+  "uniqueTitleMatches": 1,
+  "complete": true,
+  "hasMore": false,
+  "messageTime": "2026-11-08 16:12:04",
+  "theme": true,
+  "hookA": true,
+  "hookB": true,
+  "body": true,
+  "paragraphsMatched": 8,
+  "paragraphsTotal": 8,
+  "candidates": [
+    {
+      "title": "TikTok美国站调整被处置店铺的预估运费算法",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "eBay提醒USPS两类服务11月8日调价",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shopify批量查询和写入须分别开通权限",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shopify公共应用IP允许名单期限临近",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "WooCommerce说明官方扩展安全补丁交付方式",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    }
+  ],
+  "candidatesMatched": 5,
+  "source": true
+}
