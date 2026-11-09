@@ -48,6 +48,40 @@ describe("Crossborder V2 DWS delivery", () => {
     expect(() => readDwsDeliveryStatus("sent")).toThrow(/non-JSON/);
   });
 
+  it("accepts the CLI wait-delivery receipt and standard result envelope", () => {
+    // Actual CLI receipt shape; identity fields are deliberately omitted.
+    expect(readDwsDeliveryStatus(JSON.stringify({ deliveryStatus: "delivered" }))).toEqual({ ok: true, status: "DELIVERED" });
+    expect(readDwsDeliveryStatus(JSON.stringify({ success: true, result: { deliveryStatus: "delivered" } }))).toEqual({ ok: true, status: "DELIVERED" });
+    expect(readDwsDeliveryStatus(JSON.stringify({ success: true, result: { readStatus: "UNREAD" } }))).toEqual({ ok: true, status: "UNREAD" });
+    // Official unified Envelope from internal/output/envelope.go.
+    expect(readDwsDeliveryStatus(JSON.stringify({ ok: true, outcome: "success", data: { deliveryStatus: "delivered" } }))).toEqual({ ok: true, status: "DELIVERED" });
+  });
+
+  it.each([
+    { success: false, example: "UNREAD", status: "FAILED" },
+    { success: true, result: { note: "READ", deliveryStatus: "UNKNOWN" } },
+    { deliveryStatus: "DELIVERED", success: false },
+    { deliveryStatus: "DELIVERED", result: { status: "FAILED" } },
+    { success: true, result: { deliveryStatus: "delivered", ok: false } },
+    { success: true, result: { deliveryStatus: "delivered", error: "receipt failed" } },
+    { result: { sendStatus: "SUCCESS" } },
+    { result: { status: "READ" } },
+    { result: { body: { deliveryStatus: "DELIVERED" } } },
+    { message: "DELIVERED", hint: "READ", example: "UNREAD" },
+    { deliveryStatus: "UNKNOWN", readStatus: "READ" },
+    { deliveryStatus: "DELIVERED", readStatus: "FAILED" },
+    { ok: true, outcome: "pending", data: { deliveryStatus: "DELIVERED" } },
+    { ok: false, outcome: "failure", data: { deliveryStatus: "DELIVERED" } },
+    { ok: false, outcome: "partial_failure", data: { deliveryStatus: "DELIVERED" } },
+    { ok: true, outcome: "success", dry_run: true, data: { deliveryStatus: "DELIVERED" } },
+    { data: { deliveryStatus: "DELIVERED" } },
+    [{ deliveryStatus: "DELIVERED" }],
+    "READ",
+    null,
+  ])("fails closed without an unambiguous structured receipt: %j", (payload) => {
+    expect(readDwsDeliveryStatus(JSON.stringify(payload)).ok).toBe(false);
+  });
+
   it("requires one exact group match", () => {
     expect(assertUniqueDwsGroup(groupLookupOutput)).toBe(true);
     expect(() => assertUniqueDwsGroup(JSON.stringify({ success: true, result: { groups: [] } }))).toThrow(/exactly one group/);

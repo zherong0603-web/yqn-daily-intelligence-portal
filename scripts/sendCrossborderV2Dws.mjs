@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const targetGroupName = "跨境咨询每日内容";
 const successValues = new Set(["DELIVERED", "READ", "UNREAD"]);
-const failureValues = new Set(["FAILED", "FAIL", "REJECTED", "INVALID", "BLOCKED"]);
+const failureValues = new Set(["FAILED", "FAIL", "REJECTED", "INVALID", "BLOCKED", "ERROR", "CANCELLED", "CANCELED", "TIMEOUT"]);
 
 function dateInShanghai(now = new Date()) {
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -41,13 +41,6 @@ export function parseCrossborderV2DwsArgs(argv) {
   return { date, live: liveIndexes.length === 1 };
 }
 
-function collectStrings(value, output = []) {
-  if (typeof value === "string") output.push(value);
-  else if (Array.isArray(value)) for (const item of value) collectStrings(item, output);
-  else if (value && typeof value === "object") for (const item of Object.values(value)) collectStrings(item, output);
-  return output;
-}
-
 export function readDwsDeliveryStatus(stdout) {
   let parsed;
   try {
@@ -55,9 +48,34 @@ export function readDwsDeliveryStatus(stdout) {
   } catch {
     throw new Error("Crossborder V2 DWS returned non-JSON output");
   }
-  const values = collectStrings(parsed).map((value) => value.toUpperCase());
-  const status = values.find((value) => successValues.has(value) || failureValues.has(value)) || "UNKNOWN";
-  return { ok: successValues.has(status), status };
+  const isRecord = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+  if (!isRecord(parsed)) return { ok: false, status: "UNKNOWN" };
+  // DWS --wait-delivery projects a deliveryStatus receipt. Only the direct
+  // receipt or documented envelopes count; message bodies/examples do not.
+  // Source: DingTalk-Real-AI/dingtalk-workspace-cli internal/helpers/chat_delivery.go.
+  // Current unified output is {ok, outcome, data}; a pending/partial/dry-run
+  // envelope must never be promoted to confirmed delivery.
+  if (parsed.dry_run === true || (Object.hasOwn(parsed, "outcome") && parsed.outcome !== "success")) {
+    return { ok: false, status: ["failure", "partial_failure"].includes(parsed.outcome) ? "FAILED" : "UNKNOWN" };
+  }
+  const receipts = [parsed, ...(isRecord(parsed.result) ? [parsed.result] : []),
+    ...(parsed.ok === true && parsed.outcome === "success" && isRecord(parsed.data) ? [parsed.data] : [])];
+  const normalized = (value) => typeof value === "string" ? value.trim().toUpperCase() : "";
+  if (receipts.some((receipt) => receipt.success === false || receipt.ok === false
+    || (receipt.error !== undefined && receipt.error !== null && receipt.error !== "" && receipt.error !== false))) {
+    return { ok: false, status: "FAILED" };
+  }
+  for (const receipt of receipts) {
+    for (const field of ["deliveryStatus", "readStatus", "sendStatus", "status"]) {
+      const status = normalized(receipt[field]);
+      if (failureValues.has(status)) return { ok: false, status };
+    }
+  }
+  const states = receipts.flatMap((receipt) => ["deliveryStatus", "readStatus"]
+    .filter((field) => Object.hasOwn(receipt, field)).map((field) => normalized(receipt[field])));
+  // A contradictory or unknown receipt is not enough evidence to mark delivery.
+  if (!states.length || states.some((state) => !successValues.has(state))) return { ok: false, status: "UNKNOWN" };
+  return { ok: true, status: states.includes("READ") ? "READ" : states[0] };
 }
 
 export function assertUniqueDwsGroup(stdout, expectedTitle = targetGroupName) {

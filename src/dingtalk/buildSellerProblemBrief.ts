@@ -1,11 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { z } from "zod";
+import { parse as parseHtml } from "parse5";
 
 const execFileAsync = promisify(execFile);
 
@@ -91,6 +92,7 @@ const crossborderV2EvidenceSchema = z.object({
   url: secureSourceUrlSchema,
   source_type: z.enum(["official", "platform_announcement", "media", "seller_forum", "internal_approved"]),
   published_at: calendarDateSchema,
+  published_at_source_url: secureSourceUrlSchema.optional(),
   checked_at: z.string().datetime({ offset: true }),
   roles: z.array(evidenceRoleSchema).min(1).max(2),
   supports: singleLine(8, 280),
@@ -562,6 +564,7 @@ export interface CrossborderSourceCheck {
   matched_number: string | null;
   matched_date: string | null;
   matched_markers: string[];
+  date_source_url?: string;
   error?: string;
 }
 
@@ -615,8 +618,13 @@ async function assertSafePublicSourceUrl(input: string | URL): Promise<URL> {
   return url;
 }
 
-async function fetchPublicSource(url: string | URL, fetchImpl: typeof fetch): Promise<{ html: string; finalUrl: URL }> {
-  let current = await assertSafePublicSourceUrl(url);
+async function fetchPublicSource(url: string | URL, fetchImpl: typeof fetch, requiredOrigin?: string): Promise<{ data: Buffer; finalUrl: URL }> {
+  const checkUrl = async (input: string | URL): Promise<URL> => {
+    const candidate = new URL(input);
+    if (requiredOrigin && candidate.origin !== requiredOrigin) throw new Error("PDF and publication index must have the same origin, including redirects");
+    return assertSafePublicSourceUrl(candidate);
+  };
+  let current = await checkUrl(url);
   for (let redirect = 0; redirect <= 3; redirect += 1) {
     let response: Response;
     try {
@@ -650,26 +658,119 @@ if len(data) > 3000000:
 sys.stdout.buffer.write(data)
 `;
       const { stdout } = await execFileAsync("python3", ["-c", pythonFetch, current.href], {
-        encoding: "utf8",
+        encoding: "buffer",
         maxBuffer: 3_200_000,
         timeout: 30_000,
       });
-      return { html: stdout, finalUrl: current };
+      return { data: stdout, finalUrl: current };
     }
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get("location");
       if (!location) throw new Error(`HTTP ${response.status} redirect without location`);
-      current = await assertSafePublicSourceUrl(new URL(location, current));
+      current = await checkUrl(new URL(location, current));
       continue;
     }
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const declaredLength = Number(response.headers.get("content-length") || "0");
     if (declaredLength > 3_000_000) throw new Error("source response is too large");
-    const html = await response.text();
-    if (html.length > 3_000_000) throw new Error("source response is too large");
-    return { html, finalUrl: current };
+    const reader = response.body?.getReader();
+    if (!reader) throw new Error("source response has no body");
+    const chunks: Uint8Array[] = [];
+    let size = 0;
+    try {
+      for (;;) {
+        const chunk = await reader.read();
+        if (chunk.done) break;
+        size += chunk.value.byteLength;
+        if (size > 3_000_000) {
+          await reader.cancel();
+          throw new Error("source response is too large");
+        }
+        chunks.push(chunk.value);
+      }
+    } finally {
+      reader.releaseLock();
+    }
+    return { data: Buffer.concat(chunks), finalUrl: current };
   }
   throw new Error("source redirected too many times");
+}
+
+function findVisibleDate(visible: string, date: string): string | null {
+  return sourceDateVariants(date).find((variant) => {
+    const escaped = variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp(`(?<!\\d)${escaped}(?!\\d)`, "u").test(visible);
+  }) || null;
+}
+
+type IndexNode = {
+  nodeName: string;
+  value?: string;
+  attrs?: Array<{ name: string; value: string }>;
+  childNodes?: IndexNode[];
+};
+
+function indexNodeIsHidden(node: IndexNode): boolean {
+  const attrs = Object.fromEntries((node.attrs || []).map((attr) => [attr.name, attr.value]));
+  return ["script", "style", "template", "noscript", "head"].includes(node.nodeName)
+    || "hidden" in attrs || attrs["aria-hidden"] === "true"
+    || /(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs.style || "");
+}
+
+function visibleIndexText(node: IndexNode): string {
+  if (indexNodeIsHidden(node)) return "";
+  return node.nodeName === "#text" ? node.value || "" : (node.childNodes || []).map(visibleIndexText).join(" ");
+}
+
+function findPdfIndexDate(html: string, indexUrl: URL, pdfUrl: URL, date: string): string | null {
+  const document = parseHtml(html);
+  // Relative links must have their ordinary page URL meaning. A base element
+  // changes that meaning; fail closed instead of accepting a misleading anchor.
+  function containsBase(node: IndexNode): boolean {
+    return node.nodeName === "base" || (node.childNodes || []).some(containsBase);
+  }
+  if (containsBase(document)) return null;
+  const target = new URL(pdfUrl);
+  target.hash = "";
+  function walk(node: IndexNode): string | null {
+    if (indexNodeIsHidden(node)) return null;
+    if (node.nodeName === "a") {
+      const href = node.attrs?.find((attr) => attr.name === "href")?.value;
+      if (href) {
+        try {
+          const linked = new URL(href, indexUrl);
+          linked.hash = "";
+          if (linked.href === target.href) {
+            const matched = findVisibleDate(visibleIndexText(node).replace(/\s+/g, " "), date);
+            if (matched) return matched;
+          }
+        } catch { /* An invalid link cannot establish publication evidence. */ }
+      }
+    }
+    for (const child of node.childNodes || []) {
+      const matched = walk(child);
+      if (matched) return matched;
+    }
+    return null;
+  }
+  return walk(document);
+}
+
+async function extractSourcePdf(data: Buffer): Promise<string> {
+  // Isolate untrusted PDF parsing so the CPU, heap, output and wall time are bounded.
+  const extraction = execFileAsync(process.execPath, [
+    "--max-old-space-size=192",
+    fileURLToPath(new URL("../../scripts/extractSourcePdf.mjs", import.meta.url)),
+  ], { encoding: "utf8", timeout: 15_000, maxBuffer: 3_000_000 });
+  extraction.child.stdin?.on("error", () => { /* The subprocess result below reports failure. */ });
+  extraction.child.stdin?.end(data);
+  try {
+    const { stdout } = await extraction;
+    if (!stdout.trim()) throw new Error("PDF contains no extractable text");
+    return stdout;
+  } catch {
+    throw new Error("PDF extraction failed (missing parser, invalid PDF, or extraction limit)");
+  }
 }
 
 export async function verifyCrossborderV2Sources(
@@ -680,17 +781,24 @@ export async function verifyCrossborderV2Sources(
   for (const signal of brief.signals) {
     for (const evidence of signal.evidence) {
       let matchedMarkers: string[] = [];
+      let dateSourceUrl: string | undefined;
       try {
-        const { html } = await fetchPublicSource(evidence.url, fetchImpl);
-        const visible = decodeHtmlEntities(html)
+        const dateIndex = evidence.published_at_source_url;
+        if (dateIndex && evidence.source_type !== "official") throw new Error("a publication index is only allowed for official PDF sources");
+        const { data, finalUrl } = await fetchPublicSource(evidence.url, fetchImpl, dateIndex ? new URL(evidence.url).origin : undefined);
+        const isPdf = data.subarray(0, 5).toString("ascii") === "%PDF-";
+        if (!isPdf && (dateIndex || /\.pdf$/i.test(finalUrl.pathname))) throw new Error("PDF source does not contain a PDF document");
+        const visible = isPdf ? await extractSourcePdf(data) : decodeHtmlEntities(data.toString("utf8"))
           .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ")
           .replace(/<[^>]+>/g, " ")
           .replace(/\s+/g, " ");
-        const dateVariants = sourceDateVariants(evidence.published_at);
-        const matchedDate = dateVariants.find((variant) => {
-          const escaped = variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-          return new RegExp(`(?<!\\d)${escaped}(?!\\d)`, "u").test(visible);
-        }) || null;
+        let matchedDate = findVisibleDate(visible, evidence.published_at);
+        if (dateIndex) {
+          const index = await fetchPublicSource(dateIndex, fetchImpl, finalUrl.origin);
+          matchedDate = findPdfIndexDate(index.data.toString("utf8"), index.finalUrl, finalUrl, evidence.published_at);
+          if (!matchedDate) throw new Error("publication index must link the exact PDF with the claimed date in visible anchor text");
+          dateSourceUrl = redactSourceUrl(index.finalUrl.href);
+        }
         const numericText = [
           ...signal.numbers.filter((item) => !/(?:\d{4}[-/.年]\d{1,2}|月|日|时间)/.test(item)),
           signal.money_impact,
@@ -720,6 +828,7 @@ export async function verifyCrossborderV2Sources(
             matched_number: matchedNumber,
             matched_date: matchedDate,
             matched_markers: matchedMarkers,
+            ...(dateSourceUrl ? { date_source_url: dateSourceUrl } : {}),
             error: `source page is missing ${evidence.markers.length - matchedMarkers.length} required evidence marker(s)`,
           });
           continue;
@@ -730,6 +839,7 @@ export async function verifyCrossborderV2Sources(
           matched_number: matchedNumber,
           matched_date: matchedDate,
           matched_markers: matchedMarkers,
+          ...(dateSourceUrl ? { date_source_url: dateSourceUrl } : {}),
         });
       } catch (error) {
         checks.push({
@@ -738,6 +848,7 @@ export async function verifyCrossborderV2Sources(
           matched_number: null,
           matched_date: null,
           matched_markers: matchedMarkers,
+          ...(dateSourceUrl ? { date_source_url: dateSourceUrl } : {}),
           error: error instanceof Error ? error.message : "source verification failed",
         });
       }

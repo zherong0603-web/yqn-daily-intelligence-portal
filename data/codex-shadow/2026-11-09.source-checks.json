@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-09",
+  "checked_at": "2026-11-09T08:24:07.792Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/Section%20301/USTR%20FRN%20Extending%20Section%20301%20China%20FTT%20Exclusions%20to%20Jan%202027.pdf",
+      "ok": true,
+      "matched_number": "178",
+      "matched_date": "November 6, 2026",
+      "matched_markers": [
+        "all 178 current exclusions",
+        "11:59 p.m. eastern time on January 9, 2027",
+        "ten-digit Harmonized Tariff Schedule",
+        "product descriptions",
+        "goods entered for consumption",
+        "November 10, 2026"
+      ],
+      "date_source_url": "https://ustr.gov/trade-topics/enforcement/section-301-investigations/section-301-china-technology-transfer/china-section-301-tariff-actions-and-exclusion-process/reinstatement-certain-exclusions-previously-extended"
+    },
+    {
+      "url": "https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/Section%20301/USTR%20Sec%20301%20Ships%20FRN%20Further%20Suspension.pdf",
+      "ok": true,
+      "matched_number": null,
+      "matched_date": "November 6, 2026",
+      "matched_markers": [
+        "effective on November 9, 2026",
+        "11:59 p.m. Eastern Time on January 9, 2027",
+        "no party will accrue liability",
+        "Annexes I, II, or III",
+        "Annex V.A"
+      ],
+      "date_source_url": "https://ustr.gov/trade-topics/enforcement/section-301-investigations/section-301-china-targeting-maritime-logistics-and-shipbuilding-sectors-dominance"
+    }
+  ]
+}

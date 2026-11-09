@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-11-09T08:24:26.075Z",
+  "uniqueTitleMatches": 1,
+  "complete": true,
+  "hasMore": false,
+  "messageTime": "2026-11-09 16:24:09",
+  "theme": true,
+  "hookA": true,
+  "hookB": true,
+  "body": true,
+  "paragraphsMatched": 8,
+  "paragraphsTotal": 8,
+  "candidates": [
+    {
+      "title": "178项现有中国商品301关税豁免延长两个月",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "美国海事301措施进一步暂停两个月",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shopify批量查询和写入须分别开通权限",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "WooCommerce说明扩展安全更新自动安装范围",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shippo预告USPS接口11月15日维护最长7小时",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    }
+  ],
+  "candidatesMatched": 5,
+  "source": true,
+  "dateSources": true,
+  "all_ok": true
+}
