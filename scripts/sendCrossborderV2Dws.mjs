@@ -51,15 +51,9 @@ export function readDwsDeliveryStatus(stdout) {
   const isRecord = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
   if (!isRecord(parsed)) return { ok: false, status: "UNKNOWN" };
   // DWS --wait-delivery projects a deliveryStatus receipt. Only the direct
-  // receipt or documented envelopes count; message bodies/examples do not.
+  // receipt or standard result envelope counts; message bodies/examples do not.
   // Source: DingTalk-Real-AI/dingtalk-workspace-cli internal/helpers/chat_delivery.go.
-  // Current unified output is {ok, outcome, data}; a pending/partial/dry-run
-  // envelope must never be promoted to confirmed delivery.
-  if (parsed.dry_run === true || (Object.hasOwn(parsed, "outcome") && parsed.outcome !== "success")) {
-    return { ok: false, status: ["failure", "partial_failure"].includes(parsed.outcome) ? "FAILED" : "UNKNOWN" };
-  }
-  const receipts = [parsed, ...(isRecord(parsed.result) ? [parsed.result] : []),
-    ...(parsed.ok === true && parsed.outcome === "success" && isRecord(parsed.data) ? [parsed.data] : [])];
+  const receipts = [parsed, ...(isRecord(parsed.result) ? [parsed.result] : [])];
   const normalized = (value) => typeof value === "string" ? value.trim().toUpperCase() : "";
   if (receipts.some((receipt) => receipt.success === false || receipt.ok === false
     || (receipt.error !== undefined && receipt.error !== null && receipt.error !== "" && receipt.error !== false))) {

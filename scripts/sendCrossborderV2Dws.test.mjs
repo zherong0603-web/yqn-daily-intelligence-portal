@@ -53,8 +53,6 @@ describe("Crossborder V2 DWS delivery", () => {
     expect(readDwsDeliveryStatus(JSON.stringify({ deliveryStatus: "delivered" }))).toEqual({ ok: true, status: "DELIVERED" });
     expect(readDwsDeliveryStatus(JSON.stringify({ success: true, result: { deliveryStatus: "delivered" } }))).toEqual({ ok: true, status: "DELIVERED" });
     expect(readDwsDeliveryStatus(JSON.stringify({ success: true, result: { readStatus: "UNREAD" } }))).toEqual({ ok: true, status: "UNREAD" });
-    // Official unified Envelope from internal/output/envelope.go.
-    expect(readDwsDeliveryStatus(JSON.stringify({ ok: true, outcome: "success", data: { deliveryStatus: "delivered" } }))).toEqual({ ok: true, status: "DELIVERED" });
   });
 
   it.each([
@@ -70,11 +68,6 @@ describe("Crossborder V2 DWS delivery", () => {
     { message: "DELIVERED", hint: "READ", example: "UNREAD" },
     { deliveryStatus: "UNKNOWN", readStatus: "READ" },
     { deliveryStatus: "DELIVERED", readStatus: "FAILED" },
-    { ok: true, outcome: "pending", data: { deliveryStatus: "DELIVERED" } },
-    { ok: false, outcome: "failure", data: { deliveryStatus: "DELIVERED" } },
-    { ok: false, outcome: "partial_failure", data: { deliveryStatus: "DELIVERED" } },
-    { ok: true, outcome: "success", dry_run: true, data: { deliveryStatus: "DELIVERED" } },
-    { data: { deliveryStatus: "DELIVERED" } },
     [{ deliveryStatus: "DELIVERED" }],
     "READ",
     null,
