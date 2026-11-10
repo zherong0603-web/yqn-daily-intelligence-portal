@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-10",
+  "checked_at": "2026-11-10T08:24:05.476Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.aboutamazon.com/news/retail/amazon-haul-sale-ultra-low-price-deals",
+      "ok": true,
+      "matched_number": "25",
+      "matched_date": "Nov. 9, 2026",
+      "matched_markers": [
+        "November 09, 2026",
+        "$0.11 deals on November 10",
+        "Free delivery on orders of $25 or more",
+        "free returns on all eligible purchases over $3 within 15 days of delivery",
+        "Relevant Amazon Haul products now surface within Amazon search results",
+        "All deals and availability are subject to change"
+      ]
+    }
+  ]
+}

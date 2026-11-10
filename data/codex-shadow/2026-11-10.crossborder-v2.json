@@ -1,0 +1,180 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-10",
+  "title": "跨境早知道 V4｜11月10日",
+  "summary": "Amazon Haul推出11月10至11日11美分促销，官方同时列明25美元包邮门槛、符合条件购买的退货规则及搜索展示范围。普通美国站卖家应比较完整购买条件，不能把入口价当作同类商品统一售价。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先查24小时，再扩至72小时比较14条去重候选。最终来源页面可见发布日期11月9日，不编造时分；Hapag选题因后台严格读取HTTP403撤出，低日期可信度和旧闻重贴者淘汰。"
+  },
+  "editorial": {
+    "theme": "11美分商品，普通卖家跟价前该算什么？",
+    "candidate_count_researched": 14,
+    "candidates": [
+      {
+        "title": "Amazon Haul推出11美分活动并披露搜索展示与订单门槛",
+        "region": "us",
+        "published_at": "2026-11-09",
+        "source_url": "https://www.aboutamazon.com/news/retail/amazon-haul-sale-ultra-low-price-deals",
+        "score": {
+          "relevance": 32,
+          "money_impact": 26,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 91
+        },
+        "decision": "selected",
+        "reason": "11月10至11日特定11美分优惠正在开展，满25美元包邮及符合条件的退货规则影响到手价比较；官方同时说明匹配需求的Haul商品可进入Amazon搜索，普通美国站卖家有直接竞争参照价值。"
+      },
+      {
+        "title": "赫伯罗特美西铁路箱在港等待5至6天",
+        "region": "us",
+        "published_at": "2026-11-09",
+        "source_url": "https://www.hapag-lloyd.com/fr/services-information/operational-updates/updates/2026/02/ops-update-north-america-week-45.html",
+        "score": {
+          "relevance": 34,
+          "money_impact": 25,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "洛杉矶、长滩铁路箱5至6天及指定码头11月11日双班关闭有经营价值；网页浏览可见原文，但后台严格来源读取fr/en页面均HTTP403，无法通过发送门槛，本期不入主稿。"
+      },
+      {
+        "title": "Amazon公布美国黑五及网一12天活动窗口",
+        "region": "us",
+        "published_at": "2026-11-09",
+        "source_url": "https://press.aboutamazon.com/2026/11/amazons-black-friday-week-and-cyber-monday-return-november-19-30-with-millions-of-deals-to-deliver-joy-this-holiday-season",
+        "score": {
+          "relevance": 33,
+          "money_impact": 24,
+          "concrete_evidence": 15,
+          "hook_potential": 7,
+          "timeliness": 8,
+          "total": 87
+        },
+        "decision": "rejected",
+        "reason": "官方11月9日公布11月19至30日活动，具有促销排期价值；这是消费者活动窗口，不是卖家入仓截止日。本期讲Haul低价竞争的购买条件，不加入主站促销日程。"
+      },
+      {
+        "title": "Maersk Andernach内陆港恢复每柜625欧元应急费",
+        "region": "europe",
+        "published_at": "2026-11-09",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/09/andernach-inland-terminal-contingency-surcharge",
+        "score": {
+          "relevance": 28,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "11月9日公告Andernach对应路线恢复每柜625欧元应急费，自11月3日起适用，低水位费另计。欧洲内陆成本影响明确，与本期Haul低价竞争不同，留作欧洲专项。"
+      },
+      {
+        "title": "Maersk北欧七国内陆段燃油附加费11月11日起调整",
+        "region": "europe",
+        "published_at": "2026-11-09",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/09/emergency-inland-fuel-energy-surcharge",
+        "score": {
+          "relevance": 26,
+          "money_impact": 27,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "仅对应七国Store Door内陆运输及适用PCD日期，费率4%至23%；电卡和铁路目前不受影响。未明确计费基数，不能乘整票海运费，与Haul低价竞争主题不同。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "独立事实审计fact_audit_1109核对最终A/B、8段正文、5候选及结构化假设计算PASS。",
+        "事实审核通过后，独立主编us_candidates_1109复读同版稿PASS，愿直接录制；搜索竞争关联已提前。",
+        "首轮主编指出经营关联偏后、口播24.89演算增量低，已重排并删去该口播演算，重新通过事实和主编审核。",
+        "同规格材质件数、同一目的地的价格运费时效退货核对提供具体动作；未推断补贴归属、结算价或实际流量损失。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "Amazon Haul推出11美分活动并披露搜索展示与订单门槛",
+      "what_happened": "Amazon于11月9日公布Haul提前节日活动，11月9至14日开展，11美分特定优惠在10至11日；同时重申订单门槛与退货条件，并说明匹配需求的Haul商品可进入Amazon搜索。",
+      "numbers": [
+        "11美分优惠安排在2026-11-10至2026-11-11",
+        "Haul订单满25美元符合免费配送",
+        "符合条件且超过3美元的购买，收货15天内免费退货",
+        "假设1件0.11美元商品凑至25美元，还差24.89美元"
+      ],
+      "effective_at": "2026-11-09至2026-11-14活动；11美分优惠安排于2026-11-10和2026-11-11，公告未披露具体时区和小时",
+      "affected_sellers": "Amazon美国站与Haul上同类低价时尚、美妆、家居、电子等商品卖家；11美分为活动内特定商品，搜索展示以匹配用户需求为条件，不代表全站统一价或所有商品全量曝光。",
+      "money_impact": "假设一件促销商品0.11美元，无其他优惠且仅按商品金额凑25美元包邮门槛，还差25-0.11=24.89美元；这不是每笔必花金额，也不是卖家的成本或结算收入。",
+      "calculation": {
+        "basis": "自拟单件购物篮演示：只购买到1件0.11美元商品、无其他优惠，按商品金额与25美元免配送门槛比较，不含税或其他费用。",
+        "formula": "25美元门槛-0.11美元单件商品金额=24.89美元差额。",
+        "result": "该假设下距25美元商品金额还差24.89美元；买家可选择未满门槛结账，实际运费以结账页为准。"
+      },
+      "action": "按主推品核对同类Haul商品活动价、结账运费、预计送达和退货条件；不以活动入口价倒推供货价、补贴归属、卖家结算价或实际利润。",
+      "evidence": [
+        {
+          "title": "Amazon Haul提前节日活动官方公告",
+          "url": "https://www.aboutamazon.com/news/retail/amazon-haul-sale-ultra-low-price-deals",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-09",
+          "checked_at": "2026-11-10T08:16:43.674363Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "可见11月9日发布日期；11美分优惠日期、25美元包邮门槛、超过3美元且符合条件购买的15天免费退货、匹配需求时进入Amazon搜索及优惠变动边界。",
+          "markers": [
+            "November 09, 2026",
+            "$0.11 deals on November 10",
+            "Free delivery on orders of $25 or more",
+            "free returns on all eligible purchases over $3 within 15 days of delivery",
+            "Relevant Amazon Haul products now surface within Amazon search results",
+            "All deals and availability are subject to change"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "11美分，你还跟价吗？",
+    "b": "11美分，25美元才包邮。"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。普通美国站卖家，你的同类搜索结果里，也可能出现Haul低价商品。\n第一，亚马逊11月9日公告说，匹配消费者搜索需求的Haul商品，会出现在亚马逊搜索结果里。你做竞品排查，除了原来的店铺，还得看看这些商品怎么买。\n这轮Haul活动到11月14日，11美分优惠安排在10日和11日，针对特定促销商品，优惠和库存可能变化。看到低价截图，先点进商品，再到结账页核实这笔订单要付多少。\n包邮也有条件。Haul订单满25美元，才符合免费配送；没满门槛，运费看结账页。比较同类款时，要把活动价和配送费放在一起，核对买家的到手价。\n退货方面，官方承诺符合条件、超过3美元的购买，可在收货15天内免费退货。做竞品比较，把适用金额和期限一起记下来，低价商品单独核对它的退货规则。\n今天选一款主推品，做四项对照：活动价、结账运费、预计送达时间、退货条件。先把规格、材质和件数对齐，单件和多件装分开，再比较发往同一目的地的购买条件。\n这份公告没有公布11美分优惠由谁补贴，也没给卖家结算价。是否跟价，还要把自己的供货、物流和平台费用算进去，留出退货后的成本。\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "仅美国Amazon Haul活动内特定商品有11美分优惠，不能写成所有主站商品同价、强制第三方跟价或全站清仓；公告未披露具体小时与时区，不擅自换算为北京时间零点。",
+    "25美元是Haul订单免配送门槛，24.89美元是明确假设的商品金额差额，不是统一客单价、必须支出或卖家结算收入；税及其他费用未纳入演算。",
+    "免费退货表述仅限eligible purchases over $3且收货15天内；公告未给11美分商品同等免费退货承诺，不额外声称其一定可退或一律不能退款。",
+    "搜索展示以与用户需求匹配为条件，不能声称所有Haul商品全面占据主站，也没有证据证明具体卖家流量、转化或广告成本已经变化。",
+    "公告没有披露11美分优惠资金承担方、卖家结算价或真实利润；不能声称平台全额补贴、卖家必亏或据此推算同行进货成本。",
+    "Hapag周报虽可在网页研究工具读取，后台严格源fr/en均403，撤出主稿；生效日、URL日期和搜索抓取日不得冒充页面发布日期。",
+    "欧洲候选费用只按具体承运商、内陆路线、日期及服务适用；两码头费用不叠成一柜，燃油费未明确基数不能乘整票海运费。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-10T08:16:43.674363Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-10T16:00:00+08:00"
+  }
+}

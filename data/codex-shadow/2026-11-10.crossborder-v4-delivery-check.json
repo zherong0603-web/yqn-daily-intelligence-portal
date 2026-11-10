@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-11-10T08:24:23.354Z",
+  "uniqueTitleMatches": 1,
+  "complete": true,
+  "hasMore": false,
+  "messageTime": "2026-11-10 16:24:07",
+  "theme": true,
+  "hookA": true,
+  "hookB": true,
+  "body": true,
+  "paragraphsMatched": 8,
+  "paragraphsTotal": 8,
+  "candidates": [
+    {
+      "title": "Amazon Haul推出11美分活动并披露搜索展示与订单门槛",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "赫伯罗特美西铁路箱在港等待5至6天",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Amazon公布美国黑五及网一12天活动窗口",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Maersk Andernach内陆港恢复每柜625欧元应急费",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Maersk北欧七国内陆段燃油附加费11月11日起调整",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    }
+  ],
+  "candidatesMatched": 5,
+  "source": true,
+  "dateSources": true,
+  "all_ok": true
+}
