@@ -1,0 +1,11 @@
+{
+  "status": "APPROVED_STANDARD",
+  "approved_at": "2026-11-11T17:12:00+08:00",
+  "approval_source": "user_confirmed_in_current_thread",
+  "sample_file": "06-final.md",
+  "sample_sha256": "a130c3be724a6d4fa7f563052b10d9fb3537e871defe33b9f1e15f71261cd12a",
+  "scope": "Structure, action-window treatment, seller ledger, A/B hooks, 90-120 second voiceover, and three-review workflow. Daily facts and topic remain issue-specific.",
+  "schedule": "daily at 16:00 Asia/Shanghai",
+  "delivery_channel": "跨境咨询每日内容",
+  "automation_id": "yqn-3"
+}

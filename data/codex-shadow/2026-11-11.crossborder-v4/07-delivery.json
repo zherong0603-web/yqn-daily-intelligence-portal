@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-11",
+  "status": "NOT_SENT",
+  "scope": "preview_only",
+  "reason": "用户要求先生成内容供审阅；本轮未执行 dispatch 或任何外部发送。",
+  "idempotency_key": null,
+  "verified_at": "2026-11-11T17:05:38+08:00"
+}

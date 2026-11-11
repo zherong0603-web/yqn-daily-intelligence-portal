@@ -1,0 +1,197 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-11",
+  "title": "跨境早知道 V4｜11月11日",
+  "summary": "美国 TikTok Shop 的 Target Collaboration 免费样品新申请，若 Content type 为 LIVE only，达人在收样后 14 天内需完成直播购物袋停留与置顶要求。稿件给出今天可查的后台入口、寄样经营账和先不用动的条件。",
+  "coverage": {
+    "searched_window_hours": 24,
+    "notes": "先查行动窗口，再研究24小时内10条去重候选；美国寄样主题已形成，无须用72小时旧闻补位。"
+  },
+  "editorial": {
+    "theme": "直播寄样，为什么短视频可能还不能算交差？",
+    "candidate_count_researched": 10,
+    "candidates": [
+      {
+        "title": "TikTok美国定向达人免费样品新增直播履约要求",
+        "region": "us",
+        "published_at": "2026-11-10",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=6837873164896001",
+        "score": {
+          "relevance": 34,
+          "money_impact": 27,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 95
+        },
+        "decision": "selected",
+        "reason": "免费样品成本由卖家承担；LIVE only 有14天和10分钟要求；今天能审待发邀请和已签收样品，行动窗口明确。"
+      },
+      {
+        "title": "TikTok美国黑五期间四项店铺指标分数临时保护",
+        "region": "us",
+        "published_at": "2026-11-10",
+        "source_url": "https://seller-us.tiktok.com/university/essay?default_language=en&knowledge_id=7105568016090887",
+        "score": {
+          "relevance": 34,
+          "money_impact": 25,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 92
+        },
+        "decision": "rejected",
+        "reason": "有明确保护期，但属于店铺指标管理，不解决寄样履约问题，混入会破坏单主题。"
+      },
+      {
+        "title": "Shopify自助退货及取消支持按市场开关",
+        "region": "us",
+        "published_at": "2026-11-10",
+        "source_url": "https://changelog.shopify.com/posts/configure-self-serve-returns-and-cancellations-for-each-market-you-sell-in",
+        "score": {
+          "relevance": 32,
+          "money_impact": 27,
+          "concrete_evidence": 11,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 89
+        },
+        "decision": "rejected",
+        "reason": "今天能检查市场设置，但属于售后策略，与本期寄样履约不共题。"
+      },
+      {
+        "title": "Shop开放给符合条件但不使用Shopify Payments的店铺",
+        "region": "us",
+        "published_at": "2026-11-10",
+        "source_url": "https://changelog.shopify.com/posts/updated-eligibility-requirements-for-shop",
+        "score": {
+          "relevance": 30,
+          "money_impact": 24,
+          "concrete_evidence": 9,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 80
+        },
+        "decision": "rejected",
+        "reason": "可能获得Shop导流，但资格开放不等于流量或收入，缺少已实现结果，钩子弱。"
+      },
+      {
+        "title": "伦敦门户港暂停接收空箱并要求出车前核对还箱地点",
+        "region": "europe",
+        "published_at": "2026-11-11",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/11/london-gateway-empty-container-acceptance-suspended",
+        "score": {
+          "relevance": 30,
+          "money_impact": 24,
+          "concrete_evidence": 12,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "影响空箱还场，行动价值高，但当前时区口径未核全，且与本期美国寄样主题不同。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "独立事实审核首轮FAIL，已收紧Target Collaboration、免费样品新申请和LIVE only范围。",
+        "独立卖家运营审核有效轮FAIL，已补后台入口、筛选顺序、记录字段和处置分支。",
+        "独立内容主编首轮三审FAIL，已修正前10秒范围、14天入口、旧邀请边界和数字密度。",
+        "独立内容主编冷读复审PASS，愿直接录制；A/B估算2.6至2.9秒，全文约105秒。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "TikTok美国定向达人免费样品新增直播履约要求",
+      "what_happened": "TikTok Shop美国站2026-11-10页面显示，Target Collaboration免费样品的新申请按Content type生成样品履约要求；LIVE only下，短视频可发布但不能完成该样品义务。",
+      "numbers": [
+        "页面可见日期2026-11-10",
+        "LIVE only：收样后14天内，商品在直播购物袋至少10分钟并置顶至少1次",
+        "假设每份商品、运费和税合计10美元，100份管理预算1000美元"
+      ],
+      "effective_at": "页面可见日期2026-11-10；来源未标注执行时区或具体时刻",
+      "affected_sellers": "美国TikTok Shop通过Target Collaboration提供免费样品的新样品申请；No preference仍可由Video或LIVE完成，不扩展到全部寄样。",
+      "money_impact": "免费样品的商品、运费和税由卖家承担。10美元和100份是自拟预算，合计1000美元，不是平台价表、实际损失或保证获得100份内容。",
+      "calculation": {
+        "basis": "假设每份免费样品的商品、运费和税合计10美元，共寄100份。",
+        "formula": "100份×10美元/份=1000美元管理预算。",
+        "result": "假设预算1000美元，未计广告和佣金；实际寄出才发生成本，寄出数量不等于完成数量。"
+      },
+      "action": "在Affiliate Center查Target collaboration和Sample Requests；新邀请发送前锁Content type，已签收样品按14天规则跟踪，并记录直播、10分钟和置顶证据。",
+      "evidence": [
+        {
+          "title": "TikTok Shop US: Setting Up Affiliate Collaborations",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=6837873164896001",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-10",
+          "checked_at": "2026-11-11T09:05:38Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面可见11月10日；Target Collaboration按Content type生成免费样品要求；LIVE only为收样后14天内至少10分钟并置顶1次；发送后不能修改。",
+          "markers": [
+            "11/10/2026",
+            "Sample Fulfillment Requirements launched (November 10, 2026)",
+            "existing applications keep their original rules",
+            "Content type/sample fulfillment rules can't be changed after sending"
+          ]
+        },
+        {
+          "title": "TikTok Shop US: How to set up and manage samples",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=5694209038927617",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-10",
+          "checked_at": "2026-11-11T09:05:38Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "免费样品由卖家承担商品、运费和税；LIVE only在收样后14天内至少10分钟并置顶1次；短视频不完成样品义务，佣金另行计算。",
+          "markers": [
+            "11/10/2026",
+            "Sellers pay for the product, shipping and tax",
+            "within 14 days of receiving the sample",
+            "at least 10 minutes and pinning it at least once",
+            "the short video will not complete that sample obligation",
+            "Eligible commission is calculated separately"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "LIVE only 寄样，短视频不算？",
+    "b": "直播专属寄样，14 天交差。"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。美国 TikTok Target Collaboration 免费样品新申请，LIVE only 下，短视频不算交差。\n\n第一，LIVE only 怎么交差？达人收到样品后 14 天内，商品要进直播购物袋至少 10 分钟，还要置顶至少一次。达人仍能发短视频，也可能带来销售和佣金。短视频不能替代这份样品义务。\n\n第二，样品成本由卖家出。假设每份商品、运费和税合计 10 美元，按 100 份算，管理预算是 1000 美元。这不是平台价表，也没算广告和佣金。只有实际寄出后，这部分成本才发生，寄出数量也不等于完成数量。\n\n第三，今天先进 Affiliate Center。先看已经签收、离 14 天期限最近且还没排直播的样品，当天联系达人；已经播过但证据不足的，保存直播链接、日期、购物袋时间和置顶记录。准备发新邀请的，在 Target Collaboration 里先确认 Content type。平台没标时区和具体时刻，截止时间以后台为准。\n\n你没有做美国 TikTok Target Collaboration 免费样品，或者内容类型不是 LIVE only，今天先不用改流程。11 月 10 日前创建的旧邀请，新增达人时，系统按原 Content type 生成要求；这套要求只作用于新样品申请，已有申请继续按原规则。\n\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "两个官方页面均显示Updated at 11/10/2026；不得用检索日期、搜索结果缓存或北京时间代替页面可见日期。",
+    "两页未标注执行时区和具体时刻；14天期限以后台和平台记录为准，不补造统一截止时点。",
+    "仅Target Collaboration免费样品新申请按Content type生成要求；不声称所有寄样或所有达人都必须直播。",
+    "LIVE only下短视频不能完成样品义务，但仍可能产生销售和佣金；样品义务与佣金分别判断。",
+    "页面未证明Seller Center直接显示购物袋累计分钟；内部保存直播链接、日期、10分钟和置顶证据，平台最终状态优先。",
+    "10美元、100份、1000美元是假设管理预算，不是平台费率或实际亏损；只有实际寄出后成本才发生。",
+    "2026-11-10前创建的旧邀请，新增达人时按原Content type生成要求，只作用于新样品申请；已有申请继续按原规则。",
+    "本文件为内容预览，未执行dispatch，也未向任何群聊或私聊发送。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-11T09:05:38Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-11T16:00:00+08:00"
+  }
+}

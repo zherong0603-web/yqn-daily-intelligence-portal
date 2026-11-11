@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-11",
+  "build": {
+    "exit_code": 0,
+    "content_valid": true,
+    "automated_blockers": [],
+    "estimated_seconds": {
+      "a": 104.7,
+      "b": 105.0
+    }
+  },
+  "source_check": {
+    "exit_code": 0,
+    "all_ok": true,
+    "checked_count": 2,
+    "failed_count": 0
+  },
+  "independent_reviews": {
+    "facts": "PASS_AFTER_FIX",
+    "seller_action": "PASS_AFTER_FIX",
+    "final_copy": "PASS"
+  },
+  "delivery": "NOT_SENT",
+  "dispatch_dry_run": {
+    "status": "DRY_RUN",
+    "date": "2026-11-11",
+    "live": false,
+    "message_not_sent": true,
+    "result": "crossborder-v4:dws-group dry run validated"
+  },
+  "automation": {
+    "id": "yqn-3",
+    "status": "ACTIVE",
+    "schedule": "daily 16:00 Asia/Shanghai",
+    "delivery_channel": "跨境咨询每日内容"
+  },
+  "approval_status": "APPROVED_STANDARD"
+}
