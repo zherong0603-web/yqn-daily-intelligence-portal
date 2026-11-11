@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-11-11T08:08:05.028Z",
+  "uniqueTitleMatches": 1,
+  "complete": true,
+  "hasMore": false,
+  "messageTime": "2026-11-11 16:07:52",
+  "theme": true,
+  "hookA": true,
+  "hookB": true,
+  "body": true,
+  "paragraphsMatched": 8,
+  "paragraphsTotal": 8,
+  "candidates": [
+    {
+      "title": "TikTok美国定向达人样品合作新增直播履约要求",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "TikTok美国黑五期间四项店铺指标分数临时保护",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shopify自助退货及取消支持按市场开关",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "Shop开放给符合条件但不使用Shopify Payments的店铺",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    },
+    {
+      "title": "伦敦门户港暂停接收空箱并要求出车前核对还箱地点",
+      "titlePresent": true,
+      "datePresent": true,
+      "scorePresent": true,
+      "decisionPresent": true,
+      "reasonPresent": true,
+      "sourcePresent": true
+    }
+  ],
+  "candidatesMatched": 5,
+  "source": true,
+  "dateSources": true,
+  "all_ok": true
+}

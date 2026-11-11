@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-11",
+  "checked_at": "2026-11-11T08:07:50.959Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://seller-us.tiktok.com/university/essay",
+      "ok": true,
+      "matched_number": "1000",
+      "matched_date": "11/10/2026",
+      "matched_markers": [
+        "11/10/2026",
+        "Sample Fulfillment Requirements launched (November 10, 2026)",
+        "existing applications keep their original rules",
+        "Content type and sample fulfillment requirement cannot be changed"
+      ]
+    },
+    {
+      "url": "https://seller-us.tiktok.com/university/essay",
+      "ok": true,
+      "matched_number": "100",
+      "matched_date": "11/10/2026",
+      "matched_markers": [
+        "11/10/2026",
+        "Sellers pay for the product, shipping and tax",
+        "within 14 days of receiving the sample",
+        "at least 10 minutes and pinning it at least once",
+        "the short video will not complete that sample obligation",
+        "Eligible commission is calculated separately"
+      ]
+    }
+  ]
+}
