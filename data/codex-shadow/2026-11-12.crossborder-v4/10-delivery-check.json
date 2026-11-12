@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-12",
+  "checked_at": "2026-11-12T16:30:00+08:00",
+  "complete": true,
+  "has_more": false,
+  "unique_title_matches": 1,
+  "message_time": "2026-11-12 16:22:55",
+  "theme": true,
+  "five_candidate_section": true,
+  "candidate_rows": [
+    {
+      "title": "TikTok美国12日起专项核验异常运费和包裹重量",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "TikTok美国BFCM发货SLA延长",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Shopify Tax免费额度不再每年重置",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Shopify自助退货可按市场设置",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Maersk北美紧急铁路燃油费",
+      "score_present": true,
+      "decision_present": true
+    }
+  ],
+  "action_window": true,
+  "order_ledger": true,
+  "hook_a": true,
+  "hook_b": true,
+  "body": true,
+  "source": true,
+  "no_markdown_table_delimiters": true,
+  "review_version_v4": true,
+  "all_ok": true
+}

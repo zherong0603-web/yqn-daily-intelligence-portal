@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-12",
+  "checked_at": "2026-11-12T08:21:40.176Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://seller-us.tiktok.com/university/essay",
+      "ok": true,
+      "matched_number": null,
+      "matched_date": "11/06/2026",
+      "matched_markers": [
+        "Updated at: 11/06/2026",
+        "beginning Nov 12th, 2026 (Pacific Time)",
+        "shipping fee calculation method is an enforcement measure",
+        "estimated shipping fee calculated when the order is created will not be lower than the estimated shipping fee calculated at shipment",
+        "If the seller reduces the package weight or volume, the estimated shipping fee will not be adjusted accordingly",
+        "final package weight, dimensions, and billable weight will be based on the measurements taken and reported by the carrier"
+      ]
+    },
+    {
+      "url": "https://seller-us.tiktok.com/university/essay",
+      "ok": true,
+      "matched_number": "100",
+      "matched_date": "10/30/2026",
+      "matched_markers": [
+        "Updated at: 10/30/2026",
+        "greater of the product’s volumetric weight (also known as dimensional weight) and actual weight",
+        "Actual weight exceeds 50 lb: $10.15 per package",
+        "Actual weight exceeds 100 lb: $79.99 per package",
+        "logistics service provider will measure the actual weight and dimensions"
+      ]
+    }
+  ]
+}

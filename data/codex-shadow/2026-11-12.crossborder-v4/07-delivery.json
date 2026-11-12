@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-12",
+  "status": "DELIVERED",
+  "target": "跨境咨询每日内容",
+  "idempotency_key": "crossborder-v4-group-2026-11-12",
+  "attempted_at": "2026-11-12T16:22:28+08:00",
+  "delivered_at": "2026-11-12T16:22:54+08:00",
+  "verified_at": "2026-11-12T16:30:00+08:00",
+  "live_attempts": 1,
+  "message_edit_in_place": true,
+  "delivery_check": "10-delivery-check.json",
+  "delivery_markdown_sha256": "cb1eaab91fe63b859c914434b8ad408a035f647ab15bfaf3d7d82501672a2577"
+}

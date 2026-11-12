@@ -1,4 +1,4 @@
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -17,7 +17,13 @@ function fixture() {
   const date = "2026-11-02";
   const dataDir = path.join(directory, "data", "codex-shadow");
   mkdirSync(dataDir, { recursive: true });
-  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.json`), JSON.stringify({ format_version: "v2", date }));
+  writeFileSync(path.join(dataDir, `${date}.crossborder-v2.json`), JSON.stringify({
+    format_version: "v2",
+    date,
+    editorial: { candidates: [{ title: "候选一" }] },
+    hooks: { a: "钩子A", b: "钩子B" },
+    voiceover_body: "口播正文",
+  }));
   writeFileSync(path.join(dataDir, `${date}.crossborder-v2.md`), "# 跨境早知道 V4｜11月2日\n\n正文");
   writeFileSync(path.join(dataDir, `${date}.crossborder-v2.review.json`), JSON.stringify({ date, content_valid: true, automated_blockers: [] }));
   writeFileSync(path.join(dataDir, `${date}.source-checks.json`), JSON.stringify({ date, all_ok: true, failed_count: 0 }));
@@ -106,6 +112,54 @@ describe("Crossborder V2 DWS delivery", () => {
     expect(execute.mock.calls[2][1]).toEqual(["auth", "status", "-f", "json"]);
     expect(execute.mock.calls[3][1]).toEqual(["chat", "search", "--query", "跨境咨询每日内容", "-f", "json"]);
     expect(log).toHaveBeenCalledWith("[crossborder-v4:dws-group] date=2026-11-02 dry run validated; message not sent");
+  });
+
+  it("uses the approved same-issue final markdown as the delivery payload", () => {
+    const { directory, date } = fixture();
+    const dataDir = path.join(directory, "data", "codex-shadow");
+    const archiveDir = path.join(dataDir, `${date}.crossborder-v4`);
+    mkdirSync(archiveDir, { recursive: true });
+    const finalMarkdown = "# 跨境早知道 V4｜11月2日\n\n## 5 条重点候选\n\n| 候选一 | 入选 |\n\n## A/B 黄金 3 秒\n\nA：钩子A\n\nB：钩子B\n\n## 口播正文\n\n口播正文\n";
+    const deliveryMarkdown = "# 跨境早知道 V4｜11月2日\n\n## 5 条重点候选\n\n1. 候选一｜入选\n\n## A/B 黄金 3 秒\n\nA：钩子A\n\nB：钩子B\n\n## 口播正文\n\n口播正文\n";
+    writeFileSync(path.join(archiveDir, "06-final.md"), finalMarkdown);
+    writeFileSync(path.join(archiveDir, "06-delivery.md"), deliveryMarkdown);
+    const execute = vi.fn((command, args) => {
+      if (command === "dws" && args[0] === "auth") return JSON.stringify({ authenticated: true, token_valid: true });
+      if (command === "dws" && args[0] === "chat" && args[1] === "search") return groupLookupOutput;
+      if (command === "dws" && args.includes("+messages-send")) return JSON.stringify({ deliveryStatus: "DELIVERED" });
+      return "";
+    });
+
+    const result = sendCrossborderV2Dws({
+      argv: ["node", "send", "--date", date, "--live"],
+      cwd: directory,
+      env: { DWS_LANG: "zh" },
+      now: new Date("2026-11-02T08:00:00Z"),
+      execute,
+      log: vi.fn(),
+    });
+
+    expect(result).toEqual({ status: "DELIVERED", duplicate: false });
+    const sendCall = execute.mock.calls.find(([, args]) => args.includes("+messages-send"));
+    expect(sendCall[1][sendCall[1].indexOf("--markdown") + 1]).toBe(deliveryMarkdown);
+    expect(readFileSync(path.join(dataDir, `${date}.crossborder-v2.md`), "utf8")).toBe(deliveryMarkdown);
+  });
+
+  it("blocks an incomplete archive before a table-based final can be sent", () => {
+    const { directory, date } = fixture();
+    const dataDir = path.join(directory, "data", "codex-shadow");
+    const archiveDir = path.join(dataDir, `${date}.crossborder-v4`);
+    mkdirSync(archiveDir, { recursive: true });
+    writeFileSync(path.join(archiveDir, "06-final.md"), "# final");
+    const execute = vi.fn(() => "");
+    expect(() => sendCrossborderV2Dws({
+      argv: ["node", "send", "--date", date, "--live"],
+      cwd: directory,
+      env: { DWS_LANG: "zh" },
+      now: new Date("2026-11-02T08:00:00Z"),
+      execute,
+      log: vi.fn(),
+    })).toThrow(/06-final\.md and 06-delivery\.md/);
   });
 
   it("records attempt before sending and records delivered only after confirmation", () => {

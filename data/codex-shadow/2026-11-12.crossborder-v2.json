@@ -1,0 +1,198 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-12",
+  "title": "跨境早知道 V4｜11月12日",
+  "summary": "TikTok美国站从2026-11-12 Pacific Time起，对异常运费和不准确重量的相关店铺执行专项运费计算。受影响订单的下单估算成为下限，RTS前减重不降估算；稿件给出订单级对账表和今天可执行动作。",
+  "coverage": {
+    "searched_window_hours": 24,
+    "notes": "先查行动窗口，再检索24小时内候选并扩展核对生效当日官方更新；12条去重候选中选择美国单主题。"
+  },
+  "editorial": {
+    "theme": "为什么包裹重量改小，TikTok运费估算还可能不降？",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "TikTok美国12日起专项核验异常运费和包裹重量",
+        "region": "us",
+        "published_at": "2026-11-06",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=3535967017469702",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 10,
+          "timeliness": 8,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "2026-11-12 Pacific Time生效；受影响店铺下单估算成为下限，RTS减重不降估算；今天可做SKU和订单对账。"
+      },
+      {
+        "title": "TikTok美国BFCM发货SLA延长",
+        "region": "us",
+        "published_at": "2026-11-12",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=26854147802894",
+        "score": {
+          "relevance": 35,
+          "money_impact": 26,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 95
+        },
+        "decision": "rejected",
+        "reason": "日期和天数清楚，但回答的是发货时限，与本期运费重量核算不是同一问题。"
+      },
+      {
+        "title": "Shopify Tax免费额度不再每年重置",
+        "region": "other",
+        "published_at": "2026-11-11",
+        "source_url": "https://changelog.shopify.com/posts/shopify-tax-free-discount-will-no-longer-reset-annually",
+        "score": {
+          "relevance": 31,
+          "money_impact": 23,
+          "concrete_evidence": 14,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "100000累计销售额门槛清楚，但2027-01-01才生效，平台明确无需立即操作。"
+      },
+      {
+        "title": "Shopify自助退货可按市场设置",
+        "region": "other",
+        "published_at": "2026-11-10",
+        "source_url": "https://changelog.shopify.com/posts/configure-self-serve-returns-and-cancellations-for-each-market-you-sell-in",
+        "score": {
+          "relevance": 30,
+          "money_impact": 22,
+          "concrete_evidence": 11,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 81
+        },
+        "decision": "rejected",
+        "reason": "今天能检查，但属于跨市场售后策略，与TikTok运费重量专项不共题。"
+      },
+      {
+        "title": "Maersk北美紧急铁路燃油费",
+        "region": "us",
+        "published_at": "2026-11-06",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/06/north-america-market-update-november",
+        "score": {
+          "relevance": 22,
+          "money_impact": 25,
+          "concrete_evidence": 9,
+          "hook_potential": 7,
+          "timeliness": 7,
+          "total": 70
+        },
+        "decision": "rejected",
+        "reason": "有生效日和适用链路，但官方可读文本缺少具体费率，不能算清单柜成本。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "卖家经营、内容主编和传播入口选择同一美国运费重量主题。",
+        "独立事实审核、卖家执行审核和内容主编终审均对同一版v5复审PASS。",
+        "专项运费核验与50/100磅重量附加费分开，Express的适用范围分别写明。",
+        "A/B约2.9和2.8秒，全文约105秒，主编愿意直接录制。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "TikTok美国12日起专项核验异常运费和包裹重量",
+      "what_happened": "TikTok Shop美国站页面更新为11/06/2026，并从2026-11-12 Pacific Time起对不合理运费、不准确重量或不当改重影响买家结账的相关店铺执行专项运费计算；不是所有TikTok Shipping卖家都受影响。",
+      "numbers": [
+        "2026-11-12 Pacific Time起执行，来源未标具体小时",
+        "页面更新日11/06/2026；受影响订单下单估算运费成为下限，RTS前减重不降估算",
+        "Standard Delivery和CBT超过50且不超过100磅每件10.15美元，超过100磅每件79.99美元"
+      ],
+      "effective_at": "2026-11-12 Pacific Time，来源未标注具体执行小时",
+      "affected_sellers": "使用合格Standard Delivery、CBT或Express并被平台通知的相关店铺；不扩展到全部TikTok Shipping卖家或其他服务。",
+      "money_impact": "受影响店铺无法靠RTS前减重降低下单估算运费。假设100件Standard Delivery或CBT包裹都超过50且不超过100磅，重量附加费为1015美元，不含基础运费和其他附加费。",
+      "calculation": {
+        "basis": "假设100件Standard Delivery或CBT包裹均超过50磅且不超过100磅，仅计算该档重量附加费。",
+        "formula": "100件×10.15美元/件=1015美元。",
+        "result": "条件算例为1015美元，不含基础运费和其他附加费，也不是专项处罚金额。"
+      },
+      "action": "先从Seller Center通知导出涉案订单；核对Products>Manage Products和ERP重量尺寸、订单RTS记录、Seller Billing最终费用及承运商证据，再修正资料或向Seller Support申诉。",
+      "evidence": [
+        {
+          "title": "TikTok Shop US: Estimated Shipping Fees Calculation Update",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=3535967017469702",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-06",
+          "checked_at": "2026-11-12T08:16:57Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面更新日11/06/2026；从2026-11-12 Pacific Time起仅对被通知的相关店铺执行；下单估算成为下限，RTS减重不降估算。",
+          "markers": [
+            "Updated at: 11/06/2026",
+            "beginning Nov 12th, 2026 (Pacific Time)",
+            "shipping fee calculation method is an enforcement measure",
+            "estimated shipping fee calculated when the order is created will not be lower than the estimated shipping fee calculated at shipment",
+            "If the seller reduces the package weight or volume, the estimated shipping fee will not be adjusted accordingly",
+            "final package weight, dimensions, and billable weight will be based on the measurements taken and reported by the carrier"
+          ]
+        },
+        {
+          "title": "TikTok Shop US: What is TikTok Shipping - Standard Delivery",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=987788883576589",
+          "source_type": "platform_announcement",
+          "published_at": "2026-10-30",
+          "checked_at": "2026-11-12T08:16:57Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "页面更新日10/30/2026；运费按实际重量和体积重较高者计算，承运商可复测；Standard Delivery和CBT的重量附加费为超过50磅10.15美元、超过100磅79.99美元。",
+          "markers": [
+            "Updated at: 10/30/2026",
+            "greater of the product’s volumetric weight (also known as dimensional weight) and actual weight",
+            "Actual weight exceeds 50 lb: $10.15 per package",
+            "Actual weight exceeds 100 lb: $79.99 per package",
+            "logistics service provider will measure the actual weight and dimensions"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "运费当利润，12 号查什么？",
+    "b": "减了重量，运费还可能不降？"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。美国 TikTok 的异常运费和包裹重量，12 号起可能被专项核验。\n\n第一，这不是所有店铺的普遍处罚。平台发现不合理运费、不准确重量，或者不当改重影响买家结账后，可能通知相关店铺。适用合格 Standard Delivery、CBT 和 Express 订单。\n\n第二，受影响店铺下单时的估算运费会成为下限。卖家在 RTS 前把重量或尺寸改小，估算运费不会跟着降；改大则可能上升。承运商复测后按实际重量与体积重中较高者计费，但仍不低于下单估算。\n\n第三，Standard Delivery 和 CBT 的实际重量超过 50 磅且不超过 100 磅，每件另收 10.15 美元；超过 100 磅，每件 79.99 美元。Express 不在这一档。假设 100 件都在前一档，重量附加费是 1015 美元，不含基础运费。\n\n今天按 SKU 核对四列：页面重量、ERP 重量、打包实测重量和预估计费重。称重要包含包装和组合件。运费要贴近合理物流成本，不能代替商品价格或包商品利润。\n\n不用这三类服务，或没收到通知且重量、运费都合理的，今天先别改价，但先校准高风险 SKU。收到通知的，用商品资料、打包记录和承运商复测记录向 Seller Support 说明。\n\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "页面更新日为2026-11-06；2026-11-12 Pacific Time是执行起点，来源未标注具体小时，不换算成北京时间。",
+    "专项运费计算是违规执行措施，只适用于被通知的相关店铺和合格Standard Delivery、CBT、Express订单，不扩展到所有TikTok Shipping卖家。",
+    "受影响店铺下单估算运费成为下限；RTS前减重或缩小尺寸不降低估算，增重可能提高估算，承运商复测后仍不低于下单估算。",
+    "50磅和100磅重量附加费是另一项自2026-10-05生效的Standard Delivery和CBT规则，来源未标注时区，不适用于Express。",
+    "实际重量超过50且不超过100磅每件10.15美元；超过100磅每件79.99美元，档位互斥。",
+    "1015美元是100件都超过50且不超过100磅的条件算例，不含基础运费和其他附加费。",
+    "今天先处理平台通知中的订单，再抽查高销量轻小件、多SKU和组合装商品。",
+    "本稿于北京时间2026-11-12生成；构建和来源核验通过前不得发送。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-12T08:16:57Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-12T16:00:00+08:00"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-12",
+  "build": {
+    "content_valid": true,
+    "automated_blockers": [],
+    "estimated_seconds": {
+      "a": 104.8,
+      "b": 104.7
+    }
+  },
+  "source_check": {
+    "all_ok": true,
+    "checked_count": 2,
+    "failed_count": 0
+  },
+  "independent_reviews": {
+    "facts": "PASS",
+    "seller_action": "PASS",
+    "final_copy": "PASS"
+  },
+  "dispatch_dry_run": {
+    "status": "DRY_RUN",
+    "message_not_sent": true
+  },
+  "delivery": {
+    "status": "DELIVERED",
+    "live_attempts": 1,
+    "message_edit_in_place": true,
+    "readback_all_ok": true
+  },
+  "delivery_markdown": {
+    "canonical_final_sha256": "c2d277a2030668d58d597f20d164da56ce3782b98655ac293d979db7f79ba67d",
+    "channel_delivery_sha256": "cb1eaab91fe63b859c914434b8ad408a035f647ab15bfaf3d7d82501672a2577",
+    "root_snapshot_matches_channel_delivery": true
+  },
+  "tests": {
+    "typecheck": "PASS",
+    "crossborder_and_dispatch_tests": "43/43 PASS"
+  }
+}

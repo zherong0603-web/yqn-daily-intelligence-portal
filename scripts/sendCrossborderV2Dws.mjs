@@ -122,12 +122,23 @@ function saveState(file, state) {
   writeFileSync(file, `${JSON.stringify(state, null, 2)}\n`, { encoding: "utf8", mode: 0o600 });
 }
 
+function normalizeDeliveryMarkdown(value) {
+  return String(value).replace(/\s+/g, "");
+}
+
 function validateArtifacts({ cwd, date }) {
   const base = path.join(cwd, "data", "codex-shadow", date);
   const jsonFile = `${base}.crossborder-v2.json`;
-  const markdownFile = `${base}.crossborder-v2.md`;
+  const generatedMarkdownFile = `${base}.crossborder-v2.md`;
   const reviewFile = `${base}.crossborder-v2.review.json`;
   const sourceFile = `${base}.source-checks.json`;
+  const archiveFinalFile = path.join(cwd, "data", "codex-shadow", `${date}.crossborder-v4`, "06-final.md");
+  const archiveDeliveryFile = path.join(cwd, "data", "codex-shadow", `${date}.crossborder-v4`, "06-delivery.md");
+  const hasArchive = existsSync(archiveFinalFile) || existsSync(archiveDeliveryFile);
+  if (hasArchive && (!existsSync(archiveFinalFile) || !existsSync(archiveDeliveryFile))) {
+    throw new Error("Crossborder V4 archive must contain both 06-final.md and 06-delivery.md");
+  }
+  const markdownFile = hasArchive ? archiveDeliveryFile : generatedMarkdownFile;
   for (const file of [jsonFile, markdownFile, reviewFile, sourceFile]) {
     if (!existsSync(file)) throw new Error(`Missing Crossborder V2 artifact: ${path.relative(cwd, file)}`);
   }
@@ -141,7 +152,24 @@ function validateArtifacts({ cwd, date }) {
   if (source.all_ok !== true || source.date !== date || source.failed_count !== 0) {
     throw new Error("Crossborder V2 source checks are not all green");
   }
-  return { markdown: readFileSync(markdownFile, "utf8"), title: `跨境早知道 V4｜${date}` };
+  const markdown = readFileSync(markdownFile, "utf8");
+  if (hasArchive) {
+    const normalized = normalizeDeliveryMarkdown(markdown);
+    const required = [
+      ...brief.editorial.candidates.map((candidate) => candidate.title),
+      brief.hooks.a,
+      brief.hooks.b,
+      brief.voiceover_body,
+    ];
+    const missing = required.find((value) => !normalized.includes(normalizeDeliveryMarkdown(value)));
+    if (missing) throw new Error(`Crossborder V4 final markdown is missing approved content: ${missing.slice(0, 80)}`);
+    const voiceoverSection = markdown.split(/^## 口播正文$/m)[1]?.split(/^## /m)[0] || "";
+    if (!voiceoverSection.trim()) throw new Error("Crossborder V4 final markdown is missing the voiceover section");
+    if (/https?:\/\//.test(voiceoverSection)) throw new Error("Crossborder V4 voiceover section must not contain links");
+    if (/^\s*\|/m.test(markdown)) throw new Error("Crossborder V4 delivery markdown must not contain tables that DingTalk may drop");
+    writeFileSync(generatedMarkdownFile, markdown, "utf8");
+  }
+  return { markdown, title: `跨境早知道 V4｜${date}` };
 }
 
 export function sendCrossborderV2Dws({
