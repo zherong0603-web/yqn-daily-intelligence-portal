@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-13",
+  "checked_at": "2026-11-13T16:29:00+08:00",
+  "complete": true,
+  "has_more": false,
+  "unique_title_matches": 1,
+  "message_time": "2026-11-13 16:28:32",
+  "theme": true,
+  "five_candidate_section": true,
+  "candidate_rows": [
+    {
+      "title": "Maersk南亚发美国加拿大东岸与墨西哥湾PSS",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Maersk远东发北欧PSS：PCD不早于2026-12-01",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "FedEx美国旺季Demand Surcharge",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Maersk UKI LCL燃油附加费",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "eBay澳大利亚物流与余额",
+      "score_present": true,
+      "decision_present": true
+    }
+  ],
+  "action_window": true,
+  "order_ledger": true,
+  "hook_a": true,
+  "hook_b": true,
+  "body": true,
+  "source": true,
+  "no_markdown_table_delimiters": true,
+  "review_version_v4": true,
+  "all_ok": true
+}

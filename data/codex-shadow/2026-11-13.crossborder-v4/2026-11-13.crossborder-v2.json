@@ -1,0 +1,180 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-13",
+  "title": "跨境早知道 V4｜11月13日",
+  "summary": "Maersk远东至北欧非SPOT订舱的旺季附加费按PCD从2026-12-01起执行：20尺USD500，40和45尺USD1000。稿件给出逐票经营账和PCD处置规则。",
+  "coverage": {
+    "searched_window_hours": 24,
+    "notes": "先查行动窗口，再检索24小时内候选；美国航线因币种证据不足淘汰，选择证据完整的远东至北欧单主题。"
+  },
+  "editorial": {
+    "theme": "远东发北欧的PSS，为什么不能只看订舱日？",
+    "candidate_count_researched": 10,
+    "candidates": [
+      {
+        "title": "Maersk南亚发美国加拿大东岸与墨西哥湾PSS",
+        "region": "us",
+        "published_at": "2026-11-12",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/12/pss-indian-subcontinent-middle-east-to-us-east-coast-gulf",
+        "score": {
+          "relevance": 34,
+          "money_impact": 30,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 98
+        },
+        "decision": "rejected",
+        "reason": "美国航线排第一，但费率表没有可见币种，不能补写成美元，硬门槛不通过。"
+      },
+      {
+        "title": "Maersk远东发北欧PSS：PCD不早于2026-12-01",
+        "region": "europe",
+        "published_at": "2026-11-12",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/12/pss-from-far-east-asia-to-north-europe",
+        "score": {
+          "relevance": 35,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 10,
+          "timeliness": 10,
+          "total": 99
+        },
+        "decision": "selected",
+        "reason": "中国等16个远东起运地；20尺USD500、40/45尺USD1000；非SPOT按PCD，证据完整。"
+      },
+      {
+        "title": "FedEx美国旺季Demand Surcharge",
+        "region": "us",
+        "published_at": "2026-11-05",
+        "source_url": "https://www.fedex.com/en-us/shipping/rate-changes/demand-surcharges.html",
+        "score": {
+          "relevance": 34,
+          "money_impact": 27,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 4,
+          "total": 88
+        },
+        "decision": "rejected",
+        "reason": "金额清楚，但当前阶段10月26日已开始，下一阶段11月23日才变化，无本期新触发。"
+      },
+      {
+        "title": "Maersk UKI LCL燃油附加费",
+        "region": "europe",
+        "published_at": "2026-11-12",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/12/implementation-of-lcl-inland-transportation-fuel-surcharge",
+        "score": {
+          "relevance": 30,
+          "money_impact": 25,
+          "concrete_evidence": 13,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 86
+        },
+        "decision": "rejected",
+        "reason": "20%和11月13日生效清楚，但属于LCL燃油成本，不能和整箱PSS混算。"
+      },
+      {
+        "title": "eBay澳大利亚物流与余额",
+        "region": "other",
+        "published_at": "2026-11-11",
+        "source_url": "https://community.ebay.com.au/forum/news-updates-44/topic/ebay-payments-and-shipping-updates-9036/",
+        "score": {
+          "relevance": 24,
+          "money_impact": 21,
+          "concrete_evidence": 12,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 74
+        },
+        "decision": "rejected",
+        "reason": "页面没有绝对发布日期，不能把执行日当published_at，硬门槛不通过。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "美国候选排第一，但因费率页面未标币种，按硬门槛淘汰。",
+        "事实审核、卖家经营审核和内容主编终审均对同一版v4复审PASS。",
+        "A/B约2.7秒，全文约109.7秒，主编愿直接录制。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "europe",
+      "title": "Maersk远东发北欧PSS：PCD不早于2026-12-01",
+      "what_happened": "Maersk页面于2026-11-12公布远东至北欧非SPOT订舱PSS，PCD从2026-12-01起；20尺设备USD500，40尺和45尺设备USD1000，适用公告列出的全部设备类型。",
+      "numbers": [
+        "页面日期2026-11-12，来源未标时区",
+        "20尺设备USD500",
+        "40尺和45尺设备USD1000",
+        "非SPOT的PCD从2026-12-01起"
+      ],
+      "effective_at": "非SPOT订舱PCD从2026-12-01起；来源未标时区",
+      "affected_sellers": "公告列出的16个远东国家和地区起运、目的港属于Maersk北欧贸易范围、使用公告所列设备类型的非SPOT订舱卖家。",
+      "money_impact": "20尺设备每箱PSS为USD 500，40尺和45尺设备每箱USD 1000；其他本地费、应急费和附加费可能另行适用。",
+      "calculation": {
+        "basis": "假设同一票使用一票一个40尺设备，且PCD不早于2026-12-01。",
+        "formula": "1箱×USD 1000/箱=USD 1000 PSS。",
+        "result": "单票40尺PSS为USD 1000，不含其他适用附加费。"
+      },
+      "action": "按订舱号记录起运地、目的港贸易范围、箱型和设备、合同依据、非SPOT或SPOT、PCD类型与日期、PSS、其他费用和付款地；未确定项不锁最终报价。",
+      "evidence": [
+        {
+          "title": "Maersk: PSS from Far East Asia to North Europe",
+          "url": "https://www.maersk.com/news/articles/2026/11/12/pss-from-far-east-asia-to-north-europe",
+          "source_type": "official",
+          "published_at": "2026-11-12",
+          "checked_at": "2026-11-13T08:03:00Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面日期11/12/2026；PCD从2026-12-01起；20尺USD500、40/45尺USD1000；全部设备类型；非SPOT的两类PCD定义。",
+          "markers": [
+            "12 Nov 2026",
+            "effective price calculation date from 1st Dec 2026",
+            "USD 500",
+            "USD 1000",
+            "PSS is applicable to all equipment types",
+            "Non-SPOT booking"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "Maersk 40 尺，PSS 1000 美元？",
+    "b": "非 SPOT，PCD 12 月 1 日？"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。Maersk 远东到北欧，非 SPOT，PCD 12 月 1 日起算。\n\n第一，这条 PSS 对应 16 个远东起运地，包括中国、越南、泰国、马来西亚、日本和韩国。目的地是 Maersk 贸易范围里的北欧，不是所有地理上的北欧港口都自动适用。\n\n第二，费率按箱型分开。所有 20 尺设备 USD 500，所有 40 尺和 45 尺设备 USD 1000，适用页面列出的全部设备类型。\n\n第三，关键日期是 PCD，不是订舱日。非 SPOT 订舱里，非 FMC 用订舱确认时第一水腿计划开航日，FMC 用最后一只集装箱实际进场日。PCD 大于或等于 2026-12-01 的票，才按这条 PSS 重算。\n\n今天建立逐票账，记录起运地、目的港、贸易范围、箱型和设备、合同或报价依据、非 SPOT 或 SPOT、PCD 类型和日期、PSS、其他费用明细、运费付款地和报价有效期。公告事实是仍受其他适用附加费影响；经营上要按账单逐项确认，不能只改 PSS 一个数字。\n\nPCD 没定，今天先标待定，不锁最终报价。页面只说明了非 SPOT 的 PCD 取法，没有明确 SPOT 是否收费；做 SPOT 的卖家先取得书面口径，不自行加收，也不自行宣告豁免。不走这条 Maersk 航线或超出贸易范围的货，今天先不用按这张表改价。\n\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "页面日期为2026-11-12；PCD从2026-12-01起，页面未标时区或具体时刻，不能换算成北京时间。",
+    "美国候选因费率未可见币种及适用边界不足，没有通过硬门槛；本日无合格美国主稿信号。",
+    "仅适用公告列出的16个远东起运地、Maersk北欧贸易范围和公告列出的全部设备类型，不扩展到普通地理北欧或其他起运地。",
+    "20尺设备每箱USD500，40尺和45尺设备每箱USD1000；PSS不含本地费、应急费和其他适用附加费。",
+    "非SPOT订舱中，非FMC使用订舱确认时第一水腿计划开航日，FMC使用最后一只集装箱进场日；PCD早于2026-12-01时不加本条PSS。",
+    "页面只说明非SPOT的PCD，没有明确SPOT是否收费；SPOT取得书面口径前不自行加收或豁免。",
+    "Tariff Lookup当前覆盖FMC与EEA监管国家，其他贸易需向Maersk当地代表确认。",
+    "本稿为北京时间2026-11-13生成的当日主稿，发送前仍须通过构建、来源检查和群回读。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-13T08:03:00Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-13T16:00:00+08:00"
+  }
+}

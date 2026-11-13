@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-13",
+  "checked_at": "2026-11-13T08:28:30.438Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.maersk.com/news/articles/2026/11/12/pss-from-far-east-asia-to-north-europe",
+      "ok": true,
+      "matched_number": "1000",
+      "matched_date": "12 Nov 2026",
+      "matched_markers": [
+        "12 Nov 2026",
+        "effective price calculation date from 1st Dec 2026",
+        "USD 500",
+        "USD 1000",
+        "PSS is applicable to all equipment types",
+        "Non-SPOT booking"
+      ]
+    }
+  ]
+}
