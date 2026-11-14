@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-14",
+  "content_valid": true,
+  "send_allowed": true,
+  "target": "dingtalk_group",
+  "signal_count": 1,
+  "us_first": true,
+  "region_priority_valid": true,
+  "estimated_seconds": {
+    "a": 111.6,
+    "b": 111.4
+  },
+  "automated_blockers": [],
+  "checked_at": "2026-11-14T08:16:04.383Z"
+}

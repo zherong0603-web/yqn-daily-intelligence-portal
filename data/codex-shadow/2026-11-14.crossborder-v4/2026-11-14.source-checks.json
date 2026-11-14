@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-14",
+  "checked_at": "2026-11-14T08:15:31.075Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://about.usps.com/newsroom/national-releases/2026/1112-usps-recommends-shipping-price-adjustments-for-2027.htm",
+      "ok": true,
+      "matched_number": "11",
+      "matched_date": "Nov. 12, 2026",
+      "matched_markers": [
+        "Nov. 12, 2026",
+        "5.9 percent on average for Priority Mail service, Priority Mail Express, USPS Ground Advantage and Parcel Select",
+        "total of 11 percent",
+        "7.9 percent for Priority Mail Express International, Priority Mail International, First-Class Package International Service, and International Priority Airmail",
+        "January 17, 2027",
+        "The PRC will review the changes before they are scheduled to take effect"
+      ]
+    }
+  ]
+}

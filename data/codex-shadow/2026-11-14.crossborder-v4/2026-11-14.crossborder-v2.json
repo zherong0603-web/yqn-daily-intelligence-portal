@@ -1,0 +1,180 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-14",
+  "title": "跨境早知道 V4｜11月14日",
+  "summary": "USPS建议从2027-01-17调整包裹价格：四类国内服务平均拟涨5.9%，四类指定国际服务平均拟涨7.9%，另有单独口径的11%燃油附加费；仍待PRC审阅。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先查24小时，未形成足够高质量的美国单主题，扩至72小时核对官方文件；10条去重候选中选择USPS价格调整。"
+  },
+  "editorial": {
+    "theme": "USPS的2027包裹价调整，为什么不能把5.9%、7.9%和11%直接相加？",
+    "candidate_count_researched": 10,
+    "candidates": [
+      {
+        "title": "USPS2027包裹价格调整建议",
+        "region": "us",
+        "published_at": "2026-11-12",
+        "source_url": "https://about.usps.com/newsroom/national-releases/2026/1112-usps-recommends-shipping-price-adjustments-for-2027.htm",
+        "score": {
+          "relevance": 35,
+          "money_impact": 30,
+          "concrete_evidence": 15,
+          "hook_potential": 10,
+          "timeliness": 10,
+          "total": 100
+        },
+        "decision": "selected",
+        "reason": "美国尾程四类国内服务平均拟涨5.9%，指定国际服务平均拟涨7.9%，11%燃油费另列，目标生效日2027-01-17。"
+      },
+      {
+        "title": "Maersk中国／香港发达累斯萨拉姆PSS",
+        "region": "other",
+        "published_at": "2026-11-13",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/13/increase-of-peak-season-surcharge-china-hong-kong-to-dar-es-salaam",
+        "score": {
+          "relevance": 30,
+          "money_impact": 28,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 91
+        },
+        "decision": "rejected",
+        "reason": "USD1300、2200、2200清楚，但非洲航线对核心受众优先级较低。"
+      },
+      {
+        "title": "TikTok合并订单发货指南更新",
+        "region": "us",
+        "published_at": "2026-11-13",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=2076292859102982",
+        "score": {
+          "relevance": 34,
+          "money_impact": 25,
+          "concrete_evidence": 9,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 86
+        },
+        "decision": "rejected",
+        "reason": "可降低包装和运费，但页面没有统一节省金额，无法形成可靠量化钩子。"
+      },
+      {
+        "title": "eBay澳大利亚物流更新",
+        "region": "other",
+        "published_at": "2026-11-12",
+        "source_url": "https://community.ebay.com.au/forum/news-updates-44/topic/ebay-payments-and-shipping-updates-9036/",
+        "score": {
+          "relevance": 24,
+          "money_impact": 21,
+          "concrete_evidence": 12,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 74
+        },
+        "decision": "rejected",
+        "reason": "页面没有绝对发布日期，不能把执行日当published_at，硬门槛不通过。"
+      },
+      {
+        "title": "Shopify草稿订单折扣币种更新",
+        "region": "other",
+        "published_at": "2026-11-13",
+        "source_url": "https://changelog.shopify.com/posts/custom-draft-order-discounts-now-use-presentment-currency",
+        "score": {
+          "relevance": 25,
+          "money_impact": 19,
+          "concrete_evidence": 11,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 72
+        },
+        "decision": "rejected",
+        "reason": "改善展示币种一致性，但没有单品成本、收入或现金流变化。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "事实审核、卖家经营审核和内容主编终审均对同一版v3复审PASS。",
+        "国内5.9%、国际7.9%、燃油11%分属不同口径，正文明确不可直接相加。",
+        "A/B约2.8和2.6秒，全文约111秒，主编愿直接录制。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "USPS2027包裹价格调整建议",
+      "what_happened": "USPS于2026-11-12向PRC提交2027运价调整建议：四类国内服务平均拟涨5.9%，四类指定国际服务平均拟涨7.9%，目标2027-01-17生效；现行8%运输调价拟转为永久燃油附加费并再加3%。",
+      "numbers": [
+        "页面日期2026-11-12",
+        "四类国内服务平均拟涨5.9%",
+        "四类指定国际服务平均拟涨7.9%",
+        "燃油附加费合计11%，目标生效日2027-01-17"
+      ],
+      "effective_at": "目标生效日2027-01-17，仍待PRC审阅；来源未标时区",
+      "affected_sellers": "使用公告列明的四类美国USPS国内服务或四类指定国际服务的卖家；平均涨幅不适用于其他承运商或未列明产品。",
+      "money_impact": "假设一票当前5美元且恰好适用5.9%平均变化，增加约0.295美元即29.5美分；这是情景，不含11%燃油附加费，也不代表单票实际账单。",
+      "calculation": {
+        "basis": "假设单票当前运费5美元，且该票的适用价格变化正好等于5.9%组合平均。",
+        "formula": "5美元×5.9%=0.295美元=29.5美分。",
+        "result": "平均情景增加0.295美元，即29.5美分，不含11%燃油费，不代表每票或每个重量档。"
+      },
+      "action": "按最近30天订单，把USPS服务、重量档、zone或国家组别分行；从完整申报价目表计算当前与拟议总成本，再比较包邮门槛和卖家承担额。",
+      "evidence": [
+        {
+          "title": "U.S. Postal Service Recommends Shipping Price Adjustments for 2027",
+          "url": "https://about.usps.com/newsroom/national-releases/2026/1112-usps-recommends-shipping-price-adjustments-for-2027.htm",
+          "source_type": "official",
+          "published_at": "2026-11-12",
+          "checked_at": "2026-11-14T08:02:00Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面日期11/12/2026；四类国内服务平均5.9%；四类国际服务平均7.9%；目标1/17/2027；8%转永久再加3%共11%；PRC仍需review。",
+          "markers": [
+            "Nov. 12, 2026",
+            "5.9 percent on average for Priority Mail service, Priority Mail Express, USPS Ground Advantage and Parcel Select",
+            "total of 11 percent",
+            "7.9 percent for Priority Mail Express International, Priority Mail International, First-Class Package International Service, and International Priority Airmail",
+            "January 17, 2027",
+            "The PRC will review the changes before they are scheduled to take effect"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "USPS 平均涨 5.9%，包邮亏吗？",
+    "b": "USPS 平均 5.9%，每票都涨？"
+  },
+  "voiceover_body": "跨境卖家注意……今天老王只讲一件事。USPS 拟调价，国内均涨 5.9%，国际均涨 7.9%，燃油费另算。\n\n第一，公告列明四项国内服务，平均拟涨 5.9%；四项指定国际服务，平均拟涨 7.9%，而且国际国家组别结构和归属也会调整。两项都是组合平均，不是每个包裹都按同一比例涨。完整服务名单放在运费账里。\n\n第二，2026 年 4 月的 8% 运输相关调价，拟转为永久 8% 燃油附加费，再加 3%，合计 11%。它目前不影响国际产品，并将在 2027 年 7 月重新评估。不要把 5.9%、7.9% 和 11% 简单相加。\n\n第三，USPS 已向 PRC 提交通知，目标 2027 年 1 月 17 日生效；截至 11 月 14 日，案卷只见 11 月 12 日通知，没有进一步决定。完整申报价格表已公开，今天只做内部情景。\n\n今天按最近 30 天订单，按服务、重量档和 zone 或国家组别分行，记录基础费率、燃油费、买家实付、卖家承担额和包邮门槛。价目表变化就重算。\n\n假设一票当前 5 美元且恰好适用 5.9% 平均变化，多 29.5 美分；这是情景，不含 11% 燃油费。\n\n不用这些 USPS 服务，今天先不改价。PRC 审查和生效状态明确前，不做最终调价；最终表确认后，按提前期调整，再用账单校准。\n\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "页面日期为2026-11-12；目标生效日2027-01-17，PRC仍需审阅，来源未标时区，不能写成已生效价格。",
+    "国内5.9%是四类服务组合平均，国际7.9%是四类指定服务组合平均，不是每个包裹或重量档统一涨幅。",
+    "8%转永久燃油附加费再加3%等于11%；目前不影响国际产品，2027年7月重新评估，不能与5.9%或7.9%直接相加。",
+    "国际费率调整同时涉及国家组别结构和组别归属变化，不能只套旧国家组别。",
+    "完整申报价目表已在PRC和Postal Explorer提供，公告正文没有逐项列出所有单票价格。",
+    "5美元、5.9%和29.5美分是条件算例，不含11%燃油费，不能写成真实单票账单。",
+    "只适用于公告列明的USPS服务，不扩展到其他承运商或所有包裹。",
+    "本稿发送前仍须构建、严格来源检查、完整干跑和群回读。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-14T08:02:00Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-14T16:00:00+08:00"
+  }
+}

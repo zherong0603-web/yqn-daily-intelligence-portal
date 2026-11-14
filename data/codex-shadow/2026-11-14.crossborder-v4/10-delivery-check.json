@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-14",
+  "checked_at": "2026-11-14T16:16:30+08:00",
+  "complete": true,
+  "has_more": false,
+  "unique_title_matches": 1,
+  "message_time": "2026-11-14 16:16:07",
+  "theme": true,
+  "five_candidate_section": true,
+  "candidate_rows": [
+    {
+      "title": "USPS2027包裹价格调整建议",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Maersk中国／香港发达累斯萨拉姆PSS",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "TikTok合并订单发货指南更新",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "eBay澳大利亚物流更新",
+      "score_present": true,
+      "decision_present": true
+    },
+    {
+      "title": "Shopify草稿订单折扣币种更新",
+      "score_present": true,
+      "decision_present": true
+    }
+  ],
+  "action_window": true,
+  "order_ledger": true,
+  "hook_a": true,
+  "hook_b": true,
+  "body": true,
+  "source": true,
+  "no_markdown_table_delimiters": true,
+  "review_version_v3": true,
+  "all_ok": true
+}
