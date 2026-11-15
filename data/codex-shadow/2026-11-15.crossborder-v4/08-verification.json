@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-15",
+  "build": {
+    "content_valid": true,
+    "automated_blockers": [],
+    "estimated_seconds": {
+      "a": 111.6,
+      "b": 111.7
+    }
+  },
+  "source_check": {
+    "all_ok": true,
+    "checked_count": 2,
+    "failed_count": 0
+  },
+  "independent_reviews": {
+    "facts": "PASS",
+    "seller_action": "PASS",
+    "final_copy": "PASS"
+  },
+  "dispatch_dry_run": {
+    "status": "DRY_RUN",
+    "message_not_sent": true
+  },
+  "delivery_markdown": {
+    "source": "06-delivery.md",
+    "root_snapshot_matches": true,
+    "sha256": "3b13fb0b33c7aa1918015cc2da94845ac1275221638b2eaf1cf707d364385ff3"
+  },
+  "tests": {
+    "typecheck": "PASS",
+    "crossborder_and_dispatch_tests": "43/43 PASS"
+  },
+  "delivery": {
+    "status": "DELIVERED",
+    "target": "跨境咨询每日内容",
+    "target_resolution": "UNIQUE",
+    "live_attempts": 1,
+    "daily_idempotency_key_matched": true,
+    "success_marker_present": true,
+    "attempted_at": "2026-11-15T16:25:43+08:00",
+    "delivered_at": "2026-11-15T16:26:08+08:00",
+    "readback": {
+      "all_ok": true,
+      "complete": true,
+      "has_more": false,
+      "unique_title_matches": 1,
+      "delivery_check": "10-delivery-check.json"
+    },
+    "recipient_scope": {
+      "target_group_only": true,
+      "private_chat_sent": false,
+      "other_groups_sent": false
+    }
+  },
+  "artifact_hashes": {
+    "06-final.md": "00854d2bc237783d14318eec523dc67147db6eb2328cec0f11a5a2cc111dd6dc",
+    "06-delivery.md": "3b13fb0b33c7aa1918015cc2da94845ac1275221638b2eaf1cf707d364385ff3",
+    "root_delivery_snapshot": "3b13fb0b33c7aa1918015cc2da94845ac1275221638b2eaf1cf707d364385ff3"
+  }
+}
