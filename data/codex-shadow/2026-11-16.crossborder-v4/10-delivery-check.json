@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-16",
+  "checked_at": "2026-11-16T17:30:00+08:00",
+  "complete": true,
+  "has_more": false,
+  "message_count": 1,
+  "message_time": "2026-11-16 17:29:13",
+  "unique_title_matches": 1,
+  "theme": true,
+  "five_candidate_section": true,
+  "candidate_rows": [
+    {
+      "title": "USPS Ground Advantage美国站调价",
+      "present": true
+    },
+    {
+      "title": "Amazon SP-API美国等站点商品属性更新",
+      "present": true
+    },
+    {
+      "title": "UPS美国Ground与Standard旺季附加时效",
+      "present": true
+    },
+    {
+      "title": "TikTok美国退款样品14天和54天时限",
+      "present": true
+    },
+    {
+      "title": "CBP HSU 2627中国301排除延期",
+      "present": true
+    }
+  ],
+  "action_window": true,
+  "order_ledger": true,
+  "hook_a": true,
+  "hook_b": true,
+  "body_paragraphs_matched": 6,
+  "body_paragraphs_total": 6,
+  "body": true,
+  "source": true,
+  "no_markdown_table_delimiters": true,
+  "review_version_v7": true,
+  "all_ok": true
+}

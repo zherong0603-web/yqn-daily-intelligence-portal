@@ -185,6 +185,9 @@ export function sendCrossborderV2Dws({
   if (options.live && options.date !== today) {
     throw new Error(`Crossborder V2 live delivery date must be today (${today}), got ${options.date}`);
   }
+  if (options.live && now.getTime() < Date.parse(`${today}T16:00:00+08:00`)) {
+    throw new Error("Crossborder V4 live delivery opens at 16:00 Asia/Shanghai");
+  }
   const stateFile = path.join(cwd, "logs", "automation", ".crossborder-v4-dws-group-state.json");
   const briefFile = path.join(cwd, "data", "codex-shadow", `${options.date}.crossborder-v2.json`);
   execute("npm", ["run", "crossborder:v2:build", "--", "--file", briefFile], { cwd, env });

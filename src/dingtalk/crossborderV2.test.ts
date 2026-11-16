@@ -44,6 +44,49 @@ describe("Crossborder V2 brief guardrails", () => {
     }
   });
 
+  it("accepts a direct one-story opener that states market, date, change, and business impact", () => {
+    const direct = structuredClone(sample) as { voiceover_body: string };
+    direct.voiceover_body = direct.voiceover_body.replace(
+      /^跨境卖家注意……今天老王只讲一件事。/,
+      "Amazon 美国站 11月2日调价，自动更新后账仍可能算错。",
+    );
+
+    const { report } = validateCrossborderV2Brief(direct, "2026-11-02T18:30:00+08:00");
+
+    expect(report.content_valid).toBe(true);
+    expect(report.automated_blockers).not.toContain("voiceover:missing_informative_body_open");
+  });
+
+  it("allows a one-story supply-chain opener without platform names or forced numbering", () => {
+    const original = String(sample.voiceover_body);
+    const issue = {
+      ...sample,
+      date: "2026-11-17",
+      voiceover_body: original
+        .replace("跨境卖家注意……今天老王只讲一件事。", "海外仓快断货，整批改空运要多花多少？")
+        .replace(/第一[，、]/u, ""),
+    };
+    const { report } = validateCrossborderV2Brief(issue);
+    expect(report.automated_blockers).not.toContain("voiceover:missing_informative_body_open");
+    expect(report.automated_blockers).not.toContain("voiceover:missing_第一");
+  });
+
+  it("requires the new call to action for issues starting November 17", () => {
+    const current = { ...sample, date: "2026-11-17" };
+    const oldEnding = "我是老王，跨境生意，先算利润，再谈爆单。";
+    const newEnding = "点头像私信领取，完整海外仓操作流程和报价表明细";
+    const earlier = validateCrossborderV2Brief(sample).report;
+    expect(earlier.automated_blockers).not.toContain("voiceover:missing_fixed_ending");
+    expect(validateCrossborderV2Brief(current).report.automated_blockers)
+      .toContain("voiceover:missing_fixed_ending");
+    const revised = { ...current, voiceover_body: String(sample.voiceover_body).replace(oldEnding, newEnding) };
+    const { brief, report } = validateCrossborderV2Brief(revised);
+    expect(report.automated_blockers).not.toContain("voiceover:missing_fixed_ending");
+    const scripts = renderCrossborderV2Scripts(brief!);
+    expect(scripts.a.endsWith(newEnding)).toBe(true);
+    expect(scripts.b.endsWith(newEnding)).toBe(true);
+  });
+
   it("keeps A and B scripts on the exact same body and plain text", () => {
     const { brief } = validateCrossborderV2Brief(sample);
     const scripts = renderCrossborderV2Scripts(brief!);

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-16",
+  "status": "DELIVERED",
+  "target": "跨境咨询每日内容",
+  "target_resolution": "UNIQUE",
+  "idempotency_key": "crossborder-v4-group-2026-11-16",
+  "daily_idempotency_key_matched": true,
+  "dry_run": "PASS",
+  "live_attempts": 1,
+  "attempted_at": "2026-11-16T17:29:08+08:00",
+  "attempted_at_utc": "2026-11-16T09:29:08.263Z",
+  "delivered_at": "2026-11-16T17:29:13+08:00",
+  "delivered_at_utc": "2026-11-16T09:29:13.964Z",
+  "delivery_status": "DELIVERED",
+  "success_marker": "[crossborder-v4:dws-group-delivered]",
+  "delivery_check": "10-delivery-check.json",
+  "private_chat_sent": false,
+  "other_groups_sent": false
+}

@@ -994,13 +994,33 @@ export function validateCrossborderV2Brief(input: unknown, checkedAt = new Date(
   const expectedBodyOpen = bodyCount === 1
     ? "跨境卖家注意……今天老王只讲一件事。"
     : `跨境卖家注意……今天老王带你看${bodyCount === 2 ? "两" : "三"}件事。`;
-  if (!brief.voiceover_body.startsWith(expectedBodyOpen)) {
-    blockers.push("voiceover:missing_fixed_body_open");
+  const firstSentence = brief.voiceover_body.split(/[。！？\n]/, 1)[0]?.trim() || "";
+  const decisionFirstFormat = brief.date >= "2026-11-17";
+  const directInsightOpen = bodyCount === 1
+    && firstSentence.length >= 8
+    && firstSentence.length <= 80
+    && (
+      (
+        /(?:美国|USPS|Amazon|TikTok|eBay|墨西哥|欧盟|欧洲)/iu.test(firstSentence)
+        && /\d/u.test(firstSentence)
+        && /(?:调价|调整|更新|截止|生效|变化|费用|费率|关税)/u.test(firstSentence)
+        && /(?:账|利润|成本|收入|资格|风险|损失|售价|履约|发货|流量)/u.test(firstSentence)
+      ) || (
+        decisionFirstFormat
+        && /(?:工厂|原材料|采购|船期|航线|港口|海运|海外仓|买家|客户|节假日|平台活动)/u.test(firstSentence)
+        && /(?:报价|交期|断货|交付|缺货|滞销|补货|压货|利润|成本|运费|上架|账期|现金流)/u.test(firstSentence)
+      )
+    );
+  if (!brief.voiceover_body.startsWith(expectedBodyOpen) && !directInsightOpen) {
+    blockers.push("voiceover:missing_informative_body_open");
   }
-  if (!brief.voiceover_body.endsWith("我是老王，跨境生意，先算利润，再谈爆单。")) {
+  const expectedEnding = decisionFirstFormat
+    ? "点头像私信领取，完整海外仓操作流程和报价表明细"
+    : "我是老王，跨境生意，先算利润，再谈爆单。";
+  if (!brief.voiceover_body.endsWith(expectedEnding)) {
     blockers.push("voiceover:missing_fixed_ending");
   }
-  for (const marker of ["第一", "第二", "第三"].slice(0, bodyCount)) {
+  for (const marker of ["第一", "第二", "第三"].slice(0, decisionFirstFormat && bodyCount === 1 ? 0 : bodyCount)) {
     if (!brief.voiceover_body.includes(marker)) blockers.push(`voiceover:missing_${marker}`);
   }
   if (hasMarkupOrLink(scripts.a) || hasMarkupOrLink(scripts.b)) blockers.push("voiceover:contains_markup_or_link");
@@ -1100,7 +1120,7 @@ export function renderCrossborderV2Markdown(brief: CrossborderV2Brief): string {
   lines.push("## 核实来源与风险说明", "");
   brief.risk_notes.forEach((note) => lines.push(`- ${note}`));
   lines.push("");
-  lines.push("老王跨境早知道｜每日 16:00 生成，供审阅。");
+  lines.push(brief.date >= "2026-11-17" ? "老王跨境早知道｜当期口播稿，供审阅。" : "老王跨境早知道｜每日 16:00 生成，供审阅。");
   return lines.join("\n");
 }
 

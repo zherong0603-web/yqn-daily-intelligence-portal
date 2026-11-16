@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-16",
+  "checked_at": "2026-11-16T09:29:12.008Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://community.ebay.com/forum/announcements-57928/topic/usps-is-adjusting-rates-on-november-14-2026-487561/",
+      "ok": true,
+      "matched_number": "1",
+      "matched_date": "11/13/2026",
+      "matched_markers": [
+        "Update 11/13/2026",
+        "USPS is adjusting rates for Ground Advantage on November 14, 2026",
+        "If you use calculated shipping, your rates will update automatically",
+        "check the shipping cost when listing an item",
+        "package weight, shipping zone, and destination",
+        "geographic pricing"
+      ]
+    }
+  ]
+}

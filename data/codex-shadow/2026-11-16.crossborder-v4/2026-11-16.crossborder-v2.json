@@ -1,0 +1,179 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-16",
+  "title": "跨境早知道 V4｜11月16日",
+  "summary": "USPS Ground Advantage于2026-11-14调整费率。eBay只明确calculated shipping自动更新；卖家仍需按重量、运费区域、目的地邮编和实际扣费复核，避免轻小件和包邮商品继续使用旧运费。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "24小时内没有足够强的单一运营主题，扩至72小时；选择11月13日更新、11月14日生效且今天仍可复核的eBay美国USPS Ground Advantage运费事件。"
+  },
+  "editorial": {
+    "theme": "USPS 又调价，“自动更新”为什么还不够？",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "USPS Ground Advantage美国站调价",
+        "region": "us",
+        "published_at": "2026-11-13",
+        "source_url": "https://community.ebay.com/forum/announcements-57928/topic/usps-is-adjusting-rates-on-november-14-2026-487561/",
+        "score": {
+          "relevance": 35,
+          "money_impact": 27,
+          "concrete_evidence": 13,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 94
+        },
+        "decision": "selected",
+        "reason": "美国近三日内更新，直接影响Ground Advantage运费；calculated shipping自动更新范围明确，今天可按重量、zone和目的地复核。"
+      },
+      {
+        "title": "Amazon SP-API美国等站点商品属性更新",
+        "region": "us",
+        "published_at": "2026-11-11",
+        "source_url": "https://developer-docs.amazon/sp-api/changelog/november-updates-to-listing-attribute-usage-and-enumeration-values",
+        "score": {
+          "relevance": 33,
+          "money_impact": 25,
+          "concrete_evidence": 12,
+          "hook_potential": 10,
+          "timeliness": 10,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "同日生效且动作清楚，但只影响使用特定Listings API或JSON feed的团队，受众面小于美国尾程运费。"
+      },
+      {
+        "title": "UPS美国Ground与Standard旺季附加时效",
+        "region": "us",
+        "published_at": "2026-11-10",
+        "source_url": "https://www.matrixfulfillment.com/blog/ups-fedex-holiday-2026-delivery-guarantee-changes",
+        "score": {
+          "relevance": 34,
+          "money_impact": 27,
+          "concrete_evidence": 12,
+          "hook_potential": 8,
+          "timeliness": 7,
+          "total": 88
+        },
+        "decision": "rejected",
+        "reason": "影响面大，但官方页面缺少可见的精确公布日；今天已有公告日期和设置范围更完整的eBay运费事件。"
+      },
+      {
+        "title": "TikTok美国退款样品14天和54天时限",
+        "region": "us",
+        "published_at": "2026-11-11",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=5764641632306946&lang=en",
+        "score": {
+          "relevance": 33,
+          "money_impact": 25,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 7,
+          "total": 87
+        },
+        "decision": "rejected",
+        "reason": "日期和内容门槛清楚，但主要约束创作者；卖家要得到经营结论还需额外编制样品成本与销售毛利假设。"
+      },
+      {
+        "title": "CBP HSU 2627中国301排除延期",
+        "region": "us",
+        "published_at": "2026-11-13",
+        "source_url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/432c0f5",
+        "score": {
+          "relevance": 34,
+          "money_impact": 26,
+          "concrete_evidence": 12,
+          "hook_potential": 6,
+          "timeliness": 8,
+          "total": 86
+        },
+        "decision": "rejected",
+        "reason": "178项排除和更新日期都重要，但11月9日已按同一延期事件交付，违反去重门槛。"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "一审事实审核PASS，二审卖家经营审核在v2、v3退回后v4 PASS。",
+        "三审内容主编在v5、v6退回后v7 PASS，明确愿意直接录制。",
+        "A/B构建估算110.8/111.1秒；只讲自动更新后仍需重算的运费账。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "USPS Ground Advantage美国站调价",
+      "what_happened": "eBay在2026-11-13更新公告：USPS于11月14日调整Ground Advantage费率；calculated shipping自动更新，卖家仍应在刊登时核运费并用eBay计算器查当前报价。",
+      "numbers": [
+        "2026-11-14生效",
+        "假设每月1000单",
+        "假设单均变化1美元"
+      ],
+      "effective_at": "2026-11-14生效；页面未标具体小时或时区",
+      "affected_sellers": "eBay美国站使用USPS Ground Advantage，从美国本土仓或美国海外仓向美国消费者发货的卖家",
+      "money_impact": "若同一运输价格单元每月1000单、单均成本变化1美元，月现金流敞口为1000美元；这是假设压力测试，不是本次公告的统一涨幅。",
+      "calculation": {
+        "basis": "同一服务、包装尺寸、实际和计费重量、发货ZIP、目的ZIP和日期的调价前后标签成本",
+        "formula": "受影响单量 × 单票差额；卖家吸收额按实际承担订单求和",
+        "result": "假设1000单均受影响且全由卖家吸收，成本增加上限为1000美元"
+      },
+      "action": "按11月14日后受影响单量乘单票差额绝对值排序，覆盖重量、zone、目的地ZIP和设置类型，分别核对listing报价、calculator报价及调价前后实际标签成本。",
+      "evidence": [
+        {
+          "title": "eBay Announcements: USPS is adjusting rates on November 14, 2026",
+          "url": "https://community.ebay.com/forum/announcements-57928/topic/usps-is-adjusting-rates-on-november-14-2026-487561/",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-13",
+          "checked_at": "2026-11-16T08:10:00Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面可见Update 11/13/2026；USPS于11月14日调整Ground Advantage；calculated shipping自动更新；公告要求检查listing运费；费率受重量、shipping zone、destination和地理定价影响。",
+          "markers": [
+            "Update 11/13/2026",
+            "USPS is adjusting rates for Ground Advantage on November 14, 2026",
+            "If you use calculated shipping, your rates will update automatically",
+            "check the shipping cost when listing an item",
+            "package weight, shipping zone, and destination",
+            "geographic pricing"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "USPS 调价，自动更新就够了吗？",
+    "b": "11月14日调价，运费重算。"
+  },
+  "voiceover_body": "eBay 美国卖家：Ground Advantage 11 月 14 日调价，自动更新后账仍可能算错。\n\n第一，公告没有统一涨幅。比较前，先固定同一服务、包装和重量，看清发货邮编、目的邮编和查询日期。价格会随重量、运费区域和目的地邮编变化；同一个运费区域，不同邮编也可能不同。\n\n第二，先别只按销量挑链接。用 11 月 14 日后的受影响订单量乘单票差额绝对值，找出影响金额最大的链接，再抽查常见重量、远近区域和不同运费设置。买家看到的运费、平台报价、实际标签成本要分开记录，再和调价前的同条件价格对账。\n\n第三，按重量计算的运费，要查重量、尺寸、处理费和包邮规则；固定运费、包邮和自定义价表，要算卖家实际吸收多少；第三方工具，先拿真实订单或同条件报价核对。假设 1000 单全部受影响、每单增加 1 美元。如果全由卖家吸收，合计增加 1000 美元；如果能转给买家，这笔就不算卖家现金流损失。\n\n美国 Ground Advantage 在售链接暂时没单，也要用运费计算器压一次未来订单。没有在售链接，也没有新订单，才可直接不动。新增成本压到毛利线以下，就按设置改价、处理费、包邮门槛、价表、包装或服务；代表性测试通过且毛利安全，今天先不改。\n\n我是老王，跨境生意，先算利润，再谈爆单。",
+  "risk_notes": [
+    "来源页面可见Update 11/13/2026，费率变化生效日2026-11-14；页面未写具体小时或时区。",
+    "eBay只明确calculated shipping自动更新；“其他设置和第三方ERP不保证自动更新”是操作提醒，不能写成eBay宣布所有工具失效。",
+    "公告没有统一涨跌幅度；不能把任何单一百分比写成所有重量、zone和目的地都适用。",
+    "USPS会把轻小件按重量档进位，超过1立方英尺时还要比较实际重量与体积重量；经营账以后台最终计费重量和实际收费为准。",
+    "1000单、单均1美元、1000美元是“全部受影响且全部由卖家吸收”的假设上限，不是USPS或eBay公布的实际涨价，也不是实际亏损。",
+    "1000单、单均1美元、1000美元均为假设压力测试，不是USPS或eBay公布的实际收费或损失。",
+    "本次只覆盖eBay页面所写的US Ground Advantage；不延伸到其他承运商、其他服务或其他国家。",
+    "发送前必须完成独立事实、卖家动作和内容主编审核，以及构建、严格来源检查和完整干跑。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-16T08:10:00Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-16T16:00:00+08:00"
+  }
+}

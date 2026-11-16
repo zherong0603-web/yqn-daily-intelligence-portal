@@ -90,6 +90,18 @@ describe("Crossborder V2 DWS delivery", () => {
     }))).toThrow(/exactly one group/);
   });
 
+  it("blocks early live delivery before any external call", () => {
+    const { directory, date } = fixture();
+    const execute = vi.fn();
+    expect(() => sendCrossborderV2Dws({
+      argv: ["node", "send", "--date", date, "--live"],
+      cwd: directory,
+      now: new Date("2026-11-02T07:59:59Z"),
+      execute,
+    })).toThrow(/opens at 16:00 Asia\/Shanghai/);
+    expect(execute).not.toHaveBeenCalled();
+  });
+
   it("validates without sending in dry-run mode", () => {
     const { directory, date } = fixture();
     const execute = vi.fn((command, args) => {
@@ -102,7 +114,7 @@ describe("Crossborder V2 DWS delivery", () => {
       argv: ["node", "send", "--date", date],
       cwd: directory,
       env: { DWS_LANG: "zh" },
-      now: new Date("2026-11-02T08:00:00Z"),
+      now: new Date("2026-11-02T06:30:00Z"),
       execute,
       log,
     });
