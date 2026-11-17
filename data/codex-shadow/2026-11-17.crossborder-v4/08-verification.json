@@ -1,6 +1,6 @@
 {
   "date": "2026-11-17",
-  "checked_at": "2026-11-17T15:01:08+08:00",
+  "checked_at": "2026-11-17T18:08:19+08:00",
   "build": {
     "date": "2026-11-17",
     "content_valid": true,
@@ -14,28 +14,32 @@
       "b": 101.7
     },
     "automated_blockers": [],
-    "checked_at": "2026-11-17T06:58:57.591Z"
+    "checked_at": "2026-11-17T10:05:01.533Z"
   },
   "source": {
     "date": "2026-11-17",
-    "checked_at": "2026-11-17T07:00:19.013Z",
-    "all_ok": false,
+    "checked_at": "2026-11-17T10:05:03.203Z",
+    "all_ok": true,
     "checked_count": 1,
-    "failed_count": 1,
+    "failed_count": 0,
     "checks": [
       {
         "url": "https://www.maersk.com/news/articles/2026/11/16/pss-far-east-mediterranean-lcl",
-        "ok": false,
-        "matched_number": null,
-        "matched_date": null,
-        "matched_markers": [],
-        "error": "source hostname resolves to a private address"
+        "ok": true,
+        "matched_number": "38",
+        "matched_date": "16 Nov 2026",
+        "matched_markers": [
+          "16 Nov 2026",
+          "effective price calculation date (ETD) from 23rd Nov 2026",
+          "LCL Min & W/m",
+          "$38"
+        ]
       }
     ]
   },
-  "dry_run": "NOT_RUN_SOURCE_GATE",
+  "dry_run": "PASS",
   "input_sha256": "bb3d0abe08e60b7aaf54201897717c8108b09d4c0a1344bc62e1bf4fa7730a8e",
-  "delivery_status": "NOT_ATTEMPTED",
+  "delivery_status": "DELIVERED",
   "freeze": {
     "date": "2026-11-17",
     "frozen_at": "2026-11-17T14:58:57+08:00",

@@ -1,0 +1,12 @@
+{
+  "status": "DELIVERED",
+  "delivery_status": "DELIVERED",
+  "attempted_at": "2026-11-17T10:05:01.275Z",
+  "delivered_at": "2026-11-17T10:05:05.042Z",
+  "idempotency_key": "crossborder-v4-group-2026-11-17",
+  "target": "跨境咨询每日内容",
+  "date": "2026-11-17",
+  "frozen_at": "2026-11-17T14:58:57+08:00",
+  "marker_verified": true,
+  "delivery_hash_verified": true
+}

@@ -3,6 +3,9 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
+import { get as httpsGet } from "node:https";
+import { Readable } from "node:stream";
+import { checkServerIdentity } from "node:tls";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { z } from "zod";
@@ -594,7 +597,37 @@ function redactSourceUrl(input: string): string {
   }
 }
 
-async function assertSafePublicSourceUrl(input: string | URL): Promise<URL> {
+type SourceRoute = { url: URL; pinnedAddress?: string };
+const sourceUserAgent = "Mozilla/5.0 YQN-Crossborder-V2/2.0";
+
+function isSyntheticDnsAddress(address: string): boolean {
+  return isIP(address) === 4 && /^198\.(?:18|19)\./.test(address);
+}
+
+function isPublicRecoveryAddress(address: string): boolean {
+  return isIP(address) === 4 && !isPrivateAddress(address)
+    && !/^(?:192\.0\.(?:0|2)\.|192\.88\.99\.|198\.51\.100\.|203\.0\.113\.)/.test(address);
+}
+
+async function recoverPublicAddress(host: string): Promise<string> {
+  const resolver = new URL("https://1.1.1.1/dns-query");
+  resolver.searchParams.set("name", host);
+  resolver.searchParams.set("type", "A");
+  const response = await fetch(resolver, {
+    headers: { Accept: "application/dns-json" },
+    redirect: "error",
+    signal: AbortSignal.timeout(5_000),
+  });
+  if (!response.ok) throw new Error("public DNS recovery failed");
+  const result = await response.json() as { Status?: number; Answer?: Array<{ type: number; data: string }> };
+  const addresses = Array.isArray(result.Answer) ? result.Answer.filter((entry) => entry?.type === 1).map((entry) => entry.data) : [];
+  if (result.Status !== 0 || !addresses.length || addresses.some((address) => typeof address !== "string" || !isPublicRecoveryAddress(address))) {
+    throw new Error("public DNS recovery did not return a safe public IPv4 answer");
+  }
+  return addresses[0]!;
+}
+
+async function assertSafePublicSourceUrl(input: string | URL, allowDnsRecovery: boolean): Promise<SourceRoute> {
   const url = input instanceof URL ? input : new URL(input);
   if (url.protocol !== "https:" || url.username || url.password) {
     throw new Error("source URL must be public HTTPS without embedded credentials");
@@ -609,32 +642,70 @@ async function assertSafePublicSourceUrl(input: string | URL): Promise<URL> {
   if (host === "localhost" || host.endsWith(".local")) throw new Error("source URL targets a local host");
   if (isIP(host)) {
     if (isPrivateAddress(host)) throw new Error("source URL targets a private address");
-    return url;
+    return { url };
   }
   const addresses = await lookup(host, { all: true });
+  // Never send to a synthetic address. Resolve independently and pin the public result.
+  if (allowDnsRecovery && addresses.length > 0 && addresses.every(({ address }) => isSyntheticDnsAddress(address))) {
+    return { url, pinnedAddress: await recoverPublicAddress(host) };
+  }
   if (addresses.length === 0 || addresses.some(({ address }) => isPrivateAddress(address))) {
     throw new Error("source hostname resolves to a private address");
   }
-  return url;
+  return { url };
+}
+
+function fetchPinnedSource({ url, pinnedAddress }: SourceRoute & { pinnedAddress: string }): Promise<Response> {
+  return new Promise((resolve, reject) => {
+    httpsGet({
+      hostname: pinnedAddress,
+      servername: url.hostname,
+      port: 443,
+      path: url.pathname + url.search,
+      headers: { Host: url.host, "User-Agent": sourceUserAgent },
+      rejectUnauthorized: true,
+      checkServerIdentity: (_name, cert) => checkServerIdentity(url.hostname, cert),
+      agent: false,
+      maxHeaderSize: 65_536,
+      signal: AbortSignal.timeout(20_000),
+    }, (incoming) => {
+      try {
+        const status = incoming.statusCode ?? 502;
+        const headers = new Headers();
+        for (const [name, value] of Object.entries(incoming.headers)) {
+          if (typeof value === "string") headers.append(name, value);
+          else for (const item of value ?? []) headers.append(name, item);
+        }
+        const withoutBody = [204, 205, 304].includes(status);
+        if (withoutBody) incoming.resume();
+        const body = withoutBody ? null : Readable.toWeb(incoming) as ReadableStream<Uint8Array>;
+        resolve(new Response(body, { status, headers }));
+      } catch (error) {
+        incoming.destroy();
+        reject(error);
+      }
+    }).once("error", reject);
+  });
 }
 
 async function fetchPublicSource(url: string | URL, fetchImpl: typeof fetch, requiredOrigin?: string): Promise<{ data: Buffer; finalUrl: URL }> {
-  const checkUrl = async (input: string | URL): Promise<URL> => {
+  const checkUrl = async (input: string | URL): Promise<SourceRoute> => {
     const candidate = new URL(input);
     if (requiredOrigin && candidate.origin !== requiredOrigin) throw new Error("PDF and publication index must have the same origin, including redirects");
-    return assertSafePublicSourceUrl(candidate);
+    return assertSafePublicSourceUrl(candidate, fetchImpl === fetch);
   };
-  let current = await checkUrl(url);
+  let route = await checkUrl(url);
   for (let redirect = 0; redirect <= 3; redirect += 1) {
+    const { url: current, pinnedAddress } = route;
     let response: Response;
     try {
-      response = await fetchImpl(current, {
-        headers: { "User-Agent": "Mozilla/5.0 YQN-Crossborder-V2/2.0" },
+      response = pinnedAddress ? await fetchPinnedSource({ url: current, pinnedAddress }) : await fetchImpl(current, {
+        headers: { "User-Agent": sourceUserAgent },
         redirect: "manual",
         signal: AbortSignal.timeout(20_000),
       });
     } catch (error) {
-      if (fetchImpl !== fetch) throw error;
+      if (fetchImpl !== fetch || pinnedAddress) throw error;
       const pythonFetch = String.raw`
 import ipaddress, socket, sys, urllib.parse, urllib.request
 u = urllib.parse.urlparse(sys.argv[1])
@@ -667,7 +738,8 @@ sys.stdout.buffer.write(data)
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get("location");
       if (!location) throw new Error(`HTTP ${response.status} redirect without location`);
-      current = await checkUrl(new URL(location, current));
+      await response.body?.cancel();
+      route = await checkUrl(new URL(location, current));
       continue;
     }
     if (!response.ok) throw new Error(`HTTP ${response.status}`);

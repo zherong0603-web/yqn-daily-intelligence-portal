@@ -2,6 +2,12 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { validateCrossborderV2Brief, verifyCrossborderV2Sources } from "./buildSellerProblemBrief.js";
 
+// These tests supply offline HTML/PDF fixtures. Keep DNS network conditions
+// out of the fixture path; private destinations are tested independently.
+vi.mock("node:dns/promises", () => ({
+  lookup: vi.fn().mockResolvedValue([{ address: "93.184.216.34", family: 4 }]),
+}));
+
 // Genuine USTR final notice downloaded from this public URL on 2026-11-09.
 const pdfUrl = "https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/Section%20301/USTR%20Sec%20301%20Ships%20FRN%20Further%20Suspension.pdf";
 const indexUrl = "https://ustr.gov/trade-topics/enforcement/section-301-investigations/section-301-china-targeting-maritime-logistics-and-shipbuilding-sectors-dominance";
