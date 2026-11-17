@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-17",
+  "checked_at": "2026-11-17T07:00:19.013Z",
+  "all_ok": false,
+  "checked_count": 1,
+  "failed_count": 1,
+  "checks": [
+    {
+      "url": "https://www.maersk.com/news/articles/2026/11/16/pss-far-east-mediterranean-lcl",
+      "ok": false,
+      "matched_number": null,
+      "matched_date": null,
+      "matched_markers": [],
+      "error": "source hostname resolves to a private address"
+    }
+  ]
+}
