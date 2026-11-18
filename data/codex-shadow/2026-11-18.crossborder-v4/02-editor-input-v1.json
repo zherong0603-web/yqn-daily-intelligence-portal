@@ -1,0 +1,157 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-18",
+  "title": "跨境早知道 V4｜11月18日",
+  "summary": "美西海铁联运，柜子到港以后怎样核实内陆仓补货日？以11月17日物流周报的铁路场站停留观察为触发，逐箱对实际节点、预约和库存覆盖，不把11天直接加到每票运输或费用。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先检查24小时信号，扩至72小时研究并去重12个事件。社媒仅取得公开索引样本，未核到当期低粉爆款，不以累计获赞替代单帖热度。"
+  },
+  "editorial": {
+    "theme": "美西海铁联运：拿到到港通知后，怎样核实内陆仓补货日？",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "美西到港后转铁路：逐箱核实内陆仓补货日",
+        "region": "us",
+        "published_at": "2026-11-17",
+        "source_url": "https://www.zencargo.com/resources/zencargo-market-update-17-november-2026/",
+        "score": {
+          "relevance": 34,
+          "money_impact": 28,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 95
+        },
+        "decision": "selected",
+        "reason": "周报列洛杉矶、长滩港外无船等待和铁路场站停留11天；今天可按箱号核后续节点，避免把到港日写成入仓日。数字是周报观察，不是逐票保证。"
+      },
+      {
+        "title": "亚马逊零售广告价格与折扣数字的动态呈现要求",
+        "region": "us",
+        "published_at": "2026-11-17",
+        "source_url": "https://ppc.land/amazon-bans-best-price-claims-in-ads-on-its-store-imdb-and-fire-tv/",
+        "score": {
+          "relevance": 33,
+          "money_impact": 27,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 93
+        },
+        "decision": "rejected",
+        "reason": "可检查黑五创意与落地页；官方页面经阅读器核到11月15日更新，但正式直连未核到可见日期，不进入主稿，也不称11月15日开始执法。"
+      },
+      {
+        "title": "USPS拟对邮资更正差额收取20%费用",
+        "region": "us",
+        "published_at": "2026-11-16",
+        "source_url": "https://selltheflip.com/news/usps-postage-correction-fee-january-2027",
+        "score": {
+          "relevance": 33,
+          "money_impact": 28,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 94
+        },
+        "decision": "rejected",
+        "reason": "适合包裹实测教程，但仍属2027年拟议收费，必须区分少付和多付及PRC审查；本期先解决正在途补货，不混入未来邮资议题。"
+      },
+      {
+        "title": "亚马逊墨西哥Buen Fin买家节省数据",
+        "region": "mexico",
+        "published_at": "2026-11-16",
+        "source_url": "https://www.aboutamazon.mx/noticias/tienda/los-mexicanos-ahorraron-mas-de-1-670-millones-de-pesos-en-los-primeros-dias-del-buen-fin-2026-en-amazon-com-mx",
+        "score": {
+          "relevance": 27,
+          "money_impact": 20,
+          "concrete_evidence": 12,
+          "hook_potential": 6,
+          "timeliness": 8,
+          "total": 73
+        },
+        "decision": "rejected",
+        "reason": "消费者活动日期不能当卖家操作窗口；买家节省额不能当卖家利润，未取得新的具体可执行经营变化。"
+      },
+      {
+        "title": "马士基远东至地中海拼箱按计价ETD收PSS",
+        "region": "europe",
+        "published_at": "2026-11-16",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/16/pss-far-east-mediterranean-lcl",
+        "score": {
+          "relevance": 32,
+          "money_impact": 27,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 92
+        },
+        "decision": "rejected",
+        "reason": "11月17日已向群交付，虽然11月23日前仍可核报价，今日去重淘汰；不重复播同一张账。"
+      }
+    ]
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "美西到港后转铁路：逐箱核实内陆仓补货日",
+      "what_happened": "Zencargo 2026年11月17日物流周报在美国港口段列出：洛杉矶、长滩无船等待，铁路场站停留11天。报道的市场观察不代表每票固定延误。",
+      "numbers": [
+        "铁路场站停留11天",
+        "2026-11-17周报"
+      ],
+      "effective_at": "2026-11-17为周报日期；无政策生效日或统一卖家截止日，按当票节点及场站当地期限核对。",
+      "affected_sellers": "经洛杉矶或长滩卸船，再转铁路去美国内陆仓，且仍在确认铁路和入仓节点的卖家与物流负责人。",
+      "money_impact": "缺货暴露按各SKU的实际缺口天数、日均销量和单件贡献毛利（美元）估算；场站费用按本票免费期和合同另核，不能把11天直接当收费天数。",
+      "calculation": {
+        "basis": "使用自家可售库存、近一周日均销量及逐票确认的上架计划，先算覆盖天数。",
+        "formula": "库存覆盖天数=当前可售库存÷近一周日均销量；有缺口时，缺口天数×日均销量×单件贡献毛利（美元）。",
+        "result": "美元风险估算需填自家实数；销量或上架日不明时保留空项，不编造亏损金额。"
+      },
+      "action": "今天按箱号对提单、物流轨迹和仓库预约，分列预计与实际；向货代确认下一节点和更新时间。库存覆盖不足时再核可执行调拨；直接拖车或库存可覆盖者先不改。",
+      "evidence": [
+        {
+          "title": "Zencargo Market Update: 17 November 2026",
+          "url": "https://www.zencargo.com/resources/zencargo-market-update-17-november-2026/",
+          "source_type": "media",
+          "published_at": "2026-11-17",
+          "checked_at": "2026-11-18T06:49:30+00:00",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "物流服务商周报中的市场观察；美国港口段同时列无船等待与铁路场站11天。未给逐票承诺或具体统计样本。",
+          "markers": [
+            "17 November 2026",
+            "Los Angeles/Long Beach: No vessels currently waiting",
+            "11-day dwell on rail terminals"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "柜子到港，补货还没影？",
+    "b": "到港日，能当入仓日？"
+  },
+  "voiceover_body": "经洛杉矶、长滩转铁路去美国内陆海外仓的卖家，补货表该重核了。Zencargo 11 月 17 日周报里，港外没有船排队，铁路场站停留却列到 11 天。到港通知拿到了，后面的铁路和入仓还得逐票查。\n\n今天拿提单、物流轨迹和仓库预约表，对着箱号核四个节点：实际卸船、铁路发车、内陆到站、可提货。每个日期旁边写清“预计”还是“实际”。只看到船到了，却没拿到铁路发车记录，先让货代确认柜子在哪、下一班是否排上，并给出下一次更新时间。别把海港到港日填成海外仓收货日。\n\n已经到内陆场站，也先问清放行和可提货状态，再让拖车、仓库确认提柜和收货预约。把最后免费提货日一起记下来，时区按场站当地时间写。海港、铁路场站和船公司的费用分开核，不能拿周报里的十一天直接乘每天仓租。\n\n运营再看库存能撑几天：拿当前可售库存，除以近一周日均销量，跟逐票确认的入仓、上架计划比。中间有缺口，再核备用仓现货和调拨到货时间，决定要不要调货、缩小促销数量。已经有明确后续节点、库存也能覆盖的，先按原计划走。港口直接拖车提货、不走这段铁路的，也别照搬这十一天。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "页面标题可见日期2026-11-17，未标具体发布时间、统计时刻和时区；这是周报日，无统一卖家操作截止日。",
+    "11天是Zencargo周报列的铁路场站停留观察，未披露该项样本、统计窗口及平均值定义，不能称港口官方统计或逐票额外延误。",
+    "港外无船等待不代表柜子已卸船、已放行、已发铁路或已可提货。适用对象仅为经洛杉矶或长滩转铁路去美国内陆的链路。",
+    "四节点核对、库存覆盖及调拨分支是本稿建议的经营检查流程，不是Zencargo原文规定。预约、免费期、放行及本票时效须查实际记录，场站期限用当地时区。",
+    "缺货风险的美元公式使用卖家实数；无单票实际费用或已实现损失。铁路、海港、船公司费用分开核，不能用11天直接计费。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-18T06:49:30+00:00",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-18T16:00:00+08:00"
+  }
+}

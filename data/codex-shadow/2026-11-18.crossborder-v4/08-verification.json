@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-18",
+  "checked_at": "2026-11-18T15:20:12+08:00",
+  "build": {
+    "date": "2026-11-18",
+    "content_valid": true,
+    "send_allowed": true,
+    "target": "dingtalk_group",
+    "signal_count": 1,
+    "us_first": true,
+    "region_priority_valid": true,
+    "estimated_seconds": {
+      "a": 108.7,
+      "b": 108.5
+    },
+    "automated_blockers": [],
+    "checked_at": "2026-11-18T07:18:46.568Z"
+  },
+  "source": {
+    "date": "2026-11-18",
+    "checked_at": "2026-11-18T07:18:48.801Z",
+    "all_ok": true,
+    "checked_count": 1,
+    "failed_count": 0,
+    "checks": [
+      {
+        "url": "https://www.zencargo.com/resources/zencargo-market-update-17-november-2026/",
+        "ok": true,
+        "matched_number": "11",
+        "matched_date": "17 November 2026",
+        "matched_markers": [
+          "17 November 2026",
+          "Los Angeles/Long Beach: No vessels currently waiting",
+          "11-day dwell on rail terminals"
+        ]
+      }
+    ]
+  },
+  "dry_run": "PASS",
+  "input_sha256": "bf4fa5399158222c5305b2fb4f782369f7c595122d153c64c6cd8024cf249ad0",
+  "freeze": {
+    "date": "2026-11-18",
+    "version": "V4",
+    "frozen_at": "2026-11-18T15:11:47+08:00",
+    "on_time": true,
+    "reviewed_version": "05-final-candidate-v4.md",
+    "reviewed_sha256": "26bdf24a3d20dca0270368c67c8cde8e6cc0c34be993cb79384acf8316752c5d",
+    "delivery_sha256": "26bdf24a3d20dca0270368c67c8cde8e6cc0c34be993cb79384acf8316752c5d",
+    "input_derivation": "Approved input is reviewed V4 JSON plus the actual editorial review metadata; all news, candidates, hooks and body remain identical. UTC metadata generated_at normalized from +00:00 to equivalent Z notation for the existing schema."
+  },
+  "independent_reviews": [
+    {
+      "role": "facts",
+      "status": "PASS",
+      "review_file": "03-review-01-facts-v1.md",
+      "review_file_sha256": "a11f1ec04eb9dff27007ebf6ad9bfd513cad77109021d6f724aeb1ee75528dc8",
+      "reviewed_file": "02-editor-input-v4.json",
+      "reviewed_file_sha256": "c79476770d9d6c4c704a3d31a51397d9c595562465dad3a1dd7888a4841a276e"
+    },
+    {
+      "role": "action",
+      "status": "PASS",
+      "review_file": "04-review-02-action-v2.md",
+      "review_file_sha256": "1a00a2d9bb9dd9634cc35a2ace77c8444ed29a9c0ed0271883a58793c53a0f88",
+      "reviewed_file": "02-editor-input-v4.json",
+      "reviewed_file_sha256": "c79476770d9d6c4c704a3d31a51397d9c595562465dad3a1dd7888a4841a276e"
+    },
+    {
+      "role": "copy",
+      "status": "PASS",
+      "review_file": "05-review-03-final-v3.md",
+      "review_file_sha256": "23056865861e810c124715664685ff3d938076e0c443e44589cb74db96bfd9d7",
+      "reviewed_file": "05-final-candidate-v4.md",
+      "reviewed_file_sha256": "26bdf24a3d20dca0270368c67c8cde8e6cc0c34be993cb79384acf8316752c5d"
+    }
+  ],
+  "delivery_status": "NOT_SENT",
+  "red_team": "12-delivery-red-team.md",
+  "continuation_sha256": "e168275c55dfd84d62705ef4748b53bf6b37cb66d76e756673af668df1033905"
+}

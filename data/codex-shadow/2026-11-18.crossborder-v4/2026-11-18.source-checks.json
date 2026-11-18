@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-18",
+  "checked_at": "2026-11-18T07:18:48.801Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.zencargo.com/resources/zencargo-market-update-17-november-2026/",
+      "ok": true,
+      "matched_number": "11",
+      "matched_date": "17 November 2026",
+      "matched_markers": [
+        "17 November 2026",
+        "Los Angeles/Long Beach: No vessels currently waiting",
+        "11-day dwell on rail terminals"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-18",
+  "version": "V4",
+  "frozen_at": "2026-11-18T15:11:47+08:00",
+  "on_time": true,
+  "reviewed_version": "05-final-candidate-v4.md",
+  "reviewed_sha256": "26bdf24a3d20dca0270368c67c8cde8e6cc0c34be993cb79384acf8316752c5d",
+  "delivery_sha256": "26bdf24a3d20dca0270368c67c8cde8e6cc0c34be993cb79384acf8316752c5d",
+  "input_derivation": "Approved input is reviewed V4 JSON plus the actual editorial review metadata; all news, candidates, hooks and body remain identical. UTC metadata generated_at normalized from +00:00 to equivalent Z notation for the existing schema."
+}
