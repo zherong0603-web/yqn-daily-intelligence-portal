@@ -146,4 +146,6 @@ with Path("logs/automation/.crossborder-v4-group-2026-11-18-continuation.lock").
     with memory.open("a") as f:
         f.write(f"\n- {stamp()} 2026-11-18 正刊：12条候选，5条重点，72小时检索。美西海铁联运逐箱核查补货日，Zencargo 11月17日周报列铁路场站停留11天，非逐票延期或收费天数。独立三审PASS；A/B {checks['build']['estimated_seconds']['a']}/{checks['build']['estimated_seconds']['b']}秒；冻结{freeze['frozen_at']}；严格来源及完整干跑通过。仅向跨境咨询每日内容发送一次；{event_key}，{receipt['delivery_status']}，送达{receipt['delivered_at']}，精确标记匹配；群回读{'通过' if readback['all_ok'] else '未完整核验'}。\n")
 
-    record({"status":"DELIVERED","delivery_status":receipt["delivery_status"],"delivered_at":receipt["delivered_at"],"readback":readback["all_ok"]})
+    archive_paths=[archive/"07-delivery.json",archive/"08-verification.json",archive/"10-delivery-check.json",archive/(date+".crossborder-v2.review.json"),archive/(date+".source-checks.json"),root/(date+".crossborder-v2.review.json"),root/(date+".source-checks.json")]
+    archive_hashes={str(p):sha(p) for p in archive_paths}
+    record({"status":"DELIVERED","delivery_status":receipt["delivery_status"],"delivered_at":receipt["delivered_at"],"readback":readback["all_ok"],"archive_sha256":archive_hashes})
