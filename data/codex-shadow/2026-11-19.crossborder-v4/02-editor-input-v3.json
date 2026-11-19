@@ -1,0 +1,160 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-19",
+  "title": "跨境早知道 V4｜11月19日",
+  "summary": "TikTok美国卖家签收后未回款，先分待结算、准备金、发送中和银行已确认。11月18日更新的官方财务说明给出明细和追踪入口，用同一笔付款对银行流水，核实哪笔钱能安排补货。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时，扩至72小时核备选并去重12项；FedEx箱规因近期日期与严格来源不满足保留为常青备选。社媒仅公开索引样本，不宣称全榜或低粉爆款。"
+  },
+  "editorial": {
+    "theme": "工厂催补货款，TikTok显示Paid，为什么还没进银行？",
+    "candidate_count_researched": 12,
+    "candidates": [
+      {
+        "title": "TikTok美国财务页更新：签收未回款，按状态追准备金和银行转账",
+        "region": "us",
+        "published_at": "2026-11-18",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=2470273945257771",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "有第一方可见更新日与实际入口，今天可逐笔核待结算、准备金及银行确认；超过5个工作日未到账可用付款追踪号向银行核查，直接关系补货现金安排。"
+      },
+      {
+        "title": "FedEx箱规跨档与11月下旬旺季处理费",
+        "region": "us",
+        "published_at": "2026-09-11",
+        "source_url": "https://www.fedex.com/content/dam/fedex/us-united-states/services/Service_Guide_2026.pdf",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 10,
+          "timeliness": 2,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "官方指南可见9月11日更新，箱规教程有价值；近期报道的11月17日只有元数据日期，正式来源核验失败，指南又超过取证体积限制。本期不拿旧规则冒充新讯。"
+      },
+      {
+        "title": "洛杉矶长滩安保合同11月21日到期风险",
+        "region": "us",
+        "published_at": "2026-11-18",
+        "source_url": "https://www.amz123.com/kx/NRH6GPzO",
+        "score": {
+          "relevance": 33,
+          "money_impact": 29,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 95
+        },
+        "decision": "rejected",
+        "reason": "在途货今天可核具体码头与预约，价值高；目前是可能停工，不能写成全港已关。本期不把港口风险和回款教程混讲。"
+      },
+      {
+        "title": "TikTok美国LIVE Auction资格与履约要求更新",
+        "region": "us",
+        "published_at": "2026-11-18",
+        "source_url": "https://seller-us.tiktok.com/university/essay?knowledge_id=8427133325330222",
+        "score": {
+          "relevance": 28,
+          "money_impact": 23,
+          "concrete_evidence": 13,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 81
+        },
+        "decision": "rejected",
+        "reason": "适合已获资格的直播拍卖卖家，今天可核账号与商品；不能套到普通直播和全部店铺，与本期回款问题不同。"
+      },
+      {
+        "title": "法国圣诞网购预算降至236欧元",
+        "region": "europe",
+        "published_at": "2026-11-18",
+        "source_url": "https://www.amz123.com/kx/R7txHR7M",
+        "score": {
+          "relevance": 28,
+          "money_impact": 23,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "调查可触发自家价带和节日组合复盘，但消费者预算不是店铺订单预测；尚未取得可直接改变特定卖家当天采购量的证据，不入本期。"
+      }
+    ]
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "TikTok美国财务页更新：签收未回款，按状态追准备金和银行转账",
+      "what_happened": "TikTok Shop美国Finances Page FAQ页面于11月18日更新，列出待结算与准备金明细入口，并说明Paid代表银行已确认，银行确认后最多还可能需要5个工作日显示到账。",
+      "numbers": [
+        "银行确认后最多5个工作日"
+      ],
+      "effective_at": "2026-11-18为页面更新日，未另列新政策生效日；核查按当前付款状态与银行确认时间进行，页面未标更新时区。",
+      "affected_sellers": "TikTok Shop美国站有未结算、未释放准备金或显示Paid但收款账户仍无对应入账的经营中卖家与财务、运营负责人。",
+      "money_impact": "待结算、未释放准备金和平台已发起的美元付款分开记录；准备金不与On hold总额重复加计，Paid不直接当银行已到账。补货现金以实际银行可用余额安排。",
+      "calculation": {
+        "basis": "同一笔付款、相同币种和时间范围，对平台付款明细与银行实际入账，准备金不重复加总。",
+        "formula": "待核差额=平台付款金额-同币种银行实际入账金额；汇兑及银行费用另核，缺记录留待核。",
+        "result": "美元差额仅为待核项，不直接认定少付或实际亏损；付款预算以银行实际可用金额为准。"
+      },
+      "action": "今天分开核On hold与准备金；Paid未到账，先核银行确认日、时区及银行工作日，缺记录标待核。核实超过5工作日，取付款追踪号向收款银行追查；Processing仍按发送中跟进。",
+      "evidence": [
+        {
+          "title": "TikTok Shop US: Finances Page FAQ",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=2470273945257771",
+          "source_type": "platform_announcement",
+          "published_at": "2026-11-18",
+          "checked_at": "2026-11-19T06:47:58Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面可见更新日、准备金导出和订单明细路径、Paid银行确认及5个工作日后追踪规则来自官方同页。",
+          "markers": [
+            "11/18/2026",
+            "Unreleased reserves",
+            "Reserve Details",
+            "5 business days",
+            "Acknowledged by bank"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "工厂催款，Paid却没到账？",
+    "b": "显示已付款，钱在哪？"
+  },
+  "voiceover_body": "美国TikTok Shop18日更新财务页，Paid未到账有核查入口。工厂催补货款，先查这笔钱停在哪，别只看店铺销售额。\n\n先打开卖家后台的财务，进On hold，导出待结算明细。再点Unreleased reserves，也就是未释放准备金，记下金额、收取日和预计释放日。准备金在待结算范围里，别把两笔金额相加。预计释放日也不能填成银行到账日。\n\n如果平台已经显示Paid，银行流水却没有这笔钱，就进财务里的Payouts，打开Paid。找到Acknowledged by bank，也就是银行已确认，旁边有个问号，点开取这笔付款的Trace ID，付款追踪号。官方写明，银行确认后，资金显示到账可能还要最多5个工作日。超过这个窗口仍没到账，把追踪号交给收款银行查这笔转账。\n\n这五天从银行确认后算，别从买家下单日算。确认日、时区或工作日没核清，先补记录，别直接判超时。还在Processing，就是平台正在向银行发送，先按这个状态跟进。还在On hold，就看是等结算、售后没结束，还是有准备金，不能套银行查款这一步。\n\n最后，同一笔付款只记一行：平台金额、当前状态、银行确认日、银行实际到账金额。待结算、准备金和已发出的付款分开记。银行没入账，就别当今天能付给工厂的钱。已经跟流水对上的，正常记账，不用再催同一笔。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "2026-11-18仅为官方页面可见更新日，页面未给独立生效日、统一卖家操作截止或更新时间时区；不能说银行处理规则从18日才新设。",
+    "Paid表示付款已由银行确认，资金显示到账仍可能最多5个工作日；从银行确认后计算，不从下单、签收或平台预计释放日计算。工作日和时区按实际银行记录核，未标先确认。确认日或银行工作日口径未核清时标待核，向平台和银行补确认记录，不能倒推已超过5个工作日。",
+    "On hold为未结算支付的预计金额，退款与运费调整等可能改变净额；准备金是待核组成明细，不能与待结算总额再加一次。预计释放日不是银行到账日。",
+    "FAQ说明按店铺动态结算周期在签收后1至31天发起付款，售后需先解决；不是第31天必到账承诺。最低付款额1美元及负结算抵扣也可能影响状态，均须按本店记录核。",
+    "导出财务报告的Reserve Details仅包含2025-09-25之后交易的准备金明细；页面截图是测试账户示意，真实界面可能有差异，未进入用户真实后台。",
+    "金额核对使用同一付款、币种和期间；汇兑、银行费用及重复记录须另核。没有使用真实店铺或银行数据，没有假定已追回现金或产生亏损。",
+    "On hold及未释放准备金尚未结算支付，不能统记成银行付款在途；平台已发起付款后才核Processing及Paid。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-19T06:47:58Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-19T16:00:00+08:00"
+  }
+}

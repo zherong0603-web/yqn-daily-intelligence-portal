@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-19",
+  "checked_at": "2026-11-19T07:11:59.714Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://seller-us.tiktok.com/university/essay",
+      "ok": true,
+      "matched_number": null,
+      "matched_date": "11/18/2026",
+      "matched_markers": [
+        "11/18/2026",
+        "Unreleased reserves",
+        "Reserve Details",
+        "5 business days",
+        "Acknowledged by bank"
+      ]
+    }
+  ]
+}
