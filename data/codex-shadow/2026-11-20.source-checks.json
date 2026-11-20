@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-20",
+  "checked_at": "2026-11-20T07:01:43.557Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.apllogistics.com/insights/customer-advisory-update-potential-labor-disruption-at-the-ports-of-los-angeles-and-long-beach",
+      "ok": true,
+      "matched_number": "6",
+      "matched_date": "November 19, 2026",
+      "matched_markers": [
+        "November 19, 2026",
+        "Pacific Time",
+        "no strike is underway",
+        "250"
+      ]
+    },
+    {
+      "url": "https://www.pmanet.org/press_releases/statement-from-the-pacific-maritime-association-on-contract-talks-with-ilwu-local-26-at-ports-of-la-and-long-beach/",
+      "ok": true,
+      "matched_number": "6",
+      "matched_date": "November 18, 2026",
+      "matched_markers": [
+        "Nov 18, 2026",
+        "November 21",
+        "250"
+      ]
+    }
+  ]
+}
