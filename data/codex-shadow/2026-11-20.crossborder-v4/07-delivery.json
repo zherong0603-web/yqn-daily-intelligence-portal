@@ -1,10 +1,12 @@
 {
-  "date": "2026-11-20",
-  "status": "READY_WAITING_UNTIL_16_00",
-  "target": "跨境咨询每日内容",
+  "status": "DELIVERED",
+  "delivery_status": "DELIVERED",
+  "attempted_at": "2026-11-20T08:00:00.233Z",
+  "delivered_at": "2026-11-20T08:00:08.910Z",
   "idempotency_key": "crossborder-v4-group-2026-11-20",
+  "target": "跨境咨询每日内容",
+  "date": "2026-11-20",
   "frozen_at": "2026-11-20T15:00:26+08:00",
-  "dry_run": "PASS",
-  "attempted": false,
-  "delivered": false
+  "marker_verified": true,
+  "delivery_hash_verified": true
 }

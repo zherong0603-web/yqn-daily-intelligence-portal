@@ -1,6 +1,6 @@
 {
   "date": "2026-11-20",
-  "checked_at": "2026-11-20T15:02:34+08:00",
+  "checked_at": "2026-11-20T16:00:34+08:00",
   "build": {
     "date": "2026-11-20",
     "content_valid": true,
@@ -86,7 +86,8 @@
       "reviewed_file_sha256": "4e6fa2cf92e6f384e7af70605d5ff009f6bc0ac930c9c9a9c97ffbdac6ef64e4"
     }
   ],
-  "delivery_status": "NOT_SENT",
+  "delivery_status": "DELIVERED",
   "red_team": "12-delivery-red-team.md",
-  "continuation_sha256": "dfec9889eeafdf4b6f0282b8e0bccb55604adb20ddbd8f3946183ade30846250"
+  "continuation_sha256": "dfec9889eeafdf4b6f0282b8e0bccb55604adb20ddbd8f3946183ade30846250",
+  "readback_all_ok": false
 }
