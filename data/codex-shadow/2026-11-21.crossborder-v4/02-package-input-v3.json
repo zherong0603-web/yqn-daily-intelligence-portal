@@ -1,0 +1,174 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-21",
+  "title": "跨境早知道 V4｜11月21日",
+  "summary": "美国Amazon Shipping十一月二十二日旺季需求费由每包0.50升至0.75美元。卖家今天取海外仓真实面单、费用明细和换档后同条件报价，核是否已含及计费时点；25美分只是一项承运费率差，是否转收看合同。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时再扩72小时，共14项去重研究、5重点；对社媒无可核指标和上游原文未核全如实淘汰。主选以20日服务商解读触发，9月2日官方费表为事实依据，不把旧公布日伪装今天。"
+  },
+  "editorial": {
+    "theme": "海外仓尾程报价，这25美分该不该另外加？",
+    "candidate_count_researched": 14,
+    "candidates": [
+      {
+        "title": "Amazon Shipping美国旺季费11月22日换档，海外仓报价是否已经包含",
+        "region": "us",
+        "published_at": "2026-11-20",
+        "source_url": "https://ebblogistics.com/amazon-shipping-veho-peak-surcharges/",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 97
+        },
+        "decision": "selected",
+        "reason": "明天换档，今天可核实际承运服务、仓库报价是否已含及计费口径，避免漏算或重复加算。20日是服务商解读日期，官方费表9月2日已公布；不宣称20日新增费用。"
+      },
+      {
+        "title": "黑五订单没动，先查报价是否还有购物车资格",
+        "region": "us",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.amz123.com/t/LEZnxupF",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "rejected",
+        "reason": "现有报价状态今天可核，可独立做教程；匿名卖家反馈不能当市场统计，官方常设定价指南不是20日新规，与本期尾程费不共题。"
+      },
+      {
+        "title": "FedEx官网20日更新需求费页：先分账户、去向与生效期再认报价",
+        "region": "other",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.fedex.com/en-cn/shipping/surcharges/demand-surcharge.html",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 93
+        },
+        "decision": "rejected",
+        "reason": "中国大陆出口账户、去向和生效期应分开核，不能把墨西哥档变化套到美国，也不能混用人民币常规表与Tariff Pricing美元表。适合另做核账教程，本期只核Amazon Shipping。"
+      },
+      {
+        "title": "美线与地中海现货价分化，重取同口径报价",
+        "region": "other",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.xeneta.com/news/ocean-freight-market-update-2026-11-20",
+        "score": {
+          "relevance": 32,
+          "money_impact": 27,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 89
+        },
+        "decision": "rejected",
+        "reason": "20日周报的数据截至19日，市场平均现货价不等于本票报价；须核起讫港、箱型、装期和包含项，不直接认定已省运费，与尾程费核账不共题。"
+      },
+      {
+        "title": "旗舰店促销Banner被卡，先查商标、文字和组件",
+        "region": "other",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.amz123.com/t/PqxKShZE",
+        "score": {
+          "relevance": 32,
+          "money_impact": 26,
+          "concrete_evidence": 13,
+          "hook_potential": 9,
+          "timeliness": 8,
+          "total": 88
+        },
+        "decision": "rejected",
+        "reason": "媒体20日归述13日规范变化，完整第一方条件尚未核全；可按实际驳回理由定位，不把19日开场前送审窗口推荐成今天仍来得及。与本期不共题。"
+      }
+    ]
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "Amazon Shipping美国旺季费11月22日换档，海外仓报价是否已经包含",
+      "what_happened": "EBB Logistics11月20日解读Amazon Shipping旺季附加费，引用9月2日官方费表。美国每包Demand Surcharge将在11月22日至12月26日由0.50美元换为0.75美元；合同基础运费之外计收，仓库是否转收须按实际合同。",
+      "numbers": [
+        "25美分"
+      ],
+      "effective_at": "2026-11-22至2026-12-26为每包0.75美元档，2026-11-21为官方所列0.50美元档最后日期。来源未标具体时刻、时区或货件计费触发点，不能据标签打印日锁旧价。",
+      "affected_sellers": "实际使用美国Amazon Shipping承运服务，或经海外仓购买该尾程服务的经营中卖家；不扩到所有亚马逊订单、FBA、MCF或全部美国尾程。",
+      "money_impact": "每包承运商需求费标准档差0.25美元；海外仓实际是否追加及多少按合同、包含项和计费条件核。已含覆盖换档的报价不得重复追加，不以订单数代替包裹数，不把这一项差额叫整票运费涨幅。",
+      "calculation": {
+        "basis": "官方两档同项每包需求费相减；仓库转收条件和实际适用包裹须另核，其他运费及附加费不混入。",
+        "formula": "每包标准档差=0.75美元-0.50美元=0.25美元，即25美分；实际追加金额须按合同和本票适用条件核。",
+        "result": "0.25美元只是一项承运商标准费率差，不能直接认定卖家已多付；同服务、目的地及箱规比较仓库实际含费报价与账单。"
+      },
+      "action": "今天取真实面单与费用明细、换档后同条件报价；记承运商/服务、邮编、箱规计费重、计费日、基础费/需求费/其他费、总价和有效期。是否含费和日期口径要书面核，已含或不适用先不加。",
+      "evidence": [
+        {
+          "title": "EBB Logistics: Amazon Shipping & Veho Peak Surcharges",
+          "url": "https://ebblogistics.com/amazon-shipping-veho-peak-surcharges/",
+          "source_type": "media",
+          "published_at": "2026-11-20",
+          "checked_at": "2026-11-21T06:42:14Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "页面可见11月20日，当期服务商解读直接引用官方旺季费表，提醒每包需求费与合同费率及其他费用分开；不是亚马逊20日新公告。",
+          "markers": [
+            "November 20, 2026",
+            "0.75",
+            "November 22"
+          ]
+        },
+        {
+          "title": "Amazon Shipping: 2026 Peak Season Update",
+          "url": "https://shipping.amazon.com/insights-and-news/peak-surcharge-2026",
+          "source_type": "official",
+          "published_at": "2026-09-02",
+          "checked_at": "2026-11-21T06:42:14Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "页面可见9月2日，官方三档日期、每包0.50/0.75/0.50美元、合同费率之外加收、特殊处理和大件条件单列；未列时区或按标签日计费。",
+          "markers": [
+            "September 2, 2026",
+            "0.75",
+            "November 22",
+            "contracted rates"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "尾程全包，又加25美分？",
+    "b": "25美分，报价包了吗？"
+  },
+  "voiceover_body": "美国Amazon Shipping十一月二十二日换档，先查海外仓报价。\n\n用Amazon Shipping发包裹的卖家，承运商这一项每包旺季附加费，要从50美分变成75美分。差额25美分，仓库怎么转收要看合同。查你与海外仓的合同，确认这笔钱谁承担。\n\n先向海外仓要最近一票真实面单和费用明细，再要二十二日之后的同条件报价。盯住承运商和服务名称，写的是Amazon Shipping，才核这档。FBA仓发货、多渠道配送，要查各自费表，不能把亚马逊订单都套进去。\n\n一票一行，记运单号、实际发货日、收货邮编、箱子尺寸和计费重。费用拆开记基础运费、旺季附加费、其他附加费，再算总价。问清报价有效到哪天、旺季费有没有包含，别只留一句客服说的全包。\n\n如果仓库原来按50美分转收，换档后又把新增差额单列出来，就拿同一个服务、同一个目的地、同一种箱规对账。订单拆成两包，要按两票包裹核，别按一笔订单只算一次。箱子变大、地址变远带来的钱，另外查对应收费项目。\n\n最后确认计费日期。以打单日、揽收日还是别的时点算，原页没有写清具体切点和时区，找仓库或承运人书面确认。今天先打印面单，不能据此保证锁住旧价。没用这项承运服务，或已拿到覆盖换档期的含费报价，就先不用再加一遍。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "EBB可见日期2026-11-20，为行业服务商当期解读；官方费表可见日期2026-09-02，已提前公布，不能称亚马逊20日才新设。两页未给发布日期时区或具体时分。",
+    "美国Amazon Shipping为承运服务，按每个适用包裹收需求费；不等于亚马逊FBA、MCF、AWD费表，也不覆盖所有亚马逊订单和全部美国尾程。",
+    "官方列10月25日至11月21日0.50美元，11月22日至12月26日0.75美元，12月27日至2027年1月16日0.50美元。日期无具体时刻/时区和计费触发点，须向仓库或承运人书面确认，不能承诺打印标签锁旧价。",
+    "25美分是一项标准需求费的档位差，实际仓库追加取决合同、包含项、有效期和本票计费条件；已含费不得重复加算，未使用该承运服务不机械套用。没有使用真实客户账单或假定已发生亏损。",
+    "需求费加在合同费率之外；官方额外处理、大包裹、超重旺季金额为达到条件才加的增加额，不是完整基础处理费。本文不将0.75美元叫整票运费，也不把需求费变动比例套总成本。",
+    "同条件比价需同服务、目的地、包装尺寸、计费重、日期及包含项；实际发货日与最终计费日分别记，缺一项标待核。拆包按包裹数核，标签、发运和计费口径不同不得强行对账。",
+    "其余候选均未入口播：黑五卖家反馈非统计，FedEx始发/账户/去向不同不得混用，Xeneta大盘均价不代表实付，旗舰店规范第一方条件未核全。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-21T06:42:14Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-21T16:00:00+08:00"
+  }
+}

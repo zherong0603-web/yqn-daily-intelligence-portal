@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-21",
+  "version": "V3",
+  "frozen_at": "2026-11-21T14:47:43+08:00",
+  "on_time": true,
+  "reviewed_version": "05-final-candidate-v3.md",
+  "reviewed_sha256": "440d4cebf40ee4ea2319c006ce8029e44bda0b1404dc298ff063813abc9e932b",
+  "delivery_sha256": "440d4cebf40ee4ea2319c006ce8029e44bda0b1404dc298ff063813abc9e932b",
+  "input_derivation": "Actual independent V3 editorial approval metadata added only; sources, candidates, title, hooks, voiceover and boundaries unchanged."
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-21",
+  "checked_at": "2026-11-21T06:48:21.046Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://ebblogistics.com/amazon-shipping-veho-peak-surcharges/",
+      "ok": true,
+      "matched_number": "025",
+      "matched_date": "November 20, 2026",
+      "matched_markers": [
+        "November 20, 2026",
+        "0.75",
+        "November 22"
+      ]
+    },
+    {
+      "url": "https://shipping.amazon.com/insights-and-news/peak-surcharge-2026",
+      "ok": true,
+      "matched_number": "25",
+      "matched_date": "September 2, 2026",
+      "matched_markers": [
+        "September 2, 2026",
+        "0.75",
+        "November 22",
+        "contracted rates"
+      ]
+    }
+  ]
+}

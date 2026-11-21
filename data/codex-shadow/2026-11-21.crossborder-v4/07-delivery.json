@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-21",
+  "status": "READY_WAITING_UNTIL_16_00",
+  "target": "跨境咨询每日内容",
+  "idempotency_key": "crossborder-v4-group-2026-11-21",
+  "frozen_at": "2026-11-21T14:47:43+08:00",
+  "dry_run": "PASS",
+  "attempted": false,
+  "delivered": false
+}
