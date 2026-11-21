@@ -1,6 +1,6 @@
 {
   "date": "2026-11-20",
-  "checked_at": "2026-11-20T16:00:34+08:00",
+  "checked_at": "2026-11-21T14:32:39+08:00",
   "build": {
     "date": "2026-11-20",
     "content_valid": true,
@@ -89,5 +89,5 @@
   "delivery_status": "DELIVERED",
   "red_team": "12-delivery-red-team.md",
   "continuation_sha256": "dfec9889eeafdf4b6f0282b8e0bccb55604adb20ddbd8f3946183ade30846250",
-  "readback_all_ok": false
+  "readback_all_ok": true
 }
