@@ -1,0 +1,191 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-22",
+  "title": "跨境早知道 V4｜11月22日",
+  "summary": "美国亚马逊黑五没单，今天先按具体报价排查疑似定价错误停用，再核当前是否精选报价。5%是部分定价机会范围，不能照着全店降5%；比较时核商品价、运费、参考价来源和本店利润底线。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时再扩72小时，去重14项、重点5条；主选20日当期反馈触发，2024与2026常设官方工具作为操作依据，日期如实保留。社媒未核到有效互动，不称爆款；上游规格/成品报价未全核者淘汰。"
+  },
+  "editorial": {
+    "theme": "黑五没单，今天先排哪条报价出了问题？",
+    "candidate_count_researched": 14,
+    "candidates": [
+      {
+        "title": "黑五没单，先查报价是否已停用、当前购买按钮给了谁",
+        "region": "us",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.amz123.com/t/LEZnxupF",
+        "score": {
+          "relevance": 34,
+          "money_impact": 29,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "当期卖家反馈可触发自店排查，今天能用官方入口区分疑似定价错误停用、报价仍在售和是否当前精选。匿名反馈不是统计；只处理有证据异常，不据新闻全店降价。"
+      },
+      {
+        "title": "FBA与AWD仓库代码不能替代本票正式入仓地址",
+        "region": "us",
+        "published_at": "2026-11-22",
+        "source_url": "https://www.cifnews.com/news/1c2b9cde7f14",
+        "score": {
+          "relevance": 34,
+          "money_impact": 28,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 95
+        },
+        "decision": "rejected",
+        "reason": "当天媒体有操作痛点，派车前能核货件标签、预约与地址冲突；完整第一方流程尚未补全，不按网传街道地址配送，与报价诊断不共题。"
+      },
+      {
+        "title": "洛杉矶、长滩安保合同达临时协议，抢提预案先核取消条件",
+        "region": "us",
+        "published_at": "2026-11-21",
+        "source_url": "https://www.pmanet.org/press_releases/statement-from-the-pacific-maritime-association-on-contract-talks-with-ilwu-local-26-at-ports-of-la-and-long-beach-2/",
+        "score": {
+          "relevance": 33,
+          "money_impact": 28,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 94
+        },
+        "decision": "rejected",
+        "reason": "第一方新进展仍待会员批准，现有合同延续；可核原加急安排的取消费用，不等于拥堵消失、货已可提或费用自动退，本期不与定价诊断混讲。"
+      },
+      {
+        "title": "FedEx中国出口墨西哥需求费23日换档，别套到美国",
+        "region": "mexico",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.fedex.com/en-cn/shipping/surcharges/demand-surcharge.html",
+        "score": {
+          "relevance": 32,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 94
+        },
+        "decision": "rejected",
+        "reason": "20日为HTML可见更新，不能证明23日PDF的公布日；旧档本轮访问失败，且参考费率受账户和价目表影响。日期与比较证据未核全，不凭94分入稿。"
+      },
+      {
+        "title": "美线与地中海现货价分化，按本票条件重取报价",
+        "region": "other",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.xeneta.com/news/ocean-freight-market-update-2026-11-20",
+        "score": {
+          "relevance": 32,
+          "money_impact": 27,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 89
+        },
+        "decision": "rejected",
+        "reason": "20日周报数据截至19日，市场均价不代表自家实付；今天可重取同口径报价，不能把指数跌幅乘合同金额，与报价停用不共题。"
+      }
+    ]
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "黑五没单，先查报价是否已停用、当前购买按钮给了谁",
+      "what_happened": "AMZ12311月20日报道美国等站点部分卖家首日单量和广告表现分化，也有出单反例。本期只以此触发自店报价排查，依据Amazon现有定价健康和精选报价指南，先分疑似定价错误停用与未获当前精选，不把市场反馈认作自店原因。",
+      "numbers": [
+        "5%"
+      ],
+      "effective_at": "2026-11-22为本期核查日，不是新政策生效日。2024-10-18及2026-04-10为官方指南页面日期；现有报价诊断无统一报名或操作截止，来源未给执行时区，不补造。",
+      "affected_sellers": "美国亚马逊已有业务、黑五期间单量异常或想核具体SKU报价状态的卖家与运营；核的是报价状态及当前精选，不沿用旧的卖家层面准入筛选。",
+      "money_impact": "盲目降价可能压缩美元利润。先核报价是否可售、参考价与运费口径、本店实际费用及最低可接受总价；5%不是统一降幅，不把报价被停用、未被精选或匿名卖家反馈直接认定为已发生损失。",
+      "calculation": {
+        "basis": "同一市场、商品规格/数量/状况、币种和观察时点，按后台显示核商品价与运费，并标清参考价是站内还是站外。",
+        "formula": "买家比较总价=商品售价+运费；拟调整总价与本店按实际费用核实的最低可接受总价比较，再按后台原因决定动作。",
+        "result": "美元比较价不是实际到手收入或利润；没有真实费用、参考价运费口径或异常证据时标待核，不默认降5%或许诺恢复出单。"
+      },
+      "action": "今天进定价健康的停用报价，记报错原文及建议动作；仍在售再在管理库存核当前精选。每条报价/SKU记商品价、运费、参考价来源、底价、状态与复核时点，有明确异常才按原因处理。",
+      "evidence": [
+        {
+          "title": "AMZ123: 黑五首日哑火，卖家集体炸了",
+          "url": "https://www.amz123.com/t/LEZnxupF",
+          "source_type": "media",
+          "published_at": "2026-11-20",
+          "checked_at": "2026-11-22T06:39:31Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "页面20日07:51、美国卖家体验分层与出单反例，仅为当期话题触发，不当代表性统计或自店定价异常证据。",
+          "markers": [
+            "2026-11-20",
+            "亚马逊",
+            "分层"
+          ]
+        },
+        {
+          "title": "Amazon: Pricing strategies and Pricing Health",
+          "url": "https://sell.amazon.com/blog/amazon-pricing-strategies",
+          "source_type": "official",
+          "published_at": "2024-10-18",
+          "checked_at": "2026-11-22T06:39:31Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "可见旧指南日期、定价健康入口、疑似定价错误停用报价、定价机会部分合格报价距当前精选价5%以内，非统一降价或赢单保证。",
+          "markers": [
+            "Oct 18, 2024",
+            "Inactive Offers",
+            "Pricing Opportunities",
+            "5%"
+          ]
+        },
+        {
+          "title": "Amazon: Maximize your sales potential with the Featured Offer",
+          "url": "https://sell.amazon.com/blog/buy-box-featured-offer",
+          "source_type": "official",
+          "published_at": "2026-04-10",
+          "checked_at": "2026-11-22T06:39:31Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "页面可见4月10日，管理库存Price and shipping costs列查当前精选，比较包含运费，送达承诺及客户体验仍影响选择；价格过低也可能疑似错误。",
+          "markers": [
+            "Apr 10, 2026",
+            "Price and shipping costs",
+            "shipping costs",
+            "too low"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "商品还在，你却没在卖？",
+    "b": "差5%，就该降价？"
+  },
+  "voiceover_body": "美国亚马逊没单，先查买家能不能选你的报价。\n\n商品页面还在，你这一条报价，可能因为疑似定价错误被停用了。先打开卖家后台，进Pricing，也就是定价，再进Pricing Health，定价健康。先看Inactive Offers，停用报价。把商品编号、报错原文、当前价格和系统建议一起保存，按显示的原因处理，别见到没单就全店降价。\n\n报价仍在售，再进管理所有库存，在偏好设置打开精选报价显示。看价格和配送费用那一列，确认当前购物车是不是你的报价。商品能买、你的报价能买、你拿到购物车，这是三个不同状态。\n\n定价健康的定价机会，会列出部分合格、与当前购物车价差在5%以内的报价。看到5%，别直接把售价降5%。是否能拿到购物车，还会看送达承诺和卖家表现。\n\n今天每条报价一行，记商品价、运费、买家总价、参考价、最低能接受的总价和报价状态。比较时把运费算进去。按同一市场、规格、币种和时点再比，标明参考价来自站内还是站外，再核双方运费口径。核实有价格错误且准备调整的，先按本店实际费用算利润，再改这一条，之后回后台复查状态。\n\n没有停售或明确价格异常，自己也已经拿到购物车的，先不用跟着报道降价。低单量还要查自家流量、库存和需求，不能凭一条新闻就认定出了定价问题。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "市场报道页面可见2026-11-20 07:51，未标时区；匿名反馈含相反体验，不是代表性统计，不能证明全市场下滑或本店低单由定价导致。",
+    "官方常设指南日期为2024-10-18、2026-04-10，均非今天新规；正文只用仍可核的报价状态/精选显示/价格比较路径，不沿用旧卖家层面准入门槛，不把报价层面的条件与卖家资格混同。",
+    "Inactive Offers指因潜在定价错误停用的报价，系统标记不是已确认错误。先记录报错原文、价格及建议动作；价格过低和过高都可能有问题，不默认所有异常靠降价解决。",
+    "5%仅是Pricing Opportunities中部分合格报价与当前精选报价的价格距离范围；该栏还包括不符合精选条件报价。进入该栏不等于已获精选，降5%不保证赢或产生订单。",
+    "商品页面存在、自己的报价在售、自己的报价成为当前精选是不同状态；一个页面可能有多个报价，缺货、配送承诺和客户体验等亦会影响精选，不能凭未获精选认定报价已停售。",
+    "比较按同一市场、商品规格/数量/状况、币种、时点及运费口径，标明参考价来自站内还是站外。比较总价不等于已入账收入，利润及底线用本店实际采购、履约、佣金、税费、广告等明细核，不编实际亏损。",
+    "今天可查现有报价，无统一报名或操作截止，页面未给统一执行时区。已过的Deal提报和开场前25小时修错窗口不推荐补报；未登录真实后台，不承诺恢复速度、订单或广告是否继续扣费。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-22T06:39:31Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-22T16:00:00+08:00"
+  }
+}

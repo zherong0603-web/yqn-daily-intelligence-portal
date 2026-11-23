@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-22",
+  "status": "NOT_SENT_INCOMPLETE_REVIEW",
+  "attempted": false,
+  "delivered": false,
+  "target": "跨境咨询每日内容",
+  "idempotency_key": "crossborder-v4-group-2026-11-22",
+  "checked_at": "2026-11-23T13:52:08+08:00",
+  "frozen_at": null,
+  "on_time": false,
+  "failed_stage": "independent_action_review",
+  "reason": "Independent action reviewer returned HTTP 403 from local model proxy due to weekly quota protection. No action review, final review, frozen version, strict source check or dispatch completed on Nov 22. No retroactive send; no redate.",
+  "historical_action_review_completed_at": "2026-11-23T13:53:59+08:00",
+  "historical_action_review_result": "PASS for archived Nov22 V2 only; final review/freeze/delivery remain incomplete"
+}
