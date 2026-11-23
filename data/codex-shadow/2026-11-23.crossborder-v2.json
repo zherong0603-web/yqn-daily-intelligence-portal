@@ -1,0 +1,189 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-23",
+  "title": "跨境早知道 V4｜11月23日",
+  "summary": "美国海外仓走USPS，感恩节前先把面单和实际交邮对上。26日邮局关闭、27日普通投递零售恢复，线上仍可打面单；逐票核仓库交接和邮政接受证据，整批已收未逐件处理先复核，不盲目补发。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时再扩72小时，13项去重研究、5重点。八入口检索有界完成，社媒无可核同帖互动不声称爆款。11月22日服务商提示为当期信号，11月17日USPS公告为事实依据，11月26日不冒充发布日。"
+  },
+  "editorial": {
+    "theme": "美国海外仓打了USPS面单，感恩节前到底交运了吗？",
+    "candidate_count_researched": 13,
+    "candidates": [
+      {
+        "title": "USPS普通服务暂停，线上仍可打单",
+        "region": "us",
+        "published_at": "2026-11-22",
+        "source_url": "https://pango.ai/resources/is-usps-ups-fedex-open-thanksgiving-2026",
+        "score": {
+          "relevance": 35,
+          "money_impact": 28,
+          "concrete_evidence": 12,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 94
+        },
+        "decision": "selected",
+        "reason": "今天核仓库当地交运截止、交接凭证及首扫，特殊合同服务另查"
+      },
+      {
+        "title": "黑五广告成本反馈",
+        "region": "us",
+        "published_at": "2026-11-23",
+        "source_url": "https://www.cifnews.com/article/190289",
+        "score": {
+          "relevance": 35,
+          "money_impact": 29,
+          "concrete_evidence": 7,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "因果和样本不可靠，未核归因窗口，不凭单日转化直接停广告"
+      },
+      {
+        "title": "中国大陆出口墨西哥FedEx新时段",
+        "region": "mexico",
+        "published_at": "2026-11-20",
+        "source_url": "https://www.fedex.com/en-cn/shipping/surcharges/demand-surcharge.html",
+        "score": {
+          "relevance": 30,
+          "money_impact": 27,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 87
+        },
+        "decision": "rejected",
+        "reason": "账户/产品/计费重需核，两PDF未逐格核，不报固定涨幅"
+      },
+      {
+        "title": "原纸基准下降与工厂报价",
+        "region": "other",
+        "published_at": "2026-11-23",
+        "source_url": "https://www.100ppi.com/news/detail-20261123-6528048.html",
+        "score": {
+          "relevance": 28,
+          "money_impact": 23,
+          "concrete_evidence": 15,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "原纸指数不等于纸箱实付，没有BOM/合同不算已省钱"
+      },
+      {
+        "title": "加拿大AI购物助手价格历史查询",
+        "region": "other",
+        "published_at": "2026-11-23",
+        "source_url": "https://www.amz123.com/kx/66nbz5qF",
+        "score": {
+          "relevance": 25,
+          "money_impact": 17,
+          "concrete_evidence": 12,
+          "hook_potential": 6,
+          "timeliness": 10,
+          "total": 70
+        },
+        "decision": "rejected",
+        "reason": "原文已核日期；目前影响买家购物入口，缺卖家当天已证实的新操作，逐步开放日期未给绝对日"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "事实primary、卖家动作research与独立主编copy_review均对V5实际审核PASS；所有退回、改法、所审版本SHA保留。",
+        "26日邮局关闭及线上打单分开；批次接受待单扫先核证据；按本票期限问眼前班次，已交预计迟到按本店规则处理异常，27恢复不承诺27必达。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "USPS普通服务暂停，线上仍可打单",
+      "what_happened": "Pango11月22日更新感恩节服务提示。USPS11月17日官方公告明确11月26日邮局关闭、普通投递和零售27日恢复；邮局关闭时仍可在线打印预付标签。卖家应将打单与实际交运证据分开核对。",
+      "numbers": [
+        "26日",
+        "27日"
+      ],
+      "effective_at": "2026-11-26邮局关闭，2026-11-27普通投递和零售恢复；本仓作业及邮政接收截止未列全国统一时间，按具体当地时区核。",
+      "affected_sellers": "美国海外仓或美国本土自发货，实际使用USPS普通邮政业务并有感恩节前后交运/到货承诺的卖家；特殊节日服务和合同交接另核。",
+      "money_impact": "逐票填写已付运费、可能替代服务的实际报价和新增补寄运费（美元等实际币种）；本期无统一加价、已发生退款或已亏损数字，避免证据不足时重复寄出和多付一票运费。",
+      "calculation": {
+        "basis": "仅在确认需要补寄且实际执行后，按新运单报价及实际新增操作费核现金支出，不把待核订单金额叫实际损失。",
+        "formula": "补寄新增支出=新票实际运费+实际新增包装/操作费；替代服务只比较同条件总价及能否改善到货，币种用本票实际报价。",
+        "result": "各项按美元或本票实际币种填写，未取得报价不填金额，未补寄不记已发生支出；原票是否可取消或退费按实际条款核。"
+      },
+      "action": "导出USPS订单核打单/交接/接受；整批接受未逐扫先核不补寄。未交邮按本票期限问眼前班次，不等25误更早期限；已交但预估晚于承诺，找承运方核时效、运营按本店规则处理异常和买家沟通。",
+      "evidence": [
+        {
+          "title": "Pango: USPS UPS FedEx Thanksgiving 2026 service guide",
+          "url": "https://pango.ai/resources/is-usps-ups-fedex-open-thanksgiving-2026",
+          "source_type": "media",
+          "published_at": "2026-11-22",
+          "checked_at": "2026-11-23T06:45:35Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "页面可见22 Nov 2026和Updated22November2026，作为感恩节交运的近期提示；具体USPS事实回到官方17日公告，不套其全网不动的泛化。",
+          "markers": [
+            "22 Nov 2026",
+            "Updated 22 November 2026",
+            "pre-paid labels"
+          ]
+        },
+        {
+          "title": "USPS: U.S. Postal Service To Observe Thanksgiving Holiday, Nov.26",
+          "url": "https://about.usps.com/newsroom/national-releases/2026/1117-usps-to-close-for-thanksgiving-holiday-on-nov-26.htm",
+          "source_type": "official",
+          "published_at": "2026-11-17",
+          "checked_at": "2026-11-23T06:45:35Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "页面可见Nov.17,2026，明确26日邮局关闭、27日普通投递零售恢复，关闭时Click-N-Ship仍能打印预付标签；未给本仓统一截单及其时区。",
+          "markers": [
+            "Nov. 17, 2026",
+            "All Post Office locations will be closed",
+            "Friday, November 27",
+            "Click-N-Ship to print pre-paid labels"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "周四关门，面单照打？",
+    "b": "打单成功，货就发了？"
+  },
+  "voiceover_body": "美国海外仓走USPS，周四邮局关门，面单照打，交期得重核。\n\n美国邮政公告，11月26日邮局关闭，普通投递和零售27日恢复。恢复业务，不能当成你的货当天必达。\n\n今天从店铺订单后台导出USPS订单，去邮政官网查跟踪。每票记运单号、平台最晚发货时间、买家承诺到货日、打单时间、仓库交接时间和邮政接受记录。各个时间标清时区。\n\n先挑快到发货期限、却只有面单的订单。让仓库按运单拿出交接清单或承运回执，确认货在哪。只有打单记录，先别认定交运完成；缺单件首扫，也先别认定没发走。\n\n有一种状态特别容易误判：邮政收了整袋，单个包裹还在等处理。拿接受凭证和运单让仓库核对，约定下次查件时间，先别花第二笔运费补寄。\n\n确认还没交邮，先按这票期限问眼前可用的交接班次，再核25日节前安排。仓库截单、邮政接收分别几点，用哪个当地时区，都要书面确认。赶不上客户承诺，再核替代服务的总价和预计送达日，确认能改善交期才换，别只付加急费。\n\n已经交邮，预计赶不上承诺，先向承运方核最新到货预估，让运营按店铺规则处理异常、联系买家，别直接补寄。交接和跟踪正常、时效覆盖承诺，先不动。特殊节日服务另核。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "Pango页面可见2026-11-22，为服务商当期解读；USPS正式新闻页面可见2026-11-17。两页未标发布日期时区或具体时分，不将11月26日业务安排说成23日新公告。",
+    "USPS公告说11月26日邮局关闭，普通邮件投递和零售27日恢复；线上仍可打印预付标签。部分自助设施及特殊节日服务另有安排，不扩大为整个邮政网络绝对停止收件，也不承诺任何包裹27日必达。",
+    "11月25日本仓作业截单、邮政收件/揽收预约和具体当地时区，原文没有给全国统一时间，必须按本仓及站点书面确认。平台最晚发货、承运人接收和客户到货承诺是不同时间，不自行折算为一个北京时间截止。",
+    "USPS状态FAQ无可见发布日期，作教程原文核对参考，published_at不造日期：Shipment Received, Package Acceptance Pending表示邮政收到整批容器或托盘但尚未处理，不代表每票已逐件接受；缺单件扫描不自动认定没发或丢件。",
+    "交接与逐票核验、负责人和下次查件时间是编辑操作建议，未访问客户后台、未使用真实订单案例。只有确认仍未交运且替代服务能改善承诺时才比较方案，平台认可何种发货证据另以本店规则核，不保证自动免罚。",
+    "本期没有新增统一附加费、客户已亏损或已退款数字。补寄运费和操作费仅填实际报价及发生额（美元等实际币种），接受记录不足先核证据，不能预先认定一定需要补寄或已有损失。",
+    "其余候选不入口播：广告反馈缺归因与样本，墨向不同账号和历史PDF未逐格核，原纸基准不等于纸箱采购实付，加拿大购物助手面向买家且缺卖家当天新动作。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-23T06:45:35Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-23T16:00:00+08:00"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-23",
+  "status": "READY_WAITING_16_00",
+  "target": "跨境咨询每日内容",
+  "idempotency_key": "crossborder-v4-group-2026-11-23",
+  "frozen_at": "2026-11-23T14:57:11+08:00",
+  "note": "三审V5实际通过；构建、严格来源2/2及完整无live干跑已通过。仅待16:00单次群发，尚无ATTEMPTED或送达回执。"
+}
