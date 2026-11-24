@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "checked_at": "2026-11-24T14:52:41+08:00",
+  "checked_at": "2026-11-24T16:00:18+08:00",
   "build": {
     "date": "2026-11-24",
     "content_valid": true,
@@ -87,7 +87,7 @@
       "reviewed_file_sha256": "1a6faaaaea560691b7aa561bb03376438f4f4a78afafeae7a53d32cee0c8e186"
     }
   ],
-  "delivery_status": "NOT_SENT_WAITING_16_00",
+  "delivery_status": "DELIVERED",
   "red_team": "12-delivery-red-team.md",
   "continuation_sha256": "1b8112c855166d534dd793a11a0b30293a697a31f6acb56dc95910e5d85d792b",
   "readback_selector_regressions": {
@@ -106,5 +106,6 @@
     ],
     "automated_strict_coverage": false,
     "note": "Independent actual manual original review; PDF exceeds unchanged 3000000-byte strict-source limit."
-  }
+  },
+  "readback_all_ok": true
 }
