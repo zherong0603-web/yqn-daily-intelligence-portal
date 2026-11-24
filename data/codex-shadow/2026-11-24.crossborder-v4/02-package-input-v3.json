@@ -1,0 +1,175 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-24",
+  "title": "跨境早知道 V4｜11月24日",
+  "summary": "美国本土FedEx包裹，纸箱长1英寸可能跨体积处理门槛。今天拿收费明细、原始及承运重测尺寸，再测同款待发包装；常规AHS、旺季11.85美元增额和计费重分开，对两种包装同服务同邮编询总价，未核清不批量换箱。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时采13去重候选、5重点，主选24日11:06新教程触发；历史官方指南和费表核事实。八入口如实记指标/访问限制，不称低粉爆款。指南大PDF仅人工定页，严格机器不冒称覆盖。"
+  },
+  "editorial": {
+    "theme": "纸箱长1英寸，为什么账单可能多一项？",
+    "candidate_count_researched": 13,
+    "candidates": [
+      {
+        "region": "us",
+        "title": "FedEx美国本土包装体积跨档",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.cifnews.com/article/190306",
+        "score": {
+          "relevance": 35,
+          "money_impact": 28,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "当期教程触发；今天测打包后外箱并核本账号费用，官方规则及假设范围分开"
+      },
+      {
+        "region": "us",
+        "title": "黑五组合优惠与备货策略",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.cifnews.com/article/190304",
+        "score": {
+          "relevance": 34,
+          "money_impact": 27,
+          "concrete_evidence": 10,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 88
+        },
+        "decision": "rejected",
+        "reason": "缺具体平台第一方组合规则，不采统一30%门槛或按倍数备货"
+      },
+      {
+        "region": "other",
+        "title": "原纸基准与纸箱采购价核算",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.100ppi.com/news/detail-20261124-6533622.html",
+        "score": {
+          "relevance": 28,
+          "money_impact": 23,
+          "concrete_evidence": 15,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "24日报价与23日相同，基准非纸箱实付，无BOM和合同不说已省4.37%"
+      },
+      {
+        "region": "us",
+        "title": "美国假日采购意向43%与56%",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.cifnews.com/news/b027a2a73619",
+        "score": {
+          "relevance": 28,
+          "money_impact": 20,
+          "concrete_evidence": 13,
+          "hook_potential": 6,
+          "timeliness": 9,
+          "total": 76
+        },
+        "decision": "rejected",
+        "reason": "未追原始机构和样本分母，意向非成交，不据此加备货"
+      },
+      {
+        "region": "us",
+        "title": "美国AMC SQL工具封闭测试",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.amz123.com/kx/rn5AY0Vz",
+        "score": {
+          "relevance": 26,
+          "money_impact": 15,
+          "concrete_evidence": 12,
+          "hook_potential": 7,
+          "timeliness": 10,
+          "total": 70
+        },
+        "decision": "rejected",
+        "reason": "部分伙伴封测，普通卖家能否立即使用未证，申请不等于降广告成本"
+      }
+    ]
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "FedEx美国本土包装体积跨档",
+      "what_happened": "SGR雨果11月24日发布额外处理费教程。官方指南规定适用包裹体积严格大于10368立方英寸可触发尺寸类AHS；美国包裹Demand AHS当前11月23日至12月27日为每包11.85美元旺季增额。账单须把体积资格、计费重和不同收费项目拆开。",
+      "numbers": [
+        "1英寸",
+        "11.85美元"
+      ],
+      "effective_at": "2026-11-23至2026-12-27为每包11.85美元Demand AHS档；箱规为现行指南条件，非11月24日新设。",
+      "affected_sellers": "美国海外仓或本土自发货，使用适用FedEx美国本土包裹服务、外箱接近体积门槛或账单出现尺寸额外处理费的卖家；不套中国出口所有国际产品。",
+      "money_impact": "每个适用包裹Demand AHS标准旺季增额11.85美元，常规AHS另收或按合同包含。换箱还可能改变计费重、基础运费及燃油；以同服务同地址含费总价及换箱/破损成本比较，不能说一英寸固定多扣30美元。",
+      "calculation": {
+        "basis": "假设承运用于资格判断的外尺寸为整英寸，其他重量/包装等未触发；两种包装同服务同邮编比较，不将假设等同真实运单。",
+        "formula": "36×18×16=10368in³；37×18×16=10656in³>10368。长围104/105in均未>105；适用Demand AHS标准增额=11.85美元/包，常规AHS及其他费另核。",
+        "result": "只证明假设新箱体积跨档，不证明旧箱全免或实际多付11.85美元；合同含费、常规处理费、体积重和基础/燃油变化均纳入实际总价，未取得报价不填已省。"
+      },
+      "action": "取真实收费明细和原始/承运重测尺寸，再测同SKU待发箱；已交运不改箱。待发小箱须保护封箱达标，按同服务同邮编同条件询两包装总价，核计费重/AHS/Demand/燃油及已含项，未核清不批量改。",
+      "evidence": [
+        {
+          "title": "雨果SGR：FedEx AHS额外处理费计费规则",
+          "url": "https://www.cifnews.com/article/190306",
+          "source_type": "media",
+          "published_at": "2026-11-24",
+          "checked_at": "2026-11-24T06:41:56Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "页面正文可见2026-11-24 11:06，SGR当期AHS教程作为经营问题信号；其55lb/叠费泛化不作为本稿官方事实。",
+          "markers": [
+            "2026-11-24 11:06",
+            "AHS",
+            "SGR"
+          ]
+        },
+        {
+          "title": "FedEx US: Demand Surcharges, U.S.package section Updated July22,2026",
+          "url": "https://www.fedex.com/en-us/shipping/rate-changes/demand-surcharges.html",
+          "source_type": "official",
+          "published_at": "2026-07-22",
+          "checked_at": "2026-11-24T06:41:56Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "美国包裹段可见UpdatedJuly22,2026，11月23日至12月27日Demand AdditionalHandling11.85美元，前档8.80；只是旺季增额，非全部常规处理费。",
+          "markers": [
+            "July 22, 2026",
+            "11.85",
+            "Nov. 23"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "纸箱长1英寸，加钱？",
+    "b": "没变重，运费也能跳档？"
+  },
+  "voiceover_body": "美国海外仓发本土FedEx包裹，实重没变，纸箱尺寸却可能让运费跳档。\n\n今天拿一个常发商品的收费明细，再测同款待发箱。历史运单按当时测量和承运重测记录核，别拿新箱冒充原票。\n\n假设计费外尺寸是36乘18乘16英寸，其他条件没触发，体积刚好卡住门槛。最长边换37，体积就过线。实重相同，计费重也可能变，别把整票价差全算给处理费。\n\n仓库量装好货以后最突出的长宽高，英寸小数也记下来。纸箱印的规格、空箱内尺寸，都不能代替计费记录。把实测、承运重测和账单尺寸逐个对，别自己随手取整。\n\n费用拆开看：常规尺寸处理费、旺季需求附加费各一行。当前适用这档的每包旺季增额是11.85美元，常规处理费还要另核，别把增额当全部运费。\n\n自有FedEx账户，进账单明细找运单。仓库代买面单，就让仓库给原始收费项目、计费尺寸和重测记录。数字对不上，保留照片和运单，先找仓库复核。\n\n还没交运，才拿小箱试装。先验保护和封箱，再重测。用同一服务、同一收件邮编，给两种包装分别询总价。比较计费重、附加费和总额，别为了省处理费把货压坏。\n\n体积没过线仍有处理费，就继续查重量、其他尺寸和包装条件。合同已含费先别重复加；原因没核清，别批量换箱。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "雨果SGR页面可见2026-11-24 11:06，未标时区，为当期教程信号，非FedEx24日新政策；文中55lb及Oversize叠加等不按原样采信。官方Demand美国包裹段可见Updated July22,2026，不借顶部国际段November5日期。",
+    "范围收窄美国本土适用FedEx包裹服务，非中国直邮所有产品。Demand Additional Handling11月23日至12月27日每包11.85美元，仅旺季增额，常规AHS、燃油、基础运费、折扣和合同包含项另核。",
+    "官方指南封面和费表页可见Updated September11,2026；体积新增条件2026-01-12生效；PDF索引127体积严格>10368in³，最长边>48、第二边>30、长围>105等是独立条件。36×18×16恰等不触发体积，不能据此声称全免AHS。",
+    "36×18×16与37×18×16为假设承运方用于资格判断的整英寸外尺寸，体积10368与10656，长围104与105；假设实重/包装等别的条件未触发。实重相同不保证体积重相同；以除数139另作示例约75至77磅，两者都高于40最低，本例不把40磅当新增原因。",
+    "指南P135进位句位于Dimensional Weight段，P158为长围测量段；P127没有直接给体积资格进位法。本稿不将DIM进位普遍推给AHS，不教改申报数。记录含小数最大外尺寸，对承运重测及本票适用规则核，不用厂家标称内径代替。",
+    "官方指南8,501,021字节超过现有严格源3,000,000字节上限，仅记人工下载定页阅读和SHA，不改阈值，不称strict覆盖。正式机器来源只为雨果当期页及官方Demand网页；账单入口常设页无可见日期，仅人工路径参考。",
+    "今天仅对尚未交运且不误本票承诺的包装试测，保护/封箱达标、同服务同邮编同包含项报价核好再决定；已交运只核原始测量/承运重测与账单，不用同款新箱冒充历史证据，不拦截补寄。合同已含不重复加，账单差异不保证退费。",
+    "没有真实客户账单或已经发生亏损的案例；几何和DIM均为假设计算，11.85为官方标准旺季增额，不等于仓库必转收。其他候选优惠/需求/AI工具缺第一方或实际效果，不进入主稿；原纸与昨天相同不制造新降幅。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-24T06:41:56Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-24T16:00:00+08:00"
+  }
+}
