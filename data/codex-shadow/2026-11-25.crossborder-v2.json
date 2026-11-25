@@ -1,0 +1,217 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-25",
+  "title": "跨境早知道 V4｜11月25日",
+  "summary": "美国Walmart普通自发货退件可能首扫先退款、海外仓后收货。今天用PO+订单行/数量核Payments退款，再对Returns退运单、实际目的仓、签收与验收；正常在途不重复退款不预加可售，异常按本票资格走支持/争议，未自动退标准件遵守收件48小时责任。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时，新线索未得同等强官方操作主题后扩72小时；13去重候选、5重点，采用24日12:13提醒触发。8入口访问/互动限制如实留档，不称低粉爆款。官方短slug取实时正文，长路径壳及旧索引日期不冒作严格通过。"
+  },
+  "editorial": {
+    "theme": "退货没回海外仓，退款和实物怎么对上？",
+    "candidate_count_researched": 13,
+    "candidates": [
+      {
+        "region": "us",
+        "title": "Walmart自发货首扫退款与到仓核账",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.cifnews.com/news/50c9ab1eb05a",
+        "score": {
+          "relevance": 35,
+          "money_impact": 28,
+          "concrete_evidence": 14,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 95
+        },
+        "decision": "selected",
+        "reason": "指定US自发货退货渠道，今天按RMA分核退款、实际目的仓、签收和验收入库，不等到仓才记账"
+      },
+      {
+        "region": "us",
+        "title": "eBay正品保证门槛及可选鉴定费",
+        "published_at": "2026-11-24",
+        "source_url": "https://m.ennews.com/news-149329.html",
+        "score": {
+          "relevance": 30,
+          "money_impact": 21,
+          "concrete_evidence": 14,
+          "hook_potential": 7,
+          "timeliness": 8,
+          "total": 80
+        },
+        "decision": "rejected",
+        "reason": "未补齐第一方逐类资格和生效；买家可选鉴定费不等于卖家必扣"
+      },
+      {
+        "region": "other",
+        "title": "Ozon三类促销转百分比设置",
+        "published_at": "2026-11-24",
+        "source_url": "https://www.amz123.com/kx/L4ftESr4",
+        "score": {
+          "relevance": 30,
+          "money_impact": 26,
+          "concrete_evidence": 13,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "缺官方当期条款，不能简单等额替换或提前结束旧活动"
+      },
+      {
+        "region": "other",
+        "title": "原纸降30元与纸箱采购报价",
+        "published_at": "2026-11-25",
+        "source_url": "https://www.100ppi.com/news/detail-20261125-6539026.html",
+        "score": {
+          "relevance": 28,
+          "money_impact": 23,
+          "concrete_evidence": 15,
+          "hook_potential": 7,
+          "timeliness": 9,
+          "total": 82
+        },
+        "decision": "rejected",
+        "reason": "原纸和成品箱合同口径不同，缺BOM与厂函，不说采购已省5.37%"
+      },
+      {
+        "region": "other",
+        "title": "易仓ERP物流及海外仓模块更新",
+        "published_at": "2026-11-25",
+        "source_url": "https://www.eccang.com/news/5046",
+        "score": {
+          "relevance": 28,
+          "money_impact": 22,
+          "concrete_evidence": 11,
+          "hook_potential": 6,
+          "timeliness": 9,
+          "total": 76
+        },
+        "decision": "rejected",
+        "reason": "只适用相应模块客户，未核本店版本和权限，不把功能上线当库存已准确"
+      }
+    ],
+    "editor_review": {
+      "status": "approved",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "事实primary、卖家动作research与独立主编copy_review均对V2实际审核PASS；所有退回、改法、所审版本SHA保留。",
+        "US普通自发货指定退货渠道，首扫触发不等银行到账；按PO和订单行数量对退款与实收，不重退、不预加可售，48小时责任不因核账延迟，WFS等另外核。"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "Walmart自发货首扫退款与到仓核账",
+      "what_happened": "11月24日雨果提醒沃尔玛假日退货，官方既有seller-fulfilled政策区分指定网页/客服退货的承运首扫退款与门店退款。普通适用退件可在回到海外仓前退款；应把退款交易、退运状态和实物验收入库逐票对账，而非等入库再记钱。",
+      "numbers": [
+        "48小时"
+      ],
+      "effective_at": "官方政策2026-08-31更新，首扫机制为现行规则非2026-11-25新生效；未自动退标准件按退货中心收件后48小时处理。",
+      "affected_sellers": "美国Walmart Marketplace seller-fulfilled，指定网页/CustomerCare渠道发起、适用实际寄回的普通退件；WFS、门店、免退货/部分保留、换货和豁免类另核。",
+      "money_impact": "退款售额按实际美元交易以PO+订单行+退款数量核，结算扣项、退运费用和待定位库存成本分列。首扫退款不等已确认损失，不把退款额加商品成本叫亏了两次；对已退单不要再次手动退款。",
+      "calculation": {
+        "basis": "按同PO+订单行匹配实际退款数量/金额及退件实收；仅有RMA总额时不跨多件/部分退硬合并，也不伪造客户案例。",
+        "formula": "本期退款售额=相同口径refund行金额合计；待定位件数=本票应回数量-已验收数量，出现负数或不等先核拆件/部分/多件及映射。",
+        "result": "退款售额用实际美元或本票币种记录，与实扣净额/库存成本分别列，不能直接加总成已亏；未取得退款或收件凭证填待核，正常在途不是已丢失。"
+      },
+      "action": "Orders→Returns按PO/RMA查详情，Payments→Transactions按订单行/数量核refund；实际运单查首扫/目的仓/签收，仓库回验收。正常在途不重退/不预加可售；异常按票资格走支持，未自动退标准件不拖48小时。",
+      "evidence": [
+        {
+          "title": "雨果：沃尔玛假日退货政策提醒",
+          "url": "https://www.cifnews.com/news/50c9ab1eb05a",
+          "source_type": "media",
+          "published_at": "2026-11-24",
+          "checked_at": "2026-11-25T06:48:54Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "正文可见2026-11-24 12:13北京时间，假日退货关注信号，不将其消费者页更新日借作卖家首扫政策日期。",
+          "markers": [
+            "2026-11-24",
+            "沃尔玛"
+          ]
+        },
+        {
+          "title": "Walmart: Seller-fulfilled returns policy",
+          "url": "https://marketplacelearn.walmart.com/guides/returns-policy",
+          "source_type": "official",
+          "published_at": "2026-08-31",
+          "checked_at": "2026-11-25T06:48:54Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "正文可见Aug31,2026，区分Walmart.com/CustomerCare首扫退款、门店收件退款及其他例外；有效US退货中心、多中心默认最近和地址条件费用另核。",
+          "markers": [
+            "Aug 31, 2026",
+            "first scanned by the carrier"
+          ]
+        },
+        {
+          "title": "Walmart: Payment statements and transactions",
+          "url": "https://marketplacelearn.walmart.com/guides/Payment-statements-and-transactions",
+          "source_type": "official",
+          "published_at": "2026-11-16",
+          "checked_at": "2026-11-25T06:48:54Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "同文官方短路径实时正文Nov16,2026，支持Transactions按PO/CO/type/date查及报表订单行和RefundedRetailSales；不借旧web索引9/24。",
+          "markers": [
+            "Nov 16, 2026",
+            "Refunded Retail Sales",
+            "Transactions"
+          ]
+        },
+        {
+          "title": "Walmart: Issue a standard refund in Seller Center",
+          "url": "https://marketplacelearn.walmart.com/guides/Issue-a-standard-refund-in-Seller-Center",
+          "source_type": "official",
+          "published_at": "2025-09-24",
+          "checked_at": "2026-11-25T06:48:54Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "官方短路径可见Sep24,2025，Orders→Returns/ReturnDetails，未自动退标准件收到退货中心后48小时责任；已处理退货报告非所有在途单。",
+          "markers": [
+            "Sep 24, 2025",
+            "48 hours"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "货没回仓，钱先退了？",
+    "b": "先对退款，别退两遍。"
+  },
+  "voiceover_body": "美国沃尔玛自发货，货没回海外仓，先把退款和库存成本分开对。从沃尔玛网页或客服发起的适用退货，承运人首次扫描就触发退款，不能等仓库收齐才看钱。\n\n今天进卖家中心，打开Orders下面的Returns，按PO号或退货编号查详情。再去Payments里的Transactions，对同一订单行的退款交易。多件、部分退，按行和数量核，别整单重复算。\n\n用一张表分开记：退款状态和金额、退货运单首扫、实际目的仓、签收、仓库验收数量。下载已处理退货报告辅助核对，未完成的单另查，别当成一张全量在途表。\n\n正常在途，记下负责人和下次查件时间，先别重复退款，也别提前加回可售。显示签收，仓库却没记录，就拿实际目的地址和签收凭证，让仓库查批次、件数。多个退货中心，别只等常用仓。\n\n退款金额或重复交易有异常，带PO、订单行和交易凭证，按这票资格和时限走争议或平台支持。正常在途不代表立刻能索赔，也不保证工单一定赔。\n\n未走自动退款的标准件，退货中心收件后48小时内要按规则发起退款，别拿核账拖退款。门店、平台仓、免退货和换货另外核，这张账先只看实际寄回的普通自发货退件。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "雨果页面可见2026-11-24 12:13北京时间，仅当期假日退货提醒，不是新首扫退款公告。官方卖家退货政策可见更新2026-08-31；来源只给更新日，不说明首扫机制最初生效时刻。",
+    "仅美国seller-fulfilled，从Walmart.com/CustomerCare发起且适用追踪退回的普通件。WFS、门店、KeepIt/PartialKeepIt、Replacement、豁免/特殊品类另核。首扫触发退款不保证界面瞬时更新、结算立即扣款或买家银行到账；无首扫已退也须先核客服等例外。",
+    "Payments官方短路径实时正文可见2026-11-16；旧搜索索引2026-09-24不采用。Payments→Transactions按PO/CO、type/date查，报表按PO+OrderLine+SKU核RefundedRetailSales；Pending/Settled为结算状态，不等买家到账。",
+    "退款操作指南可见2025-09-24。未符合自动退款条件的标准客户退货，应在退货中心收件后48小时内按规则发起退款；收件时间/时区与本票动作状态需核，不等质检入库才开始算，也不能对已自动退单重复手退。",
+    "Returns导出只承诺给定时段最多5000条previouslyprocessedreturns，含退款渠道/原因等，不是全部未完成在途。退款金额、状态、追踪、目的地等自建账列从实际详情/Payments/面单/承运及仓库记录补，不假称全为CSV原生列，不借CA/WFS/API字段当US页面。",
+    "多个退货中心默认最近，可能有SKU级指定，必须按本票面单/详情实际去向核。地址无效导致转中心可有failed-delivery费，未核固定金额；修改设置不会自动改写已生成面单，已在途不指示拦截或让买家擅自改寄。",
+    "争议只按本票渠道、资格、材料与可见时限。客服退款争议指南不直接套全部交易，无按钮先核未退款/已争议/过窗等原因并找支持，不保证赔款。正常在途先追踪，签收未登记找实际收货仓核POD/批次，退款状态不等可售入库。",
+    "退款销售额、实际结算扣项和待定位存货成本是不同口径，不能直接相加认定亏损。按PO+订单行+退款数量核部分/多件，运费/费用按真实明细另列。本稿为运营核账建议，无真实客户订单或损失案例，不替代财务账务处理。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-25T06:48:54Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": true,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-25T16:00:00+08:00"
+  }
+}

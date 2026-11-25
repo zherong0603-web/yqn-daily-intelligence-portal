@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-25",
+  "version": "V2",
+  "frozen_at": "2026-11-25T14:56:37+08:00",
+  "on_time": true,
+  "reviewed_version": "05-final-candidate-v2.md",
+  "reviewed_sha256": "2117554527daf5d7e7202daa1e7e695615bc9764aa616e4d7f8cd4d237af601c",
+  "delivery_sha256": "2117554527daf5d7e7202daa1e7e695615bc9764aa616e4d7f8cd4d237af601c",
+  "input_derivation": "Only actual independent V2 editorial approval metadata added after PASS; source URLs, dates, five candidates, title, hooks, voiceover, action windows, ledger and boundaries unchanged."
+}

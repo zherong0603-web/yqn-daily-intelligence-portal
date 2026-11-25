@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-25",
+  "checked_at": "2026-11-25T06:57:55.246Z",
+  "all_ok": true,
+  "checked_count": 4,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.cifnews.com/news/50c9ab1eb05a",
+      "ok": true,
+      "matched_number": null,
+      "matched_date": "2026-11-24",
+      "matched_markers": [
+        "2026-11-24",
+        "沃尔玛"
+      ]
+    },
+    {
+      "url": "https://marketplacelearn.walmart.com/guides/returns-policy",
+      "ok": true,
+      "matched_number": "48",
+      "matched_date": "Aug 31, 2026",
+      "matched_markers": [
+        "Aug 31, 2026",
+        "first scanned by the carrier"
+      ]
+    },
+    {
+      "url": "https://marketplacelearn.walmart.com/guides/Payment-statements-and-transactions",
+      "ok": true,
+      "matched_number": "48",
+      "matched_date": "Nov 16, 2026",
+      "matched_markers": [
+        "Nov 16, 2026",
+        "Refunded Retail Sales",
+        "Transactions"
+      ]
+    },
+    {
+      "url": "https://marketplacelearn.walmart.com/guides/Issue-a-standard-refund-in-Seller-Center",
+      "ok": true,
+      "matched_number": "48",
+      "matched_date": "Sep 24, 2025",
+      "matched_markers": [
+        "Sep 24, 2025",
+        "48 hours"
+      ]
+    }
+  ]
+}
