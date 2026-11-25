@@ -4,6 +4,7 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   assertUniqueDwsGroup,
+  runDispatchCommand,
   parseCrossborderV2DwsArgs,
   readDwsDeliveryStatus,
   sendCrossborderV2Dws,
@@ -283,4 +284,173 @@ describe("Crossborder V2 DWS delivery", () => {
     })).toThrow(/prior group attempt has no verified delivery/);
     expect(execute).toHaveBeenCalledTimes(2);
   });
+});
+
+
+describe("dispatch failure evidence and safe pre-send recovery", () => {
+  function options(directory, date, execute) {
+    return { argv: ["node", "send", "--date", date, "--live"], cwd: directory,
+      now: new Date("2026-11-02T08:00:00Z"), execute, log: vi.fn(), wait: vi.fn() };
+  }
+  function normal(command, args) {
+    if (command === "dws" && args[0] === "auth") return JSON.stringify({ authenticated: true, token_valid: true });
+    if (args.includes("search")) return groupLookupOutput;
+    if (args.includes("+messages-send")) return JSON.stringify({ deliveryStatus: "DELIVERED" });
+    return "";
+  }
+  function events(directory, date) {
+    return readFileSync(path.join(directory, "logs", "automation", `.crossborder-v4-dispatch-${date}.jsonl`), "utf8")
+      .trim().split("\n").map(JSON.parse);
+  }
+  it("keeps the failing source stage without persisting raw process output", () => {
+    const { directory, date } = fixture();
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check")) throw new Error("private output must never be stored");
+      return normal(command, args);
+    };
+    expect(() => sendCrossborderV2Dws(options(directory, date, execute))).toThrow();
+    const journal = events(directory, date);
+    expect(journal.at(-1)).toMatchObject({ stage: "source_check", status: "FAILED", attempt: 1, code: "CHECK_FAILED" });
+    expect(JSON.stringify(journal)).not.toContain("private output");
+    expect(() => readFileSync(path.join(directory, "logs", "automation", ".crossborder-v4-dws-group-state.json"))).toThrow();
+  });
+  it("preserves the failed source index before a later check can overwrite it", () => {
+    const { directory, date } = fixture();
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check")) {
+        writeFileSync(path.join(directory, "data", "codex-shadow", `${date}.source-checks.json`), JSON.stringify({
+          date, checked_at: new Date().toISOString(), all_ok: false, failed_count: 1, checks: [{ ok: true }, { ok: false,
+            url: "https://example.com/private?hidden=value", error: "visible source date does not match published_at" }] }));
+        throw new Error("process failed");
+      }
+      return normal(command, args);
+    };
+    expect(() => sendCrossborderV2Dws(options(directory, date, execute))).toThrow();
+    const failed = events(directory, date).at(-1);
+    expect(failed.source_failures).toEqual([{ index: 1, code: "VISIBLE_DATE_MISMATCH" }]);
+    expect(JSON.stringify(failed)).not.toContain("hidden");
+  });
+  it("recovers a transient source failure before sending once", () => {
+    const { directory, date } = fixture(); let checks = 0; let sends = 0;
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check") && ++checks < 3) throw Object.assign(new Error("network"), { code: "ECONNRESET" });
+      if (args.includes("+messages-send")) sends++;
+      return normal(command, args);
+    };
+    expect(sendCrossborderV2Dws(options(directory, date, execute)).status).toBe("DELIVERED");
+    expect(checks).toBe(3); expect(sends).toBe(1);
+    expect(events(directory, date).filter(e => e.status === "RETRYING")).toHaveLength(2);
+  });
+  it("stops bounded transient recovery without writing ATTEMPTED", () => {
+    const { directory, date } = fixture(); let checks = 0;
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check")) { checks++; throw Object.assign(new Error("network"), { code: "ETIMEDOUT" }); }
+      return normal(command, args);
+    };
+    expect(() => sendCrossborderV2Dws(options(directory, date, execute))).toThrow();
+    expect(checks).toBe(3);
+    expect(events(directory, date).at(-1)).toMatchObject({ stage: "source_check", status: "FAILED", attempt: 3 });
+  });
+  it.each(["ATTEMPTED", "DELIVERED"])("does not send if %s appears during preflight recovery", (status) => {
+    const { directory, date } = fixture(); let attempts = 0; let sends = 0;
+    const execute = (command, args) => {
+      if (args[0] === "auth" && attempts++ === 0) throw Object.assign(new Error("network"), { code: "ECONNRESET" });
+      if (args.includes("+messages-send")) sends++;
+      return normal(command, args);
+    };
+    const opts = options(directory, date, execute);
+    opts.wait = () => {
+      writeFileSync(path.join(directory, "logs", "automation", ".crossborder-v4-dws-group-state.json"),
+        JSON.stringify({ dates: { [date]: { status } } }));
+    };
+    if (status === "DELIVERED") expect(sendCrossborderV2Dws(opts).duplicate).toBe(true);
+    else expect(() => sendCrossborderV2Dws(opts)).toThrow(/prior group attempt/);
+    expect(sends).toBe(0);
+  });
+  it("does not retry mixed source failures containing a changed evidence marker", () => {
+    const { directory, date } = fixture(); let checks = 0;
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check")) {
+        checks++;
+        writeFileSync(path.join(directory, "data", "codex-shadow", `${date}.source-checks.json`), JSON.stringify({
+          date, checked_at: new Date().toISOString(), checks: [
+            { ok: false, error: "fetch failed" }, { ok: false, error: "source page is missing 1 required evidence marker(s)" }] }));
+        throw Object.assign(new Error("mixed failure"), { code: "NETWORK_TRANSIENT" });
+      }
+      return normal(command, args);
+    };
+    expect(() => sendCrossborderV2Dws(options(directory, date, execute))).toThrow();
+    expect(checks).toBe(1);
+  });
+  it("does not write ATTEMPTED after the shared preflight budget is exhausted", () => {
+    const { directory, date } = fixture(); let time = 0; let sends = 0;
+    const execute = (command, args) => {
+      if (args.includes("search")) time = 300001;
+      if (args.includes("+messages-send")) sends++;
+      return normal(command, args);
+    };
+    const opts = { ...options(directory, date, execute), monotonic: () => time };
+    expect(() => sendCrossborderV2Dws(opts)).toThrow(/budget/);
+    expect(sends).toBe(0);
+    expect(() => readFileSync(path.join(directory, "logs", "automation", ".crossborder-v4-dws-group-state.json"))).toThrow();
+  });
+  it("does not treat a generic fetch failure as proven transient", () => {
+    const { directory, date } = fixture(); let checks = 0;
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check")) {
+        checks++;
+        writeFileSync(path.join(directory, "data", "codex-shadow", `${date}.source-checks.json`), JSON.stringify({
+          date, checked_at: new Date().toISOString(), checks: [{ ok: false, error: "fetch failed" }] }));
+        throw Object.assign(new Error("fetch failed"), { code: "NETWORK_TRANSIENT" });
+      }
+      return normal(command, args);
+    };
+    expect(() => sendCrossborderV2Dws(options(directory, date, execute))).toThrow();
+    expect(checks).toBe(1);
+  });
+  it.each([429, 502, 503, 504])("recovers a real child HTTP %s failure before one send", (http) => {
+    const { directory, date } = fixture(); let checks = 0; let sends = 0;
+    const execute = (command, args) => {
+      if (args.includes("crossborder:v2:source-check") && ++checks < 3) {
+        writeFileSync(path.join(directory, "data", "codex-shadow", `${date}.source-checks.json`), JSON.stringify({
+          date, checked_at: new Date().toISOString(), checks: [{ ok: false, error: `HTTP ${http}` }] }));
+        return runDispatchCommand(process.execPath, ["-e", `console.error("HTTP ${http}");process.exit(1)`]);
+      }
+      if (args.includes("crossborder:v2:source-check")) writeFileSync(path.join(directory, "data", "codex-shadow", `${date}.source-checks.json`), JSON.stringify({ date, all_ok: true, failed_count: 0 }));
+      if (args.includes("+messages-send")) sends++;
+      return normal(command, args);
+    };
+    expect(sendCrossborderV2Dws(options(directory, date, execute)).status).toBe("DELIVERED");
+    expect(checks).toBe(3); expect(sends).toBe(1);
+  });
+  it("does not leak a malformed successful authentication response", () => {
+    const { directory, date } = fixture(); let failure;
+    const execute = (command, args) => args[0] === "auth" ? "FAKE_AUTH_PRIVATE_VALUE" : normal(command, args);
+    try { sendCrossborderV2Dws(options(directory, date, execute)); } catch (error) { failure = error; }
+    expect(failure).toBeInstanceOf(Error);
+    expect(failure.message).not.toContain("FAKE_AUTH");
+    expect(events(directory, date).at(-1)).toMatchObject({ stage: "authentication", status: "FAILED" });
+  });
+  it("never retries a send with an ambiguous result", () => {
+    const { directory, date } = fixture(); let sends = 0;
+    const execute = (command, args) => {
+      if (args.includes("+messages-send")) { sends++; throw Object.assign(new Error("network"), { code: "ECONNRESET" }); }
+      return normal(command, args);
+    };
+    expect(() => sendCrossborderV2Dws(options(directory, date, execute))).toThrow();
+    const state = JSON.parse(readFileSync(path.join(directory, "logs", "automation", ".crossborder-v4-dws-group-state.json")));
+    expect(state.dates[date].status).toBe("ATTEMPTED"); expect(sends).toBe(1);
+    expect(events(directory, date).at(-1)).toMatchObject({ stage: "send", status: "FAILED", attempt: 1 });
+  });
+});
+
+
+it("keeps real failed child output out of the thrown error", () => {
+  expect(typeof runDispatchCommand).toBe("function");
+  let failure;
+  try {
+    runDispatchCommand(process.execPath, ["-e", 'process.stdout.write(JSON.stringify({error:{category:"PRIVATE_CATEGORY",message:"FAKE_SENSITIVE_VALUE"}}));process.exit(1)']);
+  } catch (error) { failure = error; }
+  expect(failure).toBeInstanceOf(Error);
+  expect(failure.message).not.toMatch(/FAKE_SENSITIVE_VALUE|PRIVATE_CATEGORY/);
 });

@@ -53,5 +53,50 @@
     "complete": true,
     "has_more": false
   },
-  "scope": "This archiving executor performed only readback and archival; no message send, no live call, no new continuation or schedule."
+  "scope": "This archiving executor performed only readback and archival; no message send, no live call, no new continuation or schedule.",
+  "forensic_followup": {
+    "checked_at": "2026-11-25T17:38:56.522082+08:00",
+    "confirmed_failed_stage": "source_check",
+    "evidence": [
+      {
+        "npm_log": "2026-11-25T08_00_00_257Z-debug-0.log",
+        "script": "crossborder:v2:build",
+        "exit": 0
+      },
+      {
+        "npm_log": "2026-11-25T08_00_00_521Z-debug-0.log",
+        "script": "crossborder:v2:source-check",
+        "exit": 1
+      },
+      {
+        "npm_log": "2026-11-25T08_00_00_130Z-debug-0.log",
+        "script": "crossborder:v2:dispatch",
+        "exit": 1
+      }
+    ],
+    "specific_source_or_error": "UNKNOWN: original child output discarded; failed report overwritten by later recheck.",
+    "delay_mechanism": "The source-check pre-send gate stopped the scheduled command. The continuation discarded the child output and exited; no verified automatic recovery took place until root restored delivery at 17:01.",
+    "repair": "Dispatch now journals fixed stage/status/error codes and fresh failed-source indices without raw output. Explicit transient pre-send failures only have bounded recovery; unknown/content failures stop. Attempts and delivery receipts are never retried. Shared execution budget stays below the existing parent timeout.",
+    "status": "VERIFIED",
+    "evidence_observer": "/root/produce_1123 (independent read-only forensic observer)",
+    "evidence_limit": "Observer read only basename/script/mtime/exit/size before the npm regression runs; exact sampling minute, raw copy and log SHA were not recorded. Root later could not reopen the first file (ENOENT); cause of disappearance is not established. Followup timestamp is the record time, not the first evidence observation.",
+    "verification": {
+      "full_suite_tests": 141,
+      "full_suite_passed": 141,
+      "typecheck": "PASS",
+      "actual_full_no_live_dispatch": "PASS",
+      "delivery_payload_restored_byte_exact": true,
+      "real_message_sent_during_investigation": false
+    },
+    "independent_review": {
+      "reviewer": "/root/produce_1123",
+      "result": "PASS",
+      "scope": "read-only code, privacy, retry, deadline, deduplication, and incident evidence review; no send and no claim of future on-time delivery",
+      "reviewed_sha256": {
+        "scripts/sendCrossborderV2Dws.mjs": "09b5c25d57a71d3b18468457b1d947228a34e657029807601bbdc4b286860d26",
+        "scripts/sendCrossborderV2Dws.test.mjs": "6cb189691e2cf409a6bb29fb64326544830026aa330e5e6de738b3928d922799",
+        "docs/automation/工作日晨报执行规则.md": "6cf8a7119abd3238d03e2693c38288957f3dee0b0bac74c6e1b82112f5c6adcf"
+      }
+    }
+  }
 }
