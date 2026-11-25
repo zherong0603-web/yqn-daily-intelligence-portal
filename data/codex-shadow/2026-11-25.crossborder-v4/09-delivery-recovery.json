@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-25",
+  "recorded_at": "2026-11-25T17:05:03+08:00",
+  "scheduled_target": "2026-11-25T16:00:00+08:00",
+  "frozen_at": "2026-11-25T14:56:37+08:00",
+  "content_frozen_before_hard_deadline": true,
+  "scheduled_status": {
+    "date": "2026-11-25",
+    "checked_at": "2026-11-25T16:00:07+08:00",
+    "status": "BLOCKED",
+    "reason": "正式命令或送达标记未通过",
+    "attempt_state": null
+  },
+  "scheduled_git_finalizer": {
+    "date": "2026-11-25",
+    "checked_at": "2026-11-25T16:00:25+08:00",
+    "status": "STOPPED_WITHOUT_NEW_COMMIT",
+    "delivery_status": "BLOCKED"
+  },
+  "original_status_preserved": true,
+  "underlying_failure_cause": "UNKNOWN: original live stdout/stderr was not retained; generic scheduled gate failure cannot establish a more specific cause.",
+  "pre_recovery_state_observation": {
+    "observer": "root",
+    "record": "No 2026-11-25 date record/ATTEMPTED before recovery; fresh full no-live dry run passed."
+  },
+  "recovery_executor": "root",
+  "recovery_command": "npm run crossborder:v2:dispatch -- --date 2026-11-25 --live",
+  "recovery_exit_code_reported_by_root": 0,
+  "marker": "[crossborder-v4:dws-group-delivered] date=2026-11-25 status=DELIVERED",
+  "receipt": {
+    "status": "DELIVERED",
+    "delivery_status": "DELIVERED",
+    "attempted_at": "2026-11-25T09:01:42.798Z",
+    "delivered_at": "2026-11-25T09:01:58.524Z",
+    "idempotency_key": "crossborder-v4-group-2026-11-25",
+    "target": "跨境咨询每日内容",
+    "date": "2026-11-25",
+    "frozen_at": "2026-11-25T14:56:37+08:00",
+    "marker_verified": true,
+    "delivery_hash_verified": true,
+    "readback_all_ok": true,
+    "delivery_on_target": false,
+    "delay_seconds": 3718.524,
+    "delivery_origin": "root recovery exact live after fresh dry run and verified no prior attempt",
+    "scheduled_failure_record": "09-delivery-recovery.json"
+  },
+  "readback": {
+    "all_ok": true,
+    "units": "84/84",
+    "body_paragraphs": "7/7",
+    "candidates": 5,
+    "unique_matches": 1,
+    "complete": true,
+    "has_more": false
+  },
+  "scope": "This archiving executor performed only readback and archival; no message send, no live call, no new continuation or schedule."
+}

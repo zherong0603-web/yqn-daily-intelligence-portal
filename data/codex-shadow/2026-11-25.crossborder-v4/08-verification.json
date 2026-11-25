@@ -1,6 +1,6 @@
 {
   "date": "2026-11-25",
-  "checked_at": "2026-11-25T14:59:07+08:00",
+  "checked_at": "2026-11-25T17:05:03+08:00",
   "build": {
     "date": "2026-11-25",
     "content_valid": true,
@@ -14,11 +14,11 @@
       "b": 105.6
     },
     "automated_blockers": [],
-    "checked_at": "2026-11-25T06:57:33.861Z"
+    "checked_at": "2026-11-25T09:01:43.021Z"
   },
   "source": {
     "date": "2026-11-25",
-    "checked_at": "2026-11-25T06:57:55.246Z",
+    "checked_at": "2026-11-25T09:01:56.828Z",
     "all_ok": true,
     "checked_count": 4,
     "failed_count": 0,
@@ -106,7 +106,7 @@
       "reviewed_file_sha256": "2117554527daf5d7e7202daa1e7e695615bc9764aa616e4d7f8cd4d237af601c"
     }
   ],
-  "delivery_status": "NOT_SENT_WAITING_16_00",
+  "delivery_status": "DELIVERED",
   "red_team": "12-delivery-red-team.md",
   "continuation_sha256": "067cf057c98b530edc72c536b8501dd9246eb39370f301c6a296b994f3011bb3",
   "readback_selector_regressions": {
@@ -117,5 +117,78 @@
     "review_file": "03-review-01-facts-v2.md",
     "automated_strict_coverage": false,
     "note": "Return-center settings and Customer Care dispute guides separately read by independent facts agent; formal strict batch covers only four listed evidence URLs."
-  }
+  },
+  "pre_recovery_preflight": {
+    "checked_at": "2026-11-25T14:59:07+08:00",
+    "build": {
+      "date": "2026-11-25",
+      "content_valid": true,
+      "send_allowed": true,
+      "target": "dingtalk_group",
+      "signal_count": 1,
+      "us_first": true,
+      "region_priority_valid": true,
+      "estimated_seconds": {
+        "a": 105.6,
+        "b": 105.6
+      },
+      "automated_blockers": [],
+      "checked_at": "2026-11-25T06:57:33.861Z"
+    },
+    "source": {
+      "date": "2026-11-25",
+      "checked_at": "2026-11-25T06:57:55.246Z",
+      "all_ok": true,
+      "checked_count": 4,
+      "failed_count": 0,
+      "checks": [
+        {
+          "url": "https://www.cifnews.com/news/50c9ab1eb05a",
+          "ok": true,
+          "matched_number": null,
+          "matched_date": "2026-11-24",
+          "matched_markers": [
+            "2026-11-24",
+            "沃尔玛"
+          ]
+        },
+        {
+          "url": "https://marketplacelearn.walmart.com/guides/returns-policy",
+          "ok": true,
+          "matched_number": "48",
+          "matched_date": "Aug 31, 2026",
+          "matched_markers": [
+            "Aug 31, 2026",
+            "first scanned by the carrier"
+          ]
+        },
+        {
+          "url": "https://marketplacelearn.walmart.com/guides/Payment-statements-and-transactions",
+          "ok": true,
+          "matched_number": "48",
+          "matched_date": "Nov 16, 2026",
+          "matched_markers": [
+            "Nov 16, 2026",
+            "Refunded Retail Sales",
+            "Transactions"
+          ]
+        },
+        {
+          "url": "https://marketplacelearn.walmart.com/guides/Issue-a-standard-refund-in-Seller-Center",
+          "ok": true,
+          "matched_number": "48",
+          "matched_date": "Sep 24, 2025",
+          "matched_markers": [
+            "Sep 24, 2025",
+            "48 hours"
+          ]
+        }
+      ]
+    },
+    "dry_run": "PASS"
+  },
+  "readback_all_ok": true,
+  "delivery_on_target": false,
+  "recovery_record": "09-delivery-recovery.json",
+  "scheduled_execution_status": "BLOCKED"
 }

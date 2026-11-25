@@ -1,8 +1,17 @@
 {
-  "date": "2026-11-25",
-  "status": "READY_WAITING_16_00",
-  "target": "跨境咨询每日内容",
+  "status": "DELIVERED",
+  "delivery_status": "DELIVERED",
+  "attempted_at": "2026-11-25T09:01:42.798Z",
+  "delivered_at": "2026-11-25T09:01:58.524Z",
   "idempotency_key": "crossborder-v4-group-2026-11-25",
+  "target": "跨境咨询每日内容",
+  "date": "2026-11-25",
   "frozen_at": "2026-11-25T14:56:37+08:00",
-  "note": "三审V2实际PASS，build、strict四网页4/4、完整无live干跑通过，根快照与冻结交付同bytes。额外操作参考由独立事实角色原文审读，不冒称同批strict。等待16:00，尚无ATTEMPTED或回执。"
+  "marker_verified": true,
+  "delivery_hash_verified": true,
+  "readback_all_ok": true,
+  "delivery_on_target": false,
+  "delay_seconds": 3718.524,
+  "delivery_origin": "root recovery exact live after fresh dry run and verified no prior attempt",
+  "scheduled_failure_record": "09-delivery-recovery.json"
 }
