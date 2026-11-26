@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-26",
+  "version": "V3",
+  "frozen_at": "2026-11-26T14:50:00+08:00",
+  "on_time": true,
+  "reviewed_version": "05-final-candidate-v3.md",
+  "reviewed_sha256": "aee85116573b1078bb0a3743e89261b363cc36fff88402d2c13bb7340cf76ad5",
+  "delivery_sha256": "aee85116573b1078bb0a3743e89261b363cc36fff88402d2c13bb7340cf76ad5",
+  "input_derivation": "Only editorial approval metadata and publication.send_allowed set after actual independent PASS; content fields exactly equal reviewed02-package-input-v2.json. V3MD only heading+tagline presentation change from facts/action V2, copy independently reviewed V3."
+}

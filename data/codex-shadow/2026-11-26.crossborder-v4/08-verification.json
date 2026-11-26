@@ -1,0 +1,184 @@
+{
+  "date": "2026-11-26",
+  "checked_at": "2026-11-26T14:50:40+08:00",
+  "build": {
+    "date": "2026-11-26",
+    "content_valid": true,
+    "send_allowed": true,
+    "target": "dingtalk_group",
+    "signal_count": 1,
+    "us_first": true,
+    "region_priority_valid": true,
+    "estimated_seconds": {
+      "a": 116.9,
+      "b": 116.9
+    },
+    "automated_blockers": [],
+    "checked_at": "2026-11-26T06:50:10.204Z"
+  },
+  "source": {
+    "date": "2026-11-26",
+    "checked_at": "2026-11-26T06:50:11.770Z",
+    "all_ok": true,
+    "checked_count": 1,
+    "failed_count": 0,
+    "checks": [
+      {
+        "url": "https://www.maersk.com/news/articles/2026/11/25/shipping-instruction-requirements-fmc-trades",
+        "ok": true,
+        "matched_number": "3",
+        "matched_date": "25 Nov 2026",
+        "matched_markers": [
+          "25 Nov 2026",
+          "Price Owner",
+          "documentation parties"
+        ]
+      }
+    ]
+  },
+  "dry_run": "PASS",
+  "dry_run_command": "npm run crossborder:v2:dispatch -- --date 2026-11-26",
+  "dry_run_marker": "[crossborder-v4:dws-group] date=2026-11-26 dry run validated; message not sent",
+  "input_sha256": "a40045d6423fdcfc5c4a2e21c015ae699ac61f1111434ef05f95870698a3b204",
+  "freeze": {
+    "date": "2026-11-26",
+    "version": "V3",
+    "frozen_at": "2026-11-26T14:50:00+08:00",
+    "on_time": true,
+    "reviewed_version": "05-final-candidate-v3.md",
+    "reviewed_sha256": "aee85116573b1078bb0a3743e89261b363cc36fff88402d2c13bb7340cf76ad5",
+    "delivery_sha256": "aee85116573b1078bb0a3743e89261b363cc36fff88402d2c13bb7340cf76ad5",
+    "input_derivation": "Only editorial approval metadata and publication.send_allowed set after actual independent PASS; content fields exactly equal reviewed02-package-input-v2.json. V3MD only heading+tagline presentation change from facts/action V2, copy independently reviewed V3."
+  },
+  "independent_reviews": [
+    {
+      "role": "facts",
+      "status": "PASS",
+      "review_file": "03-review-01-facts-v2.md",
+      "review_file_sha256": "d9647c272899a0a0a1aab014605a4188cb8640547bb6a938310c10afbf66c266",
+      "reviewed_file": "02-package-input-v2.json",
+      "reviewed_file_sha256": "67a9660515aa2d73aa7b94928ec9d6c5e43109431ab32566e626f69d0236ffc3"
+    },
+    {
+      "role": "action",
+      "status": "PASS",
+      "review_file": "04-review-02-action-v2.md",
+      "review_file_sha256": "cb90bf16149eb4ca17eac435b36fc3b647831a3e4ec9b35210c157bb27322868",
+      "reviewed_file": "04-action-candidate-v2.md",
+      "reviewed_file_sha256": "93830ebb494a00bd412e9fde6373e17f050eaddf3ad0d00839b22cd25220d8fb"
+    },
+    {
+      "role": "copy",
+      "status": "PASS",
+      "review_file": "05-review-03-final-v3.md",
+      "review_file_sha256": "2aaadf89a3bc255424935a692a9278499a4986519e5ecb3de558540f3bfed5c3",
+      "reviewed_file": "05-final-candidate-v3.md",
+      "reviewed_file_sha256": "aee85116573b1078bb0a3743e89261b363cc36fff88402d2c13bb7340cf76ad5"
+    }
+  ],
+  "delivery_sha256": "aee85116573b1078bb0a3743e89261b363cc36fff88402d2c13bb7340cf76ad5",
+  "continuation_sha256": "ba166175437e4fc20a0747c66cd8d7cdb8c03980a03f373057f1915b3fcc54a5",
+  "same_bytes_files": [
+    "data/codex-shadow/2026-11-26.crossborder-v4/06-final.md",
+    "data/codex-shadow/2026-11-26.crossborder-v4/06-delivery.md",
+    "data/codex-shadow/2026-11-26.crossborder-v4/2026-11-26.crossborder-v2.md",
+    "data/codex-shadow/2026-11-26.crossborder-v2.md"
+  ],
+  "dispatch_preflight_journal": [
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:10.010Z",
+      "stage": "build",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:10.226Z",
+      "stage": "build",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:10.226Z",
+      "stage": "source_check",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:11.795Z",
+      "stage": "source_check",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:11.795Z",
+      "stage": "artifacts",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:11.796Z",
+      "stage": "artifacts",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:11.797Z",
+      "stage": "authentication",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:12.672Z",
+      "stage": "authentication",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:12.672Z",
+      "stage": "group_lookup",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-26",
+      "mode": "dry_run",
+      "checked_at": "2026-11-26T06:50:13.262Z",
+      "stage": "group_lookup",
+      "status": "PASSED",
+      "attempt": 1
+    }
+  ],
+  "additional_references": {
+    "automated_strict_coverage": false,
+    "manual_review": "03-review-01-facts-v2.md",
+    "note": "Three undated Maersk operation/permission FAQs and dated olderSpotguide are manual reference only; machine strict covers single current official FMC article, same official source serves market and fact roles."
+  },
+  "pure_selector_regression": {
+    "passed": 10,
+    "total": 10
+  },
+  "failure_regression": {
+    "passed": 7,
+    "total": 7,
+    "real_harmless_process_tree": true
+  },
+  "delivery_status": "NOT_SENT"
+}

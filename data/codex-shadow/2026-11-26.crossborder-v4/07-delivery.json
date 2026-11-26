@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-26",
+  "status": "READY_NOT_SENT",
+  "frozen_at": "2026-11-26T14:50:00+08:00",
+  "on_time": true,
+  "target": "跨境咨询每日内容",
+  "idempotency_key": "crossborder-v4-group-2026-11-26",
+  "delivery_hash_verified": true,
+  "delivered_at": null,
+  "automatic_resend": false
+}

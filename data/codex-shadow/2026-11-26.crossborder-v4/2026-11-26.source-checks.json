@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-26",
+  "checked_at": "2026-11-26T06:50:11.770Z",
+  "all_ok": true,
+  "checked_count": 1,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://www.maersk.com/news/articles/2026/11/25/shipping-instruction-requirements-fmc-trades",
+      "ok": true,
+      "matched_number": "3",
+      "matched_date": "25 Nov 2026",
+      "matched_markers": [
+        "25 Nov 2026",
+        "Price Owner",
+        "documentation parties"
+      ]
+    }
+  ]
+}

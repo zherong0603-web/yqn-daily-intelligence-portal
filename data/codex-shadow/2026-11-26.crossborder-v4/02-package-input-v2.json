@@ -1,0 +1,169 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-26",
+  "title": "跨境早知道 V4｜11月26日",
+  "summary": "马士基FMC航线SI主体核对教程：拿订舱确认与提单草稿，核PriceOwner名称、三方字段和代理关系，按本票截止时区让有权限订舱方处理，交过再对核对稿。无统一新截止或罚款。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时选题再扩72小时比较10个去重事件，5重点；八渠道公开检索边界记录于00，不声称全社媒扫榜/低粉爆款。主选25日官方当期提醒可今天核SI。"
+  },
+  "editorial": {
+    "theme": "走马士基美线，提单草稿上少了谁会卡放单？",
+    "candidate_count_researched": 10,
+    "candidates": [
+      {
+        "region": "us",
+        "title": "马士基FMC航线提单主体核对",
+        "published_at": "2026-11-25",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/25/shipping-instruction-requirements-fmc-trades",
+        "score": {
+          "relevance": 34,
+          "money_impact": 28,
+          "concrete_evidence": 12,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 93
+        },
+        "decision": "selected",
+        "reason": "可拿本票订舱确认与SI草稿当日核主体和代理关系，直接影响提单释放；不编造罚款或统一截止"
+      },
+      {
+        "region": "us",
+        "title": "黑五广告花不动，是否还该加预算",
+        "published_at": "2026-11-26",
+        "source_url": "https://www.amz123.com/t/PrvZN4hH",
+        "score": {
+          "relevance": 35,
+          "money_impact": 29,
+          "concrete_evidence": 10,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 93
+        },
+        "decision": "rejected",
+        "reason": "痛点强但官方报告入口现页重定向，归因未成熟不能凭当天零单停投，留独立教程备选不混本期"
+      },
+      {
+        "region": "us",
+        "title": "Sponsored Brands自动集合先排除低毛利商品",
+        "published_at": "2026-11-23",
+        "source_url": "https://advertising.amazon.com/resources/whats-new/sponsored-brands-collections-guided-campaign-creation",
+        "score": {
+          "relevance": 32,
+          "money_impact": 25,
+          "concrete_evidence": 12,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "美国新建广告可编辑分组词组并排除产品；与提单无同一动作链，自动有货不保证毛利"
+      },
+      {
+        "region": "us",
+        "title": "Walmart适用官方物流负评保护",
+        "published_at": "2026-11-23",
+        "source_url": "https://marketplacelearn.walmart.com/releasenotes/new-negative-feedback-protection-for-eligible-ship-with-walmart-orders",
+        "score": {
+          "relevance": 32,
+          "money_impact": 25,
+          "concrete_evidence": 10,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 83
+        },
+        "decision": "rejected",
+        "reason": "适用条件含按时交运及获批保护claim，不是买面单即免；不同商业问题，不延续昨天退款"
+      },
+      {
+        "region": "europe",
+        "title": "远东至北欧地中海旺季附加费调整",
+        "published_at": "2026-11-25",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/25/revise-peak-season-surcharge-far-east-asia-north-europe",
+        "score": {
+          "relevance": 30,
+          "money_impact": 28,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "PCD12月14起且箱型/航线与SPOT例外分别核；不把今天订舱说成锁费，与FMC主体核对不共题"
+      }
+    ],
+    "editor_review": {
+      "status": "needs_revision",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "待独立三审，当前不记通过"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "马士基FMC航线提单主体核对",
+      "what_happened": "马士基2026-11-25发布FMC监管航线ShippingInstructions文件提醒：PriceOwner须列为Shipper/Consignee/Notify之一；代理代办按规定在Shipper或Consignee地址体现代理关系，不符合可能延迟提单释放。",
+      "numbers": [
+        "3方单证主体"
+      ],
+      "effective_at": "2026-11-25发布现行文件要求提醒；原文未提供统一新生效日或卖家统一补料截止，本票SI截止及其时区向承运/订舱代理书面核实。",
+      "affected_sellers": "经马士基承运、FMC监管航线、待提交或待核ShippingInstructions的跨境卖家；有订舱/改单权限者执行，无权限者由授权订舱方核实，不泛化全部美国包裹或全球航线。",
+      "money_impact": "公告没有统一美元罚款或释放延迟天数。按本票实际额外文件费、资金占用、仓库改约费用和币种分别记，未发生填0或待核，不把风险估算写成已扣费。",
+      "calculation": {
+        "basis": "仅核本票实际单证/交期及费用证据，无假定客户损失案例，不引用美国加拿大出口75美元费到中国出口美国票。",
+        "formula": "本票已确认额外费用=有凭证的额外文件费+有凭证的仓库改约费；未确认或重复包含的项目不加总，正常海运费不重算。",
+        "result": "费用按实际USD或本票币种逐项记，无费用凭证不报金额，不推断填错名称必然产生罚款或滞箱费。"
+      },
+      "action": "取booking与SI草稿，让有权限订舱方确认本票PriceOwner准确名称/所列三方字段及代理关系，按本票截止时区核授权修改；交过SI再查VerifyCopy并保存承运确认。",
+      "evidence": [
+        {
+          "title": "Maersk: Shipping Instruction Requirements – Important Advisory",
+          "url": "https://www.maersk.com/news/articles/2026/11/25/shipping-instruction-requirements-fmc-trades",
+          "source_type": "official",
+          "published_at": "2026-11-25",
+          "checked_at": "2026-11-26T06:38:56.269417Z",
+          "roles": [
+            "market_signal",
+            "fact_basis"
+          ],
+          "supports": "页面可见25Nov2026，FMC适用范围、三方主体、代理措辞和可能延迟提单释放均在原文；本期同一一手承担当期信号及事实，不虚构独立二手来源。",
+          "markers": [
+            "25 Nov 2026",
+            "Price Owner",
+            "documentation parties"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "货走了，提单卡住了？",
+    "b": "美线提单，先核名字。"
+  },
+  "voiceover_body": "走马士基美线海运，提单主体填漏，货的交付可能卡在单证上。今天先拿订舱确认和提单草稿，别只问船开没开。\n\n马士基11月25日提醒，适用美国联邦海事委员会监管航线的货物，Price Owner必须出现在发货人、收货人、通知人三栏之一。这个身份别凭中文猜，也别默认就是你自己，让订舱代理按本票向承运人核实。\n\n今天给货代发两问：这票Price Owner的准确名称是什么？它现在列在哪一栏？让对方回标注过的草稿，别只回一句“没问题”。你没有改单权限，就把这两问交给有权限的订舱方。\n\n如果由代理代办，还要核代理关系。官方要求在发货人或收货人地址内，按规定写明代谁办理。不要为了凑字段，擅自把真实买家、卖家或通知人换掉。\n\n在马士基本票Shipment Details里查任务。用一张表记订舱号、三方名称、主体确认、代理措辞、本票补料截止和时区。补料就是提交做提单的信息。已经交过的，再拿承运人返回的核对稿，对修改有没有落进去。\n\n截止没问清，今天追书面回复；主体不一致，让有权限的人先核实再改。收到承运人确认或核对稿，才在表里标已核，货代口头答应先留待确认。公告没给统一罚款或放单天数。\n\n本票已确认符合，保留版本先不用重交；没走这家或不属适用航线，先不用照搬。点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "公告页面可见2026-11-25，未标具体时刻或时区；没有统一新生效日/卖家统一SI截止。今天是执行核对日不是公告或生效日。本票截止、修改权限、完成状态由承运/授权订舱方确认。",
+    "FMC为美国联邦海事委员会。公告适用FMC监管trade，不能简化为所有美国货/所有船公司/中国所有出口。PriceOwner原文未定义，不默认实际货主、卖家、付款人或发货人；准确身份按本票合同/承运书面核。",
+    "原文：PriceOwner须列为Shipper/Consignee/Notify之一。代理代办时代理名称应在Shipper或Consignee地址按OnBehalfOf或Asagentsof关系体现。不能用Notify地址替代此代理措辞条件，不编造任何真实贸易主体。",
+    "有权限者处理，没权限卖家向授权订舱方索要确认。自建表不是平台原生导出，不把书面回复等同最终release。VerifyCopy为核对稿，是否已获承运接受/最终放单另记；本期无保证操作后立即放单。",
+    "公告说mayresultindelays，不保证发生或给时长；无统一罚款。美国加拿大装船出口2027年75美元改单费是另一方向和新日期，本期不套入。额外费用有凭证才相加，未发生/未核/已含分别记，不把装船或到港当成已可提货。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-26T06:38:56.269417Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": false,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-26T16:00:00+08:00"
+  }
+}
