@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-26",
+  "checked_at": "2026-11-26T16:00:24+08:00",
+  "complete": true,
+  "has_more": false,
+  "unique_title_matches": 1,
+  "candidate_rows": 5,
+  "body_paragraphs_matched": 7,
+  "body_paragraphs_total": 7,
+  "delivery_units_matched": 33,
+  "delivery_units_total": 37,
+  "all_ok": false,
+  "theme": true,
+  "action_window": true,
+  "order_ledger": true,
+  "hook_a": true,
+  "hook_b": true,
+  "source": true,
+  "candidate_reasons": true,
+  "full_delivery_text": false
+}
