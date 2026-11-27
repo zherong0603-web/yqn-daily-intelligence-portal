@@ -181,5 +181,9 @@
     "real_harmless_process_tree": true
   },
   "delivery_status": "DELIVERED",
-  "readback_all_ok": false
+  "readback_all_ok": true,
+  "runtime_readback_all_ok": false,
+  "readback_rechecked_at": "2026-11-27T14:31:55+08:00",
+  "readback_recheck_file": "10-delivery-check-render-equivalent.json",
+  "readback_verification_mode": "known_candidate_list_ordinal_rendering_equivalence"
 }

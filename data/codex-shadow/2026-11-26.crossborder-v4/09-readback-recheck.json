@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-26",
+  "checked_at": "2026-11-27T14:31:55+08:00",
+  "read_only": true,
+  "window_start": "2026-11-26T15:59:58+08:00",
+  "window_end": "2026-11-26T16:02:04+08:00",
+  "complete": true,
+  "has_more": false,
+  "unique_matches": 1,
+  "body_paragraphs_matched": 7,
+  "body_paragraphs_total": 7,
+  "candidate_rows": 5,
+  "candidate_reasons": true,
+  "strict_original_units_matched": 33,
+  "strict_original_units_total": 37,
+  "list_ordinal_only_normalized_units_matched": 37,
+  "list_ordinal_only_normalized_units_total": 37,
+  "cause": "DWS rendered each separately spaced candidate ordered-list item as 1.; expected items 2. through 5. differ only in list marker. All full candidate texts and reasons match exactly after replacing only their leading list ordinal with 1. No policy numerals or content removed.",
+  "safe_projection_sha256": "88f6482b861d77d6bd6691e344c23b87b2a7a985919cff722f260bef8ca6e499",
+  "original_runtime_false_preserved": true,
+  "full_content_verified_with_rendering_equivalence": true,
+  "independent_second_review": {
+    "role": "copy_review",
+    "status": "PASS",
+    "safe_projection_sha256": "88f6482b861d77d6bd6691e344c23b87b2a7a985919cff722f260bef8ca6e499",
+    "confirmed": "Exact 4 candidate list ordinal prefixes only; full remaining text, seven voiceover paragraphs, five candidates and full reasons, unique1 and complete pagination all verified. No new message sent."
+  },
+  "original_runtime_file": "10-delivery-check.json",
+  "all_ok": true,
+  "verification_mode": "known_candidate_list_ordinal_rendering_equivalence"
+}
