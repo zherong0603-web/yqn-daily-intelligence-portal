@@ -1,0 +1,189 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-27",
+  "title": "跨境早知道 V4｜11月27日",
+  "summary": "黑五核库存先分FBA可用与AWD大仓/在途/预留。逐SKU查可用件数、库存天数、下批补货和报错，假设80÷40=2天只作静态预警，设置24h更新不等补到FBA可售，未用AWD不要求开服务。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "先24小时新信号，再扩72小时比较10个去重事件、5重点；8入口公开检索限度与指标未核如实记00。26日媒体库存提醒作触发，2025官方操作文作事实底座；论坛仅相对日期人工参考不伪造发布日期。"
+  },
+  "editorial": {
+    "theme": "总库存看着够，黑五今天到底能卖多少？",
+    "candidate_count_researched": 10,
+    "candidates": [
+      {
+        "region": "us",
+        "title": "总库存看着够，FBA今天能卖多少",
+        "published_at": "2026-11-26",
+        "source_url": "https://amazonbrandguide.com/issues/2026-11-26/",
+        "score": {
+          "relevance": 35,
+          "money_impact": 29,
+          "concrete_evidence": 13,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "当期库存汇总提醒可落到官方AWD分列实操；今天逐SKU核FBA可用和下批补货，不把大仓/在途当即时履约"
+      },
+      {
+        "region": "us",
+        "title": "美加堆存滞箱费新年费表核报价",
+        "published_at": "2026-11-26",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/26/us-canada-demurrage-detention-tariff-update",
+        "score": {
+          "relevance": 31,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 92
+        },
+        "decision": "rejected",
+        "reason": "2027年按PCD换档，今日能核新年报价；不把分档日费套全部在港天数，另一期讲透不拼本期"
+      },
+      {
+        "region": "us",
+        "title": "黑五广告费上升是否继续加钱",
+        "published_at": "2026-11-26",
+        "source_url": "https://www.amz123.com/t/Gtkj79Nq",
+        "score": {
+          "relevance": 35,
+          "money_impact": 29,
+          "concrete_evidence": 8,
+          "hook_potential": 9,
+          "timeliness": 9,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "匿名案例与归因窗口未齐，不能把32%当全店保本线，先独立核广告口径；本期只用库存决定履约边界"
+      },
+      {
+        "region": "mexico",
+        "title": "墨西哥内陆燃油费及FMC日期差异",
+        "published_at": "2026-11-27",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/27/mexico-fuel-surcharge-update-december",
+        "score": {
+          "relevance": 29,
+          "money_impact": 25,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 86
+        },
+        "decision": "rejected",
+        "reason": "2%按haulage基数且FMC与进口后加订日期分支，不能拿总海运费乘2%；与库存不共题"
+      },
+      {
+        "region": "other",
+        "title": "Coupang Rocket Growth转年签续约",
+        "published_at": "2026-11-27",
+        "source_url": "https://www.cifnews.com/news/04110579e3d1",
+        "score": {
+          "relevance": 27,
+          "money_impact": 26,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "媒体写1月31签约与2月28撤货，未齐第一方合同与本店通知；不能据摘要统一提前撤仓，另题待核"
+      }
+    ],
+    "editor_review": {
+      "status": "needs_revision",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "待真实独立事实/动作/主编审，不填通过"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "总库存看着够，FBA今天能卖多少",
+      "what_happened": "11月26日XENA库存newsletter提醒美国新库存汇总页的Totalinventory涵盖多个供应链位置。以当期提醒触发今天的AWD/FBA分账实操；官方既有AWD操作页明确大仓available/inbound/reserved与FBAavailable/daysofsupply分列，不能把汇总量当即时履约。",
+      "numbers": [
+        "80件",
+        "40件",
+        "2天",
+        "7天",
+        "24小时"
+      ],
+      "effective_at": "2026-11-26为媒体提醒更新日；官方AWD指南页面2025-06-05。不是2026-11-27新生效政策，没有统一卖家操作截止；今天放量/补货前按本店状态核。",
+      "affected_sellers": "美国Amazon FBA卖家，重点已经使用AWD且拥有相应后台权限者；未用AWD不要求开通。FBA可用库存与AWD可用、在途、预留分开，非FBM第三方仓实时可售保证。",
+      "money_impact": "避免把在途/大仓当FBA可用而按总量追加美元广告预算，亦避免重复补货占用资金。具体费用、毛利、收入和币种用本店实际账，未发生不记已亏或已省。",
+      "calculation": {
+        "basis": "假设同SKU、同FBA口径可用80件，最近7个完整店铺日平均售出40件/日；量必须为件数而非订单数，未将促销需求当稳定。",
+        "formula": "静态覆盖参考天数=FBA当前可用件数÷近7天同SKU日均FBA售出件数；80÷40=2天，日均为0则不除，另核动销和计划需求。",
+        "result": "2天仅假设静态预警，不是未来售罄时点或平台库存天数算法。实际广告预算和资金以本店USD或本票币种核，不由总库存推已发生损失。"
+      },
+      "action": "Inventory→Warehousinganddistribution(AWD)→Viewinventory逐SKU核FBAavailable/daysofsupply，分记AWDavailable/inbound/reserved；核补货设置、upcomingquantity和errors，已有在途不重复建单，修设置不当24h到仓可售。",
+      "evidence": [
+        {
+          "title": "XENA: Manage Amazon Inventory, new page explained",
+          "url": "https://amazonbrandguide.com/issues/2026-11-26/",
+          "source_type": "media",
+          "published_at": "2026-11-26",
+          "checked_at": "2026-11-27T06:38:40.125052Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "原页可见UpdatedNov26,2026,7:12AMET。媒体库存提醒仅当期问题触发，不能以作者DueNov26建议冒平台截止，Atfulfillment=可买简化不采。",
+          "markers": [
+            "November 26, 2026",
+            "Total inventory"
+          ]
+        },
+        {
+          "title": "Amazon: How AWD can make supply chain and FBA work better",
+          "url": "https://sell.amazon.com/blog/send-products-to-amazon-warehousing-and-distribution",
+          "source_type": "official",
+          "published_at": "2025-06-05",
+          "checked_at": "2026-11-27T06:38:40.125052Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "普通HTML去script可见标题旁Jun5,2025，正文AWD库存分列/FBAavailable和daysofsupply、Viewinventory路径及设置更新可能24h。旧指南是事实底座，不借2025日期充新界面公告。",
+          "markers": [
+            "Jun 5, 2025",
+            "FBA inventory status",
+            "available units in FBA",
+            "24 hours"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "库存很满，怎么还缺货？",
+    "b": "大仓有货，FBA未必够。"
+  },
+  "voiceover_body": "美国亚马逊卖家，海外仓有货，先别按总库存安排补货。用AWD大仓的，今天先把FBA可用量查出来。\n\n昨天一篇库存提醒说，总库存把在途、大仓和FBA放到一起。这里不能直接当成买家今天能收到多少，更不能拿总数减几栏，自己算可售。\n\n现在进卖家后台的库存菜单，打开AWD，再点View inventory。先找FBA库存状态，看可用件数和库存天数；再分开记AWD可用、在途和预留。大仓里可用，不代表已经补进FBA。\n\n拿主推SKU做一张表。假设FBA可用80件，近7个完整店铺日，同款FBA日均卖40件，按这个速度只够2天。这只是静态预警，黑五销量会变，不能当未来两天的保证，也别拿不同SKU的数混算。\n\n发现不够，先看补货设置、下一批补货数量和报错。已经有补货在走，先核当前状态和预计到达，别重复下单；没有安排，再按后台可用方式处理，保存提交结果和负责人。\n\n改自动补货设置，也别当天就把库存加回去。官方提示设置更新可能要24小时，转运和FBA接收另算。有报错先修报错，未确认的补货不算已可用。\n\nFBA可用量能覆盖计划需求，补货也无异常，就保留记录先不用改；没用AWD，不必为这张表开新服务，核自己的FBA可用和补货。库存不够的SKU，先别只因为总数漂亮就加广告预算。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "当期市场触发为服务商XENAnewsletter，页面UpdatedNov26,2026,7:12AMET；官方操作文标题旁Jun5,2025未给具体时刻/时区。不存在今天统一新政策生效/卖家补货截止，作者DueNov26仅内部建议，不当平台截止。",
+    "新ManageAmazonInventory论坛仅相对时间，不能以二手声称11/23填官方published_at。界面四列及名称只作已实际读的人工参考，不在正式datedstrict覆盖；正文不宣称2025页就是2026界面公告。",
+    "AWD大仓可用、AWD在途、AWD预留与FBA可用分别读取，不能Total减前三推FBA可售，也不把Atfulfillment汇总等同可用。FBA可用快照不是任何邮编当前可承诺到货或未来销售保证，真实订单/买家承诺另核。",
+    "80、40、7与2为明确假设库存预警，日均按同SKU同FBA口径完整店铺日的售出件数非订单数，2天不等黑五需求预测、官方daysofsupply或统一停广告门槛。日均0不除，按实际计划需求/补货状态评估，无真实客户案例/损失或收入承诺。",
+    "已有补货不重复建，upcomingquantity与状态/错误先核，预计到达不当已接收可用。自动补货设置更新可能24h，非24h运达FBA承诺；同ASIN多sellerSKU补货取最高设置值，未核影响范围不单改一SKU保证总量下降。",
+    "AWD页面首次发货后可能2至3天才可访问；无权限或未启用者不要求开新服务/共享凭据，查本店相应FBA库存与补货记录或找官方支持。不教未获授权转仓、超卖或擅改客户承诺。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-27T06:38:40.125052Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": false,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-27T16:00:00+08:00"
+  }
+}

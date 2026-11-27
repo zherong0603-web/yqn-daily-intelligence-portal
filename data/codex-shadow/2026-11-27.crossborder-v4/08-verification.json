@@ -1,0 +1,197 @@
+{
+  "date": "2026-11-27",
+  "checked_at": "2026-11-27T14:51:55+08:00",
+  "build": {
+    "date": "2026-11-27",
+    "content_valid": true,
+    "send_allowed": true,
+    "target": "dingtalk_group",
+    "signal_count": 1,
+    "us_first": true,
+    "region_priority_valid": true,
+    "estimated_seconds": {
+      "a": 119.8,
+      "b": 119.7
+    },
+    "automated_blockers": [],
+    "checked_at": "2026-11-27T06:51:25.726Z"
+  },
+  "source": {
+    "date": "2026-11-27",
+    "checked_at": "2026-11-27T06:51:29.430Z",
+    "all_ok": true,
+    "checked_count": 2,
+    "failed_count": 0,
+    "checks": [
+      {
+        "url": "https://amazonbrandguide.com/issues/2026-11-26/",
+        "ok": true,
+        "matched_number": "40",
+        "matched_date": "November 26, 2026",
+        "matched_markers": [
+          "November 26, 2026",
+          "Total inventory"
+        ]
+      },
+      {
+        "url": "https://sell.amazon.com/blog/send-products-to-amazon-warehousing-and-distribution",
+        "ok": true,
+        "matched_number": "24",
+        "matched_date": "Jun 5, 2025",
+        "matched_markers": [
+          "Jun 5, 2025",
+          "FBA inventory status",
+          "available units in FBA",
+          "24 hours"
+        ]
+      }
+    ]
+  },
+  "dry_run": "PASS",
+  "dry_run_command": "npm run crossborder:v2:dispatch -- --date 2026-11-27",
+  "dry_run_marker": "[crossborder-v4:dws-group] date=2026-11-27 dry run validated; message not sent",
+  "input_sha256": "6b15ff867675d84aa4e0da0f670239b629f528b8bff0dc4d035530b6ecf859cf",
+  "freeze": {
+    "date": "2026-11-27",
+    "version": "V2",
+    "frozen_at": "2026-11-27T14:51:16+08:00",
+    "on_time": true,
+    "reviewed_version": "05-final-candidate-v2.md",
+    "reviewed_sha256": "44bfa3ac0aa5a683e5dd1953d08c984ce0d1d79a75c061059febf835843999eb",
+    "delivery_sha256": "44bfa3ac0aa5a683e5dd1953d08c984ce0d1d79a75c061059febf835843999eb",
+    "input_derivation": "Only actual independent editorial approval metadata and publication.send_allowed added after PASS; source URLs/dates, candidates, hooks, body, action ledger and facts exactly match reviewed02-package-input-v2.json."
+  },
+  "independent_reviews": [
+    {
+      "role": "facts",
+      "status": "PASS",
+      "review_file": "03-review-01-facts-v2.md",
+      "review_file_sha256": "f91a60afb2260e77733b66612cf770c528957b2f259e164defa5e3daac604da7",
+      "reviewed_file": "02-package-input-v2.json",
+      "reviewed_file_sha256": "742e5d0a4cb2f0b1980c612f6c7bf7c9d4d1ea43306142879a44a8cbea025cf1"
+    },
+    {
+      "role": "action",
+      "status": "PASS",
+      "review_file": "04-review-02-action-v2.md",
+      "review_file_sha256": "89d6f146ceb2ead96dcda8669c37d317a103048e35c8aa5b8a43343fc4a6d1f2",
+      "reviewed_file": "04-action-candidate-v2.md",
+      "reviewed_file_sha256": "44bfa3ac0aa5a683e5dd1953d08c984ce0d1d79a75c061059febf835843999eb"
+    },
+    {
+      "role": "copy",
+      "status": "PASS",
+      "review_file": "05-review-03-final-v2.md",
+      "review_file_sha256": "172f1e0849338c48933ad054fdbb865c65b5b0dffdffcb45011b6de1dff0d6ed",
+      "reviewed_file": "05-final-candidate-v2.md",
+      "reviewed_file_sha256": "44bfa3ac0aa5a683e5dd1953d08c984ce0d1d79a75c061059febf835843999eb"
+    }
+  ],
+  "delivery_sha256": "44bfa3ac0aa5a683e5dd1953d08c984ce0d1d79a75c061059febf835843999eb",
+  "continuation_sha256": "413cdc49801985c481989045d2643f16fac62c11f82086e540079b4572be8718",
+  "same_bytes_files": [
+    "data/codex-shadow/2026-11-27.crossborder-v4/06-final.md",
+    "data/codex-shadow/2026-11-27.crossborder-v4/06-delivery.md",
+    "data/codex-shadow/2026-11-27.crossborder-v4/2026-11-27.crossborder-v2.md",
+    "data/codex-shadow/2026-11-27.crossborder-v2.md"
+  ],
+  "dispatch_preflight_journal": [
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:25.441Z",
+      "stage": "build",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:25.748Z",
+      "stage": "build",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:25.748Z",
+      "stage": "source_check",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:29.450Z",
+      "stage": "source_check",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:29.450Z",
+      "stage": "artifacts",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:29.451Z",
+      "stage": "artifacts",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:29.452Z",
+      "stage": "authentication",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:30.604Z",
+      "stage": "authentication",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:30.604Z",
+      "stage": "group_lookup",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-27",
+      "mode": "dry_run",
+      "checked_at": "2026-11-27T06:51:31.218Z",
+      "stage": "group_lookup",
+      "status": "PASSED",
+      "attempt": 1
+    }
+  ],
+  "additional_references": {
+    "automated_strict_coverage": false,
+    "manual_review": "03-review-01-facts-v2.md",
+    "note": "Undated new MIA forum is extra manual interface reference only; dated strict sources are Nov26market newsletter and Jun5,2025officialAWD. No false Nov23publication or old-date-as-new-rule."
+  },
+  "pure_selector_regression": {
+    "passed": 17,
+    "total": 17,
+    "actual_known_candidate_rendering_fixture": "16-candidate-list-rendering-fixture.json",
+    "source_projection_sha256": "88f6482b861d77d6bd6691e344c23b87b2a7a985919cff722f260bef8ca6e499"
+  },
+  "failure_regression": {
+    "passed": 7,
+    "total": 7,
+    "real_harmless_process_tree": true
+  },
+  "delivery_status": "NOT_SENT"
+}

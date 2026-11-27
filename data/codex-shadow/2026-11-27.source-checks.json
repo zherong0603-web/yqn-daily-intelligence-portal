@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-27",
+  "checked_at": "2026-11-27T06:51:29.430Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://amazonbrandguide.com/issues/2026-11-26/",
+      "ok": true,
+      "matched_number": "40",
+      "matched_date": "November 26, 2026",
+      "matched_markers": [
+        "November 26, 2026",
+        "Total inventory"
+      ]
+    },
+    {
+      "url": "https://sell.amazon.com/blog/send-products-to-amazon-warehousing-and-distribution",
+      "ok": true,
+      "matched_number": "24",
+      "matched_date": "Jun 5, 2025",
+      "matched_markers": [
+        "Jun 5, 2025",
+        "FBA inventory status",
+        "available units in FBA",
+        "24 hours"
+      ]
+    }
+  ]
+}
