@@ -1,6 +1,6 @@
 {
   "date": "2026-11-27",
-  "checked_at": "2026-11-27T14:51:55+08:00",
+  "checked_at": "2026-11-27T16:00:07+08:00",
   "build": {
     "date": "2026-11-27",
     "content_valid": true,
@@ -193,5 +193,6 @@
     "total": 7,
     "real_harmless_process_tree": true
   },
-  "delivery_status": "NOT_SENT"
+  "delivery_status": "DELIVERED",
+  "readback_all_ok": true
 }
