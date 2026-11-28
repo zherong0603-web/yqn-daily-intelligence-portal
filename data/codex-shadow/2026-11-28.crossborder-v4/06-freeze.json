@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-28",
+  "version": "V4",
+  "frozen_at": "2026-11-28T14:53:32+08:00",
+  "on_time": true,
+  "reviewed_version": "05-final-candidate-v4.md",
+  "reviewed_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24",
+  "delivery_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24",
+  "input_derivation": "Only actual independent editorial approval metadata and publication.send_allowed added after PASS; source URLs/dates, candidates, hooks, body, action ledger and facts exactly match reviewed02-package-input-v4.json."
+}

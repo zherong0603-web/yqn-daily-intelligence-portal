@@ -1,0 +1,196 @@
+{
+  "date": "2026-11-28",
+  "checked_at": "2026-11-28T14:53:44+08:00",
+  "build": {
+    "date": "2026-11-28",
+    "content_valid": true,
+    "send_allowed": true,
+    "target": "dingtalk_group",
+    "signal_count": 1,
+    "us_first": true,
+    "region_priority_valid": true,
+    "estimated_seconds": {
+      "a": 113.1,
+      "b": 113.6
+    },
+    "automated_blockers": [],
+    "checked_at": "2026-11-28T06:53:35.866Z"
+  },
+  "source": {
+    "date": "2026-11-28",
+    "checked_at": "2026-11-28T06:53:38.693Z",
+    "all_ok": true,
+    "checked_count": 2,
+    "failed_count": 0,
+    "checks": [
+      {
+        "url": "https://amazonbrandguide.com/issues/2026-11-27/",
+        "ok": true,
+        "matched_number": "100",
+        "matched_date": "November 27, 2026",
+        "matched_markers": [
+          "November 27, 2026",
+          "budget"
+        ]
+      },
+      {
+        "url": "https://advertising.amazon.com/resources/whats-new/dynamic-budget-control",
+        "ok": true,
+        "matched_number": "20",
+        "matched_date": "August 12, 2021",
+        "matched_markers": [
+          "August 12, 2021",
+          "Sponsored Products",
+          "we will not remove the rule"
+        ]
+      }
+    ]
+  },
+  "dry_run": "PASS",
+  "dry_run_command": "npm run crossborder:v2:dispatch -- --date 2026-11-28",
+  "dry_run_marker": "[crossborder-v4:dws-group] date=2026-11-28 dry run validated; message not sent",
+  "input_sha256": "81249e26e63c1bd066f99ae10d1f250334c77662f60b65b441db21526e52801a",
+  "freeze": {
+    "date": "2026-11-28",
+    "version": "V4",
+    "frozen_at": "2026-11-28T14:53:32+08:00",
+    "on_time": true,
+    "reviewed_version": "05-final-candidate-v4.md",
+    "reviewed_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24",
+    "delivery_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24",
+    "input_derivation": "Only actual independent editorial approval metadata and publication.send_allowed added after PASS; source URLs/dates, candidates, hooks, body, action ledger and facts exactly match reviewed02-package-input-v4.json."
+  },
+  "independent_reviews": [
+    {
+      "role": "facts",
+      "status": "PASS",
+      "review_file": "03-review-01-facts-v4.md",
+      "review_file_sha256": "9cf726b03d775af014902db6eb45db0d4510185474a60c4a0fe8b07e7b9f0e69",
+      "reviewed_file": "02-package-input-v4.json",
+      "reviewed_file_sha256": "df5c0628a184d67db9ab09782e94eb3cd504d01eaf17085a131a606b30acf929"
+    },
+    {
+      "role": "action",
+      "status": "PASS",
+      "review_file": "04-review-02-action-v4.md",
+      "review_file_sha256": "7c5221e62492573e35720533aaa3ea7cd166cdfab3a9b0fe8d519e41ac9046b2",
+      "reviewed_file": "04-action-candidate-v4.md",
+      "reviewed_file_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24"
+    },
+    {
+      "role": "copy",
+      "status": "PASS",
+      "review_file": "05-review-03-final-v4.md",
+      "review_file_sha256": "33a948c393fa5e5aefec48b6ffbf332bfd66664e8d8dfeb94495681a8c33bffc",
+      "reviewed_file": "05-final-candidate-v4.md",
+      "reviewed_file_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24"
+    }
+  ],
+  "delivery_sha256": "e95eb49300ce8a91e78b6dc37d84e89f2b9a4708713845adfcdc927126e79c24",
+  "continuation_sha256": "8114c29f6ba71b4e5723e027fefeb7801c14afec257ba5bd939e2e030994ed0c",
+  "same_bytes_files": [
+    "data/codex-shadow/2026-11-28.crossborder-v4/06-final.md",
+    "data/codex-shadow/2026-11-28.crossborder-v4/06-delivery.md",
+    "data/codex-shadow/2026-11-28.crossborder-v4/2026-11-28.crossborder-v2.md",
+    "data/codex-shadow/2026-11-28.crossborder-v2.md"
+  ],
+  "dispatch_preflight_journal": [
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:35.678Z",
+      "stage": "build",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:35.885Z",
+      "stage": "build",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:35.885Z",
+      "stage": "source_check",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:38.713Z",
+      "stage": "source_check",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:38.714Z",
+      "stage": "artifacts",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:38.715Z",
+      "stage": "artifacts",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:38.716Z",
+      "stage": "authentication",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:40.160Z",
+      "stage": "authentication",
+      "status": "PASSED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:40.161Z",
+      "stage": "group_lookup",
+      "status": "STARTED",
+      "attempt": 1
+    },
+    {
+      "date": "2026-11-28",
+      "mode": "dry_run",
+      "checked_at": "2026-11-28T06:53:40.645Z",
+      "stage": "group_lookup",
+      "status": "PASSED",
+      "attempt": 1
+    }
+  ],
+  "additional_references": {
+    "automated_strict_coverage": false,
+    "manual_review": "03-review-01-facts-v4.md",
+    "note": "Two actual official help fulltexts visible UpdatedMar18,2026/Nov2,2026 manually audited for path/status/rules; ordinaryHTTPshell not falsely included in 2datedstrictURLs. Old2021rules not new2026policy."
+  },
+  "pure_selector_regression": {
+    "passed": 17,
+    "total": 17,
+    "actual_known_candidate_rendering_fixture": "16-candidate-list-rendering-fixture.json",
+    "source_projection_sha256": "88f6482b861d77d6bd6691e344c23b87b2a7a985919cff722f260bef8ca6e499"
+  },
+  "failure_regression": {
+    "passed": 7,
+    "total": 7,
+    "real_harmless_process_tree": true
+  },
+  "delivery_status": "NOT_SENT"
+}

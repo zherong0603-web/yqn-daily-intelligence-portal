@@ -1,0 +1,187 @@
+{
+  "format_version": "v2",
+  "date": "2026-11-28",
+  "title": "跨境早知道 V4｜11月28日",
+  "summary": "美国SP预算变高先核后台自动规则、账户时区和调整后日预算；换商品不自动删原时间规则。假设100加20%得120只为预算配置，不等已多花20。按批准计划处理对应规则并读回，不盲目全关或承诺即时止扣。",
+  "coverage": {
+    "searched_window_hours": 72,
+    "notes": "14:30后新研究，先24h再扩72h比较10事件、5重点；8入口公开检索/Exa429及不可核互动如实留00。已播27库存/26SI/25退款/24箱规不重播。真实日期格式不被parser识别的100%预算题不强行过检。"
+  },
+  "editorial": {
+    "theme": "没手动加钱，谁把SP广告预算抬高了？",
+    "candidate_count_researched": 10,
+    "candidates": [
+      {
+        "region": "us",
+        "title": "没手动加钱，SP预算为什么变高",
+        "published_at": "2026-11-27",
+        "source_url": "https://amazonbrandguide.com/issues/2026-11-27/",
+        "score": {
+          "relevance": 35,
+          "money_impact": 29,
+          "concrete_evidence": 13,
+          "hook_potential": 9,
+          "timeliness": 10,
+          "total": 96
+        },
+        "decision": "selected",
+        "reason": "当期假日预算提醒触发查后台生效规则和调整后日预算；有官方旧功能底座及现行操作原文，换商品也不自动删时间规则"
+      },
+      {
+        "region": "us",
+        "title": "美加新年堆存滞箱费逐柜核账",
+        "published_at": "2026-11-26",
+        "source_url": "https://www.maersk.com/news/articles/2026/11/26/us-canada-demurrage-detention-tariff-update",
+        "score": {
+          "relevance": 32,
+          "money_impact": 29,
+          "concrete_evidence": 15,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 92
+        },
+        "decision": "rejected",
+        "reason": "2027年PCD换档须先取本柜免费期/阶梯段再算，今日能核新年报价；可独立成篇但不与广告混拼"
+      },
+      {
+        "region": "us",
+        "title": "美国Amazon W8税表到期提醒",
+        "published_at": "2026-11-27",
+        "source_url": "https://www.amz123.com/kx/1YOIFq6H",
+        "score": {
+          "relevance": 33,
+          "money_impact": 27,
+          "concrete_evidence": 13,
+          "hook_potential": 8,
+          "timeliness": 9,
+          "total": 90
+        },
+        "decision": "rejected",
+        "reason": "媒体12月30日提醒不替代本账户平台通知，IRS一般12月31日年限也不证明Amazon统一截止；缺本店日期和平台一手淘汰"
+      },
+      {
+        "region": "europe",
+        "title": "德国部分Amazon站点罢工须逐票核预约",
+        "published_at": "2026-11-26",
+        "source_url": "https://www.presseportal.de/pm/32403/6398086",
+        "score": {
+          "relevance": 30,
+          "money_impact": 27,
+          "concrete_evidence": 12,
+          "hook_potential": 8,
+          "timeliness": 8,
+          "total": 85
+        },
+        "decision": "rejected",
+        "reason": "工会一手有日期，Amazon称运营无影响，不能直接推出本店订单延误；今天可按目的仓/本票预约核，另题不混广告"
+      },
+      {
+        "region": "europe",
+        "title": "MSC欧线新FAK公示价",
+        "published_at": "2026-11-27",
+        "source_url": "https://www.amz123.com/kx/D7oM3CZl",
+        "score": {
+          "relevance": 29,
+          "money_impact": 27,
+          "concrete_evidence": 14,
+          "hook_potential": 8,
+          "timeliness": 10,
+          "total": 88
+        },
+        "decision": "rejected",
+        "reason": "公示大柜5600对4600差1000未核承运原表及本票合同；不是客户已扣1000，缺硬证据不入稿"
+      }
+    ],
+    "editor_review": {
+      "status": "needs_revision",
+      "hook_conflict": true,
+      "first_10_seconds_clear": true,
+      "single_theme": true,
+      "no_unrelated_news": true,
+      "no_number_dump": true,
+      "assumptions_labeled": true,
+      "specific_takeaway": true,
+      "notes": [
+        "待独立顺序三审，不提前填通过"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "region": "us",
+      "title": "没手动加钱，SP预算为什么变高",
+      "what_happened": "11月27日假日广告newsletter提醒预算排期延续至网一及12月；今天用已有SP预算规则功能逐活动核生效窗口、状态和调整后日预算。官方2021-08-12公告支持按日期/活动或绩效上调，移除更新商品不自动移除原规则，不能据中国日历认为美国活动已结束。",
+      "numbers": [
+        "100美元",
+        "20%",
+        "120美元"
+      ],
+      "effective_at": "2026-11-27是当期媒体提醒，官方功能公告2021-08-12，不是11月28日新政策；具体规则起止/小时段/账户时区按本店页面，暂无卖家统一截止。",
+      "affected_sellers": "美国Amazon注册卖家的SponsoredProducts商品推广，已配置预算规则或交代理投放者；不把SP入口和状态含义直接扩展全部广告产品。只读核本店，有权限者按批准计划处理。",
+      "money_impact": "规则改变USD预算额度，不等实际花费/扣款。按活动和账户时区核基础预算、调整后预算及批准计划；不能因预算增加20美元就记已损失20，也不能把配置数当单日现金硬封顶。",
+      "calculation": {
+        "basis": "完全假设基础日预算100美元、仅一条已命中的增加20%规则，无其他预算规则或调整；非真实客户账单。",
+        "formula": "规则调整后的日预算示例=100×(1+20%)=120美元；增加20美元仅为预算配置额差，不是本期实际广告消费或新增扣款。",
+        "result": "120美元是单规则假设配置结果，实际以Campaignmanager调整后日预算及命中规则核。不能认120为所有情况下的花费硬封顶，不用假设直接算已亏美元。"
+      },
+      "action": "Campaigns→对应活动More→EditSettings→Budgetrules，逐条核type/status/window/percentage及时区与当前adjusteddailybudget；与批准计划比，有权限者按可见选项处理后读回状态/预算，不承诺即时止扣。",
+      "evidence": [
+        {
+          "title": "XENA: Black Friday holiday ad plan runs to December",
+          "url": "https://amazonbrandguide.com/issues/2026-11-27/",
+          "source_type": "media",
+          "published_at": "2026-11-27",
+          "checked_at": "2026-11-28T06:36:31.297101Z",
+          "roles": [
+            "market_signal"
+          ],
+          "supports": "原页UpdatedNov27,2026,7:05AMET，三阶段预算提醒为当期触发，不采作者DueNov27等清单建议为平台截止，不用其观点证明账户已亏。",
+          "markers": [
+            "November 27, 2026",
+            "budget"
+          ]
+        },
+        {
+          "title": "AmazonAds: Budget rules now available globally",
+          "url": "https://advertising.amazon.com/resources/whats-new/dynamic-budget-control",
+          "source_type": "official",
+          "published_at": "2021-08-12",
+          "checked_at": "2026-11-28T06:36:31.297101Z",
+          "roles": [
+            "fact_basis"
+          ],
+          "supports": "原页August12,2021，SP按schedule/performance增预算、换产品不删rule、UnitedStates可用。旧功能底座不冒今天新规；现行操作页及状态额外人工核，不冒同批strict。",
+          "markers": [
+            "August 12, 2021",
+            "Sponsored Products",
+            "we will not remove the rule"
+          ]
+        }
+      ],
+      "confidence_label": "high",
+      "unverified": false
+    }
+  ],
+  "hooks": {
+    "a": "换了货，预算还在加？",
+    "b": "加20%预算，先别记多花。"
+  },
+  "voiceover_body": "美国亚马逊卖家，平台活动加预算，先查自动规则，别把额度当成本。今天只看商品推广，也就是SP。\n\n你没手动加钱，之前设的时间规则，也可能在指定日期或时段上调预算。官方还提醒，移除或更新广告里的商品，不会替你删除原来的规则。\n\n现在进广告后台的Campaigns，找到这条活动，点More，再进Edit Settings，打开Budget rules。把每条规则的类型、状态、开始和结束时间、上调比例记下来，再看调整后的日预算。\n\n先核账户时区。北京时间到了28号，不代表美国账户的黑五规则已经结束。Active代表当日采用上调后的预算；On hold是绩效条件没达到，别当成预算花光。\n\n假设基础日预算100美元，只命中一条加20%的规则，调整后是120美元。增加的20是预算额度，不是已经多花20，也不能直接当现金硬封顶。有多条命中，必须一起核，不能只看手填的100。\n\n对上原来批准的投放计划，就保留记录先不用改。已经偏离计划，让有权限的投放人处理对应规则，别为了这一条把所有活动都关了。保存后再读规则状态、调整后预算和页面生效信息，没有确认就别写已止扣。\n\n没找到生效规则，先核人工调整；缺字段或权限，就带活动截图找广告支持。\n\n点头像私信领取，完整海外仓操作流程和报价表明细",
+  "risk_notes": [
+    "当期媒体为XENA服务商内容，UpdatedNov27,2026,7:05AMET；官方2021-08-12为既有SP功能发布，未标具体时刻/时区，不把旧日期冒新规。今天只是查本店规则的操作日，作者清单建议非平台统一截止。",
+    "预算金额和调整后日预算不是已发生广告费用。100、20%、120均为单规则无其他调整的明确假设，不是实际客户账单，也不是单日现金硬封顶；平均日预算额外支出机制不在本稿核心，不能由120推所有账户最大花费。",
+    "官方2023多100%/25%页面真实可见May09,2023或中文自然空格日期，但本次现有dateparser未识别，多locale严格预检失败，未改parser/未伪日期、不记通过，不用100到200作核心口播。",
+    "额外人工操作：Createbudgetrules官方help实际Jina正文UpdatedMar18,2026，Campaigns/More/EditSettings/Budgetrules及adjusteddailybudget/status；Understandbudgetrules实际Jina正文UpdatedNov2,2026，多个命中增额累计相加，Active每日review决定次日规则预算。普通HTTP是壳，未纳datedstrict或冒自动覆盖。",
+    "Active当日用上调后预算，Onhold是绩效条件未达，非花完/无权限。Paused/Upcoming/Expired分别核；规则日/小时段以账户时区和页面口径，不能北京时间28就关美国27活动。核所有命中规则，不把多规则百分比顺乘，不只看手填预算。",
+    "原文没给改/删按钮的统一名称或保存修改的即时SLA，未承诺今天改任何rule马上或必定次日止扣。权限者按本店可见选项及批准计划处理，回显未确认留待核，不能把保存成功写成实际费用停止；无权限不共享凭据。",
+    "未有命中规则却预算高，不能归因全是自动化；找负责人核人工/其他调整和账户规则。未要求凭当天未成熟ACOS关活动，绩效阈值按真实规则及平台窗口，不替卖家统一设门槛。无真实客户损失/退款案例。"
+  ],
+  "unverified_claims": [],
+  "generated_at": "2026-11-28T06:36:31.297101Z",
+  "publication": {
+    "target": "dingtalk_group",
+    "send_allowed": false,
+    "review_after_delivery": true,
+    "proposed_send_at": "2026-11-28T16:00:00+08:00"
+  }
+}

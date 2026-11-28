@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-28",
+  "checked_at": "2026-11-28T06:53:38.693Z",
+  "all_ok": true,
+  "checked_count": 2,
+  "failed_count": 0,
+  "checks": [
+    {
+      "url": "https://amazonbrandguide.com/issues/2026-11-27/",
+      "ok": true,
+      "matched_number": "100",
+      "matched_date": "November 27, 2026",
+      "matched_markers": [
+        "November 27, 2026",
+        "budget"
+      ]
+    },
+    {
+      "url": "https://advertising.amazon.com/resources/whats-new/dynamic-budget-control",
+      "ok": true,
+      "matched_number": "20",
+      "matched_date": "August 12, 2021",
+      "matched_markers": [
+        "August 12, 2021",
+        "Sponsored Products",
+        "we will not remove the rule"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-28",
+  "checked_at": "2026-11-28T14:53:44+08:00",
+  "status": "READY_NOT_SENT",
+  "target": "跨境咨询每日内容",
+  "idempotency_key": "crossborder-v4-group-2026-11-28",
+  "target_send_at": "2026-11-28T16:00:00+08:00",
+  "frozen_at": "2026-11-28T14:53:32+08:00",
+  "on_time": true,
+  "delivered_at": null,
+  "automatic_resend": false,
+  "note": "独立三审/严格来源/完整无live干跑通过，尚未发送。16点当前任务唯一继续链执行原入口并核回执与全文，ATTEMPTED未核验不重试。"
+}
